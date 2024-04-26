@@ -17,24 +17,49 @@ guardarArchivo()
 cargarArchivo()
 }
 class BucleDeControl {
-Individuos ind
-actualizarIndividuos()
+Individuo ind
+actualizarIndividuo()
 ActualizarRecursos()
 movimiento()
-actualizarindividuosRecursos()
+actualizarindividuoRecursos()
 reproduccion()
 nuevosRecursos()
 haFinalizado():boolean
 }
 
-class Individuos{
-Individuos():void
--identiticador:int
+class Individuo{
+-id:int
 -generacion:int
--turno_vida:int
--probabilidad_reproduccion:int
--probabilidad_clonacion:int
--probabilidad_muerte:int
+-turnosRestantes:int
+-probReproduccion:int
+-probClonacion:int
+-probMuerte:int
+-posN:int
+-posM:int
++Individuo():void
++Individuo(id:int,generacion:int,turnosRestantes:int,
+probReproduccion:int,probClonacion:int,probMuerte:int,posN:int,posM:int)
++Individuo(id:int,generacion:int,turnosRestantes:int,
+          probReproduccion:int,probClonacion:int,probMuerte:int)
++Individuo(id:int,turnosRestantes:int)
++getId():int
++setId(id:int):void
++getGeneracion():int
++setGeneracion(generacion:int):void
++getTurnosRestantes():int
++setTurnosRestantes(turnosRestantes:int):void
++getProbReproduccion():int
++setProbReproduccion(probReproduccion:int):void
++getProbClonacion():int
++setProbClonacion(probClonacion:int):void
++getProbMuerte():int
++setProbMuerte(probMuerte:int):void
++getPosN():int
++setPosN(posN:int):void
++getPosM():int
++setPosM(posM:int):void
++toString():String
+
 +abstract moverse()
 +abstract reproduccion_entre_iguales()
 +reproduccion_entre_distintos()
@@ -43,12 +68,18 @@ Individuos():void
 +cambiar_prob_clonacion()
 }
 class IndBasico{
++IndBasico(id:int)
++IndBasico(id:int,turnosRestantes:int)
 +moverse_en_celda()
 }
 class IndNormal{
++IndNormal(id:int)
++IndNormal(id:int,turnosRestantes:int)
 +moverse_en_celda()
 }
-class IndAvanzados{
+class IndAvanzado{
++IndAvanzado(id:int)
++IndAvanzado(id:int,turnosRestantes:int)
 +moverse_en_celda()
 }
 
@@ -145,53 +176,196 @@ maximo3
 }
 abstract class Recursos{
 tiempoDeVida:int
+probNuevoRecurso:int
+posN:int
+posM:int
++Recursos(turnosRestantes:int,posN:int,posM:int,probNuevoRecurso:int)
++Recursos(turnosRestantes:int,posN:int,posM:int)
++Recursos(tiempoDeVida:int)
++getTurnosRestantes():int
++setTurnosRestantes(turnosRestantes:int):void
++getProbNuevoRecurso():float
++setProbNuevoRecurso(probNuevoRecurso:float):void
++getPosN():int
++setPosN(posN:int):void
++getPosM():int
++setPosM(posM:int):void
++toString():String
+
 interactuar()
 }
+class RecursosProperties{
+#original:Recursos
+- turnosRestantes:IntegerProperty
+- posN:IntegerProperty
+- posM:IntegerProperty
+- probNuevoRecurso: FloatProperty
+RecursosProperties(original:Recursos)
+setOriginal(original: Recursos):void
+getOriginal():Recursos
+rollback():void
+commit():void
+turnosRestantesProperty():Property<Number>
+posNProperty():Property<Number>
+posMProperty():Property<Number>
+probNuevoRecurso():Property<Number>
+}
+Recursos--|>RecursosProperties
 class Agua{
--AumentoDeVida
+-probAgua:float
+-aumentoDeVida
 +Agua(turnosRestantes:int,aumentoDeVida:int)
++Agua(tiempoDeVida:int,probAgua:float)
 +getAumentoDeVida():int
 +setAumentoDeVida(aumentoDeVida:int):void
++getProbAgua():float
++setProbAgua(probAgua:float):void
 }
+class AguaProperties {
+#originalAgua: Agua
+-turnosRestantes: IntegerProperty
+-aumentoDeVida: IntegerProperty
+-probAgua: FloatProperty
++AguaProperties(original: Agua)
++commit(): void
++rollback(): void
++getOriginalAgua(): Agua
++setOriginalAgua(originalAgua: Agua): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDeVidaProperty(): IntegerProperty
++probAguaProperty(): FloatProperty
+}
+Agua --|> AguaProperties
 class Comida{
+-aumentoDeVida:int
+-probComida:float
++Comida(tiempoDeVida:int,probComida:float)
 +Comida(turnosRestantes:int,aumentoDeVida:int)
 +getAumentoDeVida():int
 +setAumentoDeVida(aumentoDeVida:int):void
++getAumentoDeVida():int
++setAumentoDeVida(aumentoDeVida:int):void
 }
-class Montaña{
--DisminucionDeVida
+class ComidaProperties {
+#original: Comida
+-turnosRestantes: IntegerProperty
+-aumentoDeVida: IntegerProperty
+-probComida: FloatProperty
++ComidaProperties(original: Comida)
++commit(): void
++rollback(): void
++getOriginal(): Comida
++setOriginal(original: Comida): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDeVidaProperty(): IntegerProperty
++probComidaProperty(): FloatProperty
+}
+class Montana{
+-disminucionDeVida
++Montana(tiempoDeVida:int,probMontana:int)
 +Montana(turnosRestantes:int,disminucionDeVida:int)
 +getDisminucionDeVida():int
 +setDisminucionDeVida(DisminucionDeVida:int):void
++getProbMontana():float
++setProbMontana(probMontana:float):void
 }
+class MontanaProperties {
+#original: Montana
+-turnosRestantes: IntegerProperty
+-disminucionDeVida: IntegerProperty
+-probMontana: FloatProperty
++MontanaProperties(original: Montana)
++commit(): void
++rollback(): void
++getOriginal(): Montana
++setOriginal(original: Montana): void
++turnosRestantesProperty(): IntegerProperty
++disminucionDeVidaProperty(): IntegerProperty
++probMontanaProperty(): FloatProperty
+}
+Montana --|> MontanaProperties
 class Tesoro{
 -AumentoPorcenRep
-+Tesoro(turnosRestantes:int,AumentoPorcenRep:int)
-+getAumentoPorcenRep():int
-+setAumentoPorcenRep(AumentoPorcenRep:int):void
+-probTesoro
++Tesoro(turnosRestantes:int,aumentoDeVida:int)
++Tesoro(tiempoDeVida:int,probTesoro:float)
++getAumentoPorcenRep():float
++setAumentoPorcenRep(AumentoPorcenRep:float):void
++getProbTesoro():float
++setProbTesoro(probTesoro:float):void
 }
+class TesoroProperties {
+#original: Tesoro
+-turnosRestantes: IntegerProperty
+-aumentoDePorcenRep: FloatProperty
+-probTesoro: FloatProperty
++TesoroProperties(original: Tesoro)
++commit(): void
++rollback(): void
++getOriginal(): Tesoro
++setOriginal(original: Tesoro): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDePorenRepProperty(): FloatProperty
++probTesoroProperty(): FloatProperty
+}
+Tesoro --|> TesoroProperties
 class Biblioteca{
--AumentoPorcenClon
-+Biblioteca(turnosRestantes:int,AumentoPorcenClon:int)
-+getAumentoPorcenClon():int
-+setAumentoPorcenClon(AumentoPorcenClon:int):void
+-AumentoPorcenClon:float
+-probBiblioteca:int
++Biblioteca(turnosRestantes:int,aumentoDeVida:int)
++Biblioteca(tiempoDeVida:int,probBiblioteca:float)
++getAumentoPorcenClon():float
++setAumentoPorcenClon(AumentoPorcenClon:float):void
++getProbBiblioteca():float
++setProbBiblioteca(probBiblioteca:float):void
 }
+class BibliotecaProperties {
+#original: Biblioteca
+-turnosRestantes: IntegerProperty
+-aumentoDePorenClon: FloatProperty
+-probBilio: FloatProperty
++BibliotecaProperties(original: Biblioteca)
++commit(): void
++rollback(): void
++getOriginal(): Biblioteca
++setOriginal(original: Biblioteca): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDePorenClonProperty(): FloatProperty
++probBibliotecaProperty(): FloatProperty
+}
+Biblioteca--|> BibliotecaProperties
 class Pozo{
+#probPozo:float
++Pozo(tiempoDeVida:int)
++Pozo(tiempoDeVida:int,probPozo:float)
++getProbPozo():float
++setProbPozo(float:probPozo):void
 }
+class PozoProperties {
+# original: Pozo
+- turnosRestantes: IntegerProperty
+- probPozo: FloatProperty
 
++PozoProperties(original: Pozo)
++commit(): void
++rollback(): void
++getOriginal(): Pozo
++setOriginal(original: Pozo): void
+}
+Pozo --|> PozoProperties
 
-Individuos "0,1,2,3" --o BucleDeControl
+Individuo "0,1,2,3" --o BucleDeControl
 Entorno "0,1,2,3" --o BucleDeControl
 Tablero "NxM" --o BucleDeControl
 
 
-IndAvanzados --|> Individuos
-IndBasico --|> Individuos
-IndNormal --|> Individuos
+IndAvanzado --|> Individuo
+IndBasico --|> Individuo
+IndNormal --|> Individuo
 
 Recursos --|> Entorno
 Agua ---|> Recursos
-Montaña ---|> Recursos
+Montana ---|> Recursos
 Comida --|> Recursos
 Tesoro --|> Recursos
 Biblioteca ---|> Recursos
@@ -203,8 +377,23 @@ ArbolBinario --|> JSON
 ListaEnlazada --|> JSON
 Grafo --|> JSON
 Cola --|> JSON
-Individuos <-- ArbolBinario
+Individuo <-- ArbolBinario
 
+class Celda{
+-listaIndividuo: ListaEnlazada<>
+-listaRecurso: ListaEnlazada<>
++Celda(): void
++Celda(listaIndividuo:ListaEnlazada<>, listaRecurso: ListaEnlazada<>):void
++getListaIndividuo():ListaEnlazada<>
++setListaIndividuo(listaIndividuo:ListaEnlazada)
++getListaRecurso():ListaEnlazada<>
++setListaRecurso(listaRecurso:ListaEnlazada)
++addIndividuo(individuo:Individuo)
++addRecurso(recurso:Recurso)
+}
+
+class Superar3Individuos{}
+class Superar3Recursos{}
 
 
 @enduml

@@ -9,9 +9,9 @@ public class Montana extends Recursos{
         this.probMontana = probMontana;
     }
 
-    public Montana(int turnosRestantes, int aumentoDeVida) {
+    public Montana(int turnosRestantes, int disminucionDeVida) {
         super(turnosRestantes);
-        disminucionDeVida = aumentoDeVida;
+        this.disminucionDeVida = disminucionDeVida;
     }
 
     public int getDisminucionDeVida() {

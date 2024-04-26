@@ -5,36 +5,33 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class ParameterComidaProperties {
-    protected Comida original;
+public class PozoProperties {
+    protected Pozo original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
-    private IntegerProperty aumentoDeVida = new SimpleIntegerProperty();
-    private FloatProperty probComida = new SimpleFloatProperty();
+    private FloatProperty probPozo = new SimpleFloatProperty();
 
 
 
-    public ParameterComidaProperties(Comida original) {
+    public PozoProperties(Pozo original) {
         setOriginal(original);
     }
 
     public void commit(){
         original.setTurnosRestantes(turnosRestantes.get());
-        original.setAumentoDeVida(aumentoDeVida.get());
-        original.setProbComida(probComida.get());
+        original.setProbPozo(probPozo.get());
     }
 
     public void rollback(){
         turnosRestantes.set(original.getTurnosRestantes());
-        aumentoDeVida.set(original.getAumentoDeVida());
-        probComida.set(original.getProbComida());
+        probPozo.set(original.getProbPozo());
     }
 
-    public Comida getOriginal() {
+    public Pozo getOriginal() {
         return original;
     }
 
-    public void setOriginal(Comida original) {
+    public void setOriginal(Pozo original) {
         this.original = original;
         rollback();
     }
@@ -43,9 +40,6 @@ public class ParameterComidaProperties {
         return turnosRestantes;
     }
 
-    public IntegerProperty aumentoDeVidaProperty() {
-        return aumentoDeVida;
-    }
+    public FloatProperty probPozoProperty() {return probPozo;}
 
-    public FloatProperty probComidaProperty() {return probComida;}
 }

@@ -1,7 +1,8 @@
 package com.example.demojavafx;
 
 import com.example.demojavafx.ed.ListaEnlazada;
-import com.example.demojavafx.excepciones.Superar3Elementos;
+import com.example.demojavafx.excepciones.Superar3Individuos;
+import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.recursos.Recursos;
 
@@ -22,16 +23,37 @@ public class Celda {
         this.listaRecurso = listaRecurso;
     }
 
-    public void addIndividuo(Individuo individuo) throws Superar3Elementos {
-        if(listaIndividuo.getNumeroElementos()==3) {
-            throw new Superar3Elementos("ha superado el numero de individuos máximo");
-        }
-        listaIndividuo.add(individuo);
+
+    public ListaEnlazada<Individuo> getListaIndividuo() {
+        return listaIndividuo;
     }
-    public void addRecurso(Recursos recurso) throws Superar3Elementos {
-        if(listaRecurso.getNumeroElementos()==3) {
-            throw new Superar3Elementos("ha superado el numero de recursos máximo");
+
+    public void setListaIndividuo(ListaEnlazada<Individuo> listaIndividuo) {
+        this.listaIndividuo = listaIndividuo;
+    }
+
+    public ListaEnlazada<Recursos> getListaRecurso() {
+        return listaRecurso;
+    }
+
+    public void setListaRecurso(ListaEnlazada<Recursos> listaRecurso) {
+        this.listaRecurso = listaRecurso;
+    }
+
+
+    public void addIndividuo(Individuo individuo) throws Superar3Individuos {
+        listaIndividuo.add(individuo);
+        if(listaIndividuo.getNumeroElementos()>3) {
+
+            throw new Superar3Individuos(listaIndividuo);
         }
+
+    }
+    public void addRecurso(Recursos recurso) throws Superar3Recursos {
         listaRecurso.add(recurso);
+        if(listaRecurso.getNumeroElementos()>3) {
+            throw new Superar3Recursos(listaRecurso);
+        }
+
     }
 }

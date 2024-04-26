@@ -44,22 +44,22 @@ public class HelloController implements Initializable {
     private RecursosProperties modeloRecursos = new RecursosProperties(recursos);
 
     private Agua agua = new Agua(3,4);
-    private ParameterAguaProperties modeloAgua = new ParameterAguaProperties(agua);
+    private AguaProperties modeloAgua = new AguaProperties(agua);
 
     private Biblioteca biblioteca = new Biblioteca(3,10);
-    private ParameterBibliotecaProperties modeloBiblioteca = new ParameterBibliotecaProperties(biblioteca);
+    private BibliotecaProperties modeloBiblioteca = new BibliotecaProperties(biblioteca);
 
     private Comida comida = new Comida(3,4);
-    private ParameterComidaProperties modeloComida = new ParameterComidaProperties(comida);
+    private ComidaProperties modeloComida = new ComidaProperties(comida);
 
     private Montana montana = new Montana(3,4);
-    private ParameterMontanaProperties modeloMontana = new ParameterMontanaProperties(montana);
+    private MontanaProperties modeloMontana = new MontanaProperties(montana);
 
     private Tesoro tesoro = new Tesoro(3,4);
-    private ParameterTesoroProperties modeloTesoro = new ParameterTesoroProperties(tesoro);
+    private TesoroProperties modeloTesoro = new TesoroProperties(tesoro);
 
     private Pozo pozo = new Pozo(3);
-    private ParameterPozoProperties modeloPozo = new ParameterPozoProperties(pozo);
+    private PozoProperties modeloPozo = new PozoProperties(pozo);
 
 
     private Individuo ind = new Individuo(0);

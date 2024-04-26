@@ -2,7 +2,7 @@ package com.example.demojavafx.recursos;
 
 import javafx.beans.property.*;
 
-public class ParameterAguaProperties {
+public class AguaProperties {
     protected Agua originalAgua;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
@@ -11,7 +11,7 @@ public class ParameterAguaProperties {
 
 
 
-    public ParameterAguaProperties(Agua original) {
+    public AguaProperties(Agua original) {
         setOriginalAgua(original);
     }
 

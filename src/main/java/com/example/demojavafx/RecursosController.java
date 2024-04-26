@@ -221,12 +221,12 @@ public class RecursosController implements Initializable {
 
 //Recursos model
     private RecursosProperties recursosModel;
-    private ParameterAguaProperties aguaModel;
-    private ParameterBibliotecaProperties bibliotecaModel;
-    private ParameterComidaProperties comidaModel;
-    private ParameterMontanaProperties montanaModel;
-    private ParameterPozoProperties pozoModel;
-    private ParameterTesoroProperties tesoroModel;
+    private AguaProperties aguaModel;
+    private BibliotecaProperties bibliotecaModel;
+    private ComidaProperties comidaModel;
+    private MontanaProperties montanaModel;
+    private PozoProperties pozoModel;
+    private TesoroProperties tesoroModel;
 //Individuos model
     private IndividuoProperties individuoModel;
 //Matriz mode
@@ -270,10 +270,10 @@ public class RecursosController implements Initializable {
      * Este método recibe los datos del modelo y los establece
      **/
 
-    public void loadUserData(RecursosProperties parametrosRecursos, ParameterAguaProperties parametrosAgua,
-                             ParameterBibliotecaProperties parametrosBiblioteca, ParameterComidaProperties parametrosComida,
-                             ParameterMontanaProperties parametrosMontana, ParameterPozoProperties parametrosPozo,
-                             ParameterTesoroProperties parametrosTesoro,IndividuoProperties parametrosInd,
+    public void loadUserData(RecursosProperties parametrosRecursos, AguaProperties parametrosAgua,
+                             BibliotecaProperties parametrosBiblioteca, ComidaProperties parametrosComida,
+                             MontanaProperties parametrosMontana, PozoProperties parametrosPozo,
+                             TesoroProperties parametrosTesoro, IndividuoProperties parametrosInd,
                              MatrizProperties parametroMatriz) {
         this.recursosModel = parametrosRecursos;
         this.aguaModel = parametrosAgua;

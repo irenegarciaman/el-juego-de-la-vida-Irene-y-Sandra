@@ -5,7 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class ParameterBibliotecaProperties {
+public class BibliotecaProperties {
     protected Biblioteca original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
@@ -13,7 +13,7 @@ public class ParameterBibliotecaProperties {
     private FloatProperty probBilio= new SimpleFloatProperty();
 
 
-    public ParameterBibliotecaProperties(Biblioteca original) {
+    public BibliotecaProperties(Biblioteca original) {
         setOriginal(original);
     }
 

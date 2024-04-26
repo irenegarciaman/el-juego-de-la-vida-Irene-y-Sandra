@@ -5,7 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class ParameterMontanaProperties {
+public class MontanaProperties {
     protected Montana original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
@@ -14,7 +14,7 @@ public class ParameterMontanaProperties {
 
 
 
-    public ParameterMontanaProperties(Montana original) {
+    public MontanaProperties(Montana original) {
         setOriginal(original);
     }
 

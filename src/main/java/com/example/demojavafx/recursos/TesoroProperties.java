@@ -5,33 +5,35 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class ParameterPozoProperties {
-    protected Pozo original;
+public class TesoroProperties {
+    protected Tesoro original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
-    private FloatProperty probPozo = new SimpleFloatProperty();
+    private FloatProperty aumentoDePorcenRep = new SimpleFloatProperty();
+    private FloatProperty probTesoro = new SimpleFloatProperty();
 
 
-
-    public ParameterPozoProperties(Pozo original) {
+    public TesoroProperties(Tesoro original) {
         setOriginal(original);
     }
 
     public void commit(){
         original.setTurnosRestantes(turnosRestantes.get());
-        original.setProbPozo(probPozo.get());
+        original.setAumentoDePorcenRep(aumentoDePorcenRep.get());
+        original.setProbTesoro(probTesoro.get());
     }
 
     public void rollback(){
         turnosRestantes.set(original.getTurnosRestantes());
-        probPozo.set(original.getProbPozo());
+        aumentoDePorcenRep.set(original.getAumentoDePorcenRep());
+        probTesoro.set(original.getProbTesoro());
     }
 
-    public Pozo getOriginal() {
+    public Tesoro getOriginal() {
         return original;
     }
 
-    public void setOriginal(Pozo original) {
+    public void setOriginal(Tesoro original) {
         this.original = original;
         rollback();
     }
@@ -40,6 +42,9 @@ public class ParameterPozoProperties {
         return turnosRestantes;
     }
 
-    public FloatProperty probPozoProperty() {return probPozo;}
+    public FloatProperty aumentoDePorenRepProperty() {
+        return aumentoDePorcenRep;
+    }
 
+    public FloatProperty probTesoroProperty() {return probTesoro;}
 }
