@@ -1,7 +1,5 @@
 package com.example.demojavafx.recursos;
 
-import com.example.demojavafx.ParameterDataModel;
-import com.example.demojavafx.matriz.ParameterDataModelMatriz;
 import javafx.beans.property.*;
 
 public class RecursosProperties {

@@ -1,6 +1,5 @@
 package com.example.demojavafx.matriz;
 
-import com.example.demojavafx.ParameterDataModel;
 import javafx.beans.property.*;
 
 
@@ -9,15 +8,15 @@ import javafx.beans.property.*;
  *  Tiene los métodos de commit y rollback para establecer la operación final de traspasar los datos modificados
  *  o reiniciarlos según se quiera.
  */
-public class ParameterDataModelMatrizProperties {
+public class MatrizProperties {
     //Modelo de datos originalAgua
-    protected ParameterDataModelMatriz original;
+    protected Matriz original;
 
     private IntegerProperty columnas = new SimpleIntegerProperty();
     private IntegerProperty filas = new SimpleIntegerProperty();
 
 
-    public ParameterDataModelMatrizProperties(ParameterDataModelMatriz original){
+    public MatrizProperties(Matriz original){
         setOriginal(original);
     }
 
@@ -31,11 +30,11 @@ public class ParameterDataModelMatrizProperties {
         filas.set(original.getFila());
     }
 
-    public ParameterDataModelMatriz getOriginal(){
+    public Matriz getOriginal(){
         return original;
     }
 
-    public void setOriginal(ParameterDataModelMatriz original){
+    public void setOriginal(Matriz original){
         this.original = original;
         rollback(); //Se inicializan los properties.
 

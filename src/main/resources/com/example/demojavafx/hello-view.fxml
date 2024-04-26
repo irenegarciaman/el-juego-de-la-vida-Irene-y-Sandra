@@ -22,7 +22,7 @@
    <Slider fx:id="miSlider" majorTickUnit="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
    <Label text="Valor del slider:" />
    <Label fx:id="labelValorSlider" text="--" />
-   <Button onAction="#onGridButtonClick" mnemonicParsing="false" text="Grid" />
-   <Button mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaParametrosClick" text="Abrir ventana de parámetros" textFill="#3a37ed" />
+   <Button mnemonicParsing="false" text="Grid" />
+   <Button mnemonicParsing="false" text="Abrir ventana de parámetros" textFill="#3a37ed" />
    <Button layoutX="85.0" layoutY="420.0" mnemonicParsing="false" onAction="#onMiBotonNuevaVentanaAjustesClick" text="Abrir ajustes" textFill="#92229d" />
 </VBox>

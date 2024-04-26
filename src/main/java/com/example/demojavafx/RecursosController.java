@@ -1,5 +1,7 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.individuos.IndividuoProperties;
+import com.example.demojavafx.matriz.MatrizProperties;
 import com.example.demojavafx.recursos.*;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
@@ -86,18 +88,48 @@ public class RecursosController implements Initializable {
     @FXML
     private Label t2;
 
+    @FXML
+    private Label pc;
 
     @FXML
-    void clickCrear() {
+    private Label pm;
 
-    }
+    @FXML
+    private Label pr;
+
+    @FXML
+    private Label t;
+
+    @FXML
+    private Slider sliderTurnosRestantesInd;
+
+    @FXML
+    private Slider sliderProbRepInd;
+
+    @FXML
+    private Slider sliderProbClonInd;
+
+    @FXML
+    private Slider sliderProbMuerteInd;
+
+    @FXML
+    private Label labelColumnasMatriz;
+
+    @FXML
+    private Label labelFilasMatriz;
+
+    @FXML
+    private Slider sliderColumnasMatriz;
+
+    @FXML
+    private Slider sliderFilasMatriz;
+
 
     private Stage scene;
 
-    public void guardarButton() {
 
-    }
 
+    // Recursos medidas
     protected FloatProperty medida = new SimpleFloatProperty(0);
 
     protected FloatProperty medB1 = new SimpleFloatProperty(0);
@@ -116,6 +148,17 @@ public class RecursosController implements Initializable {
 
     protected FloatProperty medA1 = new SimpleFloatProperty(0);
     protected IntegerProperty medA2 = new SimpleIntegerProperty(0);
+
+    //Individuos medidas
+    protected IntegerProperty ind1 = new SimpleIntegerProperty(0);
+    protected IntegerProperty ind2 = new SimpleIntegerProperty(0);
+    protected IntegerProperty ind3 = new SimpleIntegerProperty(0);
+    protected IntegerProperty ind4 = new SimpleIntegerProperty(0);
+
+
+    //matriz medidas
+    protected IntegerProperty mf = new SimpleIntegerProperty(0);
+    protected IntegerProperty mc = new SimpleIntegerProperty(0);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -154,10 +197,29 @@ public class RecursosController implements Initializable {
         //pozo
         sliderProbPozo.valueProperty().bindBidirectional(medP1);
         p1.textProperty().bind(medP1.asString());
+    //Individuo
+        sliderTurnosRestantesInd.valueProperty().bindBidirectional(ind1);
+        t.textProperty().bind(ind1.asString());
+
+        sliderProbRepInd.valueProperty().bindBidirectional(ind2);
+        pr.textProperty().bind(ind2.asString());
+
+        sliderProbClonInd.valueProperty().bindBidirectional(ind3);
+        pc.textProperty().bind(ind3.asString());
+
+        sliderProbMuerteInd.valueProperty().bindBidirectional(ind4);
+        pm.textProperty().bind(ind4.asString());
+
+    //Matriz
+        sliderFilasMatriz.valueProperty().bindBidirectional(mf);
+        labelFilasMatriz.textProperty().bind(mf.asString());
+
+        sliderColumnasMatriz.valueProperty().bindBidirectional(mc);
+        labelColumnasMatriz.textProperty().bind(mc.asString());
 
     }
 
-
+//Recursos model
     private RecursosProperties recursosModel;
     private ParameterAguaProperties aguaModel;
     private ParameterBibliotecaProperties bibliotecaModel;
@@ -165,6 +227,10 @@ public class RecursosController implements Initializable {
     private ParameterMontanaProperties montanaModel;
     private ParameterPozoProperties pozoModel;
     private ParameterTesoroProperties tesoroModel;
+//Individuos model
+    private IndividuoProperties individuoModel;
+//Matriz mode
+    private MatrizProperties matrizModel;
 
 
     protected void updateGUIwithModel() {
@@ -186,6 +252,18 @@ public class RecursosController implements Initializable {
         sliderRepAumentoTesoro.valueProperty().bindBidirectional(tesoroModel.aumentoDePorenRepProperty());
 
         sliderProbPozo.valueProperty().bindBidirectional(pozoModel.probPozoProperty());
+
+        //Individuos
+
+        sliderTurnosRestantesInd.valueProperty().bindBidirectional(individuoModel.turnosRestantesProperty());
+        sliderProbRepInd.valueProperty().bindBidirectional(individuoModel.probReproduccionProperty());
+        sliderProbClonInd.valueProperty().bindBidirectional(individuoModel.probClonacionProperty());
+        sliderProbMuerteInd.valueProperty().bindBidirectional(individuoModel.probMuerteProperty());
+
+        //Matriz
+
+        sliderColumnasMatriz.valueProperty().bindBidirectional(matrizModel.columnasProperty());
+        sliderFilasMatriz.valueProperty().bindBidirectional(matrizModel.filasProperty());
     }
 
     /**
@@ -195,7 +273,8 @@ public class RecursosController implements Initializable {
     public void loadUserData(RecursosProperties parametrosRecursos, ParameterAguaProperties parametrosAgua,
                              ParameterBibliotecaProperties parametrosBiblioteca, ParameterComidaProperties parametrosComida,
                              ParameterMontanaProperties parametrosMontana, ParameterPozoProperties parametrosPozo,
-                             ParameterTesoroProperties parametrosTesoro) {
+                             ParameterTesoroProperties parametrosTesoro,IndividuoProperties parametrosInd,
+                             MatrizProperties parametroMatriz) {
         this.recursosModel = parametrosRecursos;
         this.aguaModel = parametrosAgua;
         this.bibliotecaModel = parametrosBiblioteca;
@@ -203,12 +282,26 @@ public class RecursosController implements Initializable {
         this.montanaModel = parametrosMontana;
         this.pozoModel = parametrosPozo;
         this.tesoroModel = parametrosTesoro;
+        this.individuoModel = parametrosInd;
+        this.matrizModel = parametroMatriz;
 
         this.updateGUIwithModel();
     }
 
     public void setStage(Stage s) {
         this.scene = s;
+    }
+
+    public void guardarButton() {
+        recursosModel.commit();
+        aguaModel.commit();
+        bibliotecaModel.commit();
+        comidaModel.commit();
+        montanaModel.commit();
+        pozoModel.commit();
+        tesoroModel.commit();
+        individuoModel.commit();
+        matrizModel.commit();
     }
 
 }

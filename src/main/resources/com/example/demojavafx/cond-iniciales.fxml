@@ -13,6 +13,22 @@
      <children>
         <TabPane layoutY="547.3333129882812" maxHeight="-Infinity" prefHeight="600.0" prefWidth="650.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <tabs>
+            <Tab text="Matriz">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="650.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="28.0" prefHeight="34.0" prefWidth="179.0" text="Columnas:" />
+                        <Slider fx:id="sliderColumnasMatriz" layoutX="203.0" layoutY="26.0" majorTickUnit="1.0" max="15.0" minorTickCount="0" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1c8ce" height="31.0" layoutX="425.0" layoutY="29.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+                        <Label fx:id="labelColumnasMatriz" layoutX="432.0" layoutY="36.0" text="n" />
+                        <Label layoutX="24.0" layoutY="84.0" prefHeight="34.0" prefWidth="179.0" text="Filas:" />
+                        <Slider fx:id="sliderFilasMatriz" layoutX="203.0" layoutY="82.0" majorTickUnit="1.0" max="15.0" minorTickCount="0" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c1c8ce" height="31.0" layoutX="425.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+                        <Label fx:id="labelFilasMatriz" layoutX="432.0" layoutY="92.0" text="m" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
             <Tab text="Recursos">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="650.0">
@@ -27,7 +43,7 @@
                                          <children>
                                             <Slider fx:id="sliderProbBiblioteca" blockIncrement="0.2" layoutX="279.0" layoutY="20.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                                             <Label layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="260.0" text="Probabilidad de que el recurso sea la biblioteca:" />
-                                            <Slider fx:id="sliderProbAumentBiblio" blockIncrement="0.2" layoutX="279.0" layoutY="71.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                            <Slider fx:id="sliderProbAumentBiblio" blockIncrement="0.2" layoutX="279.0" layoutY="71.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                                             <Label layoutX="14.0" layoutY="71.0" prefHeight="34.0" prefWidth="260.0" text="¿Cuánto porcentaje de clonación aumentará?" />
                                           <Label fx:id="b1" layoutX="505.0" layoutY="27.0" prefHeight="25.0" prefWidth="38.0" text="b1" />
                                           <Label fx:id="b2" layoutX="505.0" layoutY="76.0" prefHeight="25.0" prefWidth="23.0" text="b2" />
@@ -114,12 +130,18 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                        <children>
-                          <Slider blockIncrement="0.1" layoutX="215.0" layoutY="81.0" majorTickUnit="0.1" max="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                          <Label layoutX="14.0" layoutY="29.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de nuevo individuo:" />
-                          <Slider blockIncrement="0.1" layoutX="215.0" layoutY="36.0" majorTickUnit="0.1" max="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                          <Label layoutX="14.0" layoutY="74.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de reproducción:" />
-                          <Slider blockIncrement="0.1" layoutX="215.0" layoutY="126.0" majorTickUnit="0.1" max="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="215.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                          <Label layoutX="14.0" layoutY="119.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de clonación:" />
+                          <Label layoutX="26.0" layoutY="76.0" prefHeight="34.0" prefWidth="179.0" text="Turnos restantes:" />
+                          <Slider fx:id="sliderTurnosRestantesInd" blockIncrement="0.1" layoutX="227.0" layoutY="83.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                          <Label layoutX="26.0" layoutY="121.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de reproducción:" />
+                          <Label layoutX="26.0" layoutY="166.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de clonación:" />
+                        <Label layoutX="26.0" layoutY="211.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de muerte:" />
+                        <Slider fx:id="sliderProbRepInd" blockIncrement="0.1" layoutX="227.0" layoutY="121.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Slider fx:id="sliderProbClonInd" blockIncrement="0.1" layoutX="227.0" layoutY="164.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Slider fx:id="sliderProbMuerteInd" blockIncrement="0.1" layoutX="227.0" layoutY="209.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Label fx:id="t" layoutX="461.0" layoutY="85.0" text="t" />
+                        <Label fx:id="pr" layoutX="457.0" layoutY="121.0" text="pr" />
+                        <Label fx:id="pc" layoutX="457.0" layoutY="164.0" text="pc" />
+                        <Label fx:id="pm" layoutX="455.0" layoutY="211.0" text="pm" />
                        </children>
                   </AnchorPane>
               </content>

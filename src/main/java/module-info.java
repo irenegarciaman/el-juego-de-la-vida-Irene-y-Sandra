@@ -13,4 +13,6 @@ module com.example.demojavafx {
     exports com.example.demojavafx;
     exports com.example.demojavafx.matriz;
     opens com.example.demojavafx.matriz to javafx.fxml;
+    exports com.example.demojavafx.ed;
+    opens com.example.demojavafx.ed to javafx.fxml;
 }

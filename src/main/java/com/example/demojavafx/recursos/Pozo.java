@@ -1,7 +1,9 @@
 package com.example.demojavafx.recursos;
 
 public class Pozo extends Recursos{
+
     protected float probPozo;
+
     public Pozo(int tiempoVida) {
         super(tiempoVida);
     }

@@ -1,7 +1,9 @@
 package com.example.demojavafx;
 
-import com.example.demojavafx.matriz.ParameterDataModelMatriz;
-import com.example.demojavafx.matriz.ParameterDataModelMatrizProperties;
+import com.example.demojavafx.individuos.Individuo;
+import com.example.demojavafx.individuos.IndividuoProperties;
+import com.example.demojavafx.matriz.Matriz;
+import com.example.demojavafx.matriz.MatrizProperties;
 import com.example.demojavafx.recursos.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -13,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -22,32 +23,22 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
     static int contadorDeVentanasHijas = 0;
 
-    /**
-     * Hooks de conexión entre los controles visuales y el código, llevan @FXML para identificarlos
-     **/
     @FXML
     private Label welcomeText;
-    //@FXML
-    //private Label labelTextoEjemplo;
+
     @FXML
     private Label labelValorSlider;
     @FXML
     private Slider miSlider;
 
 
-    /**
-     * Propiedades "bindeadas" que permite interconectar elementos visuales
-     **/
+
     protected StringProperty texto = new SimpleStringProperty("No Hay Nada");
     protected IntegerProperty medida = new SimpleIntegerProperty(0);
 
 
-
-
     /** Modelo de datos **/
 
-    private ParameterDataModelMatriz parametrosData = new ParameterDataModelMatriz(7, 10);
-    private ParameterDataModelMatrizProperties modeloParaGUICompartido = new ParameterDataModelMatrizProperties(parametrosData);
 
     private Recursos recursos = new Recursos(4);
     private RecursosProperties modeloRecursos = new RecursosProperties(recursos);
@@ -69,6 +60,13 @@ public class HelloController implements Initializable {
 
     private Pozo pozo = new Pozo(3);
     private ParameterPozoProperties modeloPozo = new ParameterPozoProperties(pozo);
+
+
+    private Individuo ind = new Individuo(0);
+    private IndividuoProperties modeloInd = new IndividuoProperties(ind);
+
+    private Matriz matriz = new Matriz(2,3);
+    private MatrizProperties modeloMatriz = new MatrizProperties(matriz);
 
     /** Métodos de respuesta a eventos: El GUI llama a estos métodos del controlador para realizar operaciones **/
     /**
@@ -118,7 +116,8 @@ public class HelloController implements Initializable {
             //Recursos
             RecursosController p = fxmlLoader.getController();
             p.loadUserData(this.modeloRecursos,this.modeloAgua,this.modeloBiblioteca,
-                    this.modeloComida,this.modeloMontana,this.modeloPozo,this.modeloTesoro);
+                    this.modeloComida,this.modeloMontana,this.modeloPozo,this.modeloTesoro,this.modeloInd,
+                    this.modeloMatriz);
             p.setStage(stage);
 
             stage.show();
@@ -130,20 +129,21 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onMiBotonNuevaVentanaParametrosClick() {
+        /***
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parameters-view.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load(), 500, 400);
             stage.setTitle("Establezca parámetros: ");
             stage.setScene(scene);
             ParameterController p = fxmlLoader.getController();
-            p.loadUserData(this.modeloParaGUICompartido); //Carga los datos del modelo en el gui, todas las ventanas comparten el mismo en este caso
+            p.loadUserData(this.modeloMatriz); //Carga los datos del modelo en el gui, todas las ventanas comparten el mismo en este caso
             //p.loadUserData(new ParameterDataModelProperties(this.parametrosData)); esta linea si quiero separar los valores
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
     }//Si quieres cambiar los datos inmmediatamente se quitarán "las cosas limpias"
 
@@ -154,25 +154,22 @@ public class HelloController implements Initializable {
         miSlider.valueProperty().bindBidirectional(medida);
         labelValorSlider.textProperty().bind(medida.asString());
     }
-    @FXML private GridPane tableroDeJuego;
-    //tablero
+/***
     @FXML
-    protected void onGridButtonClick() {
-        welcomeText.setText("Cargando el tablero de juego");
-
-        // Mismo bucle que en el ejemplo de MainGridApplication
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                // Aquí podrías instanciar tu LetrasColoresGrid
-                // LetrasColoresGrid customComponent = new LetrasColoresGrid();
-                // mainGrid.add(customComponent, i, j);
-
-                // Ejemplo simplificado con un Label
-                Label placeholder = new Label("Celda " + i + "," + j);
-                placeholder.setMinSize(30, 30); // Tamaño mínimo para visualización
-                placeholder.setStyle("-fx-border-color: black; -fx-text-alignment: center;");
-                tableroDeJuego.add(placeholder, i, j);
-            }
+    protected void onMiBotonNuevaVentanaMatrizClick() {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matrix-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+            stage.setTitle("Tablero de juego: ");
+            stage.setScene(scene);
+            MatrixController p = fxmlLoader.getController();
+            p.loadUserData(this.modeloMatriz);
+            p.setStage(stage);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
+
+    }*/
 }
