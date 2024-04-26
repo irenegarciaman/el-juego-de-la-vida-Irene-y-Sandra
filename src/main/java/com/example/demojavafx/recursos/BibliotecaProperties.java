@@ -10,20 +10,20 @@ public class BibliotecaProperties {
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private FloatProperty aumentoDePorenClon = new SimpleFloatProperty();
-    private FloatProperty probBilio= new SimpleFloatProperty();
+    private FloatProperty probBilio = new SimpleFloatProperty();
 
 
     public BibliotecaProperties(Biblioteca original) {
         setOriginal(original);
     }
 
-    public void commit(){
+    public void commit() {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setAumentoDePorcenClon(aumentoDePorenClon.get());
         original.setProbBiblioteca(probBilio.get());
     }
 
-    public void rollback(){
+    public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         aumentoDePorenClon.set(original.getAumentoDePorcenClon());
         probBilio.set(original.getProbBiblioteca());
@@ -46,5 +46,7 @@ public class BibliotecaProperties {
         return aumentoDePorenClon;
     }
 
-    public FloatProperty probBibliotecaProperty() {return probBilio; }
+    public FloatProperty probBibliotecaProperty() {
+        return probBilio;
+    }
 }

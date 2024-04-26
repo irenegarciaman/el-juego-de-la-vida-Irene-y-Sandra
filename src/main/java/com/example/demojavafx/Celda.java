@@ -43,15 +43,16 @@ public class Celda {
 
     public void addIndividuo(Individuo individuo) throws Superar3Individuos {
         listaIndividuo.add(individuo);
-        if(listaIndividuo.getNumeroElementos()>3) {
+        if (listaIndividuo.getNumeroElementos() > 3) {
 
             throw new Superar3Individuos(listaIndividuo);
         }
 
     }
+
     public void addRecurso(Recursos recurso) throws Superar3Recursos {
         listaRecurso.add(recurso);
-        if(listaRecurso.getNumeroElementos()>3) {
+        if (listaRecurso.getNumeroElementos() > 3) {
             throw new Superar3Recursos(listaRecurso);
         }
 

@@ -10,18 +10,17 @@ public class AguaProperties {
     private FloatProperty probAgua = new SimpleFloatProperty();
 
 
-
     public AguaProperties(Agua original) {
         setOriginalAgua(original);
     }
 
-    public void commit(){
+    public void commit() {
         originalAgua.setTurnosRestantes(turnosRestantes.get());
         originalAgua.setAumentoDeVida(aumentoDeVida.get());
         originalAgua.setProbAgua(probAgua.get());
     }
 
-    public void rollback(){
+    public void rollback() {
         turnosRestantes.set(originalAgua.getTurnosRestantes());
         aumentoDeVida.set(originalAgua.getAumentoDeVida());
         probAgua.set(originalAgua.getProbAgua());

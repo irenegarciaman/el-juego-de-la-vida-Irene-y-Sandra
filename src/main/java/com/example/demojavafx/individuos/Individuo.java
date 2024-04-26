@@ -11,7 +11,6 @@ public class Individuo {
     int posM;
 
 
-
     public Individuo(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
         this.id = id;
         this.generacion = generacion;
@@ -31,6 +30,7 @@ public class Individuo {
         this.probClonacion = probClonacion;
         this.probMuerte = probMuerte;
     }
+
     public Individuo(int id) {
         this.id = id;
     }

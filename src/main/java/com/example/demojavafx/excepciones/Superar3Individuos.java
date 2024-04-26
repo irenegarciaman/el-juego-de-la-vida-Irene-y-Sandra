@@ -10,7 +10,7 @@ public class Superar3Individuos extends Exception {
         int aux = 0;
         while (aux < listaIndividuo.getNumeroElementos()) {
             int elem = listaIndividuo.getElemento(aux).getData().getTurnosRestantes();
-            if(elem > listaIndividuo.getElemento(res).getData().getTurnosRestantes()) {
+            if (elem > listaIndividuo.getElemento(res).getData().getTurnosRestantes()) {
                 res = aux;
             }
             aux++;

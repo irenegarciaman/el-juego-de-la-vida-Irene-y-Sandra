@@ -1,6 +1,6 @@
 package com.example.demojavafx.recursos;
 
-public class Comida extends Recursos{
+public class Comida extends Recursos {
     private int aumentoDeVida;
     private float probComida;
 

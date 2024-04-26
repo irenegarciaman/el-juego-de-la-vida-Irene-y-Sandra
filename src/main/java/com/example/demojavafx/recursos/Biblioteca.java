@@ -1,6 +1,6 @@
 package com.example.demojavafx.recursos;
 
-public class Biblioteca extends Recursos{
+public class Biblioteca extends Recursos {
 
     private float aumentoDePorcenClon;
     private float probBiblioteca;
@@ -10,9 +10,9 @@ public class Biblioteca extends Recursos{
         this.probBiblioteca = probBiblioteca;
     }
 
-    public Biblioteca(int turnosRestantes, int aumentoDeVida) {
+    public Biblioteca(int turnosRestantes, int aumentoDePorcenClon) {
         super(turnosRestantes);
-        aumentoDePorcenClon = aumentoDeVida;
+        this.aumentoDePorcenClon = aumentoDePorcenClon;
     }
 
     public float getAumentoDePorcenClon() {

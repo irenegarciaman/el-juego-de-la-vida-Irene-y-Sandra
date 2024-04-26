@@ -11,6 +11,7 @@ ListaEnlazada<TipoDelDato> {
     public ListaEnlazada(ElementoLE<TipoDelDato> primero) {
         this.primero = primero;
     }
+
     public ListaEnlazada() {
         this.primero = null;
     }
@@ -23,6 +24,7 @@ ListaEnlazada<TipoDelDato> {
     public void vaciar() {
         this.primero = null;
     }
+
     private void add(ElementoLE<TipoDelDato> el) {
         if (isVacia()) {
             this.primero = el;
@@ -60,7 +62,7 @@ ListaEnlazada<TipoDelDato> {
     }
 
     public void insert(String s, int posicion) {
-        TipoDelDato aux = (TipoDelDato) s ;
+        TipoDelDato aux = (TipoDelDato) s;
         ElementoLE<TipoDelDato> a = new ElementoLE<>(aux);
         insert(a, posicion);
     }
@@ -157,26 +159,29 @@ ListaEnlazada<TipoDelDato> {
 
     }
 
-    public ListaEnlazada<TipoDelDato> invertir(ElementoLE<TipoDelDato> aux,ListaEnlazada<TipoDelDato> lista  ) {
+    public ListaEnlazada<TipoDelDato> invertir(ElementoLE<TipoDelDato> aux, ListaEnlazada<TipoDelDato> lista) {
         lista.add(aux.getData());
-        if(aux.getSiguiente()!=null){
-            invertir(aux.getSiguiente(),lista);
+        if (aux.getSiguiente() != null) {
+            invertir(aux.getSiguiente(), lista);
         }
         return lista;
     }
-    public ListaEnlazada<TipoDelDato> invertir(){
+
+    public ListaEnlazada<TipoDelDato> invertir() {
         ListaEnlazada<TipoDelDato> lista = new ListaEnlazada<>();
-        return this.invertir(this.primero,lista);
+        return this.invertir(this.primero, lista);
     }
-    public int suma(ElementoLE<Integer> el){
+
+    public int suma(ElementoLE<Integer> el) {
         int res = el.getData();
-        if(el.getSiguiente() == null){
+        if (el.getSiguiente() == null) {
             return res;
-        }else{
-            return  el.getData() + suma(el.getSiguiente());
+        } else {
+            return el.getData() + suma(el.getSiguiente());
         }
     }
-    public int suma(){
+
+    public int suma() {
         ElementoLE<Integer> el = (ElementoLE<Integer>) this.primero;
         return suma(el);
     }

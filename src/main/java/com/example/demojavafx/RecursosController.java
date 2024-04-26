@@ -128,7 +128,6 @@ public class RecursosController implements Initializable {
     private Stage scene;
 
 
-
     // Recursos medidas
     protected FloatProperty medida = new SimpleFloatProperty(0);
 
@@ -197,7 +196,7 @@ public class RecursosController implements Initializable {
         //pozo
         sliderProbPozo.valueProperty().bindBidirectional(medP1);
         p1.textProperty().bind(medP1.asString());
-    //Individuo
+        //Individuo
         sliderTurnosRestantesInd.valueProperty().bindBidirectional(ind1);
         t.textProperty().bind(ind1.asString());
 
@@ -210,7 +209,7 @@ public class RecursosController implements Initializable {
         sliderProbMuerteInd.valueProperty().bindBidirectional(ind4);
         pm.textProperty().bind(ind4.asString());
 
-    //Matriz
+        //Matriz
         sliderFilasMatriz.valueProperty().bindBidirectional(mf);
         labelFilasMatriz.textProperty().bind(mf.asString());
 
@@ -219,7 +218,7 @@ public class RecursosController implements Initializable {
 
     }
 
-//Recursos model
+    //Recursos model
     private RecursosProperties recursosModel;
     private AguaProperties aguaModel;
     private BibliotecaProperties bibliotecaModel;
@@ -227,9 +226,9 @@ public class RecursosController implements Initializable {
     private MontanaProperties montanaModel;
     private PozoProperties pozoModel;
     private TesoroProperties tesoroModel;
-//Individuos model
+    //Individuos model
     private IndividuoProperties individuoModel;
-//Matriz mode
+    //Matriz mode
     private MatrizProperties matrizModel;
 
 

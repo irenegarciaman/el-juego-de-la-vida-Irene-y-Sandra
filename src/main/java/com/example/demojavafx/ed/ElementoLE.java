@@ -4,20 +4,22 @@ public class ElementoLE<TipoDelDato> {
     private ElementoLE<TipoDelDato> siguiente;
     private TipoDelDato data;
 
-    public ElementoLE(TipoDelDato dato){
+    public ElementoLE(TipoDelDato dato) {
         this.data = dato;
         this.siguiente = null;
     }
-    public ElementoLE(TipoDelDato dato, ElementoLE<TipoDelDato> siguiente){
+
+    public ElementoLE(TipoDelDato dato, ElementoLE<TipoDelDato> siguiente) {
         this.data = dato;
         this.siguiente = siguiente;
     }
 
-    protected void insertarmeEn(ElementoLE<TipoDelDato> el){
+    public void insertarmeEn(ElementoLE<TipoDelDato> el) {
         el.siguiente = this.siguiente;
-        this.siguiente=el;
+        this.siguiente = el;
     }
-    public ElementoLE<TipoDelDato> getSiguiente(){
+
+    public ElementoLE<TipoDelDato> getSiguiente() {
         return siguiente;
     }
 
@@ -35,6 +37,6 @@ public class ElementoLE<TipoDelDato> {
         this.siguiente = siguiente;
     }
 
-    
+
 }
 

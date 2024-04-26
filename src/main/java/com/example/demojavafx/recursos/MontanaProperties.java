@@ -13,18 +13,17 @@ public class MontanaProperties {
     private FloatProperty probMontana = new SimpleFloatProperty();
 
 
-
     public MontanaProperties(Montana original) {
         setOriginal(original);
     }
 
-    public void commit(){
+    public void commit() {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setDisminucionDeVida(disminucionDeVida.get());
         original.setProbMontana(probMontana.get());
     }
 
-    public void rollback(){
+    public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         disminucionDeVida.set(original.getDisminucionDeVida());
         probMontana.set(original.getProbMontana());
@@ -47,5 +46,7 @@ public class MontanaProperties {
         return disminucionDeVida;
     }
 
-    public FloatProperty probMontanaProperty() {return probMontana;}
+    public FloatProperty probMontanaProperty() {
+        return probMontana;
+    }
 }

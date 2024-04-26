@@ -12,17 +12,16 @@ public class PozoProperties {
     private FloatProperty probPozo = new SimpleFloatProperty();
 
 
-
     public PozoProperties(Pozo original) {
         setOriginal(original);
     }
 
-    public void commit(){
+    public void commit() {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setProbPozo(probPozo.get());
     }
 
-    public void rollback(){
+    public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         probPozo.set(original.getProbPozo());
     }
@@ -40,6 +39,8 @@ public class PozoProperties {
         return turnosRestantes;
     }
 
-    public FloatProperty probPozoProperty() {return probPozo;}
+    public FloatProperty probPozoProperty() {
+        return probPozo;
+    }
 
 }

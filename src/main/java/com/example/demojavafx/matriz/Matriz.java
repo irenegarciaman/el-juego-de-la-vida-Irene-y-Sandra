@@ -1,19 +1,25 @@
 package com.example.demojavafx.matriz;
 
-/** Esta es la clase del modelo de datos básico **/
+/**
+ * Esta es la clase del modelo de datos básico
+ **/
 public class Matriz {
 
     private int columna;
     private int fila;
 
 
-    /** Constructor **/
+    /**
+     * Constructor
+     **/
     public Matriz(int vida, int velocidad) {
         this.columna = vida;
         this.fila = velocidad;
     }
 
-    /** Setters y Getters **/
+    /**
+     * Setters y Getters
+     **/
     public int getColumna() {
         return columna;
     }

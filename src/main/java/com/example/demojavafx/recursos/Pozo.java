@@ -1,6 +1,6 @@
 package com.example.demojavafx.recursos;
 
-public class Pozo extends Recursos{
+public class Pozo extends Recursos {
 
     protected float probPozo;
 

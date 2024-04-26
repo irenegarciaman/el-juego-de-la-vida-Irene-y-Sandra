@@ -32,30 +32,31 @@ public class HelloController implements Initializable {
     private Slider miSlider;
 
 
-
     protected StringProperty texto = new SimpleStringProperty("No Hay Nada");
     protected IntegerProperty medida = new SimpleIntegerProperty(0);
 
 
-    /** Modelo de datos **/
+    /**
+     * Modelo de datos
+     **/
 
 
     private Recursos recursos = new Recursos(4);
     private RecursosProperties modeloRecursos = new RecursosProperties(recursos);
 
-    private Agua agua = new Agua(3,4);
+    private Agua agua = new Agua(3, 4);
     private AguaProperties modeloAgua = new AguaProperties(agua);
 
-    private Biblioteca biblioteca = new Biblioteca(3,10);
+    private Biblioteca biblioteca = new Biblioteca(3, 10);
     private BibliotecaProperties modeloBiblioteca = new BibliotecaProperties(biblioteca);
 
-    private Comida comida = new Comida(3,4);
+    private Comida comida = new Comida(3, 4);
     private ComidaProperties modeloComida = new ComidaProperties(comida);
 
-    private Montana montana = new Montana(3,4);
+    private Montana montana = new Montana(3, 4);
     private MontanaProperties modeloMontana = new MontanaProperties(montana);
 
-    private Tesoro tesoro = new Tesoro(3,4);
+    private Tesoro tesoro = new Tesoro(3, 4);
     private TesoroProperties modeloTesoro = new TesoroProperties(tesoro);
 
     private Pozo pozo = new Pozo(3);
@@ -65,7 +66,7 @@ public class HelloController implements Initializable {
     private Individuo ind = new Individuo(0);
     private IndividuoProperties modeloInd = new IndividuoProperties(ind);
 
-    private Matriz matriz = new Matriz(2,3);
+    private Matriz matriz = new Matriz(2, 3);
     private MatrizProperties modeloMatriz = new MatrizProperties(matriz);
 
     /** Métodos de respuesta a eventos: El GUI llama a estos métodos del controlador para realizar operaciones **/
@@ -105,8 +106,9 @@ public class HelloController implements Initializable {
         }
 
     }
+
     @FXML
-    protected void onMiBotonNuevaVentanaAjustesClick(){
+    protected void onMiBotonNuevaVentanaAjustesClick() {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cond-iniciales.fxml"));
         try {
@@ -115,8 +117,8 @@ public class HelloController implements Initializable {
             stage.setScene(scene);
             //Recursos
             RecursosController p = fxmlLoader.getController();
-            p.loadUserData(this.modeloRecursos,this.modeloAgua,this.modeloBiblioteca,
-                    this.modeloComida,this.modeloMontana,this.modeloPozo,this.modeloTesoro,this.modeloInd,
+            p.loadUserData(this.modeloRecursos, this.modeloAgua, this.modeloBiblioteca,
+                    this.modeloComida, this.modeloMontana, this.modeloPozo, this.modeloTesoro, this.modeloInd,
                     this.modeloMatriz);
             p.setStage(stage);
 
@@ -130,20 +132,20 @@ public class HelloController implements Initializable {
     @FXML
     protected void onMiBotonNuevaVentanaParametrosClick() {
         /***
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parameters-view.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load(), 500, 400);
-            stage.setTitle("Establezca parámetros: ");
-            stage.setScene(scene);
-            ParameterController p = fxmlLoader.getController();
-            p.loadUserData(this.modeloMatriz); //Carga los datos del modelo en el gui, todas las ventanas comparten el mismo en este caso
-            //p.loadUserData(new ParameterDataModelProperties(this.parametrosData)); esta linea si quiero separar los valores
-            p.setStage(stage);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
+         Stage stage = new Stage();
+         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parameters-view.fxml"));
+         try {
+         Scene scene = new Scene(fxmlLoader.load(), 500, 400);
+         stage.setTitle("Establezca parámetros: ");
+         stage.setScene(scene);
+         ParameterController p = fxmlLoader.getController();
+         p.loadUserData(this.modeloMatriz); //Carga los datos del modelo en el gui, todas las ventanas comparten el mismo en este caso
+         //p.loadUserData(new ParameterDataModelProperties(this.parametrosData)); esta linea si quiero separar los valores
+         p.setStage(stage);
+         stage.show();
+         } catch (Exception e) {
+         e.printStackTrace();
+         }*/
 
     }//Si quieres cambiar los datos inmmediatamente se quitarán "las cosas limpias"
 
@@ -155,21 +157,20 @@ public class HelloController implements Initializable {
         labelValorSlider.textProperty().bind(medida.asString());
     }
 /***
-    @FXML
-    protected void onMiBotonNuevaVentanaMatrizClick() {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matrix-view.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
-            stage.setTitle("Tablero de juego: ");
-            stage.setScene(scene);
-            MatrixController p = fxmlLoader.getController();
-            p.loadUserData(this.modeloMatriz);
-            p.setStage(stage);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+ @FXML protected void onMiBotonNuevaVentanaMatrizClick() {
+ Stage stage = new Stage();
+ FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matrix-view.fxml"));
+ try {
+ Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+ stage.setTitle("Tablero de juego: ");
+ stage.setScene(scene);
+ MatrixController p = fxmlLoader.getController();
+ p.loadUserData(this.modeloMatriz);
+ p.setStage(stage);
+ stage.show();
+ } catch (Exception e) {
+ e.printStackTrace();
+ }
 
-    }*/
+ }*/
 }

@@ -13,18 +13,17 @@ public class ComidaProperties {
     private FloatProperty probComida = new SimpleFloatProperty();
 
 
-
     public ComidaProperties(Comida original) {
         setOriginal(original);
     }
 
-    public void commit(){
+    public void commit() {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setAumentoDeVida(aumentoDeVida.get());
         original.setProbComida(probComida.get());
     }
 
-    public void rollback(){
+    public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         aumentoDeVida.set(original.getAumentoDeVida());
         probComida.set(original.getProbComida());
@@ -47,5 +46,7 @@ public class ComidaProperties {
         return aumentoDeVida;
     }
 
-    public FloatProperty probComidaProperty() {return probComida;}
+    public FloatProperty probComidaProperty() {
+        return probComida;
+    }
 }

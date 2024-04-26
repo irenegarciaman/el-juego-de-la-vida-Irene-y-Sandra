@@ -17,13 +17,13 @@ public class TesoroProperties {
         setOriginal(original);
     }
 
-    public void commit(){
+    public void commit() {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setAumentoDePorcenRep(aumentoDePorcenRep.get());
         original.setProbTesoro(probTesoro.get());
     }
 
-    public void rollback(){
+    public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         aumentoDePorcenRep.set(original.getAumentoDePorcenRep());
         probTesoro.set(original.getProbTesoro());
@@ -46,5 +46,7 @@ public class TesoroProperties {
         return aumentoDePorcenRep;
     }
 
-    public FloatProperty probTesoroProperty() {return probTesoro;}
+    public FloatProperty probTesoroProperty() {
+        return probTesoro;
+    }
 }

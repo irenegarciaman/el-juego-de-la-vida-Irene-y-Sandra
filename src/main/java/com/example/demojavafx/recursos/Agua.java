@@ -10,6 +10,7 @@ public class Agua extends Recursos {
         super(turnosRestantes);
         this.aumentoDeVida = aumentoDeVida;
     }
+
     public Agua(int tiempoVida, float probAgua) {
         super(tiempoVida);
         this.probAgua = probAgua;
