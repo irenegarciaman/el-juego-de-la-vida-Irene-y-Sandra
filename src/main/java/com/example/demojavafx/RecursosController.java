@@ -124,6 +124,9 @@ public class RecursosController implements Initializable {
     @FXML
     private Slider sliderFilasMatriz;
 
+    @FXML
+    private Button cerrarButton;
+
 
     private Stage scene;
 
@@ -302,5 +305,22 @@ public class RecursosController implements Initializable {
         individuoModel.commit();
         matrizModel.commit();
     }
+    public void cerrarButton(){
+        scene.close();
+    }
+    public void cancelarButton(){
+        recursosModel.rollback();
+        aguaModel.rollback();
+        bibliotecaModel.rollback();
+        comidaModel.rollback();
+        montanaModel.rollback();
+        pozoModel.rollback();
+        tesoroModel.rollback();
+        individuoModel.rollback();
+        matrizModel.rollback();
+    }
+
+
 
 }
+

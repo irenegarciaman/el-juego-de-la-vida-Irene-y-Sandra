@@ -1,5 +1,7 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.matriz.Matriz;
+
 public class Agua extends Recursos {
 
     private int aumentoDeVida;
@@ -31,4 +33,6 @@ public class Agua extends Recursos {
     public void setProbAgua(float probAgua) {
         this.probAgua = probAgua;
     }
+
+
 }

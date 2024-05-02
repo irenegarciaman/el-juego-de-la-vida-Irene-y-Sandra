@@ -113,6 +113,8 @@ class ArbolBinario{
 -isArbolCasiCompleto(nodo:NodoArbol, numero:int):Boolean
 +isArbolCasiCompleto():Boolean
 }
+NodoArbol --> NodoArbol:derecha
+NodoArbol --> NodoArbol:izquierda
 
 class NodoArbol{
 -derecha:NodoArbol
@@ -128,7 +130,73 @@ class NodoArbol{
 +esHoja():boolean
 }
 
-class Grafo{}
+
+
+class NodoGrafoNuevo{
+-dato: TipoDelDato
+-listaEntrada: ListaSimple<ArcoGrafoNuevo>
+-listaSalida: ListaSimple<ArcoGrafoNuevo>
++NodoGrafoNuevo(dato:TipoDelDato)
++getDato(): TipoDelDato
+}
+class ArcoGrafoNuevo{
++relacion:TipoDelDato
++origen: NodoGrafoNuevo<TipoDelDato>
++destino: NodoGrafoNuevo<TipoDelDato>
++peso: double
++ArcoGrafoNuevo(relacion:TipoDelDato,origen:NodoGrafoNuevo<TipoDelDato>,
+destino:NodoGrafoNuevo<TipoDelDato>,peso;double)
+}
+
+class GrafoNuevo{
+-listaVertices: ListaSimple<NodoGrafoNuevo>
+-listaArcos:  ListaSimple<ArcoGrafoNuevo>
+
++GrafoNuevo(listaVertices:ListaSimple<NodoGrafoNuevo>,listaArcos:ListaSimple<ArcoGrafoNuevo>)
++addNodo(nodo:NodoGrafoNuevo):void
++addArco(nodo:ArcoGrafoNuevo):void
++borrarArco(arco:ArcoGrafoNuevo):void
++borrarNodo(nodo:NodoGrafoNuevo):void
++recuperarNodo(nodo:NodoGrafoNuevo<TipoDelDato>):boolean
++recuperarArco(arco:ArcoGrafoNuevo<TipoDelDato>):boolean
++dijkstra(origen:NodoGrafoNuevo<TipoDelDato>):Cola<Camino<TipoDelDato>>
++dijkstra_init(origen:NodoGrafoNuevo<TipoDelDato>,distancias:Cola<double>,
+colaPendientes:Cola<NodoGrafoNuevo<TipoDelDato>>,nodosAnteriores:Cola<NodoGrafoNuevo<TipoDelDato>>):void
++dijkstra_calcula(distancias:Cola<double>,colaPendientes:Cola<NodoGrafoNuevo<TipoDelDato>>,
+nodosAnteriores:Cola<NodoGrafoNuevo<TipoDelDato>>):void
++dijkstra_procesaResultados(distancias:Cola<Double>, nodosAnteriores:Cola<NodoGrafoNuevo<TipoDelDato>> ,
+origen: NodoGrafoNuevo<TipoDelDato> ):Cola<Camino<TipoDelDato>>
+}
+
+
+
+
+class ListaSimple {
+-datos:ElementoLS[]
+-maximo:int
++isVacia():boolean
++vaciar()
+-add(el:ElementoLS):int
++add(s:String)
++add(o:Object)
++insert(s:String,posicion:int)
++insert(o:Object,posicion:int)
++del(posicion:int):int
++getNumeroElementos():int
++getPosicion(el:ElementoLS):int
++getPrimero():ElementoLS
++getUltimo():ElementoLS
+-getSiguiente(el:ElementoLS):ElementoLS
++getElemento(posicion:int):ElementoLS
+}
+
+class ElementoLS {
+-data:Object
++getData():Object
++setData(o Object):Object
+}
+
+ElementoLS <-- ListaSimple: datos
 
 class ListaEnlazada {
 -primero:ElementoLE
@@ -174,6 +242,8 @@ class Cola{
 class Entorno {
 maximo3
 }
+
+package Recurso{
 abstract class Recursos{
 tiempoDeVida:int
 probNuevoRecurso:int
@@ -260,6 +330,7 @@ class ComidaProperties {
 +aumentoDeVidaProperty(): IntegerProperty
 +probComidaProperty(): FloatProperty
 }
+Comida <-- ComidaProperties
 class Montana{
 -disminucionDeVida
 +Montana(tiempoDeVida:int,probMontana:int)
@@ -354,6 +425,8 @@ class PozoProperties {
 }
 Pozo --|> PozoProperties
 
+}
+
 Individuo "0,1,2,3" --o BucleDeControl
 Entorno "0,1,2,3" --o BucleDeControl
 Tablero "NxM" --o BucleDeControl
@@ -371,13 +444,27 @@ Tesoro --|> Recursos
 Biblioteca ---|> Recursos
 Pozo --|> Recursos
 
-ElementoLE --> Cola
-NodoArbol --> ArbolBinario
+ElementoLE <-- Cola
+NodoArbol <-- ArbolBinario
 ArbolBinario --|> JSON
 ListaEnlazada --|> JSON
 Grafo --|> JSON
 Cola --|> JSON
 Individuo <-- ArbolBinario
+ListaSimple --|> JSON
+
+NodoGrafoNuevo --> ListaSimple: listaSalida
+NodoGrafoNuevo --> ListaSimple: listaEntrada
+
+ArcoGrafoNuevo --> NodoGrafoNuevo: origen
+ArcoGrafoNuevo --> NodoGrafoNuevo: destino
+
+GrafoNuevo --> ListaSimple:listaVertices
+GrafoNuevo --> ListaSimple:listaArcos
+
+
+
+
 
 class Celda{
 -listaIndividuo: ListaEnlazada<>
@@ -394,6 +481,8 @@ class Celda{
 
 class Superar3Individuos{}
 class Superar3Recursos{}
+
+
 
 
 @enduml
