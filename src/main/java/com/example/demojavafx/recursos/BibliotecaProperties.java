@@ -9,8 +9,8 @@ public class BibliotecaProperties {
     protected Biblioteca original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
-    private FloatProperty aumentoDePorenClon = new SimpleFloatProperty();
-    private FloatProperty probBilio = new SimpleFloatProperty();
+    private IntegerProperty aumentoDePorenClon = new SimpleIntegerProperty();
+    private IntegerProperty probBilio = new SimpleIntegerProperty();
 
 
     public BibliotecaProperties(Biblioteca original) {
@@ -42,11 +42,11 @@ public class BibliotecaProperties {
         return turnosRestantes;
     }
 
-    public FloatProperty aumentoDePorenClonProperty() {
+    public IntegerProperty aumentoDePorenClonProperty() {
         return aumentoDePorenClon;
     }
 
-    public FloatProperty probBibliotecaProperty() {
+    public IntegerProperty probBibliotecaProperty() {
         return probBilio;
     }
 }

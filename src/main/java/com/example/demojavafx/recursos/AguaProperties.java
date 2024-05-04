@@ -7,7 +7,7 @@ public class AguaProperties {
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private IntegerProperty aumentoDeVida = new SimpleIntegerProperty();
-    private FloatProperty probAgua = new SimpleFloatProperty();
+    private IntegerProperty probAgua = new SimpleIntegerProperty();
 
 
     public AguaProperties(Agua original) {
@@ -43,7 +43,7 @@ public class AguaProperties {
         return aumentoDeVida;
     }
 
-    public FloatProperty probAguaProperty() {
+    public IntegerProperty probAguaProperty() {
         return probAgua;
     }
 

@@ -42,7 +42,7 @@ public class Celda {
     }
 
 
-    public void addIndividuo(Individuo individuo) throws Superar3Individuos {
+    public void addIndividuo() throws Superar3Individuos {
         listaIndividuo.add(individuo);
         if (listaIndividuo.getNumeroElementos() > 3) {
 
@@ -67,5 +67,6 @@ public class Celda {
         int pos = listaIndividuo.getPosicion(new ElementoLE<>(ind));
         listaIndividuo.delete(pos);
     }
+
 
 }

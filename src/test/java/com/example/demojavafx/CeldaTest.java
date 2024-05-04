@@ -15,10 +15,10 @@ class CeldaTest {
 
     @Test
     void addIndividuo() {
-        assertDoesNotThrow(() -> celda.addIndividuo(individuo));
-        assertDoesNotThrow(() -> celda.addIndividuo(individuo));
-        assertDoesNotThrow(() -> celda.addIndividuo(individuo));
-        assertThrows(Superar3Individuos.class, () -> celda.addIndividuo(individuo));
+        assertDoesNotThrow(() -> celda.addIndividuo());
+        assertDoesNotThrow(() -> celda.addIndividuo());
+        assertDoesNotThrow(() -> celda.addIndividuo());
+        assertThrows(Superar3Individuos.class, () -> celda.addIndividuo());
         assertEquals(3, celda.getListaIndividuo().getEl().getData().getTurnosRestantes());
     }
 

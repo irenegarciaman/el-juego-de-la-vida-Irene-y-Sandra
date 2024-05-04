@@ -6,8 +6,8 @@ import com.example.demojavafx.Celda;
 import java.util.Random;
 
 public class IndBasico extends Individuo {
-    public IndBasico(int id, int turnoVidaRestantes) {
-        super(id, turnoVidaRestantes);
+    public IndBasico(int id, int generacion) {
+        super(id, generacion);
     }
 
     public IndBasico(int id) {

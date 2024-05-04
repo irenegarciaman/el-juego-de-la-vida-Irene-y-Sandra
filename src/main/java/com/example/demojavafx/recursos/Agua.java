@@ -5,15 +5,17 @@ import com.example.demojavafx.matriz.Matriz;
 public class Agua extends Recursos {
 
     private int aumentoDeVida;
-    private float probAgua;
+    private int probAgua;
 
-
-    public Agua(int turnosRestantes, int aumentoDeVida) {
-        super(turnosRestantes);
-        this.aumentoDeVida = aumentoDeVida;
+    public Agua() {
     }
 
-    public Agua(int tiempoVida, float probAgua) {
+    public Agua(int turnosRestantes) {
+        super(turnosRestantes);
+
+    }
+
+    public Agua(int tiempoVida, int probAgua) {
         super(tiempoVida);
         this.probAgua = probAgua;
     }
@@ -26,11 +28,11 @@ public class Agua extends Recursos {
         this.aumentoDeVida = aumentoDeVida;
     }
 
-    public float getProbAgua() {
+    public int getProbAgua() {
         return probAgua;
     }
 
-    public void setProbAgua(float probAgua) {
+    public void setProbAgua(int probAgua) {
         this.probAgua = probAgua;
     }
 

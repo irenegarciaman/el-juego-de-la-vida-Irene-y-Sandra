@@ -10,7 +10,7 @@ public class ComidaProperties {
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private IntegerProperty aumentoDeVida = new SimpleIntegerProperty();
-    private FloatProperty probComida = new SimpleFloatProperty();
+    private IntegerProperty probComida = new SimpleIntegerProperty();
 
 
     public ComidaProperties(Comida original) {
@@ -46,7 +46,7 @@ public class ComidaProperties {
         return aumentoDeVida;
     }
 
-    public FloatProperty probComidaProperty() {
+    public IntegerProperty probComidaProperty() {
         return probComida;
     }
 }

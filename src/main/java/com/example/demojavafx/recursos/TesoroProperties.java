@@ -9,8 +9,8 @@ public class TesoroProperties {
     protected Tesoro original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
-    private FloatProperty aumentoDePorcenRep = new SimpleFloatProperty();
-    private FloatProperty probTesoro = new SimpleFloatProperty();
+    private IntegerProperty aumentoDePorcenRep = new SimpleIntegerProperty();
+    private IntegerProperty probTesoro = new SimpleIntegerProperty();
 
 
     public TesoroProperties(Tesoro original) {
@@ -42,11 +42,11 @@ public class TesoroProperties {
         return turnosRestantes;
     }
 
-    public FloatProperty aumentoDePorenRepProperty() {
+    public IntegerProperty aumentoDePorenRepProperty() {
         return aumentoDePorcenRep;
     }
 
-    public FloatProperty probTesoroProperty() {
+    public IntegerProperty probTesoroProperty() {
         return probTesoro;
     }
 }

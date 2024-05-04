@@ -2,16 +2,19 @@ package com.example.demojavafx.recursos;
 
 public class Comida extends Recursos {
     private int aumentoDeVida;
-    private float probComida;
+    private int probComida;
 
-    public Comida(int tiempoVida, float probComida) {
+    public Comida(int tiempoVida) {
         super(tiempoVida);
-        this.probComida = probComida;
+
     }
 
     public Comida(int turnosRestantes, int aumentoDeVida) {
         super(turnosRestantes);
         this.aumentoDeVida = aumentoDeVida;
+    }
+
+    public Comida() {
     }
 
     public int getAumentoDeVida() {
@@ -22,11 +25,11 @@ public class Comida extends Recursos {
         this.aumentoDeVida = aumentoDeVida;
     }
 
-    public float getProbComida() {
+    public int getProbComida() {
         return probComida;
     }
 
-    public void setProbComida(float probComida) {
+    public void setProbComida(int probComida) {
         this.probComida = probComida;
     }
 }

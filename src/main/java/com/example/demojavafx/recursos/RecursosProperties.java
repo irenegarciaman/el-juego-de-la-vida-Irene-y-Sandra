@@ -9,7 +9,7 @@ public class RecursosProperties {
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private IntegerProperty posN = new SimpleIntegerProperty();
     private IntegerProperty posM = new SimpleIntegerProperty();
-    private FloatProperty probNuevoRecurso = new SimpleFloatProperty();
+    private IntegerProperty probNuevoRecurso = new SimpleIntegerProperty();
 
     public RecursosProperties(Recursos original) {
         setOriginal(original);

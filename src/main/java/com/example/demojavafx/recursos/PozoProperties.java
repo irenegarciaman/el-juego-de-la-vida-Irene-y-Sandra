@@ -9,7 +9,7 @@ public class PozoProperties {
     protected Pozo original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
-    private FloatProperty probPozo = new SimpleFloatProperty();
+    private IntegerProperty probPozo = new SimpleIntegerProperty();
 
 
     public PozoProperties(Pozo original) {
@@ -39,7 +39,7 @@ public class PozoProperties {
         return turnosRestantes;
     }
 
-    public FloatProperty probPozoProperty() {
+    public IntegerProperty probPozoProperty() {
         return probPozo;
     }
 

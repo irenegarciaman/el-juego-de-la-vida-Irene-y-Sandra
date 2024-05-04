@@ -6,9 +6,12 @@ public class Recursos {
     protected int turnosRestantes;
     protected int posN;
     protected int posM;
-    protected float probNuevoRecurso;
+    protected int probNuevoRecurso;
 
-    public Recursos(int turnosRestantes, int posN, int posM, float probNuevoRecurso) {
+    public Recursos() {
+    }
+
+    public Recursos(int turnosRestantes, int posN, int posM, int probNuevoRecurso) {
         this.turnosRestantes = turnosRestantes;
         this.posN = posN;
         this.posM = posM;
@@ -49,11 +52,11 @@ public class Recursos {
         this.posM = posM;
     }
 
-    public float getProbNuevoRecurso() {
+    public int getProbNuevoRecurso() {
         return probNuevoRecurso;
     }
 
-    public void setProbNuevoRecurso(float probNuevoRecurso) {
+    public void setProbNuevoRecurso(int probNuevoRecurso) {
         this.probNuevoRecurso = probNuevoRecurso;
     }
 

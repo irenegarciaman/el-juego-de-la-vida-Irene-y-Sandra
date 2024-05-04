@@ -448,7 +448,7 @@ ElementoLE <-- Cola
 NodoArbol <-- ArbolBinario
 ArbolBinario --|> JSON
 ListaEnlazada --|> JSON
-Grafo --|> JSON
+
 Cola --|> JSON
 Individuo <-- ArbolBinario
 ListaSimple --|> JSON

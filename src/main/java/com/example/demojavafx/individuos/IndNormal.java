@@ -12,8 +12,8 @@ public class IndNormal extends Individuo {
         super(id);
     }
 
-    public IndNormal(int id, int turnoVidaRestantes) {
-        super(id, turnoVidaRestantes);
+    public IndNormal(int id, int gerenacion) {
+        super(id, gerenacion);
     }
     @Override
     public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz){

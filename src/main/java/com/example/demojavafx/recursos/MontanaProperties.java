@@ -10,7 +10,7 @@ public class MontanaProperties {
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private IntegerProperty disminucionDeVida = new SimpleIntegerProperty();
-    private FloatProperty probMontana = new SimpleFloatProperty();
+    private IntegerProperty probMontana = new SimpleIntegerProperty();
 
 
     public MontanaProperties(Montana original) {
@@ -46,7 +46,7 @@ public class MontanaProperties {
         return disminucionDeVida;
     }
 
-    public FloatProperty probMontanaProperty() {
+    public IntegerProperty probMontanaProperty() {
         return probMontana;
     }
 }

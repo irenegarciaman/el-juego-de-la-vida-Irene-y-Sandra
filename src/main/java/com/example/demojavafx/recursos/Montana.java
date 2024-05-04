@@ -2,16 +2,18 @@ package com.example.demojavafx.recursos;
 
 public class Montana extends Recursos {
     private int disminucionDeVida;
-    private float probMontana;
+    private int probMontana;
 
-    public Montana(int tiempoVida, float probMontana) {
+    public Montana(int tiempoVida) {
         super(tiempoVida);
-        this.probMontana = probMontana;
     }
 
     public Montana(int turnosRestantes, int disminucionDeVida) {
         super(turnosRestantes);
         this.disminucionDeVida = disminucionDeVida;
+    }
+
+    public Montana() {
     }
 
     public int getDisminucionDeVida() {
@@ -22,11 +24,11 @@ public class Montana extends Recursos {
         this.disminucionDeVida = disminucionDeVida;
     }
 
-    public float getProbMontana() {
+    public int getProbMontana() {
         return probMontana;
     }
 
-    public void setProbMontana(float probMontana) {
+    public void setProbMontana(int probMontana) {
         this.probMontana = probMontana;
     }
 }
