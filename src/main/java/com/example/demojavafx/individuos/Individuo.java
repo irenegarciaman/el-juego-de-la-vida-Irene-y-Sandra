@@ -1,6 +1,10 @@
 package com.example.demojavafx.individuos;
 
-public class Individuo {
+import com.example.demojavafx.BucleDeControl;
+import com.example.demojavafx.Celda;
+import com.example.demojavafx.matriz.Matriz;
+
+public abstract class Individuo {
     int id;
     int generacion;
     int turnosRestantes;
@@ -103,6 +107,8 @@ public class Individuo {
     public void setPosN(int posN) {
         this.posN = posN;
     }
+
+    public abstract void moverse(int maxColumnas, int maxFilas, Celda[][] matriz);
 
     @Override
     public String toString() {

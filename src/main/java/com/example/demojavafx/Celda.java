@@ -1,5 +1,6 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.ed.ElementoLE;
 import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
@@ -57,4 +58,14 @@ public class Celda {
         }
 
     }
+    public void eliminarRecurso(Recursos recurso){
+        int pos =  listaRecurso.getPosicion(new ElementoLE<>(recurso));
+        listaRecurso.delete(pos);
+    }
+
+    public void eliminarIndividuo(Individuo ind){
+        int pos = listaIndividuo.getPosicion(new ElementoLE<>(ind));
+        listaIndividuo.delete(pos);
+    }
+
 }

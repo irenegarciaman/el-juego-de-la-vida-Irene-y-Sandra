@@ -40,11 +40,7 @@ public class Matriz {
         this.fila = fila;
     }
 
-    public void addInd(int fila, int columna, Celda lista){
-        matriz[fila][columna]=lista;
-    }
 
-    public void addRec(int fila, int columna, ListaEnlazada<Recursos> lista){
 
-    }
+
 }
