@@ -154,7 +154,6 @@ public class BucleDeControl {
                 }
             }
         }
-
     }
 
     public void nuevoRecurso() throws Superar3Recursos {
@@ -205,5 +204,20 @@ public class BucleDeControl {
             }
         }
         return lista.getNumeroElementos() == 1;
+    }
+
+    public void bucleEntero() throws Superar3Individuos, Superar3Recursos {
+        actualizarIndividuo();
+        actualizarRecursos();
+        movimiento();
+        mejorasRecursos();
+        reproducion();
+        clonacion();
+        nuevoRecurso();
+        if (!condicionFinalizacion()){
+            turno++;
+            bucleEntero();
+        }//else, funcion finalizar juego
+
     }
 }
