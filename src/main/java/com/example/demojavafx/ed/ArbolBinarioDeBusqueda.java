@@ -479,6 +479,14 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
         NodoArbol<TipoDeDatos> padre = new NodoArbol<>();
         return getPadre(valor,this.raiz,padre);
     }
+    public void guardarArbol() {
+        String rutaArchivo = "arbol.json";
+        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
+        ArbolBinarioDeBusqueda arbolCargado = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ArbolBinarioDeBusqueda.class);
+        if(arbolCargado != null){
+            System.out.println("Arbol Cargado");
+        }
+    }
 
 }
 

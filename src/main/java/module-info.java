@@ -7,6 +7,10 @@ module com.example.demojavafx {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.logging;
+    requires java.desktop;
+    requires org.apache.logging.log4j;
+    requires com.google.gson;
 
 
     opens com.example.demojavafx to javafx.fxml;

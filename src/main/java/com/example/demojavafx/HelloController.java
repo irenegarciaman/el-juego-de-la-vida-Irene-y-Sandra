@@ -17,12 +17,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
+
     static int contadorDeVentanasHijas = 0;
+
+    private static final Logger log = LogManager.getLogger(HelloController.class);
+
 
     @FXML
     private Label welcomeText;
@@ -64,7 +70,7 @@ public class HelloController implements Initializable {
     private PozoProperties modeloPozo = new PozoProperties(pozo);
 
 
-    private IndBasico ind = new IndBasico(0);
+    private Individuo ind = new IndBasico(0);
     private IndividuoProperties modeloInd = new IndividuoProperties(ind);
 
     private Matriz matriz = new Matriz(2, 3);
@@ -77,8 +83,10 @@ public class HelloController implements Initializable {
      */
     @FXML
     protected void onHelloButtonClick() {
+
         welcomeText.setText("Welcome to JavaFX Application!");
         texto.set("Recambiamos una propiedad");
+
     }
 
     @FXML
@@ -110,6 +118,7 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onMiBotonNuevaVentanaAjustesClick() {
+        log.info("Inicio del método de arranque de la aplicación para elegir los parámetros");
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cond-iniciales.fxml"));
         try {
@@ -127,6 +136,15 @@ public class HelloController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
+
+        log.info("Fin del método de arranque de la aplicación para elegir los parámetros\"");
     }
 
 
@@ -156,7 +174,17 @@ public class HelloController implements Initializable {
         //labelTextoEjemplo.textProperty().bind(texto);
         miSlider.valueProperty().bindBidirectional(medida);
         labelValorSlider.textProperty().bind(medida.asString());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Enviando un info");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
+
+        log.info("Fin del método de arranque de la aplicación para elegir los parámetros\"");
     }
+
 /***
  @FXML protected void onMiBotonNuevaVentanaMatrizClick() {
  Stage stage = new Stage();

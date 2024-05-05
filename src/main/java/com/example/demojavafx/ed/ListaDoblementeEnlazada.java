@@ -145,6 +145,14 @@ public class ListaDoblementeEnlazada <TipoDelDato>{
         }
         return cabeza ;
     }
+    public void guardarLDE() {
+        String rutaArchivo = "listaLDE.json";
+        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
+        ListaDoblementeEnlazada listaDE = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ListaDoblementeEnlazada.class);
+        if(listaDE != null){
+            System.out.println("Arbol Cargado");
+        }
+    }
 
 
 

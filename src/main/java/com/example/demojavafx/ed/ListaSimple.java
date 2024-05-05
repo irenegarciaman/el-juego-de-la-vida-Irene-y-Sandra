@@ -175,6 +175,14 @@ public class ListaSimple <TipoDelDato> {
         }
         return lista2;
    }
+    public void guardarLS() {
+        String rutaArchivo = "listaS.json";
+        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
+        ListaSimple listaS = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ListaSimple.class);
+        if(listaS != null){
+            System.out.println("Arbol Cargado");
+        }
+    }
 
 
 

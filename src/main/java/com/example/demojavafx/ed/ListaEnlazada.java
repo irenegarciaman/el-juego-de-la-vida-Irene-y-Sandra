@@ -185,4 +185,12 @@ ListaEnlazada<TipoDelDato> {
         ElementoLE<Integer> el = (ElementoLE<Integer>) this.primero;
         return suma(el);
     }
+    public void guardarLE() {
+        String rutaArchivo = "listaLE.json";
+        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
+        ListaEnlazada listaE = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ListaEnlazada.class);
+        if(listaE != null){
+            System.out.println("Arbol Cargado");
+        }
+    }
 }
