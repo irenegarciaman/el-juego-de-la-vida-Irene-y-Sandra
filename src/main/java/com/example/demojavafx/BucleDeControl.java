@@ -2,6 +2,7 @@ package com.example.demojavafx;
 
 import com.example.demojavafx.ed.ElementoLE;
 import com.example.demojavafx.ed.ListaEnlazada;
+import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.IndAvanzado;
@@ -121,13 +122,19 @@ public class BucleDeControl {
                         if (random<ind1.getProbReproduccion() && random<ind2.getProbReproduccion()) {
                             if (ind1.getClass() == IndAvanzado.class || ind2.getClass() == IndAvanzado.class) {
                                 IndAvanzado ind3 = new IndAvanzado(ind1.getId() + 1, turno);
+                                ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
+                                ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                                 matriz[j][i].addIndividuo(ind3);
                             } else if (ind1.getClass() == IndNormal.class || ind2.getClass() == IndNormal.class) {
                                 IndNormal ind3 = new IndNormal(ind1.getId(), turno);
                                 matriz[j][i].addIndividuo(ind3);
+                                ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
+                                ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                             } else {
                                 IndBasico ind3 = new IndBasico(ind1.getId() + 1, turno);
                                 matriz[j][i].addIndividuo(ind3);
+                                ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
+                                ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                             }
 
                         }else {
@@ -149,6 +156,10 @@ public class BucleDeControl {
                     int random =rand.nextInt(101);
                     if (random<ind1.getProbClonacion()){
                         Individuo clonado = ind1;
+                        NodoArbol<Individuo> nodoNuevo = new NodoArbol<>(clonado);
+                        nodoNuevo.setDerecha(ind1.getArbolGenealogico().raiz);
+                        nodoNuevo.setIzquierda(null);
+                        clonado.getArbolGenealogico().raiz = nodoNuevo;
                         matriz[j][i].addIndividuo(clonado);
                     }
                 }

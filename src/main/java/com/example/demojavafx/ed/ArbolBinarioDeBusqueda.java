@@ -1,7 +1,7 @@
 package com.example.demojavafx.ed;
 
 public class ArbolBinarioDeBusqueda<TipoDeDatos> {
-    NodoArbol<TipoDeDatos> raiz;
+    public NodoArbol<TipoDeDatos> raiz;
 
     public ArbolBinarioDeBusqueda(NodoArbol<TipoDeDatos> raiz, NodoArbol<TipoDeDatos> derecha, NodoArbol<TipoDeDatos> izquierda) {
         this.raiz = raiz;

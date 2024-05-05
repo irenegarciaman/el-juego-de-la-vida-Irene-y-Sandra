@@ -2,6 +2,8 @@ package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.BucleDeControl;
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.ed.ArbolBinarioDeBusqueda;
+import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.matriz.Matriz;
 
 public abstract class Individuo {
@@ -13,6 +15,8 @@ public abstract class Individuo {
     int probMuerte;
     int posN;
     int posM;
+    ArbolBinarioDeBusqueda<Individuo> arbolGenealogico;
+
 
 
     public Individuo(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
@@ -24,6 +28,8 @@ public abstract class Individuo {
         this.probMuerte = probMuerte;
         this.posN = posN;
         this.posM = posM;
+        this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
+        this.arbolGenealogico.raiz = new NodoArbol<>(this);
     }
 
     public Individuo(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte) {
@@ -33,15 +39,21 @@ public abstract class Individuo {
         this.probReproduccion = probReproduccion;
         this.probClonacion = probClonacion;
         this.probMuerte = probMuerte;
+        this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
+        this.arbolGenealogico.raiz = new NodoArbol<>(this);
     }
 
     public Individuo(int id) {
         this.id = id;
+        this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
+        this.arbolGenealogico.raiz = new NodoArbol<>(this);
     }
 
     public Individuo(int id, int turnoVidaRestantes) {
         this.id = id;
         this.turnosRestantes = turnoVidaRestantes;
+        this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
+        this.arbolGenealogico.raiz = new NodoArbol<>(this);
     }
 
     public int getId() {
@@ -109,6 +121,14 @@ public abstract class Individuo {
     }
 
     public abstract void moverse(int maxColumnas, int maxFilas, Celda[][] matriz);
+
+    public ArbolBinarioDeBusqueda<Individuo> getArbolGenealogico() {
+        return arbolGenealogico;
+    }
+
+    public void setArbolGenealogico(ArbolBinarioDeBusqueda<Individuo> arbolGenealogico) {
+        this.arbolGenealogico = arbolGenealogico;
+    }
 
     @Override
     public String toString() {
