@@ -42,7 +42,7 @@ public class Celda {
     }
 
 
-    public void addIndividuo() throws Superar3Individuos {
+    public void addIndividuo(Individuo individuo) throws Superar3Individuos {
         listaIndividuo.add(individuo);
         if (listaIndividuo.getNumeroElementos() > 3) {
 

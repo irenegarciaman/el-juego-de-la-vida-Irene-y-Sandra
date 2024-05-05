@@ -1,5 +1,6 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.individuos.IndividuoProperties;
 import com.example.demojavafx.matriz.Matriz;
@@ -63,7 +64,7 @@ public class HelloController implements Initializable {
     private PozoProperties modeloPozo = new PozoProperties(pozo);
 
 
-    private Individuo ind = new Individuo(0);
+    private IndBasico ind = new IndBasico(0);
     private IndividuoProperties modeloInd = new IndividuoProperties(ind);
 
     private Matriz matriz = new Matriz(2, 3);

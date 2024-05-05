@@ -121,13 +121,13 @@ public class BucleDeControl {
                         if (random<ind1.getProbReproduccion() && random<ind2.getProbReproduccion()) {
                             if (ind1.getClass() == IndAvanzado.class || ind2.getClass() == IndAvanzado.class) {
                                 IndAvanzado ind3 = new IndAvanzado(ind1.getId() + 1, turno);
-                                matriz[j][i].addIndividuo();
+                                matriz[j][i].addIndividuo(ind3);
                             } else if (ind1.getClass() == IndNormal.class || ind2.getClass() == IndNormal.class) {
                                 IndNormal ind3 = new IndNormal(ind1.getId(), turno);
-                                matriz[j][i].addIndividuo();
+                                matriz[j][i].addIndividuo(ind3);
                             } else {
                                 IndBasico ind3 = new IndBasico(ind1.getId() + 1, turno);
-                                matriz[j][i].addIndividuo();
+                                matriz[j][i].addIndividuo(ind3);
                             }
 
                         }else {
@@ -149,7 +149,7 @@ public class BucleDeControl {
                     int random =rand.nextInt(101);
                     if (random<ind1.getProbClonacion()){
                         Individuo clonado = ind1;
-                        matriz[j][i].addIndividuo();
+                        matriz[j][i].addIndividuo(clonado);
                     }
                 }
             }
