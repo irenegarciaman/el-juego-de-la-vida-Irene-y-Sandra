@@ -4,9 +4,8 @@ public class Comida extends Recursos {
     private int aumentoDeVida;
     private int probComida;
 
-    public Comida(int tiempoVida) {
-        super(tiempoVida);
-
+    public Comida(int probComida) {
+        this.probComida = probComida;
     }
 
     public Comida(int turnosRestantes, int aumentoDeVida) {

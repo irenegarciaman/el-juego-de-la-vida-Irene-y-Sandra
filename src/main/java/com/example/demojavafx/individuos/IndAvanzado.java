@@ -14,6 +14,14 @@ public class IndAvanzado extends Individuo {
         super(id);
     }
 
+    public IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
+        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+    }
+
+    public IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte) {
+        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
+    }
+
     public IndAvanzado(int id, int gerenacion) {
         super(id, gerenacion);
     }

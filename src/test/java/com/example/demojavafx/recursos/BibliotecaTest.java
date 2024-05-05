@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BibliotecaTest {
     Biblioteca biblioteca = new Biblioteca(4, 5);
-    Biblioteca biblioteca2 = new Biblioteca(4, 5.0F);
+    Biblioteca biblioteca2 = new Biblioteca(5);
 
     @Test
     void getAumentoDePorcenClon() {
@@ -21,12 +21,12 @@ class BibliotecaTest {
 
     @Test
     void getProbBiblioteca() {
-        assertEquals(5.0f, biblioteca2.getProbBiblioteca());
+        assertEquals(5, biblioteca2.getProbBiblioteca());
     }
 
     @Test
     void setProbBiblioteca() {
-        biblioteca2.setProbBiblioteca(6.0F);
-        assertEquals(6.0f, biblioteca2.getProbBiblioteca());
+        biblioteca2.setProbBiblioteca(6);
+        assertEquals(6, biblioteca2.getProbBiblioteca());
     }
 }

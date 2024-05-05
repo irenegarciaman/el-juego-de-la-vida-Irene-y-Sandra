@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IndividuoTest {
-    Individuo individuo = new Individuo(3);
+    IndBasico individuo = new IndBasico(3);
 
-    Individuo individuo2 = new Individuo(3, 3);
+    IndBasico individuo2 = new IndBasico(3, 3);
 
-    Individuo individuo3 = new Individuo(3, 3, 3,
+    IndAvanzado individuo3 = new IndAvanzado(3, 3, 3,
             4, 5, 6);
 
-    Individuo individuo4 = new Individuo(3, 3, 3,
+    IndAvanzado individuo4 = new IndAvanzado(3, 3, 3,
             4, 5, 6, 7, 7);
 
     @Test

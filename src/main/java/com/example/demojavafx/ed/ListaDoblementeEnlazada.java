@@ -120,20 +120,18 @@ public class ListaDoblementeEnlazada <TipoDelDato>{
     }
 
     public ElementoLDE getSiguiente(ElementoLDE el) {
-        if (el.getData() != null) {
-            int posicion = getPosicion(el);
-            return getElemento(posicion + 1);
-        } else {
-            return null;
+        ElementoLDE aux = this.primero;
+        while (aux.data != el.data && aux.getSiguiente()!=null) {
+            aux = aux.getSiguiente();
         }
+        return aux.getSiguiente();
     }
     public ElementoLDE getAnterior(ElementoLDE el) {
-        if (el.getData() != null) {
-            int posicion = getPosicion(el);
-            return getElemento(posicion - 1);
-        } else {
-            return null;
+        ElementoLDE aux = this.primero;
+        while (aux.data != el.data && aux.getSiguiente()!=null) {
+            aux = aux.getSiguiente();
         }
+        return aux.getAnterior();
     }
 
     public ElementoLDE getElemento(int posicion){

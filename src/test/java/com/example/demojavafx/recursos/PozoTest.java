@@ -5,16 +5,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PozoTest {
-    Pozo pozo = new Pozo(8, 1.0f);
+    Pozo pozo = new Pozo(8, 1);
 
     @Test
     void getProbPozo() {
-        assertEquals(1.0f, pozo.getProbPozo());
+        assertEquals(1, pozo.getProbPozo());
     }
 
     @Test
     void setProbPozo() {
-        pozo.setProbPozo(5.0f);
-        assertEquals(5.0f, pozo.getProbPozo());
+        pozo.setProbPozo(5);
+        assertEquals(5, pozo.getProbPozo());
     }
 }

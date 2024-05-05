@@ -4,8 +4,8 @@ public class Montana extends Recursos {
     private int disminucionDeVida;
     private int probMontana;
 
-    public Montana(int tiempoVida) {
-        super(tiempoVida);
+    public Montana(int probMontana) {
+        this.probMontana = probMontana;
     }
 
     public Montana(int turnosRestantes, int disminucionDeVida) {

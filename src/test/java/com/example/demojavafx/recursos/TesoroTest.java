@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TesoroTest {
     Tesoro tesoro = new Tesoro(3, 4);
-    Tesoro tesoro2 = new Tesoro(3, 4);
+    Tesoro tesoro2 = new Tesoro( 4);
 
     @Test
     void getAumentoDePorcenRep() {
@@ -21,12 +21,12 @@ class TesoroTest {
 
     @Test
     void getProbTesoro() {
-        assertEquals(4.0, tesoro2.getProbTesoro());
+        assertEquals(4, tesoro2.getProbTesoro());
     }
 
     @Test
     void setProbTesoro() {
         tesoro.setProbTesoro(5);
-        assertEquals(5f, tesoro.getProbTesoro());
+        assertEquals(5, tesoro.getProbTesoro());
     }
 }

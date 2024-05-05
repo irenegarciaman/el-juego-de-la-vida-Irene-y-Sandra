@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AguaTest {
     Agua agua = new Agua(3, 4);
-    Agua agua1 = new Agua(3, 5.0f);
+    Agua agua1 = new Agua(3);
 
     @Test
     void getAumentoDeVida() {
@@ -21,12 +21,12 @@ class AguaTest {
 
     @Test
     void getProbAgua() {
-        assertEquals(5.0f, agua1.getProbAgua());
+        assertEquals(3, agua1.getProbAgua());
     }
 
     @Test
     void setProbAgua() {
-        agua1.setProbAgua(6.0f);
-        assertEquals(6.0f, agua1.getProbAgua());
+        agua1.setProbAgua(6);
+        assertEquals(6, agua1.getProbAgua());
     }
 }

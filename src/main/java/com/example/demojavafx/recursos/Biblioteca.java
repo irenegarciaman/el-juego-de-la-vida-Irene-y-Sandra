@@ -5,9 +5,8 @@ public class Biblioteca extends Recursos {
     private int aumentoDePorcenClon;
     private int probBiblioteca;
 
-    public Biblioteca(int tiempoVida) {
-        super(tiempoVida);
-
+    public Biblioteca(int probBiblioteca) {
+        this.probBiblioteca = probBiblioteca;
     }
 
     public Biblioteca(int turnosRestantes, int aumentoDePorcenClon) {

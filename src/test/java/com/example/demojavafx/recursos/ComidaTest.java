@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ComidaTest {
     Comida comida = new Comida(8, 7);
-    Comida comida2 = new Comida(8, 7.0f);
+    Comida comida2 = new Comida(7);
 
     @Test
     void getAumentoDeVida() {
@@ -21,12 +21,12 @@ class ComidaTest {
 
     @Test
     void getProbComida() {
-        assertEquals(7.0f, comida2.getProbComida());
+        assertEquals(7, comida2.getProbComida());
     }
 
     @Test
     void setProbComida() {
-        comida2.setProbComida(3.0f);
-        assertEquals(3.0f, comida2.getProbComida());
+        comida2.setProbComida(3);
+        assertEquals(3, comida2.getProbComida());
     }
 }
