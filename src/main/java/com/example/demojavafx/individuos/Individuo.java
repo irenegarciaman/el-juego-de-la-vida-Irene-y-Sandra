@@ -4,6 +4,7 @@ import com.example.demojavafx.BucleDeControl;
 import com.example.demojavafx.Celda;
 import com.example.demojavafx.ed.ArbolBinarioDeBusqueda;
 import com.example.demojavafx.ed.NodoArbol;
+import com.example.demojavafx.excepciones.PorcentajeValido;
 import com.example.demojavafx.matriz.Matriz;
 
 public abstract class Individuo {
@@ -85,7 +86,7 @@ public abstract class Individuo {
         return probReproduccion;
     }
 
-    public void setProbReproduccion(int probReproduccion) {
+    public void setProbReproduccion(int probReproduccion){
         this.probReproduccion = probReproduccion;
     }
 
