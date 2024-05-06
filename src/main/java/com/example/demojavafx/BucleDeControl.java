@@ -35,6 +35,30 @@ public class BucleDeControl {
         }
 
     }
+    public void addCosas() throws Superar3Recursos, Superar3Individuos {
+        IndBasico ind1 = new IndBasico(222,4,6);
+        IndNormal ind2 = new IndNormal(333,6,7);
+        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
+        Agua agua = new Agua(3,4);
+        Comida comida = new Comida(2,3);
+        Montana montana = new Montana(4,5);
+        Biblioteca biblioteca = new Biblioteca(3,45);
+        Tesoro tesoro = new Tesoro(3,32);
+        Pozo pozo = new Pozo(6);
+        matriz[0][2].addRecurso(agua);
+        matriz[0][2].addRecurso(tesoro);
+        matriz[0][2].addRecurso(biblioteca);
+        matriz[1][0].addRecurso(comida);
+        matriz[1][2].addRecurso(montana);
+        matriz[1][1].addRecurso(pozo);
+        matriz[0][2].addIndividuo(ind1);
+        matriz[1][0].addIndividuo(ind2);
+        matriz[1][2].addIndividuo(ind3);
+
+
+    }
+
+
 
 
     public int getColumna() {

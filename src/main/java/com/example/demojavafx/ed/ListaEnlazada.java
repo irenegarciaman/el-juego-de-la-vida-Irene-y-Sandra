@@ -193,4 +193,15 @@ ListaEnlazada<TipoDelDato> {
             System.out.println("Arbol Cargado");
         }
     }
+    @Override
+    public String toString() {
+        String res = "";
+        int aux = 0;
+        while(aux < this.getNumeroElementos()){
+            res += getElemento(aux).getData().toString() + " ";
+            aux++;
+        }
+        return res;
+    }
+
 }

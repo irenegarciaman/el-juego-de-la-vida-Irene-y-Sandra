@@ -1,15 +1,20 @@
 package com.example.demojavafx;
 
 import com.example.demojavafx.individuos.IndividuoProperties;
-import com.example.demojavafx.matriz.MatrizProperties;
 import com.example.demojavafx.recursos.*;
-import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -132,23 +137,23 @@ public class RecursosController implements Initializable {
 
 
     // Recursos medidas
-    protected FloatProperty medida = new SimpleFloatProperty(0);
+    protected IntegerProperty medida = new SimpleIntegerProperty(0);
 
-    protected FloatProperty medB1 = new SimpleFloatProperty(0);
-    protected FloatProperty medB2 = new SimpleFloatProperty(0);
+    protected IntegerProperty medB1 = new SimpleIntegerProperty(0);
+    protected IntegerProperty medB2 = new SimpleIntegerProperty(0);
 
-    protected FloatProperty medT1 = new SimpleFloatProperty(0);
-    protected FloatProperty medT2 = new SimpleFloatProperty(0);
+    protected IntegerProperty medT1 = new SimpleIntegerProperty(0);
+    protected IntegerProperty medT2 = new SimpleIntegerProperty(0);
 
-    protected FloatProperty medC1 = new SimpleFloatProperty(0);
+    protected IntegerProperty medC1 = new SimpleIntegerProperty(0);
     protected IntegerProperty medC2 = new SimpleIntegerProperty(0);
 
-    protected FloatProperty medM1 = new SimpleFloatProperty(0);
+    protected IntegerProperty medM1 = new SimpleIntegerProperty(0);
     protected IntegerProperty medM2 = new SimpleIntegerProperty(0);
 
-    protected FloatProperty medP1 = new SimpleFloatProperty(0);
+    protected IntegerProperty medP1 = new SimpleIntegerProperty(0);
 
-    protected FloatProperty medA1 = new SimpleFloatProperty(0);
+    protected IntegerProperty medA1 = new SimpleIntegerProperty(0);
     protected IntegerProperty medA2 = new SimpleIntegerProperty(0);
 
     //Individuos medidas
@@ -232,7 +237,7 @@ public class RecursosController implements Initializable {
     //Individuos model
     private IndividuoProperties individuoModel;
     //Matriz mode
-    private MatrizProperties matrizModel;
+    private BucleDeControlProperties matrizModel;
 
 
     protected void updateGUIwithModel() {
@@ -276,7 +281,7 @@ public class RecursosController implements Initializable {
                              BibliotecaProperties parametrosBiblioteca, ComidaProperties parametrosComida,
                              MontanaProperties parametrosMontana, PozoProperties parametrosPozo,
                              TesoroProperties parametrosTesoro, IndividuoProperties parametrosInd,
-                             MatrizProperties parametroMatriz) {
+                             BucleDeControlProperties parametroMatriz) {
         this.recursosModel = parametrosRecursos;
         this.aguaModel = parametrosAgua;
         this.bibliotecaModel = parametrosBiblioteca;
@@ -304,6 +309,10 @@ public class RecursosController implements Initializable {
         tesoroModel.commit();
         individuoModel.commit();
         matrizModel.commit();
+
+        scene.close();
+        nuevaVentanaMatriz();
+
     }
     public void cerrarButton(){
         scene.close();
@@ -318,6 +327,68 @@ public class RecursosController implements Initializable {
         tesoroModel.rollback();
         individuoModel.rollback();
         matrizModel.rollback();
+    }
+
+    private BucleDeControl matriz = new BucleDeControl(16, 16);
+    private BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
+
+    public void nuevaVentanaMatriz(){
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matriz1.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stage.setTitle("Posicion Usuarios: ");
+            stage.setScene(scene);
+            //Recursos
+            Matriz1Controller p = fxmlLoader.getController();
+            p.loadUserData(this.modeloMatriz);
+
+
+            int filas = matrizModel.original.getFila();
+            int columnas = matrizModel.original.getColumna();
+            matrizModel.original.addCosas();
+
+
+            GridPane mainGrid = new GridPane();
+            for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
+                    int numI = matrizModel.original.matriz[i][j].getListaIndividuo().getNumeroElementos();
+                    int numR = matrizModel.original.matriz[i][j].getListaRecurso().getNumeroElementos();
+
+                    Button b = new Button("nºInd: " + numI + "\n nºRec: " + numR);
+                    VBox placeholder = new VBox(b);
+                    int finalJ = j;
+                    int finalI = i;
+                    EventHandler e = new EventHandler() {
+                        @Override
+                        public void handle(Event event) {
+                            p.onButtonAction(finalI, finalJ);
+                        }
+                    };
+                    b.setOnAction(e);
+                    b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                    placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
+                    placeholder.setMaxSize(100,100);
+                    placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
+                    mainGrid.add(placeholder,i,j);
+
+                    // OJO!: Tal como está programado, pierdo la referencia a los labels...
+                    //       Si los quisiese usar después, debería guardarlos de alguna manera en algún sitio
+                    // Pista: los quieres guardar para poder cambiar lo que aparece en pantalla :)
+                }
+            }
+            p.setStage(stage);
+            stage.show();
+
+            Scene scene2 = new Scene(mainGrid, 600, 600);
+
+            stage.setScene(scene2);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

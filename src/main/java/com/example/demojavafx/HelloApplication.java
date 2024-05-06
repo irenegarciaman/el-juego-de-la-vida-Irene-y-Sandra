@@ -51,7 +51,7 @@ public class HelloApplication extends Application {
 
         log.info("Inicio del método de arranque de la aplicación para mostrar un menú de inicio");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 400, 200);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
