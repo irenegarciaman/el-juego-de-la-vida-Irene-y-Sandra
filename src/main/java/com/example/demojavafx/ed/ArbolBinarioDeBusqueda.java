@@ -488,6 +488,37 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
         }
     }
 
+    public String showNode(NodoArbol<TipoDeDatos> n){
+        String res = "";
+        if (n.getIzquierda()!=null){
+            res += showNode(n.izquierda);
+        }
+        res += "\nNode " + n.dato;
+        if(n.getDerecha()!=null){
+            res += showNode(n.derecha);
+        }
+
+        return res;
+    }
+    public String showEnlaces(NodoArbol<TipoDeDatos> n){
+        String res = "";
+        if (n.getIzquierda()!=null){
+            res += "\n" + n.dato + "--" + n.derecha.dato;
+            res += showEnlaces(n.izquierda);
+        }
+        if(n.getDerecha()!=null){
+            res += "\n" + n.dato + "--" + n.izquierda.dato ;
+            res += showEnlaces(n.derecha);
+        }
+
+        return res;
+    }
+    public String show(){
+        NodoArbol<TipoDeDatos> raiz = this.raiz;
+        return showNode(raiz) + "\n" + showEnlaces(raiz);
+    }
+
+
 }
 
 

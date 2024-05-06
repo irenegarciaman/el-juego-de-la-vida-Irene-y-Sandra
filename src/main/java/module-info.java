@@ -11,6 +11,7 @@ module com.example.demojavafx {
     requires java.desktop;
     requires org.apache.logging.log4j;
     requires com.google.gson;
+    requires plantuml;
 
 
     opens com.example.demojavafx to javafx.fxml;

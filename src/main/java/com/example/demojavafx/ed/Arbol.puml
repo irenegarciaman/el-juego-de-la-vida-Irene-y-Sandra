@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+Node 10
+Node 20
+Node 25
+Node 30
+Node 35
+Node 40
+Node 50
+
+30--40
+20--25
+20--10
+30--20
+40--50
+40--35
+
+
+@enduml
