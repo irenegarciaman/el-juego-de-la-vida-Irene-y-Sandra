@@ -19,12 +19,23 @@ public class BucleDeControl {
     public Celda matriz[][];
     int turno=0;
 
+
     /**
      * Constructor
      **/
     public BucleDeControl(int fila, int columna) {
+        this.columna = columna;
+        this.fila = fila;
         this.matriz = new Celda[fila][columna];
+       for (int i= 0; i<fila; i++){
+            for (int j= 0; j<columna;j++){
+                Celda n = new Celda();
+                this.matriz[i][j]=n;
+            }
+        }
+
     }
+
 
     public int getColumna() {
         return columna;
@@ -45,8 +56,8 @@ public class BucleDeControl {
 
 
     public void actualizarIndividuo(){
-        for(int i=0;i<columna;i++){
-            for(int j=0;j<fila;j++){
+        for(int i=0;i<=columna-1;i++){
+            for(int j=0;j<=fila-1;j++){
                 for(int k=0;k<=matriz[j][i].getListaIndividuo().getNumeroElementos()-1 ;k++){
                     Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
                     individuo.setTurnosRestantes(individuo.getTurnosRestantes()-1);
@@ -114,24 +125,24 @@ public class BucleDeControl {
         for(int i=0;i<columna;i++) {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
-                    if (k==2){
+                    if (k==1){
                         Random rand = new Random();
                         int random =rand.nextInt(101);
                         Individuo ind1 = matriz[j][i].getListaIndividuo().getElemento(0).getData();
                         Individuo ind2 = matriz[j][i].getListaIndividuo().getElemento(1).getData();
                         if (random<ind1.getProbReproduccion() && random<ind2.getProbReproduccion()) {
                             if (ind1.getClass() == IndAvanzado.class || ind2.getClass() == IndAvanzado.class) {
-                                IndAvanzado ind3 = new IndAvanzado(ind1.getId() + 1, turno);
+                                IndAvanzado ind3 = new IndAvanzado(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                                 matriz[j][i].addIndividuo(ind3);
                             } else if (ind1.getClass() == IndNormal.class || ind2.getClass() == IndNormal.class) {
-                                IndNormal ind3 = new IndNormal(ind1.getId(), turno);
+                                IndNormal ind3 = new IndNormal(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 matriz[j][i].addIndividuo(ind3);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                             } else {
-                                IndBasico ind3 = new IndBasico(ind1.getId() + 1, turno);
+                                IndBasico ind3 = new IndBasico(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 matriz[j][i].addIndividuo(ind3);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
@@ -161,6 +172,7 @@ public class BucleDeControl {
                         nodoNuevo.setIzquierda(null);
                         clonado.getArbolGenealogico().raiz = nodoNuevo;
                         matriz[j][i].addIndividuo(clonado);
+                        break;//Para que solo clone el individuo una vez
                     }
                 }
             }

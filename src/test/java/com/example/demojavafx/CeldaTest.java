@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CeldaTest {
     Celda celda = new Celda();
-    IndBasico individuo = new IndBasico(0, 3);
+    IndBasico individuo = new IndBasico(0, 3,3);
     Recursos recurso = new Recursos(1, 2, 3, 4);
 
     @Test

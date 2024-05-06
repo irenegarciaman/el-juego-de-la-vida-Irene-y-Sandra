@@ -17,7 +17,13 @@ public abstract class Individuo {
     int posM;
     ArbolBinarioDeBusqueda<Individuo> arbolGenealogico;
 
-
+    public Individuo(int id, int generacion, int turnosRestantes) {
+        this.id = id;
+        this.generacion = generacion;
+        this.turnosRestantes = turnosRestantes;
+        this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
+        this.arbolGenealogico.raiz = new NodoArbol<>(this);
+    }
 
     public Individuo(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
         this.id = id;
@@ -49,12 +55,7 @@ public abstract class Individuo {
         this.arbolGenealogico.raiz = new NodoArbol<>(this);
     }
 
-    public Individuo(int id, int turnoVidaRestantes) {
-        this.id = id;
-        this.turnosRestantes = turnoVidaRestantes;
-        this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
-        this.arbolGenealogico.raiz = new NodoArbol<>(this);
-    }
+
 
     public int getId() {
         return id;

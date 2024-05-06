@@ -1,6 +1,5 @@
 package com.example.demojavafx.individuos;
 
-import com.example.demojavafx.BucleDeControl;
 import com.example.demojavafx.Celda;
 import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.recursos.Recursos;
@@ -12,8 +11,8 @@ public class IndNormal extends Individuo {
         super(id);
     }
 
-    public IndNormal(int id, int gerenacion) {
-        super(id, gerenacion);
+    public IndNormal(int id, int gerenacion, int turnsRestantes) {
+        super(id, gerenacion, turnsRestantes);
     }
     @Override
     public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz){

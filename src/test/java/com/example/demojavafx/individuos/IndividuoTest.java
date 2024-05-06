@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class IndividuoTest {
     IndBasico individuo = new IndBasico(3);
 
-    IndBasico individuo2 = new IndBasico(3, 3);
+    IndBasico individuo2 = new IndBasico(3, 3,3);
 
     IndAvanzado individuo3 = new IndAvanzado(3, 3, 3,
             4, 5, 6);

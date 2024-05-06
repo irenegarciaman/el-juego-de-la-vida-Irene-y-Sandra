@@ -1,12 +1,8 @@
 package com.example.demojavafx.individuos;
 
-import com.example.demojavafx.BucleDeControl;
 import com.example.demojavafx.Celda;
 import com.example.demojavafx.ed.*;
-import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.recursos.*;
-
-import java.util.Random;
 
 public class IndAvanzado extends Individuo {
     String claseRecurso;
@@ -22,8 +18,8 @@ public class IndAvanzado extends Individuo {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
     }
 
-    public IndAvanzado(int id, int gerenacion) {
-        super(id, gerenacion);
+    public IndAvanzado(int id, int gerenacion, int turnosRestantes) {
+        super(id, gerenacion, turnosRestantes);
     }
     @Override
     public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz){

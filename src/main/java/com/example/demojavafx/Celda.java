@@ -13,8 +13,8 @@ public class Celda {
     private ListaEnlazada<Recursos> listaRecurso;
 
     public Celda() {
-        ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>();
-        ListaEnlazada<Recursos> listaRecurso = new ListaEnlazada<>();
+        ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>(null);
+        ListaEnlazada<Recursos> listaRecurso = new ListaEnlazada<>(null);
         this.listaIndividuo = listaIndividuo;
         this.listaRecurso = listaRecurso;
     }
@@ -45,7 +45,6 @@ public class Celda {
     public void addIndividuo(Individuo individuo) throws Superar3Individuos {
         listaIndividuo.add(individuo);
         if (listaIndividuo.getNumeroElementos() > 3) {
-
             throw new Superar3Individuos(listaIndividuo);
         }
 
