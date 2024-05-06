@@ -1,6 +1,8 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.ed.ListaSimple;
+import com.example.demojavafx.excepciones.Superar3Individuos;
 
 import java.util.Random;
 
@@ -12,49 +14,67 @@ public class IndBasico extends Individuo {
     public IndBasico(int id, int generacion, int turnosRestantes) {
         super(id, generacion, turnosRestantes);
     }
+
+    public IndBasico(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte) {
+        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
+    }
+
     @Override
-    public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) {
-        Random rand = new Random();
-        int random = rand.nextInt(4);
+    public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) throws Superar3Individuos {
+
         /***
          * 0 = arriba
          * 1 = abajo
          * 2 = dcha
          * 3 = izq
          */
+        ListaSimple<Integer> numeros = new ListaSimple<>();
+        if (this.posN != 0){
+            numeros.add(0);
+        }
+        if (this.posN != maxFilas-1){
+            numeros.add(1);
+        }
+        if(this.posM != maxColumnas-1){
+            numeros.add(2);
+        }
+        if(this.posM != 0){
+            numeros.add(3);
+        }
+
+        Random rand = new Random();
+        int indiceRandom = rand.nextInt(numeros.getNumeroElementos());
+        int random = numeros.getElemento(indiceRandom).getData();
+
         if(random == 0){
-            int aux = maxFilas - posN;
-            int tope = maxFilas - aux -1;
-            if (tope<0){
-                tope = tope*(-1);
-            }
-            int rand2 = rand.nextInt(tope);
-            posN -= rand2;
+            matriz[this.posN][this.posM].eliminarIndividuo(this);
+            int tope = this.posN;
+            int rand2 = rand.nextInt(1,tope+1);
+            this.posN -= rand2;
+            matriz[this.posN][this.posM].addIndividuo(this);
         }
         else if(random == 1){
-            int tope = maxFilas - posN;
-            if (tope<0){
-                tope = tope*(-1);
-            }
-            int rand2 = rand.nextInt(tope);
+            matriz[this.posN][this.posM].eliminarIndividuo(this);
+            int aux = maxFilas - posN;
+            int tope = aux - 1;
+            int rand2 = rand.nextInt(1,tope+1);
             posN += rand2;
+            matriz[this.posN][this.posM].addIndividuo(this);
         }
         else if(random == 2){
-            int tope = maxColumnas - posM;
-            if (tope<0){
-                tope = tope*(-1);
-            }
-            int rand2 = rand.nextInt(tope);
+            matriz[this.posN][this.posM].eliminarIndividuo(this);
+            int aux = maxColumnas - posM;
+            int tope = aux -1;
+            int rand2 = rand.nextInt(1,tope+1);
             posM += rand2;
+            matriz[this.posN][this.posM].addIndividuo(this);
         }
         else {
-            int aux = maxColumnas - posM;
-            int tope = maxColumnas - aux -1;
-            if (tope<0){
-                tope = tope*(-1);
-            }
-            int rand2 = rand.nextInt(tope);
+            matriz[this.posN][this.posM].eliminarIndividuo(this);
+            int tope = posM;
+            int rand2 = rand.nextInt(1,tope+1);
             posM -= rand2;
+            matriz[this.posN][this.posM].addIndividuo(this);
         }
     }
 
