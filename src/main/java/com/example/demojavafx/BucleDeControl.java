@@ -85,6 +85,8 @@ public class BucleDeControl {
                 for(int k=0;k<=matriz[j][i].getListaIndividuo().getNumeroElementos()-1 ;k++){
                     Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
                     individuo.setTurnosRestantes(individuo.getTurnosRestantes()-1);
+                    individuo.setProbReproduccion(individuo.getProbReproduccion()-10);
+                    individuo.setProbClonacion(individuo.getProbClonacion()-10);
                     if(individuo.getTurnosRestantes()==0){
                         matriz[j][i].eliminarIndividuo(individuo);
                     }
@@ -106,12 +108,31 @@ public class BucleDeControl {
         }
     }
 
-    public void movimiento(){
+    public void movimiento() throws Superar3Individuos {
+        ListaEnlazada<Integer> listaId = new ListaEnlazada<>();
         for(int i=0;i<columna;i++) {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
-                    Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
-                    individuo.moverse(columna, fila, matriz);
+                    int id = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
+                    listaId.add(id);
+                }
+            }
+        }
+        for(int i=0;i<columna;i++) {
+            for (int j = 0; j < fila; j++) {
+                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
+                        int id2 = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
+                        ElementoLE<Integer> elem = new ElementoLE<>(id2);
+                        if (listaId.getPosicion(elem) != -1) {
+                            Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
+                            individuo.moverse(columna, fila, matriz);
+                            int pos = listaId.getPosicion(new ElementoLE<>(id2));
+                            listaId.delete(pos);
+                            if (listaId.isVacia()){
+                                break;
+                            }
+                        }
+
                 }
             }
         }

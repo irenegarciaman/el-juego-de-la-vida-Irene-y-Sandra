@@ -61,7 +61,12 @@ class BucleDeControlTest {
         IndBasico ind1 = new IndBasico(222,4,6);
         IndNormal ind2 = new IndNormal(333,6,7);
         IndAvanzado ind3 = new IndAvanzado(444, 9,1);
-
+        ind1.setProbReproduccion(90);
+        ind1.setProbClonacion(45);
+        ind2.setProbReproduccion(87);
+        ind2.setProbClonacion(34);
+        ind3.setProbReproduccion(76);
+        ind3.setProbClonacion(21);
         matriz.matriz[1][1].addIndividuo(ind3);
         matriz.matriz[0][0].addIndividuo(ind1);
         matriz.matriz[0][2].addIndividuo(ind2);
@@ -69,6 +74,12 @@ class BucleDeControlTest {
         assertEquals(5, ind1.getTurnosRestantes(), "Los turnos restantes no son iguales");
         assertEquals(6, ind2.getTurnosRestantes(), "Los turnos restantes no son iguales");
         assertEquals(0, ind3.getTurnosRestantes(), "Los turnos restantes no son iguales");
+        assertEquals(80, ind1.getProbReproduccion());
+        assertEquals(35, ind1.getProbClonacion());
+        assertEquals(77, ind2.getProbReproduccion());
+        assertEquals(24, ind2.getProbClonacion());
+        assertEquals(66, ind3.getProbReproduccion());
+        assertEquals(11, ind3.getProbClonacion());
     }
 
     @Test
@@ -90,9 +101,9 @@ class BucleDeControlTest {
         int columna = 3;
         int fila = 2;
         BucleDeControl matriz = new BucleDeControl(fila,columna);
-        IndBasico ind1 = new IndBasico(222,4,6);
-        IndNormal ind2 = new IndNormal(333,6,7);
-        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
+        IndAvanzado ind1 = new IndAvanzado(222,4,6,"montaña");
+        IndAvanzado ind2 = new IndAvanzado(333,6,7,"agua");
+        IndAvanzado ind3 = new IndAvanzado(444, 9,1,"pozo");
         Agua agua = new Agua(3,4);
         Comida comida = new Comida(2,3);
         Montana montana = new Montana(4,5);
@@ -108,7 +119,24 @@ class BucleDeControlTest {
         matriz.matriz[0][2].addIndividuo(ind1);
         matriz.matriz[1][0].addIndividuo(ind2);
         matriz.matriz[1][2].addIndividuo(ind3);
-        matriz.movimiento();
+        ind1.setPosN(0);
+        ind1.setPosM(2);
+        ind2.setPosN(1);
+        ind2.setPosM(0);
+        ind3.setPosN(1);
+        ind3.setPosM(2);
+        agua.setPosN(0);
+        agua.setPosM(2);
+        tesoro.setPosN(0);
+        tesoro.setPosM(2);
+        biblioteca.setPosN(0);
+        biblioteca.setPosM(2);
+        comida.setPosN(1);
+        comida.setPosM(0);
+        montana.setPosN(1);
+        montana.setPosM(2);
+        pozo.setPosN(1);
+        pozo.setPosM(1);
         assertDoesNotThrow(()->matriz.movimiento());
     }
 
@@ -239,10 +267,10 @@ class BucleDeControlTest {
         int columna = 3;
         int fila = 2;
         BucleDeControl b = new BucleDeControl(fila,columna);
-        IndBasico ind1 = new IndBasico(222,4,6);
-        IndNormal ind2 = new IndNormal(333,6,7);
-        IndAvanzado ind3 = new IndAvanzado(444, 9,9);
-        IndAvanzado ind4 = new IndAvanzado(444, 9,9);
+        IndBasico ind1 = new IndBasico(222,0,6);
+        IndNormal ind2 = new IndNormal(333,0,7);
+        IndAvanzado ind3 = new IndAvanzado(444, 0,9);
+        IndAvanzado ind4 = new IndAvanzado(444, 0,9);
         Agua agua = new Agua(3,4);
         Comida comida = new Comida(2,3);
         Montana montana = new Montana(4,5);

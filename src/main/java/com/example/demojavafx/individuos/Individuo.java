@@ -5,6 +5,7 @@ import com.example.demojavafx.Celda;
 import com.example.demojavafx.ed.ArbolBinarioDeBusqueda;
 import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.PorcentajeValido;
+import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.matriz.Matriz;
 
 public abstract class Individuo {
@@ -122,7 +123,7 @@ public abstract class Individuo {
         this.posN = posN;
     }
 
-    public abstract void moverse(int maxColumnas, int maxFilas, Celda[][] matriz);
+    public abstract void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) throws Superar3Individuos;
 
     public ArbolBinarioDeBusqueda<Individuo> getArbolGenealogico() {
         return arbolGenealogico;

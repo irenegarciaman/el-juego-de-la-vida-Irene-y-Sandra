@@ -79,12 +79,14 @@ ListaEnlazada<TipoDelDato> {
             primero = primero.getSiguiente();
         } else {
             int contador = 0;
-            ElementoLE<TipoDelDato> temporal = primero;
-            while (contador < posicion - 1) {
-                temporal = temporal.getSiguiente();
-                contador++;
+            if(!isVacia()) {
+                ElementoLE<TipoDelDato> temporal = primero;
+                while (contador < posicion - 1) {
+                    temporal = temporal.getSiguiente();
+                    contador++;
+                }
+                temporal.setSiguiente(temporal.getSiguiente().getSiguiente());
             }
-            temporal.setSiguiente(temporal.getSiguiente().getSiguiente());
         }
 
     }
@@ -106,7 +108,7 @@ ListaEnlazada<TipoDelDato> {
         int posicion = 0;
         if (!isVacia()) {
             ElementoLE<TipoDelDato> cabeza = this.primero;
-            while (!cabeza.getData().equals(el.getData()) && posicion < getNumeroElementos()) {
+            while (!cabeza.getData().equals(el.getData()) && posicion < getNumeroElementos()-1) {
                 cabeza = cabeza.getSiguiente();
                 posicion++;
             }
