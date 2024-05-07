@@ -14,6 +14,10 @@ public class BucleDeControlProperties {
     private IntegerProperty columnas = new SimpleIntegerProperty();
     private IntegerProperty filas = new SimpleIntegerProperty();
 
+    protected Celda[][] matriz = new Celda[columnas.get()][columnas.get()];
+
+
+
 
     public BucleDeControlProperties(BucleDeControl original) {
         setOriginal(original);
@@ -22,6 +26,7 @@ public class BucleDeControlProperties {
     public void commit() {
         original.setColumna(columnas.get());
         original.setFila(filas.get());
+        original.matriz = matriz;
         log.trace("Enviando una traza de ejecución");
         log.debug("Enviado un debug");
         log.info("Enviando un info");
@@ -36,6 +41,7 @@ public class BucleDeControlProperties {
     public void rollback() {
         columnas.set(original.getColumna());
         filas.set(original.getFila());
+        matriz = original.matriz;
         log.trace("Enviando una traza de ejecución");
         log.debug("Enviado un debug");
         log.info("Enviando un info");
@@ -75,6 +81,9 @@ public class BucleDeControlProperties {
     public Property<Number> filasProperty() {
         return filas;
 
+    }
+    public Celda[][] matrizProperty() {
+        return matriz;
     }
 
 }

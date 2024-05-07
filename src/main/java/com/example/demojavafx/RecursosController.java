@@ -133,6 +133,8 @@ public class RecursosController implements Initializable {
     private Button cerrarButton;
 
 
+
+
     private Stage scene;
 
 
@@ -329,8 +331,8 @@ public class RecursosController implements Initializable {
         matrizModel.rollback();
     }
 
-    private BucleDeControl matriz = new BucleDeControl(16, 16);
-    private BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
+    protected BucleDeControl matriz = new BucleDeControl(16, 16);
+    protected BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
 
     public void nuevaVentanaMatriz(){
         Stage stage = new Stage();
@@ -350,19 +352,24 @@ public class RecursosController implements Initializable {
 
 
             GridPane mainGrid = new GridPane();
-            for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
+            ScrollPane scrollPane = new ScrollPane(mainGrid);
+
+            for (int j = 0; j < filas; j++) {
+                for (int i = 0; i < columnas; i++) {
                     int numI = matrizModel.original.matriz[i][j].getListaIndividuo().getNumeroElementos();
                     int numR = matrizModel.original.matriz[i][j].getListaRecurso().getNumeroElementos();
+                    String label = "nºInd: " + numI + "\n nºRec: " + numR;
+                    Button b = new Button(label);
+                    b.setId(label);
 
-                    Button b = new Button("nºInd: " + numI + "\n nºRec: " + numR);
                     VBox placeholder = new VBox(b);
                     int finalJ = j;
                     int finalI = i;
+                    RecursosController rec = this;
                     EventHandler e = new EventHandler() {
                         @Override
                         public void handle(Event event) {
-                            p.onButtonAction(finalI, finalJ);
+                            p.onButtonAction(finalI, finalJ,rec);
                         }
                     };
                     b.setOnAction(e);
@@ -380,9 +387,9 @@ public class RecursosController implements Initializable {
             p.setStage(stage);
             stage.show();
 
-            Scene scene2 = new Scene(mainGrid, 600, 600);
-
-            stage.setScene(scene2);
+            Scene scene2 = new Scene(scrollPane, 600, 600);
+            scene = scene2;
+            stage.setScene(scene);
             stage.show();
 
         } catch (Exception e) {
@@ -390,6 +397,7 @@ public class RecursosController implements Initializable {
         }
 
     }
+
 
 
 

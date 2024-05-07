@@ -46,8 +46,8 @@ public class BucleDeControl {
         Tesoro tesoro = new Tesoro(3,32);
         Pozo pozo = new Pozo(6);
         matriz[0][2].addRecurso(agua);
-        matriz[0][2].addRecurso(tesoro);
-        matriz[0][2].addRecurso(biblioteca);
+        //matriz[0][2].addRecurso(tesoro);
+        //matriz[0][2].addRecurso(biblioteca);
         matriz[1][0].addRecurso(comida);
         matriz[1][2].addRecurso(montana);
         matriz[1][1].addRecurso(pozo);
