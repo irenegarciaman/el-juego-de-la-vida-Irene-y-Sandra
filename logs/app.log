@@ -1,6 +1,8 @@
-2024-04-23 20:44:14.213 - INFO  - es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication - Inicio del método de arranque de la aplicación para mostrar un grid de forma programática
-2024-04-23 20:44:14.442 - INFO  - es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication - Enviando un info
-2024-04-23 20:44:14.442 - WARN  - es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication - Enviando un aviso
-2024-04-23 20:44:14.442 - ERROR - es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication - Enviando un error
-2024-04-23 20:44:14.442 - FATAL - es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication - Enviando una explosión fatal
-2024-04-23 20:44:14.442 - INFO  - es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication - Fin del método de arranque de la aplicación para mostrar un grid de forma programática
+2024-05-07 21:42:34.826 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-07 21:42:34.838 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-07 21:42:34.838 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-07 21:42:34.838 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-07 21:42:35.055 - ERROR - com.example.demojavafx.HelloController - Enviando un error
+2024-05-07 21:42:35.056 - FATAL - com.example.demojavafx.HelloController - Enviando una explosión fatal
+2024-05-07 21:42:35.256 - ERROR - com.example.demojavafx.HelloApplication - Enviando un error
+2024-05-07 21:42:35.256 - FATAL - com.example.demojavafx.HelloApplication - Enviando una explosión fatal
