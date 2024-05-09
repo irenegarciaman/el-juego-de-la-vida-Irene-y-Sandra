@@ -302,7 +302,7 @@ class BucleDeControlTest {
         b.matriz[1][0].addIndividuo(ind2);
         b.matriz[1][2].addIndividuo(ind3);
         assertFalse(b.condicionFinalizacion());
-
+        //nfjkjnfd
         int columna2 = 8;
         int fila2 = 4;
 
