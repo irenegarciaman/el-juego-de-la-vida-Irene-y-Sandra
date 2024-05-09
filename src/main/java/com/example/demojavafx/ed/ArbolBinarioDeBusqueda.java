@@ -1,5 +1,14 @@
 package com.example.demojavafx.ed;
 
+import net.sourceforge.plantuml.*;
+import net.sourceforge.plantuml.api.ImageDataComplex;
+import net.sourceforge.plantuml.api.ImageDataSimple;
+import net.sourceforge.plantuml.core.Diagram;
+import net.sourceforge.plantuml.core.DiagramDescription;
+import net.sourceforge.plantuml.core.ImageData;
+
+import java.io.*;
+
 public class ArbolBinarioDeBusqueda<TipoDeDatos> {
     public NodoArbol<TipoDeDatos> raiz;
 
@@ -503,11 +512,11 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
     public String showEnlaces(NodoArbol<TipoDeDatos> n){
         String res = "";
         if (n.getIzquierda()!=null){
-            res += "\n" + n.dato + "--" + n.derecha.dato;
+            res += "\n" + n.dato + "--" + n.izquierda.dato;
             res += showEnlaces(n.izquierda);
         }
         if(n.getDerecha()!=null){
-            res += "\n" + n.dato + "--" + n.izquierda.dato ;
+            res += "\n" + n.dato + "--" + n.derecha.dato ;
             res += showEnlaces(n.derecha);
         }
 
@@ -516,6 +525,20 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
     public String show(){
         NodoArbol<TipoDeDatos> raiz = this.raiz;
         return showNode(raiz) + "\n" + showEnlaces(raiz);
+    }
+
+    public void crearPNG(String diagramText) throws FileNotFoundException {
+        
+    }//tree view
+    public static void main(String[] args) throws FileNotFoundException {
+        ArbolBinarioDeBusqueda<Integer > arbol2 = new ArbolBinarioDeBusqueda<>();
+        arbol2.add(30);
+        arbol2.add(40);
+        arbol2.add(20);
+        arbol2.add(10);
+        arbol2.add(25);
+        arbol2.add(35);
+        arbol2.crearPNG(arbol2.show());
     }
 
 

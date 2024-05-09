@@ -32,6 +32,8 @@ public class Matriz1Controller implements Initializable {
 
     private BucleDeControlProperties matrizModel;
 
+    private CeldaProperties m;
+
 
 
     @Override
@@ -47,9 +49,10 @@ public class Matriz1Controller implements Initializable {
 
 
 
-    public void loadUserData(BucleDeControlProperties parametrosBucleDeControl) {
+    public void loadUserData(BucleDeControlProperties parametrosBucleDeControl,CeldaProperties celdaProp) {
         this.matrizModel = parametrosBucleDeControl;
         this.updateGUIwithModel();
+        m = celdaProp;
     }
 
     public void setStage(Stage s) {
@@ -146,7 +149,8 @@ public class Matriz1Controller implements Initializable {
                         System.out.println("if");
                         Agua agua = new Agua();
                         try {
-                            matrizModel.matriz[f][c].addRecurso(agua);
+                            m.properties[f][c].addRecurso(agua);
+                            m.commit();
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -254,6 +258,10 @@ public class Matriz1Controller implements Initializable {
             EventHandler eventButtonGuardar = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     matrizModel.commit();
+                    m.commit();
+                    rec.loadUserData(rec.getRecursosModel(),rec.getAguaModel(),rec.getBibliotecaModel(),rec.getComidaModel(),rec.getMontanaModel(),rec.getPozoModel(),rec.getTesoroModel(),rec.getIndividuoModel(),matrizModel);
+                    rec.actualizarButton(f,c);
+                    stage.close();
                 }
             };
             button1.setOnAction(eventButtonGuardar);

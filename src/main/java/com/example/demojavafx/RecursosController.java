@@ -1,5 +1,6 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.individuos.IndividuoProperties;
 import com.example.demojavafx.recursos.*;
 import javafx.beans.property.IntegerProperty;
@@ -133,8 +134,6 @@ public class RecursosController implements Initializable {
     private Button cerrarButton;
 
 
-
-
     private Stage scene;
 
 
@@ -241,6 +240,41 @@ public class RecursosController implements Initializable {
     //Matriz mode
     private BucleDeControlProperties matrizModel;
 
+    public RecursosProperties getRecursosModel() {
+        return recursosModel;
+    }
+
+    public AguaProperties getAguaModel() {
+        return aguaModel;
+    }
+
+    public BibliotecaProperties getBibliotecaModel() {
+        return bibliotecaModel;
+    }
+
+    public ComidaProperties getComidaModel() {
+        return comidaModel;
+    }
+
+    public MontanaProperties getMontanaModel() {
+        return montanaModel;
+    }
+
+    public PozoProperties getPozoModel() {
+        return pozoModel;
+    }
+
+    public TesoroProperties getTesoroModel() {
+        return tesoroModel;
+    }
+
+    public IndividuoProperties getIndividuoModel() {
+        return individuoModel;
+    }
+
+    public BucleDeControlProperties getMatrizModel() {
+        return matrizModel;
+    }
 
     protected void updateGUIwithModel() {
         sliderProbNuevoRecurso.valueProperty().bindBidirectional(recursosModel.probNuevoRecursoProperty());
@@ -316,10 +350,12 @@ public class RecursosController implements Initializable {
         nuevaVentanaMatriz();
 
     }
-    public void cerrarButton(){
+
+    public void cerrarButton() {
         scene.close();
     }
-    public void cancelarButton(){
+
+    public void cancelarButton() {
         recursosModel.rollback();
         aguaModel.rollback();
         bibliotecaModel.rollback();
@@ -334,7 +370,13 @@ public class RecursosController implements Initializable {
     protected BucleDeControl matriz = new BucleDeControl(16, 16);
     protected BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
 
-    public void nuevaVentanaMatriz(){
+    protected Celda[][] celda = matriz.matriz;
+    protected CeldaProperties modeloCelda = new CeldaProperties(celda);
+
+    public ListaEnlazada<Button> listaButton = new ListaEnlazada<>();
+
+
+    public void nuevaVentanaMatriz() {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matriz1.fxml"));
         try {
@@ -343,7 +385,7 @@ public class RecursosController implements Initializable {
             stage.setScene(scene);
             //Recursos
             Matriz1Controller p = fxmlLoader.getController();
-            p.loadUserData(this.modeloMatriz);
+            p.loadUserData(this.modeloMatriz,this.modeloCelda);
 
 
             int filas = matrizModel.original.getFila();
@@ -354,13 +396,16 @@ public class RecursosController implements Initializable {
             GridPane mainGrid = new GridPane();
             ScrollPane scrollPane = new ScrollPane(mainGrid);
 
+            System.out.println(matrizModel.original.matriz[0][0].getListaIndividuo().getNumeroElementos());
+
             for (int j = 0; j < filas; j++) {
                 for (int i = 0; i < columnas; i++) {
                     int numI = matrizModel.original.matriz[i][j].getListaIndividuo().getNumeroElementos();
                     int numR = matrizModel.original.matriz[i][j].getListaRecurso().getNumeroElementos();
                     String label = "nºInd: " + numI + "\n nºRec: " + numR;
                     Button b = new Button(label);
-                    b.setId(label);
+                    b.setId(i + "," + j);
+                    listaButton.add(b);
 
                     VBox placeholder = new VBox(b);
                     int finalJ = j;
@@ -369,15 +414,15 @@ public class RecursosController implements Initializable {
                     EventHandler e = new EventHandler() {
                         @Override
                         public void handle(Event event) {
-                            p.onButtonAction(finalI, finalJ,rec);
+                            p.onButtonAction(finalI, finalJ, rec);
                         }
                     };
                     b.setOnAction(e);
                     b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                     placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
-                    placeholder.setMaxSize(100,100);
+                    placeholder.setMaxSize(100, 100);
                     placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
-                    mainGrid.add(placeholder,i,j);
+                    mainGrid.add(placeholder, i, j);
 
                     // OJO!: Tal como está programado, pierdo la referencia a los labels...
                     //       Si los quisiese usar después, debería guardarlos de alguna manera en algún sitio
@@ -398,7 +443,24 @@ public class RecursosController implements Initializable {
 
     }
 
+    public void actualizarButton(int f, int c) {
+        String label = f + "," + c;
+        int aux = 0;
+        Button res = new Button();
+        Button smt = new Button();
+        while (aux < listaButton.getNumeroElementos()) {
+            smt = listaButton.getElemento(aux).getData();
+            if (smt.getId() == label) {
+                res = listaButton.getElemento(aux).getData();
+            }
+            aux++;
+        }
+        int numI = matrizModel.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
+        int numR = matrizModel.original.matriz[f][c].getListaRecurso().getNumeroElementos();
+        String nombre = "nºInd: " + numI + "\n nºRec: " + numR;
+        res.setText(nombre);
 
+    }
 
 
 }

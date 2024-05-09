@@ -16,7 +16,7 @@ import java.util.Random;
 public class BucleDeControl {
     private int columna;
     private int fila;
-    public Celda matriz[][];
+    public Celda[][] matriz;
     int turno=0;
 
 
