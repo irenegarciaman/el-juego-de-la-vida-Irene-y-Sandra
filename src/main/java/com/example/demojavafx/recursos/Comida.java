@@ -13,6 +13,24 @@ public class Comida extends Recursos {
         this.aumentoDeVida = aumentoDeVida;
     }
 
+    public Comida(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int aumentoDeVida, int probComida) {
+        super(turnosRestantes, posN, posM, probNuevoRecurso);
+        this.aumentoDeVida = aumentoDeVida;
+        this.probComida = probComida;
+    }
+
+    public Comida(int turnosRestantes, int posN, int posM, int aumentoDeVida, int probComida) {
+        super(turnosRestantes, posN, posM);
+        this.aumentoDeVida = aumentoDeVida;
+        this.probComida = probComida;
+    }
+
+    public Comida(int tiempoVida, int aumentoDeVida, int probComida) {
+        super(tiempoVida);
+        this.aumentoDeVida = aumentoDeVida;
+        this.probComida = probComida;
+    }
+
     public Comida() {
     }
 

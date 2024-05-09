@@ -26,6 +26,8 @@ class MatrizTest {
     void getColumna() {
         listaIndividuo.add(individuo1);
         listaIndividuo.add(individuo2);
+        listaIndividuo.add(individuo3);
+        assertEquals(individuo3, listaIndividuo.getElemento(0).getData());
     }
 
     @Test

@@ -90,7 +90,10 @@ class ListaEnlazadaTest {
         assertEquals(2, lista.getPosicion(aux));
         assertEquals(1, lista.getPosicion(c));
         assertEquals(0, lista.getPosicion(b));
-
+        ListaEnlazada<Integer> lista23 = new ListaEnlazada<>();
+        lista23.add(3);
+        lista23.add(6);
+        assertEquals(-1,lista23.getPosicion(new ElementoLE<>(34)));
     }
 
     @Test

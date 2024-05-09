@@ -1,6 +1,11 @@
 package com.example.demojavafx.recursos;
 
 public class Tesoro extends Recursos {
+    public Tesoro(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int aumentoDePorcenRep, int probTesoro) {
+        super(turnosRestantes, posN, posM, probNuevoRecurso);
+        this.aumentoDePorcenRep = aumentoDePorcenRep;
+        this.probTesoro = probTesoro;
+    }
 
     private int aumentoDePorcenRep;
     private int probTesoro;

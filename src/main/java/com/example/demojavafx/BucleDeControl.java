@@ -121,18 +121,19 @@ public class BucleDeControl {
         for(int i=0;i<columna;i++) {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
-                        int id2 = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
-                        ElementoLE<Integer> elem = new ElementoLE<>(id2);
+                    int id2 = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
+                    ElementoLE elem = new ElementoLE<>(id2);
+                    if (!listaId.isVacia()) {//Lo he añadido nuevo
                         if (listaId.getPosicion(elem) != -1) {
                             Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
-                            individuo.moverse(columna, fila, matriz);
                             int pos = listaId.getPosicion(new ElementoLE<>(id2));
                             listaId.delete(pos);
-                            if (listaId.isVacia()){
+                            individuo.moverse(columna, fila, matriz);
+                            if (listaId.isVacia()) {
                                 break;
                             }
                         }
-
+                    }
                 }
             }
         }
@@ -224,43 +225,78 @@ public class BucleDeControl {
         }
     }
 
+    public void desaparecerIndividuos(){
+        for(int i=0;i<columna;i++) {
+            for (int j = 0; j < fila; j++) {
+                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
+                    Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
+                    if (individuo.getTurnosRestantes()==0){
+                        matriz[j][i].eliminarIndividuo(individuo);
+                    }
+                }
+            }
+        }
+    }
+
     public void nuevoRecurso() throws Superar3Recursos {
         for(int i=0;i<columna;i++) {
             for (int j = 0; j < fila; j++) {
-                for(int k=0;k<=matriz[j][i].getListaRecurso().getNumeroElementos()-1 ;k++){
-                    if (matriz[j][i].getListaRecurso().getNumeroElementos()<3){
-                        Random rand = new Random();
-                        int random = rand.nextInt(101);
-                        Recursos recurso = matriz[j][i].getListaRecurso().getElemento(k).getData();
-                        if (random>recurso.getProbNuevoRecurso()){
-                            Agua agua = new Agua();
-                            Comida comida = new Comida();
-                            Biblioteca biblioteca = new Biblioteca();
-                            Tesoro tesoro = new Tesoro();
-                            Pozo pozo = new Pozo();
-                            Montana montana = new Montana();
-                            int probTotal = (agua.getProbAgua() + comida.getProbComida() + biblioteca.getProbBiblioteca() + tesoro.getProbTesoro() + pozo.getProbPozo() + montana.getProbMontana());
-                            Random rand2 = new Random();
-                            int random2 = rand2.nextInt(probTotal+1);
-                            if (random2<agua.getProbAgua()){
-                                matriz[j][i].addRecurso(agua);
-                            }else if (random2<comida.getProbComida()){
-                                matriz[j][i].addRecurso(comida);
-                            }else if (random2<biblioteca.getProbBiblioteca()){
-                                matriz[j][i].addRecurso(biblioteca);
-                            }else if (random2<tesoro.getProbTesoro()){
-                                matriz[j][i].addRecurso(tesoro);
-                            } else if (random2<pozo.getProbPozo()) {
-                                matriz[j][i].addRecurso(pozo);
-                            } else if (random2<montana.getProbMontana()) {
-                                matriz[j][i].addRecurso(montana);
-                            }
+                Random rand = new Random();
+                int random = rand.nextInt(101);
+                Random rand3 = new Random();
+                int random3 = rand3.nextInt(101);
+                if (random<random3){
+                    Agua agua = new Agua(6,1,1,34,4,5);
+                    Comida comida = new Comida(3,2,3,2,2,4);
+                    Biblioteca biblioteca = new Biblioteca(9,3,1,3,2,1);
+                    Tesoro tesoro = new Tesoro(3,0,0,6,2,5);
+                    Pozo pozo = new Pozo(3,1,0,8,3);
+                    Montana montana = new Montana(5,0,1,8,3,7);
+                    int probTotal = (agua.getProbNuevoRecurso() + comida.getProbNuevoRecurso() + biblioteca.getProbNuevoRecurso() + tesoro.getProbNuevoRecurso() + pozo.getProbNuevoRecurso() + montana.getProbNuevoRecurso());
+                    Random rand2 = new Random();
+                    int random2 = rand2.nextInt(probTotal+1);
+                    if (random2<agua.getProbNuevoRecurso()){
+                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(agua))==-1) {
+                            matriz[j][i].addRecurso(agua);
+                            agua.setPosN(j);
+                            agua.setPosM(i);
+                        }
+                    }else if (random2<comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()){
+                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(comida))==-1) {
+                            matriz[j][i].addRecurso(comida);
+                            comida.setPosN(j);
+                            comida.setPosM(i);
+                        }
+                    }else if (random2<biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()){
+                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(biblioteca))==-1) {
+                            matriz[j][i].addRecurso(biblioteca);
+                            biblioteca.setPosN(j);
+                            biblioteca.setPosM(i);
+                        }
+                    }else if (random2<tesoro.getProbNuevoRecurso()+biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()){
+                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(tesoro))==-1) {
+                            matriz[j][i].addRecurso(tesoro);
+                            tesoro.setPosN(j);
+                            tesoro.setPosM(i);
+                        }
+                    } else if (random2<pozo.getProbNuevoRecurso()+tesoro.getProbNuevoRecurso()+biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()) {
+                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(pozo))==-1) {
+                            matriz[j][i].addRecurso(pozo);
+                            pozo.setPosN(j);
+                            pozo.setPosM(i);
+                        }
+                    } else if (random2<montana.getProbNuevoRecurso()+pozo.getProbNuevoRecurso()+tesoro.getProbNuevoRecurso()+biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()) {
+                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(montana))==-1) {
+                            matriz[j][i].addRecurso(montana);
+                            montana.setPosN(j);
+                            montana.setPosM(i);
                         }
                     }
                 }
             }
         }
     }
+
 
     public boolean condicionFinalizacion(){
         ListaEnlazada<Individuo> lista = new ListaEnlazada<>();
@@ -279,12 +315,17 @@ public class BucleDeControl {
         actualizarRecursos();
         movimiento();
         mejorasRecursos();
+        desaparecerIndividuos();
         reproducion();
         clonacion();
         nuevoRecurso();
-        if (!condicionFinalizacion()){
+        //if (!condicionFinalizacion()){
+        int i = 0;
+        while (i<3) {
             turno++;
+            i++;
             bucleEntero();
+
         }//else, funcion finalizar juego
 
     }

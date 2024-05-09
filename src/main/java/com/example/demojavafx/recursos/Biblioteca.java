@@ -14,6 +14,24 @@ public class Biblioteca extends Recursos {
         this.aumentoDePorcenClon = aumentoDePorcenClon;
     }
 
+    public Biblioteca(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int aumentoDePorcenClon, int probBiblioteca) {
+        super(turnosRestantes, posN, posM, probNuevoRecurso);
+        this.aumentoDePorcenClon = aumentoDePorcenClon;
+        this.probBiblioteca = probBiblioteca;
+    }
+
+    public Biblioteca(int turnosRestantes, int posN, int posM, int aumentoDePorcenClon, int probBiblioteca) {
+        super(turnosRestantes, posN, posM);
+        this.aumentoDePorcenClon = aumentoDePorcenClon;
+        this.probBiblioteca = probBiblioteca;
+    }
+
+    public Biblioteca(int tiempoVida, int aumentoDePorcenClon, int probBiblioteca) {
+        super(tiempoVida);
+        this.aumentoDePorcenClon = aumentoDePorcenClon;
+        this.probBiblioteca = probBiblioteca;
+    }
+
     public Biblioteca() {
     }
 

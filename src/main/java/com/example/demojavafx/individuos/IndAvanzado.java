@@ -28,109 +28,21 @@ public class IndAvanzado extends Individuo {
         this.claseRecurso = claseRecurso;
     }
 
+    public IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, String claseRecurso) {
+        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
+        this.claseRecurso = claseRecurso;
+    }
+
     @Override
     public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) throws Superar3Individuos {
         ListaEnlazada<Recursos> listaOpciones = new ListaEnlazada<>();
-        //Recorrer las filas
-        /**for (int i = 0; i < maxFilas; i++) {
-            for(int j = 0; j <matriz[i][posM].getListaRecurso().getNumeroElementos()-1 ; j++) {
-                Recursos recurso = matriz[i][posM].getListaRecurso().getElemento(j).getData();
-                if(claseRecurso=="agua"){
-                    if(recurso.getClass()== Agua.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="agua"){
-                    if(recurso.getClass()== Agua.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="comida"){
-                    if(recurso.getClass()== Comida.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="montaña"){
-                    if(recurso.getClass()== Montana.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="tesoro"){
-                    if(recurso.getClass()== Tesoro.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="biblioteca"){
-                    if(recurso.getClass()== Biblioteca.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="pozo"){
-                    if(recurso.getClass()== Pozo.class){
-                        listaOpciones.add(recurso);
-                    }
-                }
-
-            }
-        }
-        //Recorrer las columnas
-        for (int i = 0; i < maxColumnas; i++) {
-            for (int j = 0; j<matriz[posN][i].getListaRecurso().getNumeroElementos()-1; j++) {
-                Recursos recurso = matriz[posN][i].getListaRecurso().getElemento(j).getData();
-                if(claseRecurso=="agua"){
-                    if(recurso.getClass()== Agua.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="agua"){
-                    if(recurso.getClass()== Agua.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="comida"){
-                    if(recurso.getClass()== Comida.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="montaña"){
-                    if(recurso.getClass()== Montana.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="tesoro"){
-                    if(recurso.getClass()== Tesoro.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="biblioteca"){
-                    if(recurso.getClass()== Biblioteca.class){
-                        listaOpciones.add(recurso);
-                    }
-                } else if(claseRecurso=="pozo"){
-                    if(recurso.getClass()== Pozo.class){
-                        listaOpciones.add(recurso);
-                    }
-                }
-            }
-        }*/
         //Se pueden recorrer filas y columnas a la vez
         for (int i = 0; i < maxFilas; i++) {
             for (int j = 0; j < maxColumnas; j++) {
                 for (int h = 0; h<matriz[i][j].getListaRecurso().getNumeroElementos(); h++) {
                     Recursos recurso = matriz[i][j].getListaRecurso().getElemento(h).getData();
-                    if (claseRecurso == "agua") {
-                        if (recurso.getClass() == Agua.class) {
-                            listaOpciones.add(recurso);
-                        }
-                    } else if (claseRecurso == "comida") {
-                        if (recurso.getClass() == Comida.class) {
-                            listaOpciones.add(recurso);
-                        }
-                    } else if (claseRecurso == "montaña") {
-                        if (recurso.getClass() == Montana.class) {
-                            listaOpciones.add(recurso);
-                        }
-                    } else if (claseRecurso == "tesoro") {
-                        if (recurso.getClass() == Tesoro.class) {
-                            listaOpciones.add(recurso);
-                        }
-                    } else if (claseRecurso == "biblioteca") {
-                        if (recurso.getClass() == Biblioteca.class) {
-                            listaOpciones.add(recurso);
-                        }
-                    } else if (claseRecurso == "pozo") {
-                        if (recurso.getClass() == Pozo.class) {
-                            listaOpciones.add(recurso);
-                        }
+                    if (this.posN!=i || this.posM!=j) {
+                        listaOpciones.add(recurso);
                     }
                 }
             }

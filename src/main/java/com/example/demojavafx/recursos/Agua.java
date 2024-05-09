@@ -7,6 +7,12 @@ public class Agua extends Recursos {
     private int aumentoDeVida;
     private int probAgua;
 
+    public Agua(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int aumentoDeVida, int probAgua) {
+        super(turnosRestantes, posN, posM, probNuevoRecurso);
+        this.aumentoDeVida = aumentoDeVida;
+        this.probAgua = probAgua;
+    }
+
     public Agua() {
     }
 

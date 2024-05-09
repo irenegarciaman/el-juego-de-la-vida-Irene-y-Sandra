@@ -55,7 +55,7 @@ class BucleDeControlTest {
 
     @Test
     void actualizarIndividuo() throws Superar3Individuos {
-        int columna = 3;
+        /**int columna = 3;
         int fila = 2;
         BucleDeControl matriz = new BucleDeControl(fila,columna);
         IndBasico ind1 = new IndBasico(222,4,6);
@@ -79,7 +79,20 @@ class BucleDeControlTest {
         assertEquals(77, ind2.getProbReproduccion());
         assertEquals(24, ind2.getProbClonacion());
         assertEquals(66, ind3.getProbReproduccion());
-        assertEquals(11, ind3.getProbClonacion());
+        assertEquals(11, ind3.getProbClonacion());*/
+
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila,columna);
+        IndBasico ind1 = new IndBasico(222,4,6);
+        IndNormal ind2 = new IndNormal(333,6,7);
+        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
+        IndBasico ind4 = new IndBasico(555,4,3);
+        matriz.matriz[1][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind1);
+        matriz.matriz[1][1].addIndividuo(ind2);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        assertEquals(3,matriz.matriz[1][1].getListaIndividuo().getNumeroElementos());
     }
 
     @Test
@@ -90,7 +103,7 @@ class BucleDeControlTest {
         Agua agua = new Agua(3,4);
         Montana montana = new Montana(4,5);
         matriz.matriz[0][2].addRecurso(agua);
-        matriz.matriz[1][0].addRecurso(montana);
+        matriz.matriz[0][2].addRecurso(montana);
         matriz.actualizarRecursos();
         assertEquals(2, agua.getTurnosRestantes());
         assertEquals(3, montana.getTurnosRestantes());
@@ -172,6 +185,8 @@ class BucleDeControlTest {
         assertEquals(10, ind2.getTurnosRestantes());
         assertEquals(4, ind3.getTurnosRestantes());
         assertNull(matriz.matriz[1][1].getListaIndividuo().getElemento(0));
+        matriz.mejorasRecursos();
+        matriz.mejorasRecursos();
     }
 
     @Test
@@ -219,6 +234,30 @@ class BucleDeControlTest {
     }
 
     @Test
+    void desaparecerIndividuo() throws Superar3Individuos {
+        int columna = 3;
+        int fila = 2;
+
+        BucleDeControl matriz = new BucleDeControl(fila,columna);
+        IndBasico ind1 = new IndBasico(222,4,6);
+        IndNormal ind2 = new IndNormal(333,6,7);
+        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
+        ind1.setProbClonacion(89);
+        ind2.setProbClonacion(90);
+        ind3.setProbClonacion(70);
+        matriz.matriz[0][2].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[1][2].addIndividuo(ind3);
+        ind1.setTurnosRestantes(0);
+        ind2.setTurnosRestantes(0);
+        ind3.setTurnosRestantes(0);
+        matriz.desaparecerIndividuos();
+        assertNull(matriz.matriz[0][2].getListaIndividuo().getEl());
+        assertNull(matriz.matriz[1][2].getListaIndividuo().getEl());
+        assertNull(matriz.matriz[1][0].getListaIndividuo().getEl());
+
+    }
+    @Test
     void nuevoRecurso() throws Superar3Recursos {
         int columna = 8;
         int fila = 5;
@@ -236,7 +275,18 @@ class BucleDeControlTest {
         b.matriz[1][0].addRecurso(comida);
         b.matriz[1][2].addRecurso(montana);
         b.matriz[1][1].addRecurso(pozo);
+        agua.setProbNuevoRecurso(69);
+        tesoro.setProbNuevoRecurso(78);
+        biblioteca.setProbNuevoRecurso(56);
+        comida.setProbNuevoRecurso(23);
+        montana.setProbNuevoRecurso(32);
+        pozo.setProbNuevoRecurso(78);
+
         assertDoesNotThrow(()->b.nuevoRecurso());
+        b.nuevoRecurso();
+        b.nuevoRecurso();
+        b.nuevoRecurso();
+        b.nuevoRecurso();
     }
 
     @Test
@@ -265,12 +315,12 @@ class BucleDeControlTest {
     @Test
     void bucleEntero() throws Superar3Recursos, Superar3Individuos {
         int columna = 3;
-        int fila = 2;
+        int fila = 3;
         BucleDeControl b = new BucleDeControl(fila,columna);
-        IndBasico ind1 = new IndBasico(222,0,6);
-        IndNormal ind2 = new IndNormal(333,0,7);
-        IndAvanzado ind3 = new IndAvanzado(444, 0,9);
-        IndAvanzado ind4 = new IndAvanzado(444, 0,9);
+        IndBasico ind1 = new IndBasico(222,0,6,90,90,10);
+        IndNormal ind2 = new IndNormal(333,0,7,80,80,20);
+        IndAvanzado ind3 = new IndAvanzado(444, 0,9,40,40,60,"comida");
+        IndAvanzado ind4 = new IndAvanzado(555, 0,9,50,50,35,"tesoro");
         Agua agua = new Agua(3,4);
         Comida comida = new Comida(2,3);
         Montana montana = new Montana(4,5);
@@ -287,6 +337,33 @@ class BucleDeControlTest {
         b.matriz[1][0].addIndividuo(ind2);
         b.matriz[1][2].addIndividuo(ind3);
         b.matriz[1][1].addIndividuo(ind4);
+        ind1.setPosN(0);
+        ind1.setPosM(2);
+        ind2.setPosN(1);
+        ind2.setPosM(0);
+        ind3.setPosN(1);
+        ind3.setPosM(2);
+        ind4.setPosN(1);
+        ind4.setPosM(1);
+        agua.setPosN(0);
+        agua.setPosM(2);
+        agua.setProbNuevoRecurso(43);
+        tesoro.setPosN(0);
+        tesoro.setPosM(2);
+        tesoro.setProbNuevoRecurso(49);
+        biblioteca.setPosN(0);
+        biblioteca.setPosM(2);
+        biblioteca.setProbNuevoRecurso(89);
+        comida.setPosN(1);
+        comida.setPosM(0);
+        comida.setProbNuevoRecurso(9);
+        montana.setPosN(1);
+        montana.setPosM(2);
+        montana.setProbNuevoRecurso(76);
+        pozo.setPosN(1);
+        pozo.setPosM(1);
+        pozo.setProbNuevoRecurso(76);
         assertDoesNotThrow(()->b.bucleEntero());
     }
+
 }

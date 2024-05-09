@@ -16,6 +16,11 @@ public class Pozo extends Recursos {
     public Pozo() {
     }
 
+    public Pozo(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int probPozo) {
+        super(turnosRestantes, posN, posM, probNuevoRecurso);
+        this.probPozo = probPozo;
+    }
+
     public int getProbPozo() {
         return probPozo;
     }

@@ -16,6 +16,12 @@ public class Montana extends Recursos {
     public Montana() {
     }
 
+    public Montana(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int disminucionDeVida, int probMontana) {
+        super(turnosRestantes, posN, posM, probNuevoRecurso);
+        this.disminucionDeVida = disminucionDeVida;
+        this.probMontana = probMontana;
+    }
+
     public int getDisminucionDeVida() {
         return disminucionDeVida;
     }

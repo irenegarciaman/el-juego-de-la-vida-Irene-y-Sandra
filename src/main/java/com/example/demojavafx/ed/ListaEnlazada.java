@@ -105,16 +105,26 @@ ListaEnlazada<TipoDelDato> {
     }
 
     public int getPosicion(ElementoLE<TipoDelDato> el) {
-        int posicion = 0;
-        if (!isVacia()) {
-            ElementoLE<TipoDelDato> cabeza = this.primero;
-            while (!cabeza.getData().equals(el.getData()) && posicion < getNumeroElementos()-1) {
-                cabeza = cabeza.getSiguiente();
-                posicion++;
+        int contador = -1;
+        boolean encontrado = false;
+        if(!this.isVacia()){
+            ElementoLE cabeza = this.primero;
+            while (cabeza!=null && el!=null && encontrado==false){
+                if (el.getData().equals(cabeza.getData())){
+                    encontrado = true;
+                    contador++;
+                }else{
+                    cabeza = cabeza.getSiguiente();
+                    contador++;
+                }
             }
-            return posicion;
+
         }
-        return -1;
+        if (encontrado!= true){
+            contador = -1;
+        }
+        return contador;
+
     }
 
     public ElementoLE<TipoDelDato> getPrimero() {

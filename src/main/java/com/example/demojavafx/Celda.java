@@ -48,15 +48,34 @@ public class Celda {
     public void addIndividuo(Individuo individuo) throws Superar3Individuos {
         listaIndividuo.add(individuo);
         if (listaIndividuo.getNumeroElementos() > 3) {
-            throw new Superar3Individuos(listaIndividuo);
+            int res = 0;
+            int aux = 0;
+            while (aux < listaIndividuo.getNumeroElementos()) {
+                int elem = listaIndividuo.getElemento(aux).getData().getTurnosRestantes();
+                if (elem < listaIndividuo.getElemento(res).getData().getTurnosRestantes()) {
+                    res = aux;
+                }
+                aux++;
+            }
+            listaIndividuo.delete(res);
         }
 
     }
 
+
     public void addRecurso(Recursos recurso) throws Superar3Recursos {
         listaRecurso.add(recurso);
         if (listaRecurso.getNumeroElementos() > 3) {
-            throw new Superar3Recursos(listaRecurso);
+            int res = 0;
+            int aux = 0;
+            while (aux < listaRecurso.getNumeroElementos()) {
+                int elem = listaRecurso.getElemento(aux).getData().getTurnosRestantes();
+                if (elem < listaRecurso.getElemento(res).getData().getTurnosRestantes()) {
+                    res = aux;
+                }
+                aux++;
+            }
+            listaRecurso.delete(res);
         }
 
     }
