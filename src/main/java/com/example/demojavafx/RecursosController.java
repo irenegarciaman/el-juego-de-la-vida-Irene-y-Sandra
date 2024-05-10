@@ -1,6 +1,9 @@
 package com.example.demojavafx;
 
 import com.example.demojavafx.ed.ListaEnlazada;
+import com.example.demojavafx.individuos.IndAvanzado;
+import com.example.demojavafx.individuos.IndBasico;
+import com.example.demojavafx.individuos.IndNormal;
 import com.example.demojavafx.individuos.IndividuoProperties;
 import com.example.demojavafx.recursos.*;
 import javafx.beans.property.IntegerProperty;
@@ -238,7 +241,15 @@ public class RecursosController implements Initializable {
     //Individuos model
     private IndividuoProperties individuoModel;
     //Matriz mode
-    private BucleDeControlProperties matrizModel;
+
+
+    protected BucleDeControl matriz = new BucleDeControl(16, 16);
+    protected BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
+
+    protected Celda[][] celda = matriz.matriz;
+    protected CeldaProperties modeloCelda = new CeldaProperties(celda);
+
+    public ListaEnlazada<Button> listaButton = new ListaEnlazada<>();
 
     public RecursosProperties getRecursosModel() {
         return recursosModel;
@@ -273,7 +284,7 @@ public class RecursosController implements Initializable {
     }
 
     public BucleDeControlProperties getMatrizModel() {
-        return matrizModel;
+        return modeloMatriz;
     }
 
     protected void updateGUIwithModel() {
@@ -305,8 +316,8 @@ public class RecursosController implements Initializable {
 
         //Matriz
 
-        sliderColumnasMatriz.valueProperty().bindBidirectional(matrizModel.columnasProperty());
-        sliderFilasMatriz.valueProperty().bindBidirectional(matrizModel.filasProperty());
+        sliderColumnasMatriz.valueProperty().bindBidirectional(modeloMatriz.columnasProperty());
+        sliderFilasMatriz.valueProperty().bindBidirectional(modeloMatriz.filasProperty());
     }
 
     /**
@@ -326,7 +337,7 @@ public class RecursosController implements Initializable {
         this.pozoModel = parametrosPozo;
         this.tesoroModel = parametrosTesoro;
         this.individuoModel = parametrosInd;
-        this.matrizModel = parametroMatriz;
+        this.modeloMatriz = parametroMatriz;
 
         this.updateGUIwithModel();
     }
@@ -344,7 +355,7 @@ public class RecursosController implements Initializable {
         pozoModel.commit();
         tesoroModel.commit();
         individuoModel.commit();
-        matrizModel.commit();
+        modeloMatriz.commit();
 
         scene.close();
         nuevaVentanaMatriz();
@@ -364,16 +375,10 @@ public class RecursosController implements Initializable {
         pozoModel.rollback();
         tesoroModel.rollback();
         individuoModel.rollback();
-        matrizModel.rollback();
+        modeloMatriz.rollback();
     }
 
-    protected BucleDeControl matriz = new BucleDeControl(16, 16);
-    protected BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
 
-    protected Celda[][] celda = matriz.matriz;
-    protected CeldaProperties modeloCelda = new CeldaProperties(celda);
-
-    public ListaEnlazada<Button> listaButton = new ListaEnlazada<>();
 
 
     public void nuevaVentanaMatriz() {
@@ -388,20 +393,22 @@ public class RecursosController implements Initializable {
             p.loadUserData(this.modeloMatriz,this.modeloCelda);
 
 
-            int filas = matrizModel.original.getFila();
-            int columnas = matrizModel.original.getColumna();
-            matrizModel.original.addCosas();
+            int filas = modeloMatriz.getFilas();
+            int columnas = modeloMatriz.getColumnas();
 
+            Button guardarButton = new Button("Guardar");
 
             GridPane mainGrid = new GridPane();
             ScrollPane scrollPane = new ScrollPane(mainGrid);
 
-            System.out.println(matrizModel.original.matriz[0][0].getListaIndividuo().getNumeroElementos());
+
+
+            System.out.println(modeloMatriz.matriz[0][0].getListaIndividuo().getNumeroElementos());
 
             for (int j = 0; j < filas; j++) {
                 for (int i = 0; i < columnas; i++) {
-                    int numI = matrizModel.original.matriz[i][j].getListaIndividuo().getNumeroElementos();
-                    int numR = matrizModel.original.matriz[i][j].getListaRecurso().getNumeroElementos();
+                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
+                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
                     String label = "nºInd: " + numI + "\n nºRec: " + numR;
                     Button b = new Button(label);
                     b.setId(i + "," + j);
@@ -429,8 +436,13 @@ public class RecursosController implements Initializable {
                     // Pista: los quieres guardar para poder cambiar lo que aparece en pantalla :)
                 }
             }
+
+            mainGrid.getChildren().add(guardarButton);
+
+
             p.setStage(stage);
             stage.show();
+
 
             Scene scene2 = new Scene(scrollPane, 600, 600);
             scene = scene2;
@@ -447,16 +459,18 @@ public class RecursosController implements Initializable {
         String label = f + "," + c;
         int aux = 0;
         Button res = new Button();
+        res.setId("hola");
         Button smt = new Button();
         while (aux < listaButton.getNumeroElementos()) {
             smt = listaButton.getElemento(aux).getData();
-            if (smt.getId() == label) {
+            if (smt.getId().toString().equals(label)) {
                 res = listaButton.getElemento(aux).getData();
             }
             aux++;
         }
-        int numI = matrizModel.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
-        int numR = matrizModel.original.matriz[f][c].getListaRecurso().getNumeroElementos();
+        System.out.println(res.getId());
+        int numI = modeloMatriz.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
+        int numR = modeloMatriz.original.matriz[f][c].getListaRecurso().getNumeroElementos();
         String nombre = "nºInd: " + numI + "\n nºRec: " + numR;
         res.setText(nombre);
 

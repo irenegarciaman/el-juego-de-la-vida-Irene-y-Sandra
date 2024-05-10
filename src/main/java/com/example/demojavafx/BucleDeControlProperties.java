@@ -14,9 +14,14 @@ public class BucleDeControlProperties {
     private IntegerProperty columnas = new SimpleIntegerProperty();
     private IntegerProperty filas = new SimpleIntegerProperty();
 
-    protected Celda[][] matriz = new Celda[columnas.get()][columnas.get()];
+    protected Celda[][] matriz = new Celda[filas.get()][columnas.get()];
 
-
+    public int getFilas(){
+        return filas.get();
+    }
+    public int getColumnas(){
+        return columnas.get();
+    }
 
 
     public BucleDeControlProperties(BucleDeControl original) {
