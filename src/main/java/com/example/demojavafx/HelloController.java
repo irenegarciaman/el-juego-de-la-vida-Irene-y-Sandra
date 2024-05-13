@@ -1,5 +1,6 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.ed.Gson1;
 import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.individuos.IndividuoProperties;
@@ -20,13 +21,16 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.demojavafx.ed.Gson1.cargarObjetoDesdeArchivo;
+
 public class HelloController implements Initializable {
 
-    static int contadorDeVentanasHijas = 0;
 
+    private Stage stage;
     private static final Logger log = LogManager.getLogger(HelloController.class);
 
 
@@ -71,16 +75,21 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onMiBotonNuevaVentajaClick() {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-            stage.setTitle("Hello! Ventana hija: " + contadorDeVentanasHijas++);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
+        try{
+            JuegoController p = new JuegoController();
+            GuardarDatos gd = cargarObjetoDesdeArchivo("partidaAnterior.json", GuardarDatos.class);
+
+
+            this.matriz = gd.cargarBucle();
+            this.modeloMatriz = new BucleDeControlProperties(this.matriz);
+
+
+            p.loadUserData(modeloRecursos, modeloAgua, modeloBiblioteca, modeloComida, modeloMontana, modeloPozo, modeloTesoro, modeloInd, modeloMatriz);
+            p.crearJuegoR(this.modeloMatriz);
+        }catch(Exception e){
             e.printStackTrace();
         }
+
 
     }
 

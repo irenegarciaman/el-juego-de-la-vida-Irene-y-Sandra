@@ -5,19 +5,20 @@ import com.example.demojavafx.individuos.IndividuoProperties;
 import com.example.demojavafx.recursos.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -228,17 +229,25 @@ public class RecursosController implements Initializable {
     }
 
     //Recursos model
-    private RecursosProperties recursosModel;
-    private AguaProperties aguaModel;
-    private BibliotecaProperties bibliotecaModel;
-    private ComidaProperties comidaModel;
-    private MontanaProperties montanaModel;
-    private PozoProperties pozoModel;
-    private TesoroProperties tesoroModel;
+    protected RecursosProperties recursosModel;
+    protected AguaProperties aguaModel;
+    protected BibliotecaProperties bibliotecaModel;
+    protected ComidaProperties comidaModel;
+    protected MontanaProperties montanaModel;
+    protected PozoProperties pozoModel;
+    protected TesoroProperties tesoroModel;
     //Individuos model
-    private IndividuoProperties individuoModel;
+    protected IndividuoProperties individuoModel;
     //Matriz mode
-    private BucleDeControlProperties matrizModel;
+
+
+    protected BucleDeControl matriz = new BucleDeControl(16, 16);
+    protected BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
+
+    protected Celda[][] celda = matriz.matriz;
+    protected CeldaProperties modeloCelda = new CeldaProperties(celda);
+
+    public ListaEnlazada<Button> listaButton = new ListaEnlazada<>();
 
     public RecursosProperties getRecursosModel() {
         return recursosModel;
@@ -273,7 +282,7 @@ public class RecursosController implements Initializable {
     }
 
     public BucleDeControlProperties getMatrizModel() {
-        return matrizModel;
+        return modeloMatriz;
     }
 
     protected void updateGUIwithModel() {
@@ -305,8 +314,8 @@ public class RecursosController implements Initializable {
 
         //Matriz
 
-        sliderColumnasMatriz.valueProperty().bindBidirectional(matrizModel.columnasProperty());
-        sliderFilasMatriz.valueProperty().bindBidirectional(matrizModel.filasProperty());
+        sliderColumnasMatriz.valueProperty().bindBidirectional(modeloMatriz.columnasProperty());
+        sliderFilasMatriz.valueProperty().bindBidirectional(modeloMatriz.filasProperty());
     }
 
     /**
@@ -326,7 +335,7 @@ public class RecursosController implements Initializable {
         this.pozoModel = parametrosPozo;
         this.tesoroModel = parametrosTesoro;
         this.individuoModel = parametrosInd;
-        this.matrizModel = parametroMatriz;
+        this.modeloMatriz = parametroMatriz;
 
         this.updateGUIwithModel();
     }
@@ -344,7 +353,7 @@ public class RecursosController implements Initializable {
         pozoModel.commit();
         tesoroModel.commit();
         individuoModel.commit();
-        matrizModel.commit();
+        modeloMatriz.commit();
 
         scene.close();
         nuevaVentanaMatriz();
@@ -364,16 +373,10 @@ public class RecursosController implements Initializable {
         pozoModel.rollback();
         tesoroModel.rollback();
         individuoModel.rollback();
-        matrizModel.rollback();
+        modeloMatriz.rollback();
     }
 
-    protected BucleDeControl matriz = new BucleDeControl(16, 16);
-    protected BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
 
-    protected Celda[][] celda = matriz.matriz;
-    protected CeldaProperties modeloCelda = new CeldaProperties(celda);
-
-    public ListaEnlazada<Button> listaButton = new ListaEnlazada<>();
 
 
     public void nuevaVentanaMatriz() {
@@ -388,20 +391,22 @@ public class RecursosController implements Initializable {
             p.loadUserData(this.modeloMatriz,this.modeloCelda);
 
 
-            int filas = matrizModel.original.getFila();
-            int columnas = matrizModel.original.getColumna();
-            matrizModel.original.addCosas();
+            int filas = modeloMatriz.getFilas();
+            int columnas = modeloMatriz.getColumnas();
 
+            Button guardarButton = new Button("Guardar");
 
             GridPane mainGrid = new GridPane();
             ScrollPane scrollPane = new ScrollPane(mainGrid);
 
-            System.out.println(matrizModel.original.matriz[0][0].getListaIndividuo().getNumeroElementos());
+
+
+            System.out.println(modeloMatriz.matriz[0][0].getListaIndividuo().getNumeroElementos());
 
             for (int j = 0; j < filas; j++) {
                 for (int i = 0; i < columnas; i++) {
-                    int numI = matrizModel.original.matriz[i][j].getListaIndividuo().getNumeroElementos();
-                    int numR = matrizModel.original.matriz[i][j].getListaRecurso().getNumeroElementos();
+                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
+                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
                     String label = "nºInd: " + numI + "\n nºRec: " + numR;
                     Button b = new Button(label);
                     b.setId(i + "," + j);
@@ -424,13 +429,30 @@ public class RecursosController implements Initializable {
                     placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
                     mainGrid.add(placeholder, i, j);
 
-                    // OJO!: Tal como está programado, pierdo la referencia a los labels...
-                    //       Si los quisiese usar después, debería guardarlos de alguna manera en algún sitio
-                    // Pista: los quieres guardar para poder cambiar lo que aparece en pantalla :)
                 }
             }
+
+            mainGrid.add(guardarButton,16,16);
+            mainGrid.setAlignment(Pos.BOTTOM_RIGHT);
+
+            EventHandler nuevaVentana = new EventHandler() {
+                @Override
+                public void handle(Event event) {
+                    modeloMatriz.commit();
+                    stage.close();
+                    crearJuego(modeloMatriz);
+
+                }
+            };
+
+
+
+
+            guardarButton.setOnAction(nuevaVentana);
+
             p.setStage(stage);
             stage.show();
+
 
             Scene scene2 = new Scene(scrollPane, 600, 600);
             scene = scene2;
@@ -447,18 +469,203 @@ public class RecursosController implements Initializable {
         String label = f + "," + c;
         int aux = 0;
         Button res = new Button();
+        res.setId("hola");
         Button smt = new Button();
         while (aux < listaButton.getNumeroElementos()) {
             smt = listaButton.getElemento(aux).getData();
-            if (smt.getId() == label) {
+            if (smt.getId().toString().equals(label)) {
                 res = listaButton.getElemento(aux).getData();
             }
             aux++;
         }
-        int numI = matrizModel.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
-        int numR = matrizModel.original.matriz[f][c].getListaRecurso().getNumeroElementos();
+        System.out.println(res.getId());
+        int numI = modeloMatriz.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
+        int numR = modeloMatriz.original.matriz[f][c].getListaRecurso().getNumeroElementos();
         String nombre = "nºInd: " + numI + "\n nºRec: " + numR;
         res.setText(nombre);
+
+    }
+
+    public void crearJuego(BucleDeControlProperties modeloMatriz){
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("juego.fxml"));
+        try {
+            Scene scene1 = new Scene(fxmlLoader.load(), 600, 400);
+            int turno = modeloMatriz.original.turno;
+            stage.setTitle("juego en turno: "+ turno);
+            stage.setScene(scene1);
+
+            JuegoController p = fxmlLoader.getController();
+            p.loadUserData(recursosModel,aguaModel,bibliotecaModel,comidaModel,montanaModel,pozoModel,tesoroModel,individuoModel,modeloMatriz);
+            p.crearJuegoR(modeloMatriz);
+
+
+            /***int filas = modeloMatriz.getFilas();
+            int columnas = modeloMatriz.getColumnas();
+
+
+            GridPane mainGrid2 = new GridPane();
+            ScrollPane scrollPane2 = new ScrollPane(mainGrid2);
+
+            ListaEnlazada<Button> listaButtons = new ListaEnlazada<>();
+
+            for (int j = 0; j < filas; j++) {
+                for (int i = 0; i < columnas; i++) {
+                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
+                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
+                    String label = "nºInd: " + numI + "\n nºRec: " + numR;
+                    Button b = new Button(label);
+                    b.setId(i + "," + j);
+
+                    listaButtons.add(b);
+
+                    int finalJ = j;
+                    int finalI = i;
+
+                    EventHandler e = new EventHandler() {
+                        @Override
+                        public void handle(Event event) {
+                            p.onButtonInfo(finalI, finalJ);
+                        }
+                    };
+                    b.setOnAction(e);
+                    listaButton.add(b);
+
+                    VBox placeholder = new VBox(b);
+
+                    b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                    placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
+                    placeholder.setMaxSize(100, 100);
+                    placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
+                    mainGrid2.add(placeholder, i, j);
+
+
+                }
+            }
+            Button pauseB = new Button("Pausar");
+
+            HBox hbox = new HBox(pauseB);
+            hbox.setAlignment(Pos.BOTTOM_CENTER);
+
+            RecursosController h = this;
+
+            EventHandler pauseHandler = new EventHandler() {
+                @Override
+                public void handle(Event event) {
+                    System.out.println("pause handler");
+
+                    String style = listaButtons.getElemento(0).getData().getStyle();
+                    for(int m=0;m<listaButtons.getNumeroElementos();m++){
+                        listaButtons.getElemento(m).getData().setStyle("-fx-background-color: #ac5e5e; -fx-text-fill: black;");
+                        String id = listaButtons.getElemento(m).getData().getId();
+                        String[] split = id.split(",");
+                        int f = Integer.parseInt(split[0]);
+                        int c = Integer.parseInt(split[1]);
+                        AjustesMidJuegoController a = new AjustesMidJuegoController();
+                        EventHandler y = new EventHandler() {
+                            @Override
+                            public void handle(Event event) {
+                                a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
+                                        pozoModel,tesoroModel,individuoModel,modeloMatriz);
+                                a.modificarCelda(f,c);
+                            }
+                        };
+                        listaButtons.getElemento(m).getData().setOnAction(y);
+                    }
+
+                    RecursosController rec = h;
+                    hbox.getChildren().remove(pauseB);
+
+                    Button fin = new Button("Finalizar");
+                    Button ajustes = new Button("Ajustes Propiedades");
+                    Button play = new Button("Play");
+                    play.setStyle("-fx-background-color: #3397cd; -fx-text-fill: white;");
+                    hbox.getChildren().addAll(fin, ajustes, play);
+
+                    EventHandler playHandler = new EventHandler() {
+                        @Override
+                        public void handle(Event event) {
+                            for(int m=0;m<listaButtons.getNumeroElementos();m++){
+                                listaButtons.getElemento(m).getData().setStyle(style);
+                            }
+                            hbox.getChildren().remove(play);
+                            hbox.getChildren().remove(ajustes);
+                            hbox.getChildren().remove(fin);
+
+                            hbox.getChildren().add(pauseB);
+
+                            //continuar el juego
+                        }
+                    };
+                    play.setOnAction(playHandler);
+
+                    EventHandler finHandler = new EventHandler() {
+                        @Override
+                        public void handle(Event event) {
+                            GuardarDatos g = new GuardarDatos();
+                            g.guardarDatos(modeloMatriz.original,individuoModel.getOriginal(),aguaModel.getOriginalAgua(),bibliotecaModel.getOriginal(),comidaModel.getOriginal(),montanaModel.getOriginal(),pozoModel.getOriginal(),tesoroModel.getOriginal());
+                            stage.close();
+                        }
+                    };
+                    fin.setOnAction(finHandler);
+
+                    AjustesMidJuegoController l = new AjustesMidJuegoController();
+                    EventHandler ajustesHandler = new EventHandler() {
+                        @Override
+                        public void handle(Event event) {
+                            System.out.println("ajustes handler");
+
+                                for(int i=0;i<h.modeloMatriz.getFilas();i++){
+                                    for (int j = 0; j < h.modeloMatriz.getColumnas(); j++) {
+                                        for (int k = 0; k < listaButtons.getNumeroElementos(); k++) {
+                                            String label = i+","+j;
+                                            if(listaButtons.getElemento(k).getData().getId().equals(label)){
+                                                System.out.println("if");
+                                                int finalI = i;
+                                                int finalJ = j;
+                                                EventHandler e = new EventHandler() {
+                                                    @Override
+                                                    public void handle(Event event) {
+                                                        l.modificarCelda(finalI, finalJ);
+                                                    }
+                                                };
+                                                listaButtons.getElemento(k).getData().setOnAction(e);
+                                            }
+                                        }
+                                    }
+                                }
+
+                        }
+                    };
+
+                    ajustes.setOnAction(ajustesHandler);
+
+
+
+
+
+
+                }
+            };
+
+            pauseB.setOnAction(pauseHandler);
+
+            mainGrid2.add(hbox, columnas-1, filas);
+
+            p.setStage(stage);
+            stage.show();
+
+
+            Scene scene2 = new Scene(scrollPane2, 600, 600);
+            scene1 = scene2;
+            stage.setScene(scene1);
+            stage.show();
+            //modeloMatriz.original.guardar();
+             */
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

@@ -50,4 +50,16 @@ public class Biblioteca extends Recursos {
     public void setProbBiblioteca(int probBiblioteca) {
         this.probBiblioteca = probBiblioteca;
     }
+
+    @Override
+    public String toString() {
+        return "Biblioteca, {" +
+                "aumentoDePorcenClon=" + aumentoDePorcenClon +
+                ", probBiblioteca=" + probBiblioteca +
+                ", turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", }";
+    }
 }

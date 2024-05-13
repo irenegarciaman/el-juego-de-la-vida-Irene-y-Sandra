@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demojavafx.AjustesMidJuegoController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TabPane layoutY="547.3333129882812" maxHeight="-Infinity" prefHeight="600.0" prefWidth="650.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+
+                <Tab text="Recursos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="650.0">
+                            <children>
+                                <Label layoutX="24.0" layoutY="28.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de nuevo recurso:" />
+                                <Slider fx:id="sliderProbRecurso" layoutX="203.0" layoutY="26.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                <TabPane layoutX="4.0" layoutY="75.0" prefHeight="496.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                                    <tabs>
+                                        <Tab text="Biblioteca">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="115.0" prefWidth="600.0">
+                                                    <children>
+                                                        <Slider fx:id="sliderProbBiblioteca" blockIncrement="0.2" layoutX="279.0" layoutY="20.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="260.0" text="Probabilidad de que el recurso sea la biblioteca:" />
+                                                        <Slider fx:id="sliderProbAumentBiblio" blockIncrement="0.2" layoutX="279.0" layoutY="71.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="14.0" layoutY="71.0" prefHeight="34.0" prefWidth="260.0" text="¿Cuánto porcentaje de clonación aumentará?" />
+                                                        <Label fx:id="b1" layoutX="505.0" layoutY="27.0" prefHeight="25.0" prefWidth="38.0" text="b1" />
+                                                        <Label fx:id="b2" layoutX="505.0" layoutY="76.0" prefHeight="25.0" prefWidth="23.0" text="b2" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Tesoro">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Slider fx:id="sliderProbTesoro" blockIncrement="0.2" layoutX="289.0" layoutY="24.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="24.0" layoutY="24.0" prefHeight="34.0" prefWidth="260.0" text="Probabilidad de que el recurso sea el tesoro:" />
+                                                        <Slider fx:id="sliderRepAumentoTesoro" blockIncrement="0.1" layoutX="289.0" layoutY="81.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="24.0" layoutY="81.0" prefHeight="34.0" prefWidth="260.0" text="¿Cuánto porcentaje de reproducción aumentará?" />
+                                                        <Label fx:id="t1" layoutX="513.0" layoutY="33.0" text="t1" />
+                                                        <Label fx:id="t2" layoutX="513.0" layoutY="90.0" text="t2" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Comida">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Slider fx:id="sliderProbComida" blockIncrement="0.1" layoutX="282.0" layoutY="32.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="34.0" layoutY="34.0" prefHeight="34.0" prefWidth="260.0" text="Probabilidad de que el recurso sea la comida:" />
+                                                        <Slider fx:id="sliderTurnosAumentoComida" blockIncrement="1.0" layoutX="279.0" layoutY="89.0" majorTickUnit="1.0" max="15.0" min="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="211.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="34.0" layoutY="91.0" prefHeight="34.0" prefWidth="260.0" text="¿Cuántos turnos de vida aumentará?" />
+                                                        <Label fx:id="c1" layoutX="503.0" layoutY="43.0" text="c1" />
+                                                        <Label fx:id="c2" layoutX="503.0" layoutY="100.0" text="c2" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Montaña">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Slider fx:id="sliderProbMontana" blockIncrement="0.1" layoutX="274.0" layoutY="33.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="14.0" layoutY="35.0" prefHeight="34.0" prefWidth="260.0" text="Probabilidad de que el recurso sea la montaña:" />
+                                                        <Slider fx:id="sliderTurnosVidaMontana" blockIncrement="1.0" layoutX="276.0" layoutY="81.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="201.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="52.0" layoutY="82.0" prefHeight="34.0" prefWidth="260.0" text="¿Cuántos turnos de vida disminuirá?" />
+                                                        <Label fx:id="m1" layoutX="498.0" layoutY="44.0" text="m1" />
+                                                        <Label fx:id="m2" layoutX="498.0" layoutY="81.0" text="m2" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Agua">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="149.0" prefWidth="600.0">
+                                                    <children>
+                                                        <Slider fx:id="sliderProbAgua" blockIncrement="0.1" layoutX="257.0" layoutY="31.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="14.0" layoutY="33.0" prefHeight="34.0" prefWidth="260.0" text="Probabilidad de que el recurso sea el agua:" />
+                                                        <Slider fx:id="sliderTurnosVidaAgua" blockIncrement="1.0" layoutX="257.0" layoutY="88.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="51.0" layoutY="90.0" prefHeight="34.0" prefWidth="260.0" text="¿Cuántos turnos de vida aumentará?" />
+                                                        <Label fx:id="a1" layoutX="486.0" layoutY="42.0" text="a1" />
+                                                        <Label fx:id="a2" layoutX="486.0" layoutY="90.0" text="a2" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Pozo">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Slider fx:id="sliderProbPozo" blockIncrement="0.1" layoutX="260.0" layoutY="14.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="37.0" prefWidth="205.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                                        <Label layoutX="14.0" layoutY="16.0" prefHeight="34.0" prefWidth="233.0" text="Probabilidad de que el recurso sea el Pozo:" />
+                                                        <Label fx:id="p1" layoutX="487.0" layoutY="25.0" text="p1" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <Label fx:id="labelProbNuevoRecurso" layoutX="432.0" layoutY="36.0" text="n" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Individuos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="26.0" layoutY="76.0" prefHeight="34.0" prefWidth="179.0" text="Turnos restantes:" />
+                                <Slider fx:id="sliderTurnosRestantesInd" blockIncrement="0.1" layoutX="227.0" layoutY="83.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                <Label layoutX="26.0" layoutY="121.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de reproducción:" />
+                                <Label layoutX="26.0" layoutY="166.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de clonación:" />
+                                <Label layoutX="26.0" layoutY="211.0" prefHeight="34.0" prefWidth="179.0" text="Probabilidad de muerte:" />
+                                <Slider fx:id="sliderProbRepInd" blockIncrement="0.1" layoutX="227.0" layoutY="121.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                <Slider fx:id="sliderProbClonInd" blockIncrement="0.1" layoutX="227.0" layoutY="164.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                <Slider fx:id="sliderProbMuerteInd" blockIncrement="0.1" layoutX="227.0" layoutY="209.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="38.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                <Label fx:id="t" layoutX="461.0" layoutY="85.0" text="t" />
+                                <Label fx:id="pr" layoutX="457.0" layoutY="121.0" text="pr" />
+                                <Label fx:id="pc" layoutX="457.0" layoutY="164.0" text="pc" />
+                                <Label fx:id="pm" layoutX="455.0" layoutY="211.0" text="pm" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <HBox alignment="BOTTOM_RIGHT" layoutY="500.0" prefHeight="88.0" prefWidth="639.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="500.0">
+            <children>
+                <Button fx:id="cerrarButton" mnemonicParsing="false" onAction="#cerrarButton" text="Cerrar" />
+                <Button mnemonicParsing="false" onAction="#cancelarButton" text="Cancelar" />
+                <Button alignment="BOTTOM_RIGHT" onAction="#guardarButton" text="Guardar" />
+            </children>
+        </HBox>
+    </children>
+
+</AnchorPane>

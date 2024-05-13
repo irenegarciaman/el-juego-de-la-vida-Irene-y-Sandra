@@ -1,8 +1,15 @@
 package com.example.demojavafx;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -51,16 +58,54 @@ public class HelloApplication extends Application {
 
         log.info("Inicio del método de arranque de la aplicación para mostrar un menú de inicio");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+
+        HelloController h = new HelloController();
+
         Scene scene = new Scene(fxmlLoader.load(), 400, 200);
         stage.setTitle("Hello!");
+
+        Label lab = new Label("Bienvenidos al juego de la vida");
+        lab.setStyle("-fx-font-size: 24px; -fx-text-fill: green;");
+
+        Button nuevoBtn = new Button("Nueva Partida");
+        Button cargarBtn = new Button("Cargar Partida");
+
+        EventHandler n = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                stage.close();
+                h.onMiBotonNuevaVentanaAjustesClick();
+            }
+        };
+
+        nuevoBtn.setOnAction(n);
+
+        EventHandler c = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                stage.close();
+                h.onMiBotonNuevaVentajaClick();
+            }
+        };
+
+        cargarBtn.setOnAction(c);
+
+
+        VBox vbox = new VBox(lab, nuevoBtn, cargarBtn);
+        vbox.setStyle("-fx-background-color: rgba(192,120,207,0.56);");
+        vbox.setAlignment(Pos.CENTER);
+        vbox.setSpacing(20);
+
+        scene = new Scene(vbox, 400, 200);
+
+
+
+
+
         stage.setScene(scene);
         stage.show();
-        // Ejemplo de cómo usar los LOGS de sistema que se habían definido antes.
-        // Los logs trabajan por niveles:
-        // trace, debug, info, warn, error y fatal
-        //
-        // Según la configuración del fichero de log4j2.xml, se guardarán los mensajes
-        // del nivel configurado y superiores, pero no inferiores.
+
+
 
         log.trace("Enviando una traza de ejecución");
         log.debug("Enviado un debug");
@@ -69,8 +114,7 @@ public class HelloApplication extends Application {
         log.error("Enviando un error");
         log.fatal("Enviando una explosión fatal");
 
-        // Los logs sólo operan si la clase utilizada coincide con el patrón que se pone en el log4j2.xml.
-        // En este caso el patrón es "es.uah" que coincide con nuestro paquete, por eso funciona.
+
 
 
         log.info("Fin del método de arranque de la aplicación para mostrar un menú de inicio\"");

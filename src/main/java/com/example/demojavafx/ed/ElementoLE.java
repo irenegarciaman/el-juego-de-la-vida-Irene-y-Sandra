@@ -1,5 +1,7 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.recursos.Recursos;
+
 public class ElementoLE<TipoDelDato> {
     private ElementoLE<TipoDelDato> siguiente;
     private TipoDelDato data;

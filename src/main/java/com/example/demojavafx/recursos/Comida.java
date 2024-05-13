@@ -49,4 +49,16 @@ public class Comida extends Recursos {
     public void setProbComida(int probComida) {
         this.probComida = probComida;
     }
+
+    @Override
+    public String toString() {
+        return "Comida, {" +
+                "aumentoDeVida=" + aumentoDeVida +
+                ", probComida=" + probComida +
+                ", turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", }";
+    }
 }

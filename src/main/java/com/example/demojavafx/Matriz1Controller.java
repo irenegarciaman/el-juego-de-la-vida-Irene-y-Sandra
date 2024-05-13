@@ -5,13 +5,9 @@ import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.IndAvanzado;
 import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.IndNormal;
-import com.example.demojavafx.individuos.IndividuoProperties;
 import com.example.demojavafx.recursos.*;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
@@ -32,7 +28,7 @@ public class Matriz1Controller implements Initializable {
 
     private BucleDeControlProperties matrizModel;
 
-    private CeldaProperties m;
+
 
 
 
@@ -52,7 +48,7 @@ public class Matriz1Controller implements Initializable {
     public void loadUserData(BucleDeControlProperties parametrosBucleDeControl,CeldaProperties celdaProp) {
         this.matrizModel = parametrosBucleDeControl;
         this.updateGUIwithModel();
-        m = celdaProp;
+
     }
 
     public void setStage(Stage s) {
@@ -149,8 +145,9 @@ public class Matriz1Controller implements Initializable {
                         System.out.println("if");
                         Agua agua = new Agua();
                         try {
-                            m.properties[f][c].addRecurso(agua);
-                            m.commit();
+                            matrizModel.matriz[f][c].addRecurso(agua);
+                            agua.setPosN(f);
+                            agua.setPosM(c);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -160,10 +157,9 @@ public class Matriz1Controller implements Initializable {
 
                         Biblioteca biblioteca = new Biblioteca();
                         try {
-                            System.out.println(matrizModel.original.matriz[f][c].getListaRecurso().getNumeroElementos());
-                            matrizModel.original.matriz[f][c].addRecurso(biblioteca);
-                            System.out.println(matrizModel.original.matriz[f][c].getListaRecurso().getNumeroElementos());
-
+                            matrizModel.matriz[f][c].addRecurso(biblioteca);
+                            biblioteca.setPosN(f);
+                            biblioteca.setPosM(c);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -173,7 +169,9 @@ public class Matriz1Controller implements Initializable {
 
                         Comida comida = new Comida();
                         try {
-                            matrizModel.original.matriz[f][c].addRecurso(comida);
+                            matrizModel.matriz[f][c].addRecurso(comida);
+                            comida.setPosN(f);
+                            comida.setPosM(c);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -183,7 +181,9 @@ public class Matriz1Controller implements Initializable {
 
                         Montana montana = new Montana();
                         try {
-                            matrizModel.original.matriz[f][c].addRecurso(montana);
+                            matrizModel.matriz[f][c].addRecurso(montana);
+                            montana.setPosN(f);
+                            montana.setPosM(c);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -193,7 +193,9 @@ public class Matriz1Controller implements Initializable {
 
                         Pozo pozo = new Pozo();
                         try {
-                            matrizModel.original.matriz[f][c].addRecurso(pozo);
+                            matrizModel.matriz[f][c].addRecurso(pozo);
+                            pozo.setPosN(f);
+                            pozo.setPosM(c);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -203,7 +205,9 @@ public class Matriz1Controller implements Initializable {
 
                         Tesoro tesoro = new Tesoro();
                         try {
-                            matrizModel.original.matriz[f][c].addRecurso(tesoro);
+                            matrizModel.matriz[f][c].addRecurso(tesoro);
+                            tesoro.setPosN(f);
+                            tesoro.setPosM(c);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -220,7 +224,9 @@ public class Matriz1Controller implements Initializable {
                         Random rand = new Random();
                         IndBasico ind = new IndBasico(rand.nextInt(900));
                         try {
-                            matrizModel.original.matriz[f][c].addIndividuo(ind);
+                            matrizModel.matriz[f][c].addIndividuo(ind);
+                            ind.setPosN(f);
+                            ind.setPosM(c);
                         } catch (Superar3Individuos ex) {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
@@ -230,7 +236,9 @@ public class Matriz1Controller implements Initializable {
                         Random rand = new Random();
                         IndNormal ind = new IndNormal(rand.nextInt(900));
                         try {
-                            matrizModel.original.matriz[f][c].addIndividuo(ind);
+                            matrizModel.matriz[f][c].addIndividuo(ind);
+                            ind.setPosN(f);
+                            ind.setPosM(c);
                         } catch (Superar3Individuos ex) {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
@@ -240,7 +248,9 @@ public class Matriz1Controller implements Initializable {
                         Random rand = new Random();
                         IndAvanzado ind = new IndAvanzado(rand.nextInt(900));
                         try {
-                            matrizModel.original.matriz[f][c].addIndividuo(ind);
+                            matrizModel.matriz[f][c].addIndividuo(ind);
+                            ind.setPosN(f);
+                            ind.setPosM(c);
                         } catch (Superar3Individuos ex) {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
@@ -258,7 +268,6 @@ public class Matriz1Controller implements Initializable {
             EventHandler eventButtonGuardar = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     matrizModel.commit();
-                    m.commit();
                     rec.loadUserData(rec.getRecursosModel(),rec.getAguaModel(),rec.getBibliotecaModel(),rec.getComidaModel(),rec.getMontanaModel(),rec.getPozoModel(),rec.getTesoroModel(),rec.getIndividuoModel(),matrizModel);
                     rec.actualizarButton(f,c);
                     stage.close();

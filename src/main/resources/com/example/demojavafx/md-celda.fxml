@@ -24,12 +24,12 @@
                         <MenuItem mnemonicParsing="false" text="pozo" />
                     </items>
                   </MenuButton>
-                  <Button alignment="CENTER" layoutX="195.0" layoutY="88.0" mnemonicParsing="false" onAction="#anadirRec" text="Añadir" />
+                  <Button alignment="CENTER" layoutX="195.0" layoutY="88.0" mnemonicParsing="false"  text="Añadir" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="308.0">
                <children>
-                  <Button layoutX="210.0" layoutY="96.0" mnemonicParsing="false" onAction="#anadirInd" text="Añadir" />
+                  <Button layoutX="210.0" layoutY="96.0" mnemonicParsing="false"  text="Añadir" />
                   <MenuButton fx:id="boxTipoInd" layoutX="51.0" layoutY="96.0" mnemonicParsing="false" text="Tipo">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Basico" />

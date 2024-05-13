@@ -133,15 +133,6 @@ public abstract class Individuo {
         this.arbolGenealogico = arbolGenealogico;
     }
 
-    @Override
-    public String toString() {
-        return "Individuo{" +
-                "id=" + id +
-                ", generacion=" + generacion +
-                ", turnoVidaRestantes=" + turnosRestantes +
-                ", probReproduccion=" + probReproduccion +
-                ", probClonacion=" + probClonacion +
-                ", probMuerte=" + probMuerte +
-                '}';
-    }
+
+
 }

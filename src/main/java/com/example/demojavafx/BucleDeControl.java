@@ -1,6 +1,7 @@
 package com.example.demojavafx;
 
 import com.example.demojavafx.ed.ElementoLE;
+import com.example.demojavafx.ed.Gson1;
 import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.Superar3Individuos;
@@ -17,33 +18,32 @@ public class BucleDeControl {
     private int columna;
     private int fila;
     public Celda[][] matriz;
-    int turno=0;
+    int turno = 0;
 
 
-    /**
-     * Constructor
-     **/
+
     public BucleDeControl(int fila, int columna) {
         this.columna = columna;
         this.fila = fila;
         this.matriz = new Celda[fila][columna];
-       for (int i= 0; i<fila; i++){
-            for (int j= 0; j<columna;j++){
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < columna; j++) {
                 Celda n = new Celda();
-                this.matriz[i][j]=n;
+                this.matriz[i][j] = n;
             }
         }
 
     }
+
     public void addCosas() throws Superar3Recursos, Superar3Individuos {
-        IndBasico ind1 = new IndBasico(222,4,6);
-        IndNormal ind2 = new IndNormal(333,6,7);
-        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
-        Agua agua = new Agua(3,4);
-        Comida comida = new Comida(2,3);
-        Montana montana = new Montana(4,5);
-        Biblioteca biblioteca = new Biblioteca(3,45);
-        Tesoro tesoro = new Tesoro(3,32);
+        IndBasico ind1 = new IndBasico(222, 4, 6);
+        IndNormal ind2 = new IndNormal(333, 6, 7);
+        IndAvanzado ind3 = new IndAvanzado(444, 9, 1);
+        Agua agua = new Agua(3, 4);
+        Comida comida = new Comida(2, 3);
+        Montana montana = new Montana(4, 5);
+        Biblioteca biblioteca = new Biblioteca(3, 45);
+        Tesoro tesoro = new Tesoro(3, 32);
         Pozo pozo = new Pozo(6);
         matriz[0][2].addRecurso(agua);
         //matriz[0][2].addRecurso(tesoro);
@@ -57,8 +57,6 @@ public class BucleDeControl {
 
 
     }
-
-
 
 
     public int getColumna() {
@@ -78,29 +76,29 @@ public class BucleDeControl {
     }
 
 
-
-    public void actualizarIndividuo(){
-        for(int i=0;i<=columna-1;i++){
-            for(int j=0;j<=fila-1;j++){
-                for(int k=0;k<=matriz[j][i].getListaIndividuo().getNumeroElementos()-1 ;k++){
+    public void actualizarIndividuo() {
+        for (int i = 0; i <= columna - 1; i++) {
+            for (int j = 0; j <= fila - 1; j++) {
+                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
                     Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
-                    individuo.setTurnosRestantes(individuo.getTurnosRestantes()-1);
-                    individuo.setProbReproduccion(individuo.getProbReproduccion()-10);
-                    individuo.setProbClonacion(individuo.getProbClonacion()-10);
-                    if(individuo.getTurnosRestantes()==0){
+                    individuo.setTurnosRestantes(individuo.getTurnosRestantes() - 1);
+                    individuo.setProbReproduccion(individuo.getProbReproduccion() - 10);
+                    individuo.setProbClonacion(individuo.getProbClonacion() - 10);
+                    if (individuo.getTurnosRestantes() == 0) {
                         matriz[j][i].eliminarIndividuo(individuo);
                     }
                 }
             }
         }
     }
-    public void actualizarRecursos(){
-        for(int i=0;i<columna;i++){
-            for(int j=0;j<fila;j++){
-                for(int k=0;k<=matriz[j][i].getListaRecurso().getNumeroElementos()-1 ;k++){
+
+    public void actualizarRecursos() {
+        for (int i = 0; i < columna; i++) {
+            for (int j = 0; j < fila; j++) {
+                for (int k = 0; k <= matriz[j][i].getListaRecurso().getNumeroElementos() - 1; k++) {
                     Recursos recurso = matriz[j][i].getListaRecurso().getElemento(k).getData();
-                    recurso.setTurnosRestantes(recurso.getTurnosRestantes()-1);
-                    if(recurso.getTurnosRestantes()==0){
+                    recurso.setTurnosRestantes(recurso.getTurnosRestantes() - 1);
+                    if (recurso.getTurnosRestantes() == 0) {
                         matriz[j][i].eliminarRecurso(recurso);
                     }
                 }
@@ -110,7 +108,7 @@ public class BucleDeControl {
 
     public void movimiento() throws Superar3Individuos {
         ListaEnlazada<Integer> listaId = new ListaEnlazada<>();
-        for(int i=0;i<columna;i++) {
+        for (int i = 0; i < columna; i++) {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
                     int id = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
@@ -118,7 +116,7 @@ public class BucleDeControl {
                 }
             }
         }
-        for(int i=0;i<columna;i++) {
+        for (int i = 0; i < columna; i++) {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
                     int id2 = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
@@ -294,7 +292,6 @@ public class BucleDeControl {
                         }
                     }
                 }
-
             }
         }
     }

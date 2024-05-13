@@ -28,4 +28,15 @@ public class Pozo extends Recursos {
     public void setProbPozo(int probPozo) {
         this.probPozo = probPozo;
     }
+
+    @Override
+    public String toString() {
+        return "Pozo, {" +
+                "probPozo=" + probPozo +
+                ", turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", }";
+    }
 }

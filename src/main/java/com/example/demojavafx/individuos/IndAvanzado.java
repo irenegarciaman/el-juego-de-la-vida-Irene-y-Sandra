@@ -250,4 +250,18 @@ public class IndAvanzado extends Individuo {
 
     }
 
+    @Override
+    public String toString() {
+        return "IndAvanzado, {" +
+                "arbolGenealogico=" + arbolGenealogico +
+                ", posM=" + posM +
+                ", posN=" + posN +
+                ", probMuerte=" + probMuerte +
+                ", probClonacion=" + probClonacion +
+                ", probReproduccion=" + probReproduccion +
+                ", turnosRestantes=" + turnosRestantes +
+                ", generacion=" + generacion +
+                ", id=" + id +
+                ", }";
+    }
 }

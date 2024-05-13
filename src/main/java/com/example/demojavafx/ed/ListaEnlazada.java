@@ -210,7 +210,7 @@ ListaEnlazada<TipoDelDato> {
         String res = "";
         int aux = 0;
         while(aux < this.getNumeroElementos()){
-            res += getElemento(aux).getData().toString() + " ";
+            res += getElemento(aux).getData().toString() + "\n ";
             aux++;
         }
         return res;
