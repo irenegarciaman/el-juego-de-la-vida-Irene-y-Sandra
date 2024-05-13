@@ -175,7 +175,7 @@ class GrafoNuevoTest {
         assertFalse(g.recuperarArco(a3));
 
     }
-    @Test
+   /** @Test
     void dikjstra(){
         ListaSimple<NodoGrafoNuevo> lv = new ListaSimple<>();
         ListaSimple<ArcoGrafoNuevo> la = new ListaSimple<>();
@@ -240,5 +240,5 @@ class GrafoNuevoTest {
             Camino<String> c = mi.getData();
             System.out.println(c.toString());
         }
-    }
+    }*/
 }

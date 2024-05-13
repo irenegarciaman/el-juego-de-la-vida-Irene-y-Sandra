@@ -48,34 +48,19 @@ public class IndBasico extends Individuo {
 
         if(random == 0){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            int tope = this.posN;
-            int rand2 = rand.nextInt(1,tope+1);
-            this.posN -= rand2;
-            matriz[this.posN][this.posM].addIndividuo(this);
+            matriz[this.posN-1][this.posM].addIndividuo(this);
         }
         else if(random == 1){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            int aux = maxFilas - posN;
-            int tope = aux - 1;
-            int rand2 = rand.nextInt(1,tope+1);
-            posN += rand2;
-            matriz[this.posN][this.posM].addIndividuo(this);
+            matriz[this.posN+1][this.posM].addIndividuo(this);
         }
         else if(random == 2){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            int aux = maxColumnas - posM;
-            int tope = aux -1;
-            int rand2 = rand.nextInt(1,tope+1);
-            posM += rand2;
-            matriz[this.posN][this.posM].addIndividuo(this);
+            matriz[this.posN][this.posM+1].addIndividuo(this);
         }
         else {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            int tope = posM;
-            int rand2 = rand.nextInt(1,tope+1);
-            posM -= rand2;
-            matriz[this.posN][this.posM].addIndividuo(this);
+            matriz[this.posN][this.posM-1].addIndividuo(this);
         }
     }
-
 }

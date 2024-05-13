@@ -184,4 +184,12 @@ public class GrafoNuevo<TipoDelDato> {
             System.out.println("Arbol Cargado");
         }
     }
+
+    public ListaSimple<NodoGrafoNuevo> getListaVertices() {
+        return listaVertices;
+    }
+
+    public ListaSimple<ArcoGrafoNuevo> getListaArcos() {
+        return listaArcos;
+    }
 }

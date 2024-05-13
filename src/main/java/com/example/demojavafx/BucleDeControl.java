@@ -142,10 +142,10 @@ public class BucleDeControl {
     public void mejorasRecursos (){
         for(int i=0;i<columna;i++){
             for(int j=0;j<fila;j++){
-                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
-                    for(int h=0;h<= matriz[j][i].getListaRecurso().getNumeroElementos()-1 ;h++){
-                        Recursos recurso = matriz[j][i].getListaRecurso().getElemento(h).getData();
-                        Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
+                for (int k = 0; k <= matriz[j][i].getListaRecurso().getNumeroElementos() - 1; k++) {
+                    for(int h=0;h<= matriz[j][i].getListaIndividuo().getNumeroElementos()-1 ;h++){
+                        Recursos recurso = matriz[j][i].getListaRecurso().getElemento(k).getData();
+                        Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(h).getData();
                         if (recurso.getClass() == Agua.class){
                             individuo.setTurnosRestantes(individuo.getTurnosRestantes()+((Agua) recurso).getAumentoDeVida());
                         }else if(recurso.getClass() == Comida.class){
@@ -241,58 +241,60 @@ public class BucleDeControl {
     public void nuevoRecurso() throws Superar3Recursos {
         for(int i=0;i<columna;i++) {
             for (int j = 0; j < fila; j++) {
-                Random rand = new Random();
-                int random = rand.nextInt(101);
-                Random rand3 = new Random();
-                int random3 = rand3.nextInt(101);
-                if (random<random3){
-                    Agua agua = new Agua(6,1,1,34,4,5);
-                    Comida comida = new Comida(3,2,3,2,2,4);
-                    Biblioteca biblioteca = new Biblioteca(9,3,1,3,2,1);
-                    Tesoro tesoro = new Tesoro(3,0,0,6,2,5);
-                    Pozo pozo = new Pozo(3,1,0,8,3);
-                    Montana montana = new Montana(5,0,1,8,3,7);
-                    int probTotal = (agua.getProbNuevoRecurso() + comida.getProbNuevoRecurso() + biblioteca.getProbNuevoRecurso() + tesoro.getProbNuevoRecurso() + pozo.getProbNuevoRecurso() + montana.getProbNuevoRecurso());
-                    Random rand2 = new Random();
-                    int random2 = rand2.nextInt(probTotal+1);
-                    if (random2<agua.getProbNuevoRecurso()){
-                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(agua))==-1) {
-                            matriz[j][i].addRecurso(agua);
-                            agua.setPosN(j);
-                            agua.setPosM(i);
-                        }
-                    }else if (random2<comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()){
-                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(comida))==-1) {
-                            matriz[j][i].addRecurso(comida);
-                            comida.setPosN(j);
-                            comida.setPosM(i);
-                        }
-                    }else if (random2<biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()){
-                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(biblioteca))==-1) {
-                            matriz[j][i].addRecurso(biblioteca);
-                            biblioteca.setPosN(j);
-                            biblioteca.setPosM(i);
-                        }
-                    }else if (random2<tesoro.getProbNuevoRecurso()+biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()){
-                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(tesoro))==-1) {
-                            matriz[j][i].addRecurso(tesoro);
-                            tesoro.setPosN(j);
-                            tesoro.setPosM(i);
-                        }
-                    } else if (random2<pozo.getProbNuevoRecurso()+tesoro.getProbNuevoRecurso()+biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()) {
-                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(pozo))==-1) {
-                            matriz[j][i].addRecurso(pozo);
-                            pozo.setPosN(j);
-                            pozo.setPosM(i);
-                        }
-                    } else if (random2<montana.getProbNuevoRecurso()+pozo.getProbNuevoRecurso()+tesoro.getProbNuevoRecurso()+biblioteca.getProbNuevoRecurso()+comida.getProbNuevoRecurso()+agua.getProbNuevoRecurso()) {
-                        if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(montana))==-1) {
-                            matriz[j][i].addRecurso(montana);
-                            montana.setPosN(j);
-                            montana.setPosM(i);
+                if (matriz[j][i].getListaRecurso().getNumeroElementos()<3){
+                    Random rand = new Random();
+                    int random = rand.nextInt(101);
+                    Recursos recurso = new Recursos(2,2,2,60);
+                    if (random>recurso.getProbNuevoRecurso()){
+                        Agua agua = new Agua(6,1,1,34,4,5);
+                        Comida comida = new Comida(3,2,3,2,2,4);
+                        Biblioteca biblioteca = new Biblioteca(9,3,1,3,2,1);
+                        Tesoro tesoro = new Tesoro(3,0,0,6,2,5);
+                        Pozo pozo = new Pozo(3,1,0,8,3);
+                        Montana montana = new Montana(5,0,1,8,3,7);
+                        int probTotal = (agua.getProbAgua() + comida.getProbComida() + biblioteca.getProbBiblioteca() + tesoro.getProbTesoro() + pozo.getProbPozo() + montana.getProbMontana());
+                        Random rand2 = new Random();
+                        int random2 = rand2.nextInt(probTotal+1);
+                        if (random2<agua.getProbAgua()){
+                            if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(agua))==-1) {
+                                matriz[j][i].addRecurso(agua);
+                                agua.setPosN(j);
+                                agua.setPosM(i);
+                            }
+                        }else if (random2<comida.getProbComida()+agua.getProbAgua()){
+                            if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(comida))==-1) {
+                                matriz[j][i].addRecurso(comida);
+                                comida.setPosN(j);
+                                comida.setPosM(i);
+                            }
+                        }else if (random2<biblioteca.getProbBiblioteca()+comida.getProbComida()+agua.getProbAgua()){
+                            if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(biblioteca))==-1) {
+                                matriz[j][i].addRecurso(biblioteca);
+                                biblioteca.setPosN(j);
+                                biblioteca.setPosM(i);
+                            }
+                        }else if (random2<tesoro.getProbTesoro()+biblioteca.getProbBiblioteca()+comida.getProbComida()+agua.getProbAgua()){
+                            if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(tesoro))==-1) {
+                                matriz[j][i].addRecurso(tesoro);
+                                tesoro.setPosN(j);
+                                tesoro.setPosM(i);
+                            }
+                        } else if (random2<pozo.getProbPozo()+tesoro.getProbTesoro()+biblioteca.getProbBiblioteca()+comida.getProbComida()+agua.getProbAgua()) {
+                            if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(pozo))==-1) {
+                                matriz[j][i].addRecurso(pozo);
+                                pozo.setPosN(j);
+                                pozo.setPosM(i);
+                            }
+                        } else if (random2<montana.getProbMontana()+pozo.getProbPozo()+tesoro.getProbTesoro()+biblioteca.getProbBiblioteca()+comida.getProbComida()+agua.getProbAgua()) {
+                            if (matriz[j][i].getListaRecurso().getPosicion(new ElementoLE<>(montana))==-1) {
+                                matriz[j][i].addRecurso(montana);
+                                montana.setPosN(j);
+                                montana.setPosM(i);
+                            }
                         }
                     }
                 }
+
             }
         }
     }
@@ -311,22 +313,15 @@ public class BucleDeControl {
     }
 
     public void bucleEntero() throws Superar3Individuos, Superar3Recursos {
-        actualizarIndividuo();
-        actualizarRecursos();
-        movimiento();
-        mejorasRecursos();
-        desaparecerIndividuos();
-        reproducion();
-        clonacion();
-        nuevoRecurso();
-        //if (!condicionFinalizacion()){
-        int i = 0;
-        while (i<3) {
-            turno++;
-            i++;
-            bucleEntero();
-
-        }//else, funcion finalizar juego
-
+        while (!condicionFinalizacion()) {
+            actualizarIndividuo();
+            actualizarRecursos();
+            movimiento();
+            mejorasRecursos();
+            desaparecerIndividuos();
+            reproducion();
+            clonacion();
+            nuevoRecurso();
+        }
     }
 }

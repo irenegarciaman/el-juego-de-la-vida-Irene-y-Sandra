@@ -171,4 +171,15 @@ class ListaEnlazadaTest {
         assertEquals("b", lista.getElemento(1).getData());
         assertEquals("c", lista.getElemento(2).getData());
     }
+    @Test
+    void invertir(){
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
+        lista.add(2);
+        lista.add(3);
+        lista.add(5);
+        lista.invertir();
+        assertEquals(5,lista.getElemento(0).getData());
+        assertEquals(3,lista.getElemento(1).getData());
+        assertEquals(2,lista.getElemento(2).getData());
+    }
 }

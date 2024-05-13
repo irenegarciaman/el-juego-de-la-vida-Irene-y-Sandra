@@ -60,7 +60,7 @@ probReproduccion:int,probClonacion:int,probMuerte:int,posN:int,posM:int)
 +setPosM(posM:int):void
 +toString():String
 
-+abstract moverse()
++abstract moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
 +abstract reproduccion_entre_iguales()
 +reproduccion_entre_distintos()
 +restar_turno_vida()
@@ -70,17 +70,19 @@ probReproduccion:int,probClonacion:int,probMuerte:int,posN:int,posM:int)
 class IndBasico{
 +IndBasico(id:int)
 +IndBasico(id:int,turnosRestantes:int)
-+moverse_en_celda()
++moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
 }
 class IndNormal{
 +IndNormal(id:int)
 +IndNormal(id:int,turnosRestantes:int)
-+moverse_en_celda()
++moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
++creacionListaMovimiento (posNDeseado:int, posMDeseado:int, posN:int, posM:int,matriz Celda[][])
 }
 class IndAvanzado{
 +IndAvanzado(id:int)
 +IndAvanzado(id:int,turnosRestantes:int)
-+moverse_en_celda()
++moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
++creacionListaMovimiento (maxColumnas:int,maxFilas:int, posNDeseado:int, posMDeseado:int, posN:int, posM:int,matriz Celda[][])
 }
 
 
