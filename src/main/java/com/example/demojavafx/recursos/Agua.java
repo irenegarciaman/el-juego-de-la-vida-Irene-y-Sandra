@@ -41,5 +41,15 @@ public class Agua extends Recursos {
         this.probAgua = probAgua;
     }
 
-
+    @Override
+    public String toString() {
+        return "Agua, {" +
+                "turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", probAgua=" + probAgua +
+                ", aumentoDeVida=" + aumentoDeVida +
+                ", }";
+    }
 }

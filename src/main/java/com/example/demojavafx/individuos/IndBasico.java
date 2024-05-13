@@ -19,6 +19,10 @@ public class IndBasico extends Individuo {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
     }
 
+    public IndBasico(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
+        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+    }
+
     @Override
     public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) throws Superar3Individuos {
 
@@ -78,4 +82,18 @@ public class IndBasico extends Individuo {
         }
     }
 
+    @Override
+    public String toString() {
+        return "IndBasico, {" +
+                "arbolGenealogico=" + arbolGenealogico +
+                ", posM=" + posM +
+                ", posN=" + posN +
+                ", probMuerte=" + probMuerte +
+                ", probClonacion=" + probClonacion +
+                ", probReproduccion=" + probReproduccion +
+                ", turnosRestantes=" + turnosRestantes +
+                ", generacion=" + generacion +
+                ", id=" + id +
+                ", }";
+    }
 }

@@ -37,4 +37,16 @@ public class Tesoro extends Recursos {
     public void setProbTesoro(int probTesoro) {
         this.probTesoro = probTesoro;
     }
+
+    @Override
+    public String toString() {
+        return "Tesoro, {" +
+                "aumentoDePorcenRep=" + aumentoDePorcenRep +
+                ", probTesoro=" + probTesoro +
+                ", turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", }";
+    }
 }

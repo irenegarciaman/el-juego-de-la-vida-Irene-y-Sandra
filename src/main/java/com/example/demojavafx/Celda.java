@@ -90,11 +90,11 @@ public class Celda {
     }
     @Override
     public String toString(){
-        String resInd = "Lista de individuos: ";
-        String resRec = "Lista de recurso: ";
+        String resInd = "Lista de individuos: \n";
+        String resRec = "Lista de recurso: \n";
 
-        resInd += listaIndividuo.toString() + "    ";
-        resRec += listaRecurso.toString() + "    ";
+        resInd += listaIndividuo.toString() + "\n";
+        resRec += listaRecurso.toString() + "\n";
         return resInd + "\n" + resRec;
     }
     public static void main(String[] args) throws Superar3Recursos, Superar3Individuos {

@@ -107,13 +107,5 @@ public class ModCeldaController implements Initializable {
         }
 
     }
-    @FXML
-    void anadirInd(ActionEvent event) {
 
-    }
-
-    @FXML
-    void anadirRec(ActionEvent event) {
-
-    }
 }

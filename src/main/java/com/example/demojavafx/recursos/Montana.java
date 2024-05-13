@@ -37,4 +37,16 @@ public class Montana extends Recursos {
     public void setProbMontana(int probMontana) {
         this.probMontana = probMontana;
     }
+
+    @Override
+    public String toString() {
+        return "Montana, {" +
+                "disminucionDeVida=" + disminucionDeVida +
+                ", probMontana=" + probMontana +
+                ", turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", }";
+    }
 }

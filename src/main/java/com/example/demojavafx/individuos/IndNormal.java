@@ -21,6 +21,10 @@ public class IndNormal extends Individuo {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
     }
 
+    public IndNormal(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
+        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+    }
+
     @Override
     public void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) throws Superar3Individuos {
         ListaEnlazada<Recursos> listaOpciones = new ListaEnlazada<>();
@@ -49,5 +53,20 @@ public class IndNormal extends Individuo {
         this.setPosN(recurso.getPosN());
         this.setPosM(recurso.getPosM());
         matriz[posN][posM].addIndividuo(this);
+    }
+
+    @Override
+    public String toString() {
+        return "IndNormal, {" +
+                "arbolGenealogico=" + arbolGenealogico +
+                ", posM=" + posM +
+                ", posN=" + posN +
+                ", probMuerte=" + probMuerte +
+                ", probClonacion=" + probClonacion +
+                ", probReproduccion=" + probReproduccion +
+                ", turnosRestantes=" + turnosRestantes +
+                ", generacion=" + generacion +
+                ", id=" + id +
+                ", }";
     }
 }

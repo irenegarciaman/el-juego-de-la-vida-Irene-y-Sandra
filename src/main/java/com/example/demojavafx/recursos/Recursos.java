@@ -24,6 +24,7 @@ public class Recursos {
         this.posM = posM;
     }
 
+
     public Recursos(int tiempoVida) {
         this.turnosRestantes = tiempoVida;
     }
@@ -60,13 +61,6 @@ public class Recursos {
         this.probNuevoRecurso = probNuevoRecurso;
     }
 
-    @Override
-    public String toString() {
-        return "Recursos{" +
-                "turnosRestantes=" + turnosRestantes +
-                ", posN=" + posN +
-                ", posM=" + posM +
-                '}';
-    }
+
 
 }
