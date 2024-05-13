@@ -17,7 +17,7 @@ public class IndAvanzado extends Individuo {
     public IndAvanzado(int id) {
         super(id);
     }
-
+//
     public IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
     }
