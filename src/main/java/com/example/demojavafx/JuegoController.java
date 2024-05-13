@@ -134,79 +134,7 @@ public class JuegoController implements Initializable {
         }
 
     }
-    public void crearJuego(BucleDeControlProperties modeloMatriz){
 
-        //Este es el llamado por el helloController
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("juego.fxml"));
-        try {
-            Scene scene1 = new Scene(fxmlLoader.load(), 600, 400);
-            int turno = modeloMatriz.original.turno;
-            stage.setTitle("juego en turno: "+ turno);
-            stage.setScene(scene1);
-
-            JuegoController p = fxmlLoader.getController();
-            p.loadUserData(recursosModel,aguaModel,bibliotecaModel,comidaModel,montanaModel,pozoModel,tesoroModel,individuoModel,matrizModel);
-
-
-            int filas = modeloMatriz.getFilas();
-            int columnas = modeloMatriz.getColumnas();
-
-
-            GridPane mainGrid2 = new GridPane();
-            ScrollPane scrollPane2 = new ScrollPane(mainGrid2);
-
-            for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
-                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
-                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
-                    String label = "nºInd: " + numI + "\n nºRec: " + numR;
-                    Button b = new Button(label);
-                    b.setId(i + "," + j);
-
-                    int finalJ = j;
-                    int finalI = i;
-
-                    System.out.println("bucle");
-                    EventHandler y = new EventHandler() {
-                        @Override
-                        public void handle(Event event) {
-                            System.out.println("event");
-                            p.onButtonInfo(finalI,finalJ,matrizModel);
-                        }
-                    };
-                    b.setOnAction(y);
-
-
-
-
-                    VBox placeholder = new VBox(b);
-
-                    b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                    placeholder.setMinSize(100, 100);
-                    placeholder.setMaxSize(100, 100);
-                    placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
-                    mainGrid2.add(placeholder, i, j);
-
-
-                }
-            }
-
-            p.setStage(stage);
-            stage.show();
-
-
-            Scene scene2 = new Scene(scrollPane2, 600, 600);
-            scene1 = scene2;
-            stage.setScene(scene1);
-            stage.show();
-            //modeloMatriz.original.guardar();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
     public void onButtonInfo(int f, int c,BucleDeControlProperties matrizModel) {
         //se llama desde recursos controller
         System.out.println("entra?");
@@ -258,10 +186,10 @@ public class JuegoController implements Initializable {
 
 
 
-            for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
-                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
-                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
+            for (int j = 0; j < filas; j++) {
+                for (int i = 0; i < columnas; i++) {
+                    int numI = modeloMatriz.matriz[j][i].getListaIndividuo().getNumeroElementos();
+                    int numR = modeloMatriz.matriz[j][i].getListaRecurso().getNumeroElementos();
                     String label = "nºInd: " + numI + "\n nºRec: " + numR;
                     Button b = new Button(label);
                     b.setId(i + "," + j);
@@ -283,7 +211,9 @@ public class JuegoController implements Initializable {
                     VBox placeholder = new VBox(b);
 
                     b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                    placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
+                    placeholder.setMinHeight(40);
+                    placeholder.setMinWidth(100);
+
                     placeholder.setMaxSize(100, 100);
                     placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
                     mainGrid2.add(placeholder, i, j);
@@ -315,14 +245,13 @@ public class JuegoController implements Initializable {
                             @Override
                             public void handle(Event event) {
                                 a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
-                                        pozoModel,tesoroModel,individuoModel,modeloMatriz);
+                                        pozoModel,tesoroModel,individuoModel,modeloMatriz,listaButton);
                                 a.modificarCelda(f,c,matrizModel);
                             }
                         };
                         listaButton.getElemento(m).getData().setOnAction(y);
                     }
 
-                    RecursosController rec = h;
                     hbox.getChildren().remove(pauseB);
 
                     Button fin = new Button("Finalizar");
@@ -348,7 +277,7 @@ public class JuegoController implements Initializable {
                                     @Override
                                     public void handle(Event event) {
                                         a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
-                                                pozoModel,tesoroModel,individuoModel,modeloMatriz);
+                                                pozoModel,tesoroModel,individuoModel,modeloMatriz,listaButton);
                                         //a.modificarCelda(f,c);
                                         j.onButtonInfo(f,c,matrizModel);
                                     }
@@ -423,7 +352,7 @@ public class JuegoController implements Initializable {
                     EventHandler ajustesHandler = new EventHandler() {
                         @Override
                         public void handle(Event event) {
-                            System.out.println("ajustes handler");
+
 
                             for(int i=0;i<h.modeloMatriz.getFilas();i++){
                                 for (int j = 0; j < h.modeloMatriz.getColumnas(); j++) {
@@ -483,11 +412,16 @@ public class JuegoController implements Initializable {
         int aux = 0;
         Button res = new Button();
         res.setId("hola");
-        Button smt = new Button();
+
+        System.out.println("nºelementos" + listaButton.getNumeroElementos());
+
         while (aux < listaButton.getNumeroElementos()) {
             String[] splitted = listaButton.getElemento(aux).getData().getId().split(",");
+            System.out.println(listaButton.getElemento(aux).getData().getId());
             int n = Integer.parseInt(splitted[0]);
             int m = Integer.parseInt(splitted[1]);
+            System.out.println(n);
+            System.out.println(m);
             if (n==f && m==c) {
                 res = listaButton.getElemento(aux).getData();
             }

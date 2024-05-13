@@ -158,9 +158,6 @@ public class AjustesMidJuegoController implements Initializable {
     protected IntegerProperty ind4 = new SimpleIntegerProperty(0);
 
 
-    //matriz medidas
-    protected IntegerProperty mf = new SimpleIntegerProperty(0);
-    protected IntegerProperty mc = new SimpleIntegerProperty(0);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -314,7 +311,7 @@ public class AjustesMidJuegoController implements Initializable {
                              BibliotecaProperties parametrosBiblioteca, ComidaProperties parametrosComida,
                              MontanaProperties parametrosMontana, PozoProperties parametrosPozo,
                              TesoroProperties parametrosTesoro, IndividuoProperties parametrosInd,
-                             BucleDeControlProperties parametroMatriz) {
+                             BucleDeControlProperties parametroMatriz,ListaEnlazada<Button> listaButton) {
 
         this.recursosModel = parametrosRecursos;
         this.aguaModel = parametrosAgua;
@@ -325,6 +322,7 @@ public class AjustesMidJuegoController implements Initializable {
         this.tesoroModel = parametrosTesoro;
         this.individuoModel = parametrosInd;
         this.modeloMatriz = parametroMatriz;
+        this.listaButton = listaButton;
 
         //this.updateGUIwithModel();
     }
@@ -430,6 +428,7 @@ public class AjustesMidJuegoController implements Initializable {
             VBox rootRec = new VBox(menuButtonRec, labelRec,decor,buttonR);
 
             rootRec.setAlignment(Pos.CENTER);
+            VBox vboxEliminar = new VBox();
 
             EventHandler<ActionEvent> eventButtonRec = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
@@ -440,6 +439,17 @@ public class AjustesMidJuegoController implements Initializable {
                             modeloMatriz.matriz[f][c].addRecurso(agua);
                             agua.setPosN(f);
                             agua.setPosM(c);
+                            Button el = new Button("Eliminar: Agua");
+                            vboxEliminar.getChildren().add(el);
+                            EventHandler l = new EventHandler() {
+                                @Override
+                                public void handle(Event event) {
+                                    modeloMatriz.matriz[f][c].eliminarRecurso(agua);
+                                    vboxEliminar.getChildren().remove(el);
+                                }
+                            };
+                            el.setOnAction(l);
+
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -452,6 +462,16 @@ public class AjustesMidJuegoController implements Initializable {
                             modeloMatriz.matriz[f][c].addRecurso(biblioteca);
                             biblioteca.setPosN(f);
                             biblioteca.setPosM(c);
+                            Button el = new Button("Eliminar: Biblioteca");
+                            vboxEliminar.getChildren().add(el);
+                            EventHandler l = new EventHandler() {
+                                @Override
+                                public void handle(Event event) {
+                                    modeloMatriz.matriz[f][c].eliminarRecurso(biblioteca);
+                                    vboxEliminar.getChildren().remove(el);
+                                }
+                            };
+                            el.setOnAction(l);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -464,6 +484,16 @@ public class AjustesMidJuegoController implements Initializable {
                             modeloMatriz.matriz[f][c].addRecurso(comida);
                             comida.setPosN(f);
                             comida.setPosM(c);
+                            Button el = new Button("Eliminar: Comida");
+                            vboxEliminar.getChildren().add(el);
+                            EventHandler l = new EventHandler() {
+                                @Override
+                                public void handle(Event event) {
+                                    modeloMatriz.matriz[f][c].eliminarRecurso(comida);
+                                    vboxEliminar.getChildren().remove(el);
+                                }
+                            };
+                            el.setOnAction(l);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -476,6 +506,16 @@ public class AjustesMidJuegoController implements Initializable {
                             modeloMatriz.matriz[f][c].addRecurso(montana);
                             montana.setPosN(f);
                             montana.setPosM(c);
+                            Button el = new Button("Eliminar: Montaña");
+                            vboxEliminar.getChildren().add(el);
+                            EventHandler l = new EventHandler() {
+                                @Override
+                                public void handle(Event event) {
+                                    modeloMatriz.matriz[f][c].eliminarRecurso(montana);
+                                    vboxEliminar.getChildren().remove(el);
+                                }
+                            };
+                            el.setOnAction(l);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -488,6 +528,17 @@ public class AjustesMidJuegoController implements Initializable {
                             modeloMatriz.matriz[f][c].addRecurso(pozo);
                             pozo.setPosN(f);
                             pozo.setPosM(c);
+                            Button el = new Button("Eliminar: Pozo");
+                            vboxEliminar.getChildren().add(el);
+                            EventHandler l = new EventHandler() {
+                                @Override
+                                public void handle(Event event) {
+                                    modeloMatriz.matriz[f][c].eliminarRecurso(pozo);
+                                    vboxEliminar.getChildren().remove(el);
+                                }
+                            };
+                            el.setOnAction(l);
+
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -500,6 +551,16 @@ public class AjustesMidJuegoController implements Initializable {
                             modeloMatriz.matriz[f][c].addRecurso(tesoro);
                             tesoro.setPosN(f);
                             tesoro.setPosM(c);
+                            Button el = new Button("Eliminar: Tesoro");
+                            vboxEliminar.getChildren().add(el);
+                            EventHandler l = new EventHandler() {
+                                @Override
+                                public void handle(Event event) {
+                                    modeloMatriz.matriz[f][c].eliminarRecurso(tesoro);
+                                    vboxEliminar.getChildren().remove(el);
+                                }
+                            };
+                            el.setOnAction(l);
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
@@ -549,15 +610,14 @@ public class AjustesMidJuegoController implements Initializable {
                     }
                 }
             };
+            button.setOnAction(eventButtonInd);
 
 
 
-            VBox vbox = new VBox();
+
 
             for (int k=0;k < modeloMatriz.matriz[f][c].getListaIndividuo().getNumeroElementos();k++){
-                System.out.println(k);
                 Individuo ind = modeloMatriz.matriz[f][c].getListaIndividuo().getElemento(k).getData();
-                System.out.println("Eliminar: "+ind.getClass().getName() + ind.getId());
                 String labe = "";
                 if(ind.getClass().equals(IndBasico.class)){
                     labe += "Ind Básico ";
@@ -569,7 +629,7 @@ public class AjustesMidJuegoController implements Initializable {
 
 
                 Button bu = new Button("Eliminar: "+labe + "id: "+ ind.getId());
-                vbox.getChildren().addAll(bu);
+                vboxEliminar.getChildren().addAll(bu);
 
                 int finalJ = f;
                 int finalI = c;
@@ -577,7 +637,7 @@ public class AjustesMidJuegoController implements Initializable {
                     @Override
                     public void handle(Event event) {
                         modeloMatriz.matriz[finalI][finalJ].eliminarIndividuo(ind);
-                        vbox.getChildren().remove(bu);
+                        vboxEliminar.getChildren().remove(bu);
                     }
                 };
 
@@ -586,7 +646,7 @@ public class AjustesMidJuegoController implements Initializable {
 
             }
 
-            for (int k=0;k < modeloMatriz.matriz[f][c].getListaIndividuo().getNumeroElementos();k++){
+            for (int k=0;k < modeloMatriz.matriz[f][c].getListaRecurso().getNumeroElementos();k++){
                 Recursos rec = modeloMatriz.matriz[f][c].getListaRecurso().getElemento(k).getData();
 
                 String labe = "";
@@ -609,30 +669,30 @@ public class AjustesMidJuegoController implements Initializable {
 
                 int finalJ = f;
                 int finalI = c;
-                EventHandler d = new EventHandler() {
+                EventHandler l = new EventHandler() {
                     @Override
                     public void handle(Event event) {
                         modeloMatriz.matriz[finalI][finalJ].eliminarRecurso(rec);
-                        vbox.getChildren().remove(ba);
+                        vboxEliminar.getChildren().remove(ba);
                     }
                 };
 
-                ba.setOnAction(d);
+                ba.setOnAction(l);
 
-                vbox.getChildren().addAll(ba);
+                vboxEliminar.getChildren().addAll(ba);
             }
 
 
 
 
 
-            button.setOnAction(eventButtonInd);
+
 
             SplitPane splitPane1 = new SplitPane(rootInd,rootRec);
             splitPane1.setMinHeight(250);
             splitPane1.setOrientation(Orientation.VERTICAL);
 
-            SplitPane splitPane2 = new SplitPane(splitPane1,vbox);
+            SplitPane splitPane2 = new SplitPane(splitPane1,vboxEliminar);
             splitPane2.setMinHeight(400);
             splitPane2.setOrientation(Orientation.VERTICAL);
 
@@ -646,13 +706,14 @@ public class AjustesMidJuegoController implements Initializable {
                 public void handle(ActionEvent e) {
                     modeloMatriz.commit();
                     j.loadUserData(recursosModel,aguaModel,bibliotecaModel,comidaModel,montanaModel,pozoModel,tesoroModel,individuoModel,modeloMatriz);
+                    System.out.println(listaButton.getNumeroElementos());
                     j.actualizarButton(f,c,modeloMatriz,listaButton);
                     stage.close();
                 }
             };
             button1.setOnAction(eventButtonGuardar);
             VBox vbox2 = new VBox(splitPane2,button1);
-            vbox.setAlignment(Pos.CENTER);
+            vboxEliminar.setAlignment(Pos.CENTER);
             vbox2.setAlignment(Pos.CENTER);
 
             Scene scene2 = new Scene(vbox2, 200, 450);

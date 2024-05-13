@@ -401,12 +401,12 @@ public class RecursosController implements Initializable {
 
 
 
-            System.out.println(modeloMatriz.matriz[0][0].getListaIndividuo().getNumeroElementos());
+
 
             for (int j = 0; j < filas; j++) {
                 for (int i = 0; i < columnas; i++) {
-                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
-                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
+                    int numI = modeloMatriz.matriz[j][i].getListaIndividuo().getNumeroElementos();
+                    int numR = modeloMatriz.matriz[j][i].getListaRecurso().getNumeroElementos();
                     String label = "nºInd: " + numI + "\n nºRec: " + numR;
                     Button b = new Button(label);
                     b.setId(i + "," + j);
@@ -424,7 +424,8 @@ public class RecursosController implements Initializable {
                     };
                     b.setOnAction(e);
                     b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                    placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
+                    placeholder.setMinHeight(40);
+                    placeholder.setMinWidth(100);
                     placeholder.setMaxSize(100, 100);
                     placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
                     mainGrid.add(placeholder, i, j);
@@ -478,7 +479,7 @@ public class RecursosController implements Initializable {
             }
             aux++;
         }
-        System.out.println(res.getId());
+
         int numI = modeloMatriz.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
         int numR = modeloMatriz.original.matriz[f][c].getListaRecurso().getNumeroElementos();
         String nombre = "nºInd: " + numI + "\n nºRec: " + numR;
