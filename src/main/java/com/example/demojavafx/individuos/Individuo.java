@@ -3,6 +3,7 @@ package com.example.demojavafx.individuos;
 import com.example.demojavafx.BucleDeControl;
 import com.example.demojavafx.Celda;
 import com.example.demojavafx.ed.ArbolBinarioDeBusqueda;
+import com.example.demojavafx.ed.Cola;
 import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.PorcentajeValido;
 import com.example.demojavafx.excepciones.Superar3Individuos;
@@ -18,6 +19,9 @@ public abstract class Individuo {
     int posN;
     int posM;
     ArbolBinarioDeBusqueda<Individuo> arbolGenealogico;
+    Cola colaOperaciones = new Cola<>();
+    int contadorReproduccion = 0;
+    int contadorClonacion = 0;
 
     public Individuo(int id, int generacion, int turnosRestantes) {
         this.id = id;
@@ -134,5 +138,27 @@ public abstract class Individuo {
     }
 
 
+    public Cola getColaOperaciones() {
+        return colaOperaciones;
+    }
 
+    public void setColaOperaciones(Cola colaOperaciones) {
+        this.colaOperaciones = colaOperaciones;
+    }
+
+    public int getContadorReproduccion() {
+        return contadorReproduccion;
+    }
+
+    public void setContadorReproduccion(int contadorReproduccion) {
+        this.contadorReproduccion = contadorReproduccion;
+    }
+
+    public int getContadorClonacion() {
+        return contadorClonacion;
+    }
+
+    public void setContadorClonacion(int contadorClonacion) {
+        this.contadorClonacion = contadorClonacion;
+    }
 }

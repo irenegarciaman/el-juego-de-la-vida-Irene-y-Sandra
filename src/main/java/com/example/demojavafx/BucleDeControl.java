@@ -1,9 +1,6 @@
 package com.example.demojavafx;
 
-import com.example.demojavafx.ed.ElementoLE;
-import com.example.demojavafx.ed.Gson1;
-import com.example.demojavafx.ed.ListaEnlazada;
-import com.example.demojavafx.ed.NodoArbol;
+import com.example.demojavafx.ed.*;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.IndAvanzado;
@@ -180,16 +177,28 @@ public class BucleDeControl {
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                                 matriz[j][i].addIndividuo(ind3);
+                                ind1.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
+                                ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
+                                ind2.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
+                                ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
                             } else if (ind1.getClass() == IndNormal.class || ind2.getClass() == IndNormal.class) {
                                 IndNormal ind3 = new IndNormal(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 matriz[j][i].addIndividuo(ind3);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
+                                ind1.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
+                                ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
+                                ind2.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
+                                ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
                             } else {
                                 IndBasico ind3 = new IndBasico(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 matriz[j][i].addIndividuo(ind3);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
+                                ind1.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
+                                ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
+                                ind2.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
+                                ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
                             }
 
                         }else {
@@ -216,6 +225,9 @@ public class BucleDeControl {
                         nodoNuevo.setIzquierda(null);
                         clonado.getArbolGenealogico().raiz = nodoNuevo;
                         matriz[j][i].addIndividuo(clonado);
+                        ind1.getColaOperaciones().push(new ElementoLDE<>("clonacion"));
+                        ind1.setContadorClonacion(ind1.getContadorClonacion()+1);
+
                         break;//Para que solo clone el individuo una vez
                     }
                 }

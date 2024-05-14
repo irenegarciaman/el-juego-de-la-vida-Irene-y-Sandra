@@ -85,7 +85,11 @@ ListaEnlazada<TipoDelDato> {
                     temporal = temporal.getSiguiente();
                     contador++;
                 }
-                temporal.setSiguiente(temporal.getSiguiente().getSiguiente());
+                if (temporal.getSiguiente().getSiguiente()!=null) {
+                    temporal.setSiguiente(temporal.getSiguiente().getSiguiente());
+                }else{
+                    temporal.setSiguiente(null);
+                }
             }
         }
 

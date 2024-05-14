@@ -1,12 +1,16 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.ed.Cola;
+import com.example.demojavafx.ed.ElementoLDE;
 import com.example.demojavafx.ed.ListaSimple;
 import com.example.demojavafx.excepciones.Superar3Individuos;
+import com.example.demojavafx.recursos.Recursos;
 
 import java.util.Random;
 
 public class IndBasico extends Individuo {
+
     public IndBasico(int id) {
         super(id);
     }
@@ -52,18 +56,61 @@ public class IndBasico extends Individuo {
 
         if(random == 0){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
+            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
+            colaOperaciones.push(celdaRecorrida);
+            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
+                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
+                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
+
+                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
+                        colaOperaciones.push(recursoRecorrido);
+                    }
+                }
+            }
             matriz[this.posN-1][this.posM].addIndividuo(this);
         }
         else if(random == 1){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
+            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
+            colaOperaciones.push(celdaRecorrida);
+            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
+                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
+                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
+
+                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
+                        colaOperaciones.push(recursoRecorrido);
+                    }
+                }
+            }
             matriz[this.posN+1][this.posM].addIndividuo(this);
         }
         else if(random == 2){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
+            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
+            colaOperaciones.push(celdaRecorrida);
+            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
+                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
+                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
+                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
+                        colaOperaciones.push(recursoRecorrido);
+                    }
+                }
+            }
             matriz[this.posN][this.posM+1].addIndividuo(this);
         }
         else {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
+            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
+            colaOperaciones.push(celdaRecorrida);
+            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
+                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
+                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
+
+                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
+                        colaOperaciones.push(recursoRecorrido);
+                    }
+                }
+            }
             matriz[this.posN][this.posM-1].addIndividuo(this);
         }
     }
@@ -82,4 +129,6 @@ public class IndBasico extends Individuo {
                 ", id=" + id +
                 ", }";
     }
+
+
 }

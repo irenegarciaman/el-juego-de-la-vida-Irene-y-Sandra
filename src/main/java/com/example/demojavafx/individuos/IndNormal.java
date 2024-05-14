@@ -1,6 +1,8 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.ed.Cola;
+import com.example.demojavafx.ed.ElementoLDE;
 import com.example.demojavafx.ed.ElementoLE;
 import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.excepciones.Superar3Individuos;
@@ -14,6 +16,7 @@ public class IndNormal extends Individuo {
     int posNDeseado;
     int posMDeseado;
     ListaEnlazada<Integer> listaMovimiento = new ListaEnlazada<>();
+
 
     public IndNormal(int id) {
         super(id);
@@ -156,6 +159,17 @@ public class IndNormal extends Individuo {
         }
         if (!listaMovimiento.isVacia()){
             matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);
+            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[posNGuardado][posMGuardado]);
+            colaOperaciones.push(celdaRecorrida);
+            if (!matriz[posNGuardado][posMGuardado].getListaRecurso().isVacia()){
+                for (int x = 0; x<=matriz[posNGuardado][posMGuardado].getListaRecurso().getNumeroElementos()-1;x++){
+                    if (matriz[posNGuardado][posMGuardado].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
+
+                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[posNGuardado][posMGuardado].getListaRecurso().getElemento(x).getData());
+                        colaOperaciones.push(recursoRecorrido);
+                    }
+                }
+            }
             int posMNueva = listaMovimiento.getElemento(0).getData();
             int posNNueva = listaMovimiento.getElemento(1).getData();
             this.setPosN(posNNueva);
@@ -206,4 +220,13 @@ public class IndNormal extends Individuo {
                 ", id=" + id +
                 ", }";
     }
+
+    public Recursos getRecursoDeseado() {
+        return recursoDeseado;
+    }
+
+    public void setRecursoDeseado(Recursos recursoDeseado) {
+        this.recursoDeseado = recursoDeseado;
+    }
+
 }

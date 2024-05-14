@@ -14,6 +14,8 @@ public class IndAvanzado extends Individuo {
     NodoGrafoNuevo nodoIndividuo;
     ListaSimple<NodoGrafoNuevo> listaMovimiento = new ListaSimple<>();
     String claseRecurso;
+
+
     public IndAvanzado(int id) {
         super(id);
     }
@@ -236,6 +238,17 @@ public class IndAvanzado extends Individuo {
             listaMovimiento.del(0);
         }
         matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);
+        ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
+        colaOperaciones.push(celdaRecorrida);
+        if (!matriz[posNGuardado][posMGuardado].getListaRecurso().isVacia()){
+            for (int x = 0; x<=matriz[posNGuardado][posMGuardado].getListaRecurso().getNumeroElementos()-1;x++){
+                if (matriz[posNGuardado][posMGuardado].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
+
+                    ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[posNGuardado][posMGuardado].getListaRecurso().getElemento(x).getData());
+                    colaOperaciones.push(recursoRecorrido);
+                }
+            }
+        }
         NodoGrafoNuevo nodoMovimiento = listaMovimiento.getElemento(0).getData();
 
         int posNNueva = nodoMovimiento.getPosN();
