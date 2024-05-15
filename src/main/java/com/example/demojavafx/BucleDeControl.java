@@ -17,6 +17,9 @@ public class BucleDeControl {
     public Celda[][] matriz;
     int turno = 0;
 
+    int contadorReproduccionesTotales = 0;
+    int contadorClonacionesTotales = 0;
+
 
 
     public BucleDeControl(int fila, int columna) {
@@ -141,6 +144,8 @@ public class BucleDeControl {
                     for(int h=0;h<= matriz[j][i].getListaIndividuo().getNumeroElementos()-1 ;h++){
                         Recursos recurso = matriz[j][i].getListaRecurso().getElemento(k).getData();
                         Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(h).getData();
+                        individuo.getColaOperaciones().push(new ElementoLDE<>("recurso"));
+                        individuo.getColaOperaciones().push(new ElementoLDE<>(recurso));
                         if (recurso.getClass() == Agua.class){
                             individuo.setTurnosRestantes(individuo.getTurnosRestantes()+((Agua) recurso).getAumentoDeVida());
                         }else if(recurso.getClass() == Comida.class){
@@ -153,6 +158,7 @@ public class BucleDeControl {
                             individuo.setProbClonacion(individuo.getProbClonacion()+((Biblioteca)recurso).getAumentoDePorcenClon());
                         }else if (recurso.getClass() == Pozo.class){
                             matriz[j][i].eliminarIndividuo(individuo);
+                            individuo.getColaOperaciones().push(new ElementoLDE<>("muerte"));
                         }
                     }
                 }
@@ -172,38 +178,58 @@ public class BucleDeControl {
                         Individuo ind1 = matriz[j][i].getListaIndividuo().getElemento(0).getData();
                         Individuo ind2 = matriz[j][i].getListaIndividuo().getElemento(1).getData();
                         if (random<ind1.getProbReproduccion() && random<ind2.getProbReproduccion()) {
+                            ind1.getColaOperaciones().push(new ElementoLDE<String>("reproduccion"));
+                            ind1.getColaOperaciones().push(new ElementoLDE<String>("pareja"));
+                            ind1.getColaOperaciones().push(new ElementoLDE<Individuo>(ind2));
+                            ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
+                            ind2.getColaOperaciones().push(new ElementoLDE<String>("reproduccion"));
+                            ind2.getColaOperaciones().push(new ElementoLDE<String>("pareja"));
+                            ind2.getColaOperaciones().push(new ElementoLDE<Individuo>(ind1));
+                            ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
                             if (ind1.getClass() == IndAvanzado.class || ind2.getClass() == IndAvanzado.class) {
                                 IndAvanzado ind3 = new IndAvanzado(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                                 matriz[j][i].addIndividuo(ind3);
-                                ind1.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
-                                ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
-                                ind2.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
-                                ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
+                                ind3.setPosN(j);
+                                ind3.setPosM(i);
+                                ind1.getColaOperaciones().push(new ElementoLDE<String>("hijo"));
+                                ind1.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
+                                ind2.getColaOperaciones().push(new ElementoLDE<String>("hijo"));
+                                ind2.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
+                                contadorReproduccionesTotales++;
                             } else if (ind1.getClass() == IndNormal.class || ind2.getClass() == IndNormal.class) {
                                 IndNormal ind3 = new IndNormal(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 matriz[j][i].addIndividuo(ind3);
+                                ind3.setPosN(j);
+                                ind3.setPosM(i);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
-                                ind1.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
-                                ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
-                                ind2.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
-                                ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
+                                ind1.getColaOperaciones().push(new ElementoLDE<String>("hijo"));
+                                ind1.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
+                                ind2.getColaOperaciones().push(new ElementoLDE<String>("hijo"));
+                                ind2.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
+                                contadorReproduccionesTotales++;
                             } else {
                                 IndBasico ind3 = new IndBasico(ind1.getId() + 1, turno, ind1.getTurnosRestantes()+2);
                                 matriz[j][i].addIndividuo(ind3);
+                                ind3.setPosN(j);
+                                ind3.setPosM(i);
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
-                                ind1.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
-                                ind1.setContadorReproduccion(ind1.getContadorReproduccion()+1);
-                                ind2.getColaOperaciones().push(new ElementoLDE<>("reproduccion"));
-                                ind2.setContadorReproduccion(ind2.getContadorReproduccion()+1);
+                                ind1.getColaOperaciones().push(new ElementoLDE<String>("hijo"));
+                                ind1.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
+                                ind2.getColaOperaciones().push(new ElementoLDE<String>("hijo"));
+                                ind2.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
+                                contadorReproduccionesTotales++;
                             }
+
 
                         }else {
                             matriz[j][i].eliminarIndividuo(ind1);
                             matriz[j][i].eliminarIndividuo(ind2);
+                            ind1.getColaOperaciones().push(new ElementoLDE<>("muerte"));
+                            ind2.getColaOperaciones().push(new ElementoLDE<>("muerte"));
                         }
                     }
                 }
@@ -226,8 +252,9 @@ public class BucleDeControl {
                         clonado.getArbolGenealogico().raiz = nodoNuevo;
                         matriz[j][i].addIndividuo(clonado);
                         ind1.getColaOperaciones().push(new ElementoLDE<>("clonacion"));
+                        ind1.getColaOperaciones().push(new ElementoLDE<>(ind1));
                         ind1.setContadorClonacion(ind1.getContadorClonacion()+1);
-
+                        contadorClonacionesTotales++;
                         break;//Para que solo clone el individuo una vez
                     }
                 }
@@ -242,6 +269,7 @@ public class BucleDeControl {
                     Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
                     if (individuo.getTurnosRestantes()==0){
                         matriz[j][i].eliminarIndividuo(individuo);
+                        individuo.getColaOperaciones().push(new ElementoLDE<>("muerte"));
                     }
                 }
             }
@@ -332,5 +360,42 @@ public class BucleDeControl {
             clonacion();
             nuevoRecurso();
         }
+    }
+
+    //Funcion para intentar hacer el grafo con las colas de los individuos
+    public GrafoNuevo grafoColaOperacionesIndividuos(){
+        ListaSimple<NodoGrafoNuevo> listaNodos = new ListaSimple<>();
+        ListaSimple<ArcoGrafoNuevo> listaAristas = new ListaSimple<>();
+        GrafoNuevo grafoColaOperaciones = new GrafoNuevo<>(listaNodos,listaAristas);
+        for (int i = 0; i < columna; i++) {
+            for (int j = 0; j < fila; j++) {
+                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
+                    Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
+                    NodoGrafoNuevo<Individuo> indPrincipal = new NodoGrafoNuevo<>(individuo);
+                    grafoColaOperaciones.addNodo(indPrincipal);
+                    for (int r = 0; r<individuo.getColaOperaciones().getNumeroElementos()-1; r++){
+                        if (individuo.getColaOperaciones().getElemento(r).getData() == "reproduccion"){//Problema, porque los dos miembros de la pareja ponen la misma reproduccion dos veces
+                            NodoGrafoNuevo indPareja = new NodoGrafoNuevo<>(individuo.getColaOperaciones().getElemento(r+2).getData());
+                            NodoGrafoNuevo indHijo = new NodoGrafoNuevo<>(individuo.getColaOperaciones().getElemento(r+4).getData());
+                            ArcoGrafoNuevo<String> reproduccion = new ArcoGrafoNuevo<>("reproduccion", indPrincipal,indPareja,10.0);
+                            ArcoGrafoNuevo<String> hijo = new ArcoGrafoNuevo<>("hijo", indPrincipal,indHijo,10.0);
+                            grafoColaOperaciones.addNodo(indPareja);
+                            grafoColaOperaciones.addNodo(indHijo);
+                            grafoColaOperaciones.addArco(reproduccion);
+                            grafoColaOperaciones.addArco(hijo);
+                        }else if (individuo.getColaOperaciones().getElemento(r).getData() == "clonacion"){
+                            ArcoGrafoNuevo<String> clonacion = new ArcoGrafoNuevo<>("clonacion", indPrincipal,indPrincipal,15.0);
+                            grafoColaOperaciones.addArco(clonacion);
+                        }else if (individuo.getColaOperaciones().getElemento(r).getData() == "recurso"){
+                            NodoGrafoNuevo recursoRecorrido = new NodoGrafoNuevo<>(individuo.getColaOperaciones().getElemento(r+1).getData());
+                            ArcoGrafoNuevo<String> recurso = new ArcoGrafoNuevo<>("recurso", indPrincipal,recursoRecorrido,5.0);
+                            grafoColaOperaciones.addNodo(recursoRecorrido);
+                            grafoColaOperaciones.addArco(recurso);
+                        }
+                    }
+                }
+            }
+        }
+        return grafoColaOperaciones;
     }
 }

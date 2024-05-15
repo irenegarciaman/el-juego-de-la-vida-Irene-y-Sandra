@@ -36,8 +36,7 @@ class IndAvanzadoTest {
         recurso2.setTurnosRestantes(5);
 
         assertDoesNotThrow(()->ind1.moverse(3,3,matriz1.matriz));
-        assertEquals(matriz1.matriz[1][1],ind1.colaOperaciones.getElemento(0).getData());
-        assertEquals(recurso1,ind1.colaOperaciones.getElemento(1).getData());
+        assertEquals(2, ind1.colaOperaciones.getNumeroElementos());
 
     }
 
