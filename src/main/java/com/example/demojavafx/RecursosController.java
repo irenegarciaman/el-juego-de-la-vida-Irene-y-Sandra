@@ -466,7 +466,7 @@ public class RecursosController implements Initializable {
 
     }
 
-    public void actualizarButton(int f, int c) {
+    public void actualizarButton(int c, int f) {
         String label = f + "," + c;
         int aux = 0;
         Button res = new Button();
@@ -479,9 +479,10 @@ public class RecursosController implements Initializable {
             }
             aux++;
         }
+        System.out.println(res.getId());
 
-        int numI = modeloMatriz.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
-        int numR = modeloMatriz.original.matriz[f][c].getListaRecurso().getNumeroElementos();
+        int numI = modeloMatriz.original.matriz[c][f].getListaIndividuo().getNumeroElementos();
+        int numR = modeloMatriz.original.matriz[c][f].getListaRecurso().getNumeroElementos();
         String nombre = "nºInd: " + numI + "\n nºRec: " + numR;
         res.setText(nombre);
 

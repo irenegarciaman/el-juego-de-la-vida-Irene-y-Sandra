@@ -436,15 +436,15 @@ public class AjustesMidJuegoController implements Initializable {
                         System.out.println("if");
                         Agua agua = new Agua();
                         try {
-                            modeloMatriz.matriz[f][c].addRecurso(agua);
-                            agua.setPosN(f);
-                            agua.setPosM(c);
+                            modeloMatriz.matriz[c][f].addRecurso(agua);
+                            agua.setPosN(c);
+                            agua.setPosM(f);
                             Button el = new Button("Eliminar: Agua");
                             vboxEliminar.getChildren().add(el);
                             EventHandler l = new EventHandler() {
                                 @Override
                                 public void handle(Event event) {
-                                    modeloMatriz.matriz[f][c].eliminarRecurso(agua);
+                                    modeloMatriz.matriz[c][f].eliminarRecurso(agua);
                                     vboxEliminar.getChildren().remove(el);
                                 }
                             };
@@ -459,15 +459,15 @@ public class AjustesMidJuegoController implements Initializable {
 
                         Biblioteca biblioteca = new Biblioteca();
                         try {
-                            modeloMatriz.matriz[f][c].addRecurso(biblioteca);
-                            biblioteca.setPosN(f);
-                            biblioteca.setPosM(c);
+                            modeloMatriz.matriz[c][f].addRecurso(biblioteca);
+                            biblioteca.setPosN(c);
+                            biblioteca.setPosM(f);
                             Button el = new Button("Eliminar: Biblioteca");
                             vboxEliminar.getChildren().add(el);
                             EventHandler l = new EventHandler() {
                                 @Override
                                 public void handle(Event event) {
-                                    modeloMatriz.matriz[f][c].eliminarRecurso(biblioteca);
+                                    modeloMatriz.matriz[c][f].eliminarRecurso(biblioteca);
                                     vboxEliminar.getChildren().remove(el);
                                 }
                             };
@@ -481,15 +481,15 @@ public class AjustesMidJuegoController implements Initializable {
 
                         Comida comida = new Comida();
                         try {
-                            modeloMatriz.matriz[f][c].addRecurso(comida);
-                            comida.setPosN(f);
-                            comida.setPosM(c);
+                            modeloMatriz.matriz[c][f].addRecurso(comida);
+                            comida.setPosN(c);
+                            comida.setPosM(f);
                             Button el = new Button("Eliminar: Comida");
                             vboxEliminar.getChildren().add(el);
                             EventHandler l = new EventHandler() {
                                 @Override
                                 public void handle(Event event) {
-                                    modeloMatriz.matriz[f][c].eliminarRecurso(comida);
+                                    modeloMatriz.matriz[c][f].eliminarRecurso(comida);
                                     vboxEliminar.getChildren().remove(el);
                                 }
                             };
@@ -503,15 +503,15 @@ public class AjustesMidJuegoController implements Initializable {
 
                         Montana montana = new Montana();
                         try {
-                            modeloMatriz.matriz[f][c].addRecurso(montana);
-                            montana.setPosN(f);
-                            montana.setPosM(c);
+                            modeloMatriz.matriz[c][f].addRecurso(montana);
+                            montana.setPosN(c);
+                            montana.setPosM(f);
                             Button el = new Button("Eliminar: Montaña");
                             vboxEliminar.getChildren().add(el);
                             EventHandler l = new EventHandler() {
                                 @Override
                                 public void handle(Event event) {
-                                    modeloMatriz.matriz[f][c].eliminarRecurso(montana);
+                                    modeloMatriz.matriz[c][f].eliminarRecurso(montana);
                                     vboxEliminar.getChildren().remove(el);
                                 }
                             };
@@ -525,15 +525,15 @@ public class AjustesMidJuegoController implements Initializable {
 
                         Pozo pozo = new Pozo();
                         try {
-                            modeloMatriz.matriz[f][c].addRecurso(pozo);
-                            pozo.setPosN(f);
-                            pozo.setPosM(c);
+                            modeloMatriz.matriz[c][f].addRecurso(pozo);
+                            pozo.setPosN(c);
+                            pozo.setPosM(f);
                             Button el = new Button("Eliminar: Pozo");
                             vboxEliminar.getChildren().add(el);
                             EventHandler l = new EventHandler() {
                                 @Override
                                 public void handle(Event event) {
-                                    modeloMatriz.matriz[f][c].eliminarRecurso(pozo);
+                                    modeloMatriz.matriz[c][f].eliminarRecurso(pozo);
                                     vboxEliminar.getChildren().remove(el);
                                 }
                             };
@@ -548,15 +548,15 @@ public class AjustesMidJuegoController implements Initializable {
 
                         Tesoro tesoro = new Tesoro();
                         try {
-                            modeloMatriz.matriz[f][c].addRecurso(tesoro);
-                            tesoro.setPosN(f);
-                            tesoro.setPosM(c);
+                            modeloMatriz.matriz[c][f].addRecurso(tesoro);
+                            tesoro.setPosN(c);
+                            tesoro.setPosM(f);
                             Button el = new Button("Eliminar: Tesoro");
                             vboxEliminar.getChildren().add(el);
                             EventHandler l = new EventHandler() {
                                 @Override
                                 public void handle(Event event) {
-                                    modeloMatriz.matriz[f][c].eliminarRecurso(tesoro);
+                                    modeloMatriz.matriz[c][f].eliminarRecurso(tesoro);
                                     vboxEliminar.getChildren().remove(el);
                                 }
                             };
@@ -573,40 +573,68 @@ public class AjustesMidJuegoController implements Initializable {
             EventHandler<ActionEvent> eventButtonInd = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     if (label.getText()=="Básico") {
-                        System.out.println("entra");
                         Random rand = new Random();
                         IndBasico ind = new IndBasico(rand.nextInt(900));
                         try {
-                            modeloMatriz.matriz[f][c].addIndividuo(ind);
-                            ind.setPosN(f);
-                            ind.setPosM(c);
+                            modeloMatriz.matriz[c][f].addIndividuo(ind);
+                            ind.setPosN(c);
+                            ind.setPosM(f);
                         } catch (Superar3Individuos ex) {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
+                        Button el = new Button("Eliminar: Ind Básico");
+                        vboxEliminar.getChildren().add(el);
+                        EventHandler l = new EventHandler() {
+                            @Override
+                            public void handle(Event event) {
+                                modeloMatriz.matriz[c][f].eliminarIndividuo(ind);
+                                vboxEliminar.getChildren().remove(el);
+                            }
+                        };
+                        el.setOnAction(l);
                     }
                     if (label.getText()=="Normal") {
-                        System.out.println("entra");
                         Random rand = new Random();
                         IndNormal ind = new IndNormal(rand.nextInt(900));
                         try {
-                            modeloMatriz.matriz[f][c].addIndividuo(ind);
-                            ind.setPosN(f);
-                            ind.setPosM(c);
+                            modeloMatriz.matriz[c][f].addIndividuo(ind);
+                            ind.setPosN(c);
+                            ind.setPosM(f);
                         } catch (Superar3Individuos ex) {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
+                        Button el = new Button("Eliminar: Ind Normal");
+                        vboxEliminar.getChildren().add(el);
+                        EventHandler l = new EventHandler() {
+                            @Override
+                            public void handle(Event event) {
+                                modeloMatriz.matriz[c][f].eliminarIndividuo(ind);
+                                vboxEliminar.getChildren().remove(el);
+                            }
+                        };
+                        el.setOnAction(l);
                     }
                     if (label.getText()=="Avanzado") {
                         System.out.println("entra");
                         Random rand = new Random();
                         IndAvanzado ind = new IndAvanzado(rand.nextInt(900));
                         try {
-                            modeloMatriz.matriz[f][c].addIndividuo(ind);
-                            ind.setPosN(f);
-                            ind.setPosM(c);
+                            modeloMatriz.matriz[c][f].addIndividuo(ind);
+                            ind.setPosN(c);
+                            ind.setPosM(f);
                         } catch (Superar3Individuos ex) {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
+                        Button el = new Button("Eliminar: Ind Avanzado");
+                        vboxEliminar.getChildren().add(el);
+                        EventHandler l = new EventHandler() {
+                            @Override
+                            public void handle(Event event) {
+                                modeloMatriz.matriz[c][f].eliminarIndividuo(ind);
+                                vboxEliminar.getChildren().remove(el);
+                            }
+                        };
+                        el.setOnAction(l);
                     }
                 }
             };
@@ -616,8 +644,8 @@ public class AjustesMidJuegoController implements Initializable {
 
 
 
-            for (int k=0;k < modeloMatriz.matriz[f][c].getListaIndividuo().getNumeroElementos();k++){
-                Individuo ind = modeloMatriz.matriz[f][c].getListaIndividuo().getElemento(k).getData();
+            for (int k=0;k < modeloMatriz.matriz[c][f].getListaIndividuo().getNumeroElementos();k++){
+                Individuo ind = modeloMatriz.matriz[c][f].getListaIndividuo().getElemento(k).getData();
                 String labe = "";
                 if(ind.getClass().equals(IndBasico.class)){
                     labe += "Ind Básico ";
@@ -631,8 +659,8 @@ public class AjustesMidJuegoController implements Initializable {
                 Button bu = new Button("Eliminar: "+labe + "id: "+ ind.getId());
                 vboxEliminar.getChildren().addAll(bu);
 
-                int finalJ = f;
-                int finalI = c;
+                int finalJ = c;
+                int finalI = f;
                 EventHandler d = new EventHandler() {
                     @Override
                     public void handle(Event event) {
@@ -646,8 +674,8 @@ public class AjustesMidJuegoController implements Initializable {
 
             }
 
-            for (int k=0;k < modeloMatriz.matriz[f][c].getListaRecurso().getNumeroElementos();k++){
-                Recursos rec = modeloMatriz.matriz[f][c].getListaRecurso().getElemento(k).getData();
+            for (int k=0;k < modeloMatriz.matriz[c][f].getListaRecurso().getNumeroElementos();k++){
+                Recursos rec = modeloMatriz.matriz[c][f].getListaRecurso().getElemento(k).getData();
 
                 String labe = "";
                 if(rec.getClass().equals(Agua.class)){
@@ -667,8 +695,8 @@ public class AjustesMidJuegoController implements Initializable {
 
                 Button ba = new Button("Eliminar: "+labe );
 
-                int finalJ = f;
                 int finalI = c;
+                int finalJ = f;
                 EventHandler l = new EventHandler() {
                     @Override
                     public void handle(Event event) {
@@ -836,28 +864,6 @@ public class AjustesMidJuegoController implements Initializable {
         }
 
     }
-
-    public void actualizarButton(int f, int c) {
-        String label = f + "," + c;
-        int aux = 0;
-        Button res = new Button();
-        res.setId("hola");
-        Button smt = new Button();
-        while (aux < listaButton.getNumeroElementos()) {
-            smt = listaButton.getElemento(aux).getData();
-            if (smt.getId().toString().equals(label)) {
-                res = listaButton.getElemento(aux).getData();
-            }
-            aux++;
-        }
-        System.out.println(res.getId());
-        int numI = modeloMatriz.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
-        int numR = modeloMatriz.original.matriz[f][c].getListaRecurso().getNumeroElementos();
-        String nombre = "nºInd: " + numI + "\n nºRec: " + numR;
-        res.setText(nombre);
-
-    }
-
 
 
 }

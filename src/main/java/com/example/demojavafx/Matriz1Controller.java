@@ -68,7 +68,7 @@ public class Matriz1Controller implements Initializable {
 
 
 
-    public void onButtonAction(int f, int c,RecursosController rec) {
+    public void onButtonAction(int c, int f,RecursosController rec) {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("md-celda.fxml"));
         try {

@@ -61,7 +61,7 @@ public class HelloController implements Initializable {
     private Individuo ind = new IndBasico(0);
     private IndividuoProperties modeloInd = new IndividuoProperties(ind);
 
-    private BucleDeControl matriz = new BucleDeControl(16, 16);
+    private BucleDeControl matriz = new BucleDeControl(15, 15);
     private BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
 
     /** Métodos de respuesta a eventos: El GUI llama a estos métodos del controlador para realizar operaciones **/
