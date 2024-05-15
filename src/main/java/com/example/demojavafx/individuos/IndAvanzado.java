@@ -46,7 +46,7 @@ public class IndAvanzado extends Individuo {
          ListaSimple<NodoGrafoNuevo> listaNodos = new ListaSimple<>();
          ListaSimple<ArcoGrafoNuevo> listaArcos = new ListaSimple<>();
          GrafoNuevo<Celda> grafo = new GrafoNuevo<>(listaNodos,listaArcos);
-        Cola <NodoGrafoNuevo> colaCeldasConRecurso = new Cola<>();
+         Cola <NodoGrafoNuevo> colaCeldasConRecurso = new Cola<>();
          for (int i = 0; i <= maxFilas-1; i++) {
             for (int j = 0; j <= maxColumnas-1; j++) {
                 Celda c = matriz[i][j];
@@ -235,20 +235,10 @@ public class IndAvanzado extends Individuo {
 
         if (listaMovimiento.isVacia()){
             listaMovimiento = creacionListaMovimiento (maxFilas,maxColumnas,posNDeseado,posMDeseado,posN,posM,matriz);
+            colaOperaciones.push(new ElementoLDE<>(listaMovimiento.getElemento(0)));
             listaMovimiento.del(0);
         }
         matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);
-        ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
-        colaOperaciones.push(celdaRecorrida);
-        if (!matriz[posNGuardado][posMGuardado].getListaRecurso().isVacia()){
-            for (int x = 0; x<=matriz[posNGuardado][posMGuardado].getListaRecurso().getNumeroElementos()-1;x++){
-                if (matriz[posNGuardado][posMGuardado].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
-
-                    ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[posNGuardado][posMGuardado].getListaRecurso().getElemento(x).getData());
-                    colaOperaciones.push(recursoRecorrido);
-                }
-            }
-        }
         NodoGrafoNuevo nodoMovimiento = listaMovimiento.getElemento(0).getData();
 
         int posNNueva = nodoMovimiento.getPosN();
@@ -259,7 +249,7 @@ public class IndAvanzado extends Individuo {
         int posNodoAEliminar = listaMovimiento.getPosicion(new ElementoLS<>(nodoMovimiento));
         listaMovimiento.del(posNodoAEliminar);
         matriz[this.posN][this.posM].addIndividuo(this);
-
+        colaOperaciones.push(new ElementoLDE<>("movimiento"));
 
     }
 

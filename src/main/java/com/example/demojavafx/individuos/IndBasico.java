@@ -56,62 +56,24 @@ public class IndBasico extends Individuo {
 
         if(random == 0){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
-            colaOperaciones.push(celdaRecorrida);
-            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
-                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
-                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
-
-                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
-                        colaOperaciones.push(recursoRecorrido);
-                    }
-                }
-            }
             matriz[this.posN-1][this.posM].addIndividuo(this);
+            colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
         else if(random == 1){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
-            colaOperaciones.push(celdaRecorrida);
-            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
-                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
-                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
-
-                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
-                        colaOperaciones.push(recursoRecorrido);
-                    }
-                }
-            }
             matriz[this.posN+1][this.posM].addIndividuo(this);
+            colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
         else if(random == 2){
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
-            colaOperaciones.push(celdaRecorrida);
-            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
-                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
-                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
-                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
-                        colaOperaciones.push(recursoRecorrido);
-                    }
-                }
-            }
             matriz[this.posN][this.posM+1].addIndividuo(this);
+            colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
         else {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
             ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
-            colaOperaciones.push(celdaRecorrida);
-            if (!matriz[this.posN][this.posM].getListaRecurso().isVacia()){
-                for (int x = 0; x<=matriz[this.posN][this.posM].getListaRecurso().getNumeroElementos()-1;x++){
-                    if (matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData().getTurnosRestantes() > 1){
-
-                        ElementoLDE recursoRecorrido = new ElementoLDE<>(matriz[this.posN][this.posM].getListaRecurso().getElemento(x).getData());
-                        colaOperaciones.push(recursoRecorrido);
-                    }
-                }
-            }
             matriz[this.posN][this.posM-1].addIndividuo(this);
+            colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
     }
 
