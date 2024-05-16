@@ -4,6 +4,7 @@ package com.example.demojavafx;
 import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
+import com.example.demojavafx.individuos.IndAvanzado;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.individuos.IndividuoProperties;
 import com.example.demojavafx.recursos.*;
@@ -29,6 +30,8 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
+
+import static com.example.demojavafx.ed.Gson1.cargarObjetoDesdeArchivo;
 
 public class JuegoController implements Initializable {
 
@@ -195,12 +198,14 @@ public class JuegoController implements Initializable {
             HBox hbox = new HBox(pauseB);
             hbox.setAlignment(Pos.BOTTOM_CENTER);
             Button button = new Button("Empezar");
+            double op =  button.getOpacity();
 
             EventHandler empezarHandler = new EventHandler() {
                 @Override
                 public void handle(Event event) {
 
                     try {
+                        button.setText("Suigiente turno");
                         matrizModel.original.bucleEntero();
                         moverIndividuo(matrizModel);
                         for (int j = 0; j < filas; j++) {
@@ -229,7 +234,7 @@ public class JuegoController implements Initializable {
                 @Override
                 public void handle(Event event) {
 
-                    button.setText("Siguiente turno");
+                    button.setOpacity(0);
 
                     String style = listaButton.getElemento(0).getData().getStyle();
                     for (int m = 0; m < listaButton.getNumeroElementos(); m++) {
@@ -262,6 +267,7 @@ public class JuegoController implements Initializable {
                     EventHandler playHandler = new EventHandler() {
                         @Override
                         public void handle(Event event) {
+                            button.setOpacity(op);
                             for (int m = 0; m < listaButton.getNumeroElementos(); m++) {
                                 listaButton.getElemento(m).getData().setStyle(style);
                                 String id = listaButton.getElemento(m).getData().getId();
@@ -306,77 +312,40 @@ public class JuegoController implements Initializable {
 
                             p.abrirPantallaFinal();
 
-                            /***
-                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-
-                             HelloController h = new HelloController();
-
-                             stage.setTitle("Hello!");
-
-                             Label lab = new Label("Bienvenidos al juego de la vida");
-                             lab.setStyle("-fx-font-size: 24px; -fx-text-fill: green;");
-
-                             Button nuevoBtn = new Button("Nueva Partida");
-                             Button cargarBtn = new Button("Cargar Partida");
-
-                             EventHandler n = new EventHandler() {
-                            @Override public void handle(Event event) {
-                            stage.close();
-                            h.onMiBotonNuevaVentanaAjustesClick();
-                            }
-                            };
-
-                             nuevoBtn.setOnAction(n);
-
-                             EventHandler c = new EventHandler() {
-                            @Override public void handle(Event event) {
-                            stage.close();
-                            h.onMiBotonNuevaVentajaClick();
-                            }
-                            };
-
-                             cargarBtn.setOnAction(c);
-
-
-                             VBox vbox = new VBox(lab, nuevoBtn, cargarBtn);
-                             vbox.setAlignment(Pos.CENTER);
-                             vbox.setSpacing(20);
-
-                             Scene scene = new Scene(vbox, 400, 200);
-
-
-                             stage.setScene(scene);
-                             stage.show();*/
                         }
                     };
                     fin.setOnAction(finHandler);
 
-                    AjustesMidJuegoController l = new AjustesMidJuegoController();
+                    HelloController h = new HelloController();
+                    GuardarDatos g = cargarObjetoDesdeArchivo("partidaAnterior.json", GuardarDatos.class);;
+                    Recursos rM = g.cargarRecursos();
+                    Agua aM = g.cargarAgua();
+                    Biblioteca bM = g.cargarBiblioteca();
+                    Comida coM = g.cargarComida();
+                    Montana mM = g.cargarMontana();
+                    Pozo pM = g.cargarPozo();
+                    Tesoro tM = g.cargarTesoro();
+                    Individuo iM = g.cargarIndividuo();
+
+                    RecursosProperties r = new RecursosProperties(rM);
+                    AguaProperties a = new AguaProperties(aM,rM);
+                    BibliotecaProperties b = new BibliotecaProperties(bM,rM);
+                    ComidaProperties co = new ComidaProperties(coM,rM);
+                    MontanaProperties m = new MontanaProperties(mM,rM);
+                    PozoProperties po = new PozoProperties(pM,rM);
+                    TesoroProperties t = new TesoroProperties(tM,rM);
+
+                    IndividuoProperties i = new IndividuoProperties(iM);
+
+
+
+
+                    h.loadUserData(r,a,b,co,m,po,t,i,modeloMatriz);
                     EventHandler ajustesHandler = new EventHandler() {
                         @Override
                         public void handle(Event event) {
-
-
-                            for (int i = 0; i < h.modeloMatriz.getFilas(); i++) {
-                                for (int j = 0; j < h.modeloMatriz.getColumnas(); j++) {
-                                    for (int k = 0; k < listaButton.getNumeroElementos(); k++) {
-                                        String label = i + "," + j;
-                                        if (listaButton.getElemento(k).getData().getId().equals(label)) {
-                                            System.out.println("if");
-                                            int finalI = i;
-                                            int finalJ = j;
-                                            EventHandler e = new EventHandler() {
-                                                @Override
-                                                public void handle(Event event) {
-                                                    l.modificarCelda(finalI, finalJ, matrizModel);
-                                                }
-                                            };
-                                            listaButton.getElemento(k).getData().setOnAction(e);
-                                        }
-                                    }
-                                }
-                            }
-
+                            stage.close();
+                            h.onMiBotonNuevaVentanaAjustesClick();
                         }
                     };
 
@@ -434,16 +403,7 @@ public class JuegoController implements Initializable {
 
     }
 
-    public long getSegundos() {
-        return LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
-    }
 
-    public void juega(BucleDeControl bucle) throws Superar3Recursos, Superar3Individuos {
-
-        bucle.bucleEntero();
-
-
-    }
 
     public void moverIndividuo(BucleDeControlProperties bucle) throws Superar3Individuos, Superar3Recursos {
         ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>();

@@ -396,9 +396,6 @@ public class BucleDeControl {
         return lista.getNumeroElementos() == 1;
     }
 
-    public long getSegundos() {
-        return LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
-    }
 
 
     public void bucleEntero() throws Superar3Individuos, Superar3Recursos {

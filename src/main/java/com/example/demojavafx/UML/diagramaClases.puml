@@ -1,0 +1,943 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+class Tablero{
+fila:int
+columna:int
+crearMatriz(fila,columna)
+asignarPosicionObjeto(fila,columna)
+max3elementos() -- Excepcion
+eliminarElemento(celda)
+botonStart()
+botonStop()
+introducirParam()
+}
+class JSON{
+guardarArchivo()
+cargarArchivo()
+}
+class BucleDeControl {
+    - columna: int
+    - fila: int
+    - matriz: Celda[][]
+    - turno: int
+    - contadorReproduccionesTotales: int
+    - contadorClonacionesTotales: int
+    + BucleDeControl(int, int)
+    + getColumna(): int
+    + setColumna(int): void
+    + getFila(): int
+    + setFila(int): void
+    + actualizarIndividuo(): void
+    + actualizarRecursos(): void
+    + movimiento(): void
+    + mejorasRecursos(): void
+    + reproduccion(): void
+    + clonacion(): void
+    + desaparecerIndividuos(): void
+    + nuevoRecurso(): void
+    + condicionFinalizacion(): boolean
+    + bucleEntero(): void
+    + grafoColaOperacionesIndividuos(): GrafoNuevo
+}
+
+BucleDeControl *-- Celda
+BucleDeControl *-- Individuo
+BucleDeControl *-- Recursos
+BucleDeControl *-- Agua
+BucleDeControl *-- Comida
+BucleDeControl *-- Biblioteca
+BucleDeControl *-- Tesoro
+BucleDeControl *-- Pozo
+BucleDeControl *-- Montana
+BucleDeControl *-- IndAvanzado
+BucleDeControl *-- IndNormal
+BucleDeControl *-- IndBasico
+BucleDeControl *-- ListaEnlazada
+BucleDeControl *-- ElementoLE
+BucleDeControl *-- ElementoLDE
+BucleDeControl *-- NodoArbol
+BucleDeControl *-- ListaSimple
+BucleDeControl *-- NodoGrafoNuevo
+BucleDeControl *-- ArcoGrafoNuevo
+BucleDeControl *-- GrafoNuevo
+
+class BucleDeControlProperties {
+    - original: BucleDeControl
+    - columnas: IntegerProperty
+    - filas: IntegerProperty
+    - matriz: Celda[][]
+    + getFilas(): int
+    + getColumnas(): int
+    + BucleDeControlProperties(BucleDeControl)
+    + commit(): void
+    + rollback(): void
+    + getOriginal(): BucleDeControl
+    + setOriginal(BucleDeControl): void
+    + columnasProperty(): Property<Number>
+    + filasProperty(): Property<Number>
+    + matrizProperty(): Celda[][]
+}
+BucleDeControlProperties *-- BucleDeControl
+BucleDeControlProperties *-- Celda
+
+
+class Individuo{
+-id:int
+-generacion:int
+-turnosRestantes:int
+-probReproduccion:int
+-probClonacion:int
+-probMuerte:int
+-posN:int
+-posM:int
++Individuo():void
++Individuo(id:int,generacion:int,turnosRestantes:int,
+probReproduccion:int,probClonacion:int,probMuerte:int,posN:int,posM:int)
++Individuo(id:int,generacion:int,turnosRestantes:int,
+          probReproduccion:int,probClonacion:int,probMuerte:int)
++Individuo(id:int,turnosRestantes:int)
++getId():int
++setId(id:int):void
++getGeneracion():int
++setGeneracion(generacion:int):void
++getTurnosRestantes():int
++setTurnosRestantes(turnosRestantes:int):void
++getProbReproduccion():int
++setProbReproduccion(probReproduccion:int):void
++getProbClonacion():int
++setProbClonacion(probClonacion:int):void
++getProbMuerte():int
++setProbMuerte(probMuerte:int):void
++getPosN():int
++setPosN(posN:int):void
++getPosM():int
++setPosM(posM:int):void
++toString():String
+
++abstract moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
++abstract reproduccion_entre_iguales()
++reproduccion_entre_distintos()
++restar_turno_vida()
++cambiar_prob_reproduccion()
++cambiar_prob_clonacion()
+}
+class IndBasico{
++IndBasico(id:int)
++IndBasico(id:int,turnosRestantes:int)
++moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
+}
+class IndNormal{
++IndNormal(id:int)
++IndNormal(id:int,turnosRestantes:int)
++moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
++creacionListaMovimiento (posNDeseado:int, posMDeseado:int, posN:int, posM:int,matriz Celda[][])
+}
+class IndAvanzado{
++IndAvanzado(id:int)
++IndAvanzado(id:int,turnosRestantes:int)
++moverse(maxColumnas:int,maxFilas:int, matriz Celda[][])
++creacionListaMovimiento (maxColumnas:int,maxFilas:int, posNDeseado:int, posMDeseado:int, posN:int, posM:int,matriz Celda[][])
+}
+
+
+
+class ArbolBinario{
+-raiz:NodoArbol
++isVacia():boolean
+-add(dato:TipoDelDato, raiz NodoArbol)
++add(dato:TipoDelDato)
++getGrado(nodo:NodoArbol, int:result):int
+-getCamino(nodo:NodoArbol, raiz:NodoArbol, lista:ListaEnlazada):ListaEnlazada
++getCamino(nodo:NodoArbol)
++getLongitud(nodo:NodoArbol)
++getSubArbolIzquierda():ArbolBinarioDeBusqueda
++getSubArbolDerecha():ArbolBinarioDeBusqueda
+-getListaPreOrden(nodo:NodoArbol, lista:ListaEnlazada):ListaEnlazada
++getListaPreOrden():ListaEnlazada
+-getListaPostOrden(nodo:NodoArbol, lista:ListaEnlazada):ListaEnlazada
++getListaPostOrden():ListaEnlazada
+-getListaOrdenCentral(nodo:NodoArbol, lista:ListaEnlazada):ListaEnlazada
++getListaOrdenCentral():ListaEnlazada
+-getAltura(nodo:NodoArbol, p:int):int
++getAltura():int
++getListaDatosNivel(nivel:int, nodo:NodoArbol, lista:ListaEnlazada):ListaEnlazada
++getListaDatosNivel(nivel:int):ListaEnlazada
+-isArbolCompleto(nodo:NodoArbol):boolean
++isArbolHomogeneo():Boolean
+-isArbolCompleto(nodo:NodoArbol, numero:int):Boolean
++isArbolCompleto():Boolean
+-isArbolCasiCompleto(nodo:NodoArbol, numero:int):Boolean
++isArbolCasiCompleto():Boolean
+}
+NodoArbol --> NodoArbol:derecha
+NodoArbol --> NodoArbol:izquierda
+
+class NodoArbol{
+-derecha:NodoArbol
+-izquierda:NodoArbol
+-dato:TipoDelDato
++getDerecha():NodoArbol
++setDerecha(nodo:NodoArbol)
++getIzquierda():NodoArbol
++setIzquierda(nodo:NodoArbol)
++getDato():TipoDelDato
++setDato(dato:TipoDelDato)
++gradoNodo():int
++esHoja():boolean
+}
+
+
+
+class NodoGrafoNuevo{
+-dato: TipoDelDato
+-listaEntrada: ListaSimple<ArcoGrafoNuevo>
+-listaSalida: ListaSimple<ArcoGrafoNuevo>
++NodoGrafoNuevo(dato:TipoDelDato)
++getDato(): TipoDelDato
+}
+class ArcoGrafoNuevo{
++relacion:TipoDelDato
++origen: NodoGrafoNuevo<TipoDelDato>
++destino: NodoGrafoNuevo<TipoDelDato>
++peso: double
++ArcoGrafoNuevo(relacion:TipoDelDato,origen:NodoGrafoNuevo<TipoDelDato>,
+destino:NodoGrafoNuevo<TipoDelDato>,peso;double)
+}
+
+class GrafoNuevo{
+-listaVertices: ListaSimple<NodoGrafoNuevo>
+-listaArcos:  ListaSimple<ArcoGrafoNuevo>
+
++GrafoNuevo(listaVertices:ListaSimple<NodoGrafoNuevo>,listaArcos:ListaSimple<ArcoGrafoNuevo>)
++addNodo(nodo:NodoGrafoNuevo):void
++addArco(nodo:ArcoGrafoNuevo):void
++borrarArco(arco:ArcoGrafoNuevo):void
++borrarNodo(nodo:NodoGrafoNuevo):void
++recuperarNodo(nodo:NodoGrafoNuevo<TipoDelDato>):boolean
++recuperarArco(arco:ArcoGrafoNuevo<TipoDelDato>):boolean
++dijkstra(origen:NodoGrafoNuevo<TipoDelDato>):Cola<Camino<TipoDelDato>>
++dijkstra_init(origen:NodoGrafoNuevo<TipoDelDato>,distancias:Cola<double>,
+colaPendientes:Cola<NodoGrafoNuevo<TipoDelDato>>,nodosAnteriores:Cola<NodoGrafoNuevo<TipoDelDato>>):void
++dijkstra_calcula(distancias:Cola<double>,colaPendientes:Cola<NodoGrafoNuevo<TipoDelDato>>,
+nodosAnteriores:Cola<NodoGrafoNuevo<TipoDelDato>>):void
++dijkstra_procesaResultados(distancias:Cola<Double>, nodosAnteriores:Cola<NodoGrafoNuevo<TipoDelDato>> ,
+origen: NodoGrafoNuevo<TipoDelDato> ):Cola<Camino<TipoDelDato>>
+}
+
+
+
+
+class ListaSimple {
+-datos:ElementoLS[]
+-maximo:int
++isVacia():boolean
++vaciar()
+-add(el:ElementoLS):int
++add(s:String)
++add(o:Object)
++insert(s:String,posicion:int)
++insert(o:Object,posicion:int)
++del(posicion:int):int
++getNumeroElementos():int
++getPosicion(el:ElementoLS):int
++getPrimero():ElementoLS
++getUltimo():ElementoLS
+-getSiguiente(el:ElementoLS):ElementoLS
++getElemento(posicion:int):ElementoLS
+}
+
+class ElementoLS {
+-data:Object
++getData():Object
++setData(o Object):Object
+}
+
+ElementoLS <-- ListaSimple: datos
+
+class ListaEnlazada {
+-primero:ElementoLE
++isVacia():boolean
++vaciar()
+-add(el:ElementoLE):int
++add(s:String)
++add(o:Object)
++insert(s:String,posicion:int)
++insert(o:Object,posicion:int)
++del(posicion:int):int
++getNumeroElementos():int
++getPosicion(el:ElementoLE):int
++getPrimero():ElementoLE
++getUltimo():ElementoLE
++getSiguiente(el:ElementoLE):ElementoLE
++getElemento(posicion:int):ElementoLE
+}
+
+class ElementoLE {
+-siguiente:ElementoLE
+-data:Object
+-insertarmeEn(el:ElementoLE)
+-getSiguiente():ElementoLE
++getData():Object
++setData():Object
+}
+
+ListaEnlazada --> ElementoLE:primero
+ElementoLE --> ElementoLE:siguiente
+
+
+class Cola{
+-cabeza:ElementoLE
+-cola:ElementoLE
++esVacia():boolean
++push(el:ElementoLE)
++pop():ElementoLE
+}
+
+
+
+class Entorno {
+maximo3
+}
+
+package Recurso{
+abstract class Recursos{
+tiempoDeVida:int
+probNuevoRecurso:int
+posN:int
+posM:int
++Recursos(turnosRestantes:int,posN:int,posM:int,probNuevoRecurso:int)
++Recursos(turnosRestantes:int,posN:int,posM:int)
++Recursos(tiempoDeVida:int)
++getTurnosRestantes():int
++setTurnosRestantes(turnosRestantes:int):void
++getProbNuevoRecurso():float
++setProbNuevoRecurso(probNuevoRecurso:float):void
++getPosN():int
++setPosN(posN:int):void
++getPosM():int
++setPosM(posM:int):void
++toString():String
+
+interactuar()
+}
+class RecursosProperties{
+#original:Recursos
+- turnosRestantes:IntegerProperty
+- posN:IntegerProperty
+- posM:IntegerProperty
+- probNuevoRecurso: FloatProperty
+RecursosProperties(original:Recursos)
+setOriginal(original: Recursos):void
+getOriginal():Recursos
+rollback():void
+commit():void
+turnosRestantesProperty():Property<Number>
+posNProperty():Property<Number>
+posMProperty():Property<Number>
+probNuevoRecurso():Property<Number>
+}
+Recursos--|>RecursosProperties
+class Agua{
+-probAgua:float
+-aumentoDeVida
++Agua(turnosRestantes:int,aumentoDeVida:int)
++Agua(tiempoDeVida:int,probAgua:float)
++getAumentoDeVida():int
++setAumentoDeVida(aumentoDeVida:int):void
++getProbAgua():float
++setProbAgua(probAgua:float):void
+}
+class AguaProperties {
+#originalAgua: Agua
+-turnosRestantes: IntegerProperty
+-aumentoDeVida: IntegerProperty
+-probAgua: FloatProperty
++AguaProperties(original: Agua)
++commit(): void
++rollback(): void
++getOriginalAgua(): Agua
++setOriginalAgua(originalAgua: Agua): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDeVidaProperty(): IntegerProperty
++probAguaProperty(): FloatProperty
+}
+Agua --|> AguaProperties
+class Comida{
+-aumentoDeVida:int
+-probComida:float
++Comida(tiempoDeVida:int,probComida:float)
++Comida(turnosRestantes:int,aumentoDeVida:int)
++getAumentoDeVida():int
++setAumentoDeVida(aumentoDeVida:int):void
++getAumentoDeVida():int
++setAumentoDeVida(aumentoDeVida:int):void
+}
+class ComidaProperties {
+#original: Comida
+-turnosRestantes: IntegerProperty
+-aumentoDeVida: IntegerProperty
+-probComida: FloatProperty
++ComidaProperties(original: Comida)
++commit(): void
++rollback(): void
++getOriginal(): Comida
++setOriginal(original: Comida): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDeVidaProperty(): IntegerProperty
++probComidaProperty(): FloatProperty
+}
+Comida <-- ComidaProperties
+class Montana{
+-disminucionDeVida
++Montana(tiempoDeVida:int,probMontana:int)
++Montana(turnosRestantes:int,disminucionDeVida:int)
++getDisminucionDeVida():int
++setDisminucionDeVida(DisminucionDeVida:int):void
++getProbMontana():float
++setProbMontana(probMontana:float):void
+}
+class MontanaProperties {
+#original: Montana
+-turnosRestantes: IntegerProperty
+-disminucionDeVida: IntegerProperty
+-probMontana: FloatProperty
++MontanaProperties(original: Montana)
++commit(): void
++rollback(): void
++getOriginal(): Montana
++setOriginal(original: Montana): void
++turnosRestantesProperty(): IntegerProperty
++disminucionDeVidaProperty(): IntegerProperty
++probMontanaProperty(): FloatProperty
+}
+Montana --|> MontanaProperties
+class Tesoro{
+-AumentoPorcenRep
+-probTesoro
++Tesoro(turnosRestantes:int,aumentoDeVida:int)
++Tesoro(tiempoDeVida:int,probTesoro:float)
++getAumentoPorcenRep():float
++setAumentoPorcenRep(AumentoPorcenRep:float):void
++getProbTesoro():float
++setProbTesoro(probTesoro:float):void
+}
+class TesoroProperties {
+#original: Tesoro
+-turnosRestantes: IntegerProperty
+-aumentoDePorcenRep: FloatProperty
+-probTesoro: FloatProperty
++TesoroProperties(original: Tesoro)
++commit(): void
++rollback(): void
++getOriginal(): Tesoro
++setOriginal(original: Tesoro): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDePorenRepProperty(): FloatProperty
++probTesoroProperty(): FloatProperty
+}
+Tesoro --|> TesoroProperties
+class Biblioteca{
+-AumentoPorcenClon:float
+-probBiblioteca:int
++Biblioteca(turnosRestantes:int,aumentoDeVida:int)
++Biblioteca(tiempoDeVida:int,probBiblioteca:float)
++getAumentoPorcenClon():float
++setAumentoPorcenClon(AumentoPorcenClon:float):void
++getProbBiblioteca():float
++setProbBiblioteca(probBiblioteca:float):void
+}
+class BibliotecaProperties {
+#original: Biblioteca
+-turnosRestantes: IntegerProperty
+-aumentoDePorenClon: FloatProperty
+-probBilio: FloatProperty
++BibliotecaProperties(original: Biblioteca)
++commit(): void
++rollback(): void
++getOriginal(): Biblioteca
++setOriginal(original: Biblioteca): void
++turnosRestantesProperty(): IntegerProperty
++aumentoDePorenClonProperty(): FloatProperty
++probBibliotecaProperty(): FloatProperty
+}
+Biblioteca--|> BibliotecaProperties
+class Pozo{
+#probPozo:float
++Pozo(tiempoDeVida:int)
++Pozo(tiempoDeVida:int,probPozo:float)
++getProbPozo():float
++setProbPozo(float:probPozo):void
+}
+class PozoProperties {
+# original: Pozo
+- turnosRestantes: IntegerProperty
+- probPozo: FloatProperty
+
++PozoProperties(original: Pozo)
++commit(): void
++rollback(): void
++getOriginal(): Pozo
++setOriginal(original: Pozo): void
+}
+Pozo --|> PozoProperties
+
+}
+
+Individuo "0,1,2,3" --o BucleDeControl
+Entorno "0,1,2,3" --o BucleDeControl
+Tablero "NxM" --o BucleDeControl
+
+
+IndAvanzado --|> Individuo
+IndBasico --|> Individuo
+IndNormal --|> Individuo
+
+Recursos --|> Entorno
+Agua ---|> Recursos
+Montana ---|> Recursos
+Comida --|> Recursos
+Tesoro --|> Recursos
+Biblioteca ---|> Recursos
+Pozo --|> Recursos
+
+ElementoLE <-- Cola
+NodoArbol <-- ArbolBinario
+ArbolBinario --|> JSON
+ListaEnlazada --|> JSON
+
+Cola --|> JSON
+Individuo <-- ArbolBinario
+ListaSimple --|> JSON
+
+NodoGrafoNuevo --> ListaSimple: listaSalida
+NodoGrafoNuevo --> ListaSimple: listaEntrada
+
+ArcoGrafoNuevo --> NodoGrafoNuevo: origen
+ArcoGrafoNuevo --> NodoGrafoNuevo: destino
+
+GrafoNuevo --> ListaSimple:listaVertices
+GrafoNuevo --> ListaSimple:listaArcos
+
+
+
+
+
+class Celda{
+- listaIndividuo: ListaEnlazada<Individuo>
+- listaRecurso: ListaEnlazada<Recursos>
++ Celda()
++ Celda(ListaEnlazada<Individuo>, ListaEnlazada<Recursos>)
++ getListaIndividuo(): ListaEnlazada<Individuo>
++ setListaIndividuo(ListaEnlazada<Individuo>)
++ getListaRecurso(): ListaEnlazada<Recursos>
++ setListaRecurso(ListaEnlazada<Recursos>)
++ addIndividuo(Individuo): void
++ addRecurso(Recursos): void
++ eliminarRecurso(Recursos): void
++ eliminarIndividuo(Individuo): void
++ toString(): String
+}
+Celda -- ListaEnlazada
+Celda *-- Individuo
+Celda *-- Recursos
+Celda "1" -- "3" ElementoLE : contains
+
+class CeldaProperties {
+    - original: Celda[][]
+    - properties: Celda[][]
+    + CeldaProperties(Celda[][])
+    + getOriginal(): Celda[][]
+    + setOriginal(Celda[][]): void
+    + getProperties(): Celda[][]
+    + setProperties(Celda[][]): void
+    + commit(): void
+    + rollback(): void
+}
+
+
+CeldaProperties *-- Celda
+
+
+class RecursosController {
+    - labelProbNuevoRecurso: Label
+    - sliderProbAgua: Slider
+    - sliderProbAumentBiblio: Slider
+    - sliderProbBiblioteca: Slider
+    - sliderProbComida: Slider
+    - sliderProbMontana: Slider
+    - sliderProbNuevoRecurso: Slider
+    - sliderProbPozo: Slider
+    - sliderProbTesoro: Slider
+    - sliderRepAumentoTesoro: Slider
+    - sliderTurnosAumentoComida: Slider
+    - sliderTurnosVidaAgua: Slider
+    - sliderTurnosVidaMontana: Slider
+    - a1: Label
+    - a2: Label
+    - b1: Label
+    - b2: Label
+    - c1: Label
+    - c2: Label
+    - m1: Label
+    - m2: Label
+    - p1: Label
+    - t1: Label
+    - t2: Label
+    - pc: Label
+    - pm: Label
+    - pr: Label
+    - t: Label
+    - sliderTurnosRestantesInd: Slider
+    - sliderProbRepInd: Slider
+    - sliderProbClonInd: Slider
+    - sliderProbMuerteInd: Slider
+    - labelColumnasMatriz: Label
+    - labelFilasMatriz: Label
+    - sliderColumnasMatriz: Slider
+    - sliderFilasMatriz: Slider
+    - cerrarButton: Button
+    - scene: Stage
+    - medida: IntegerProperty
+    - medB1: IntegerProperty
+    - medB2: IntegerProperty
+    - medT1: IntegerProperty
+    - medT2: IntegerProperty
+    - medC1: IntegerProperty
+    - medC2: IntegerProperty
+    - medM1: IntegerProperty
+    - medM2: IntegerProperty
+    - medP1: IntegerProperty
+    - medA1: IntegerProperty
+    - medA2: IntegerProperty
+    - ind1: IntegerProperty
+    - ind2: IntegerProperty
+    - ind3: IntegerProperty
+    - ind4: IntegerProperty
+    - mf: IntegerProperty
+    - mc: IntegerProperty
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+    - matriz: BucleDeControl
+    - modeloMatriz: BucleDeControlProperties
+    - celda: Celda[][]
+    - modeloCelda: CeldaProperties
+    - listaButton: ListaEnlazada<Button>
+
+    + initialize(url: URL, resourceBundle: ResourceBundle): void
+    + loadUserData(parametrosRecursos: RecursosProperties, parametrosAgua: AguaProperties, parametrosBiblioteca: BibliotecaProperties, parametrosComida: ComidaProperties, parametrosMontana: MontanaProperties, parametrosPozo: PozoProperties, parametrosTesoro: TesoroProperties, parametrosInd: IndividuoProperties, parametroMatriz: BucleDeControlProperties): void
+    + setStage(s: Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+    + nuevaVentanaMatriz(): void
+    + actualizarButton(c: int, f: int): void
+    + crearJuego(modeloMatriz: BucleDeControlProperties): void
+}
+
+RecursosController --|> Initializable
+RecursosController --|> Stage
+RecursosController -- RecursosProperties
+RecursosController -- AguaProperties
+RecursosController -- BibliotecaProperties
+RecursosController -- ComidaProperties
+RecursosController -- MontanaProperties
+RecursosController -- PozoProperties
+RecursosController -- TesoroProperties
+RecursosController -- IndividuoProperties
+RecursosController -- BucleDeControlProperties
+RecursosController -- CeldaProperties
+RecursosController -- ListaEnlazada
+
+
+class PantallaFinalController {
+    - stage: Stage
+    - matrizModel: BucleDeControlProperties
+
+    + initialize(url: URL, resourceBundle: ResourceBundle): void
+    + loadUserData(parametrosBucleDeControl: BucleDeControlProperties): void
+    + setStage(s: Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+    + abrirPantallaFinal(): void
+    + mostrarArboles(d: DefaultMutableTreeNode, ind: ArbolBinarioDeBusqueda<Individuo>): void
+}
+
+PantallaFinalController --|> Initializable
+PantallaFinalController --|> Stage
+PantallaFinalController -- BucleDeControlProperties
+PantallaFinalController -- DefaultMutableTreeNode
+PantallaFinalController -- ArbolBinarioDeBusqueda
+PantallaFinalController -- Individuo
+
+class ModCeldaController {
+    - boxTipoRecuso: MenuButton
+    - boxTipoInd: MenuButton
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+
+    + initialize(url: URL, resourceBundle: ResourceBundle): void
+    + loadUserData(parametrosBucleDeControl: BucleDeControlProperties): void
+    + setStage(s: Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+    + onButtonAction(f: int, c: int): void
+}
+
+ModCeldaController --|> Initializable
+ModCeldaController --|> Stage
+ModCeldaController -- BucleDeControlProperties
+class Matriz1Controller {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+    + initialize(URL, ResourceBundle)
+    + updateGUIwithModel()
+    + loadUserData(RecursosProperties, AguaProperties, BibliotecaProperties, ComidaProperties, MontanaProperties, PozoProperties, TesoroProperties, IndividuoProperties, BucleDeControlProperties)
+    + setStage(Stage)
+    + guardarButton()
+    + cerrarButton()
+    + cancelarButton()
+    + onButtonAction(int, int, RecursosController)
+}
+Matriz1Controller --|> Initializable
+class JuegoController {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+    - listaButton: ListaEnlazada<Button>
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+
+    + initialize(URL, ResourceBundle)
+    + updateGUIwithModel()
+    + loadUserData(RecursosProperties, AguaProperties, BibliotecaProperties, ComidaProperties, MontanaProperties, PozoProperties, TesoroProperties, IndividuoProperties, BucleDeControlProperties)
+    + setStage(Stage)
+    + guardarButton()
+    + cerrarButton()
+    + cancelarButton()
+    + onButtonInfo(int, int, BucleDeControlProperties)
+    + crearJuegoR(BucleDeControlProperties)
+    + actualizarButton(int, int, BucleDeControlProperties, ListaEnlazada<Button>)
+    + moverIndividuo(BucleDeControlProperties)
+}
+JuegoController -- BucleDeControlProperties
+JuegoController -- RecursosProperties
+JuegoController -- AguaProperties
+JuegoController -- BibliotecaProperties
+JuegoController -- ComidaProperties
+JuegoController -- MontanaProperties
+JuegoController -- PozoProperties
+JuegoController -- TesoroProperties
+JuegoController -- IndividuoProperties
+JuegoController -- Celda
+
+class InfoCeldaController {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+
+    + initialize(URL, ResourceBundle)
+    + updateGUIwithModel()
+    + loadUserData(BucleDeControlProperties)
+    + setStage(Stage)
+    + guardarButton()
+    + cerrarButton()
+    + cancelarButton()
+}
+InfoCeldaController -- BucleDeControlProperties
+class HelloController {
+    - stage: Stage
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+    - matriz: BucleDeControl
+    - modeloMatriz: BucleDeControlProperties
+
+    + initialize(URL, ResourceBundle)
+    + loadUserData(RecursosProperties, AguaProperties, BibliotecaProperties, ComidaProperties, MontanaProperties, PozoProperties, TesoroProperties, IndividuoProperties, BucleDeControlProperties)
+    + onMiBotonNuevaVentajaClick()
+    + onMiBotonNuevaVentanaAjustesClick()
+    + cerraryGuardar()
+}
+
+
+
+HelloController -- RecursosProperties
+HelloController -- AguaProperties
+HelloController -- BibliotecaProperties
+HelloController -- ComidaProperties
+HelloController -- MontanaProperties
+HelloController -- PozoProperties
+HelloController -- TesoroProperties
+HelloController -- IndividuoProperties
+HelloController -- BucleDeControl
+HelloController -- BucleDeControlProperties
+
+class HelloApplication {
+    - log: Logger
+    - recursos: Recursos
+    - modeloRecursos: RecursosProperties
+    - agua: Agua
+    - modeloAgua: AguaProperties
+    - biblioteca: Biblioteca
+    - modeloBiblioteca: BibliotecaProperties
+    - comida: Comida
+    - modeloComida: ComidaProperties
+    - montana: Montana
+    - modeloMontana: MontanaProperties
+    - tesoro: Tesoro
+    - modeloTesoro: TesoroProperties
+    - pozo: Pozo
+    - modeloPozo: PozoProperties
+    - ind: Individuo
+    - modeloInd: IndividuoProperties
+    - matriz: BucleDeControl
+    - modeloMatriz: BucleDeControlProperties
+
+    + start(Stage) throws IOException
+    + main(String[])
+}
+HelloApplication -- Recursos
+HelloApplication -- RecursosProperties
+HelloApplication -- Agua
+HelloApplication -- AguaProperties
+HelloApplication -- Biblioteca
+HelloApplication -- BibliotecaProperties
+HelloApplication -- Comida
+HelloApplication -- ComidaProperties
+HelloApplication -- Montana
+HelloApplication -- MontanaProperties
+HelloApplication -- Tesoro
+HelloApplication -- TesoroProperties
+HelloApplication -- Pozo
+HelloApplication -- PozoProperties
+HelloApplication -- Individuo
+HelloApplication -- IndividuoProperties
+HelloApplication -- BucleDeControl
+HelloApplication -- BucleDeControlProperties
+
+class GuardarDatos {
+    - listaIndividuo: String[]
+    - listaRecurso: String[]
+    - infoIndyRec: int[]
+    - fyc: int[]
+    + guardarDatos(BucleDeControl, Individuo, Agua, Biblioteca, Comida, Montana, Pozo, Tesoro)
+    + cargarBucle(): BucleDeControl
+    + cargarIndividuo(): Individuo
+    + cargarRecursos(): Recursos
+    + cargarAgua(): Agua
+    + cargarBiblioteca(): Biblioteca
+    + cargarComida(): Comida
+    + cargarMontana(): Montana
+    + cargarTesoro(): Tesoro
+    + cargarPozo(): Pozo
+    + fromStringI(String): Individuo
+    + fromStringR(String): Recursos
+}
+GuardarDatos -- BucleDeControl
+GuardarDatos -- Individuo
+GuardarDatos -- Agua
+GuardarDatos -- Biblioteca
+GuardarDatos -- Comida
+GuardarDatos -- Montana
+GuardarDatos -- Pozo
+GuardarDatos -- Tesoro
+GuardarDatos -- Gson1
+GuardarDatos -- Recursos
+class AddEliminiarController {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+    + initialize(URL, ResourceBundle): void
+    + updateGUIwithModel(): void
+    + loadUserData(BucleDeControlProperties): void
+    + setStage(Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+}
+
+
+AddEliminiarController *-- BucleDeControlProperties
+AddEliminiarController *-- Celda
+
+class AjustesMidJuegoController {
+    -scene: Stage
+    -recursosModel: RecursosProperties
+    -aguaModel: AguaProperties
+    -bibliotecaModel: BibliotecaProperties
+    -comidaModel: ComidaProperties
+    -montanaModel: MontanaProperties
+    -pozoModel: PozoProperties
+    -tesoroModel: TesoroProperties
+    -individuoModel: IndividuoProperties
+    -modeloMatriz: BucleDeControlProperties
+    -listaButton: ListaEnlazada<Button>
+    -medida: IntegerProperty
+    -medB1: IntegerProperty
+    -medB2: IntegerProperty
+    -medT1: IntegerProperty
+    -medT2: IntegerProperty
+    -medC1: IntegerProperty
+    -medC2: IntegerProperty
+    -medM1: IntegerProperty
+    -medM2: IntegerProperty
+    -medP1: IntegerProperty
+    -medA1: IntegerProperty
+    -medA2: IntegerProperty
+    -ind1: IntegerProperty
+    -ind2: IntegerProperty
+    -ind3: IntegerProperty
+    -ind4: IntegerProperty
+    +initialize(url: URL, resourceBundle: ResourceBundle): void
+    +loadUserData(parametrosRecursos: RecursosProperties, parametrosAgua: AguaProperties, parametrosBiblioteca: BibliotecaProperties, parametrosComida: ComidaProperties, parametrosMontana: MontanaProperties, parametrosPozo: PozoProperties, parametrosTesoro: TesoroProperties, parametrosInd: IndividuoProperties, parametroMatriz: BucleDeControlProperties, listaButton: ListaEnlazada<Button>): void
+    +setStage(s: Stage): void
+    +guardarButton(): void
+    +modificarCelda(f: int, c: int, modeloMatriz: BucleDeControlProperties): void
+    +cerrarButton(): void
+    +cancelarButton(): void
+    +nuevaVentanaMatriz(): void
+}
+AjustesMidJuegoController  -->  RecursosProperties
+AjustesMidJuegoController  -->  AguaProperties
+AjustesMidJuegoController  -->  BibliotecaProperties
+AjustesMidJuegoController  -->  ComidaProperties
+AjustesMidJuegoController  -->  MontanaProperties
+AjustesMidJuegoController  -->  PozoProperties
+AjustesMidJuegoController  -->  TesoroProperties
+AjustesMidJuegoController  -->  IndividuoProperties
+AjustesMidJuegoController  -->  BucleDeControlProperties
+AjustesMidJuegoController  -->  ListaEnlazada
+
+
+
+
+@enduml

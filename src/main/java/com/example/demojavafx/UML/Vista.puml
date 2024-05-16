@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+
+object RecursosController{
+Tabs: matriz,ind,rec (sliders)
+Button: cerrar
+Button: cancelar
+Button: Guardar
+}
+object JuegoController{
+Matriz de botones --> info
+Button: pause
+Button: empezar/siguiente turno
+if(pause)--> Button: play, fin, ajustes
+}
+
+object Matriz1Controller{
+Matriz de botones--> modCelda
+Button: guardar
+}
+object ModCeldaController{
+Tipo de individuo
+Label
+Button: añadir
+--
+Tipo de recurso
+Label
+Button: añadir
+--
+Button: guardar
+}
+object InfoCeldaController{
+Label con info
+}
+object AjustesMidJuegoController{
+Tipo de individuo
+Label
+Button: añadir
+--
+Tipo de recurso
+Label
+Button: añadir
+--
+Button: guardar
+Vbox: botones de eliminar
+}
+object PantallaFinalController{
+Arbol
+--
+Preguntas
+}
+object HelloApllication
+object HelloController{
+button: nuevo juego
+button: cargar Juego
+}
+HelloApllication --> HelloController
+HelloController --> RecursosController
+RecursosController --> Matriz1Controller
+Matriz1Controller --> JuegoController
+HelloController --> JuegoController
+JuegoController --> InfoCeldaController
+JuegoController --> AjustesMidJuegoController
+JuegoController --> PantallaFinalController
+Matriz1Controller --> ModCeldaController
+JuegoController --> RecursosController
+
+
+
+@enduml

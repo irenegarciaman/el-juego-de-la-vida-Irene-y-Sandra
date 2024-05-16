@@ -9684,3 +9684,960 @@
 2024-05-16 12:32:05.074 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
 2024-05-16 12:32:05.074 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
 2024-05-16 12:32:05.074 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.623 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:33.625 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:33.625 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:33.626 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:33.626 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:33.626 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:33.626 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.626 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:33.626 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:33.626 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:33.626 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:33.626 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:33.626 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:33.627 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.634 - INFO  - com.example.demojavafx.HelloApplication - Inicio del método de arranque de la aplicación para mostrar un menú de inicio
+2024-05-16 13:33:33.645 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:33.645 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:33.645 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:33.645 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:33.645 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:33.645 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:33.645 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.645 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:33.645 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:33.646 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:33.646 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:33.646 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:33.646 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:33.646 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.661 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:33.662 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:33.662 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:33.662 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:33.662 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:33.662 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:33.662 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.662 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:33.663 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:33.663 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:33.663 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:33.663 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:33.663 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:33.663 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:33.722 - TRACE - com.example.demojavafx.HelloController - Enviando una traza de ejecución
+2024-05-16 13:33:33.722 - DEBUG - com.example.demojavafx.HelloController - Enviado un debug
+2024-05-16 13:33:33.722 - INFO  - com.example.demojavafx.HelloController - Enviando un info
+2024-05-16 13:33:33.722 - WARN  - com.example.demojavafx.HelloController - Enviando un aviso
+2024-05-16 13:33:33.723 - ERROR - com.example.demojavafx.HelloController - Enviando un error
+2024-05-16 13:33:33.723 - FATAL - com.example.demojavafx.HelloController - Enviando una explosión fatal
+2024-05-16 13:33:33.723 - INFO  - com.example.demojavafx.HelloController - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:34.103 - TRACE - com.example.demojavafx.HelloApplication - Enviando una traza de ejecución
+2024-05-16 13:33:34.103 - DEBUG - com.example.demojavafx.HelloApplication - Enviado un debug
+2024-05-16 13:33:34.103 - INFO  - com.example.demojavafx.HelloApplication - Enviando un info
+2024-05-16 13:33:34.104 - WARN  - com.example.demojavafx.HelloApplication - Enviando un aviso
+2024-05-16 13:33:34.104 - ERROR - com.example.demojavafx.HelloApplication - Enviando un error
+2024-05-16 13:33:34.104 - FATAL - com.example.demojavafx.HelloApplication - Enviando una explosión fatal
+2024-05-16 13:33:34.104 - INFO  - com.example.demojavafx.HelloApplication - Fin del método de arranque de la aplicación para mostrar un menú de inicio"
+2024-05-16 13:33:36.108 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:36.108 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:36.108 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:36.108 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:36.108 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:36.108 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:36.108 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:36.109 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:36.109 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:36.109 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:36.109 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:36.109 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:36.109 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:36.109 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:36.154 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:36.154 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:36.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:36.154 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:36.154 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:36.154 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:36.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:36.154 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:36.155 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:36.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:36.155 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:36.155 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:36.155 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:36.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.207 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.207 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.207 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.207 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.207 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.207 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.207 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.207 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.207 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.207 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.207 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.207 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.207 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.207 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.214 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.214 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.214 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.214 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.214 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.214 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.214 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.214 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.214 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.214 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.214 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.214 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.214 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.214 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.214 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.214 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.214 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.214 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.214 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.214 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.214 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.214 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.214 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.214 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.214 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.214 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.214 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.215 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.215 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.215 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.215 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.215 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.215 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.215 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.215 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.215 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.215 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.215 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.215 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.215 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.215 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.215 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.215 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.215 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.215 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.215 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.215 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.216 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.216 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.216 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.216 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.216 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.216 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.216 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.216 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.216 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.216 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.216 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.216 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.216 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.216 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.216 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.216 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.216 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.216 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.216 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.216 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.216 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.216 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.217 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.217 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.217 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.217 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.217 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.217 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.217 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.217 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.217 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.217 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.217 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.217 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.217 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.217 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.217 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.217 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.217 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.217 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.217 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.218 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.218 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.218 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.218 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.218 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.218 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.218 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.218 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.218 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.218 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.218 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.218 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.218 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.218 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.218 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.230 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.230 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.230 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.230 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.230 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.230 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.230 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:33:37.230 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:33:37.230 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:33:37.230 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:33:37.230 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:33:37.230 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:33:37.230 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:33:37.231 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.324 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:31.326 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:31.326 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:31.326 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:31.326 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:31.326 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:31.327 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.327 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:31.327 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:31.327 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:31.327 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:31.327 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:31.327 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:31.327 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.335 - INFO  - com.example.demojavafx.HelloApplication - Inicio del método de arranque de la aplicación para mostrar un menú de inicio
+2024-05-16 13:43:31.340 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:31.341 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:31.341 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:31.341 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:31.341 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:31.341 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:31.341 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.341 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:31.341 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:31.341 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:31.341 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:31.341 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:31.341 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:31.341 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.355 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:31.355 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:31.355 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:31.355 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:31.355 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:31.355 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:31.355 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.355 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:31.355 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:31.355 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:31.357 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:31.357 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:31.357 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:31.357 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.408 - TRACE - com.example.demojavafx.HelloController - Enviando una traza de ejecución
+2024-05-16 13:43:31.408 - DEBUG - com.example.demojavafx.HelloController - Enviado un debug
+2024-05-16 13:43:31.408 - INFO  - com.example.demojavafx.HelloController - Enviando un info
+2024-05-16 13:43:31.408 - WARN  - com.example.demojavafx.HelloController - Enviando un aviso
+2024-05-16 13:43:31.408 - ERROR - com.example.demojavafx.HelloController - Enviando un error
+2024-05-16 13:43:31.408 - FATAL - com.example.demojavafx.HelloController - Enviando una explosión fatal
+2024-05-16 13:43:31.408 - INFO  - com.example.demojavafx.HelloController - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:31.668 - TRACE - com.example.demojavafx.HelloApplication - Enviando una traza de ejecución
+2024-05-16 13:43:31.668 - DEBUG - com.example.demojavafx.HelloApplication - Enviado un debug
+2024-05-16 13:43:31.668 - INFO  - com.example.demojavafx.HelloApplication - Enviando un info
+2024-05-16 13:43:31.668 - WARN  - com.example.demojavafx.HelloApplication - Enviando un aviso
+2024-05-16 13:43:31.669 - ERROR - com.example.demojavafx.HelloApplication - Enviando un error
+2024-05-16 13:43:31.669 - FATAL - com.example.demojavafx.HelloApplication - Enviando una explosión fatal
+2024-05-16 13:43:31.669 - INFO  - com.example.demojavafx.HelloApplication - Fin del método de arranque de la aplicación para mostrar un menú de inicio"
+2024-05-16 13:43:33.528 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:33.528 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:33.528 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:33.528 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:33.528 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:33.528 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:33.528 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:33.528 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:33.528 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:33.528 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:33.528 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:33.528 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:33.528 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:33.528 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:33.550 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:33.550 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:33.550 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:33.550 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:33.550 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:33.550 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:33.550 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:33.550 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:33.550 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:33.550 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:33.550 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:33.550 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:33.550 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:33.550 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.143 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.144 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.144 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.144 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.144 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.144 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.144 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.144 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.144 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.145 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.145 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.145 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.145 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.145 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.153 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.153 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.153 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.153 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.153 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.153 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.153 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.153 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.153 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.153 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.153 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.153 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.154 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.154 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.154 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.154 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.154 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.154 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.154 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.154 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.154 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.154 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.154 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.154 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.155 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.155 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.155 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.155 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.155 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.155 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.155 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.155 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.155 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.155 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.155 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.156 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.156 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.156 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.156 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.156 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.156 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.156 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.156 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.156 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.156 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.157 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.157 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.157 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.157 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.157 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.157 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.157 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.157 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.157 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.158 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.158 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.158 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.158 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.158 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.158 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.158 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.158 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.158 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.158 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.158 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.158 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.158 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.158 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.158 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.158 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.159 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.159 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.159 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.159 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.159 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.159 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.159 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.159 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.159 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.159 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.159 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.159 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.159 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.159 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.160 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.160 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.160 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.160 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.160 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.160 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.160 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.160 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.160 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.160 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.160 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.160 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.160 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.160 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.173 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.173 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.173 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.173 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.173 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.173 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.173 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:43:35.173 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:43:35.173 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:43:35.173 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:43:35.173 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:43:35.173 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:43:35.173 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:43:35.173 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.269 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:05.271 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:05.271 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:05.271 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:05.271 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:05.271 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:05.272 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.272 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:05.272 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:05.272 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:05.272 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:05.272 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:05.272 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:05.272 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.280 - INFO  - com.example.demojavafx.HelloApplication - Inicio del método de arranque de la aplicación para mostrar un menú de inicio
+2024-05-16 13:44:05.285 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:05.286 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:05.286 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:05.286 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:05.286 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:05.286 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:05.286 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.286 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:05.286 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:05.286 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:05.286 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:05.286 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:05.286 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:05.286 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.299 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:05.299 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:05.300 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:05.300 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:05.300 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:05.300 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:05.300 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.300 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:05.300 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:05.300 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:05.301 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:05.301 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:05.301 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:05.301 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.351 - TRACE - com.example.demojavafx.HelloController - Enviando una traza de ejecución
+2024-05-16 13:44:05.351 - DEBUG - com.example.demojavafx.HelloController - Enviado un debug
+2024-05-16 13:44:05.351 - INFO  - com.example.demojavafx.HelloController - Enviando un info
+2024-05-16 13:44:05.351 - WARN  - com.example.demojavafx.HelloController - Enviando un aviso
+2024-05-16 13:44:05.351 - ERROR - com.example.demojavafx.HelloController - Enviando un error
+2024-05-16 13:44:05.351 - FATAL - com.example.demojavafx.HelloController - Enviando una explosión fatal
+2024-05-16 13:44:05.352 - INFO  - com.example.demojavafx.HelloController - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:05.591 - TRACE - com.example.demojavafx.HelloApplication - Enviando una traza de ejecución
+2024-05-16 13:44:05.592 - DEBUG - com.example.demojavafx.HelloApplication - Enviado un debug
+2024-05-16 13:44:05.592 - INFO  - com.example.demojavafx.HelloApplication - Enviando un info
+2024-05-16 13:44:05.592 - WARN  - com.example.demojavafx.HelloApplication - Enviando un aviso
+2024-05-16 13:44:05.592 - ERROR - com.example.demojavafx.HelloApplication - Enviando un error
+2024-05-16 13:44:05.592 - FATAL - com.example.demojavafx.HelloApplication - Enviando una explosión fatal
+2024-05-16 13:44:05.592 - INFO  - com.example.demojavafx.HelloApplication - Fin del método de arranque de la aplicación para mostrar un menú de inicio"
+2024-05-16 13:44:08.206 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:08.206 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:08.206 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:08.206 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:08.206 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:08.206 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:08.206 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:08.206 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:08.206 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:08.206 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:08.206 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:08.206 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:08.206 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:08.206 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:08.224 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:08.224 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:08.224 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:08.224 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:08.224 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:08.224 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:08.224 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:08.224 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:08.225 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:08.225 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:08.225 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:08.225 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:08.225 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:08.225 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.691 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.692 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.692 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.692 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.692 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.692 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.692 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.692 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.692 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.692 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.693 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.693 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.693 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.693 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.696 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.696 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.696 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.696 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.696 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.696 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.696 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.696 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.696 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.696 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.696 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.697 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.697 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.697 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.697 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.697 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.697 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.697 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.697 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.697 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.697 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.697 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.698 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.698 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.698 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.698 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.698 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.698 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.698 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.698 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.698 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.698 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.698 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.698 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.698 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.698 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.698 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.699 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.699 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.699 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.699 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.699 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.699 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.699 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.699 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.699 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.699 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.699 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.699 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.699 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.699 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.699 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.699 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.699 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.700 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.700 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.700 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.700 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.700 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.700 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.700 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.700 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.700 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.700 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.700 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.700 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.700 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.700 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.700 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.700 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.700 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.700 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.700 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.700 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.701 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.701 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.701 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.701 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.701 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.701 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.701 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.701 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.701 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.701 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.701 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.701 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.701 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.701 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.701 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.701 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.701 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.701 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.701 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.701 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.701 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.702 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.702 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.702 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.702 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.702 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.702 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.702 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.702 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.702 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.702 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.702 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.702 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.702 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.702 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.702 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.702 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.702 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.709 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.709 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.709 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.709 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.709 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.710 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.710 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:44:09.710 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:44:09.710 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:44:09.710 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:44:09.710 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:44:09.710 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:44:09.710 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:44:09.710 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.825 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:43.827 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:43.827 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:43.827 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:43.827 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:43.827 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:43.828 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.828 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:43.828 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:43.828 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:43.828 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:43.828 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:43.828 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:43.828 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.836 - INFO  - com.example.demojavafx.HelloApplication - Inicio del método de arranque de la aplicación para mostrar un menú de inicio
+2024-05-16 13:59:43.842 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:43.842 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:43.842 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:43.842 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:43.842 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:43.842 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:43.842 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.842 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:43.842 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:43.842 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:43.842 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:43.842 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:43.843 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:43.843 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.858 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:43.858 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:43.858 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:43.858 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:43.858 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:43.858 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:43.858 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.858 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:43.858 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:43.858 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:43.858 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:43.858 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:43.859 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:43.859 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:43.913 - TRACE - com.example.demojavafx.HelloController - Enviando una traza de ejecución
+2024-05-16 13:59:43.913 - DEBUG - com.example.demojavafx.HelloController - Enviado un debug
+2024-05-16 13:59:43.913 - INFO  - com.example.demojavafx.HelloController - Enviando un info
+2024-05-16 13:59:43.913 - WARN  - com.example.demojavafx.HelloController - Enviando un aviso
+2024-05-16 13:59:43.913 - ERROR - com.example.demojavafx.HelloController - Enviando un error
+2024-05-16 13:59:43.913 - FATAL - com.example.demojavafx.HelloController - Enviando una explosión fatal
+2024-05-16 13:59:43.913 - INFO  - com.example.demojavafx.HelloController - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:44.184 - TRACE - com.example.demojavafx.HelloApplication - Enviando una traza de ejecución
+2024-05-16 13:59:44.184 - DEBUG - com.example.demojavafx.HelloApplication - Enviado un debug
+2024-05-16 13:59:44.185 - INFO  - com.example.demojavafx.HelloApplication - Enviando un info
+2024-05-16 13:59:44.185 - WARN  - com.example.demojavafx.HelloApplication - Enviando un aviso
+2024-05-16 13:59:44.185 - ERROR - com.example.demojavafx.HelloApplication - Enviando un error
+2024-05-16 13:59:44.185 - FATAL - com.example.demojavafx.HelloApplication - Enviando una explosión fatal
+2024-05-16 13:59:44.185 - INFO  - com.example.demojavafx.HelloApplication - Fin del método de arranque de la aplicación para mostrar un menú de inicio"
+2024-05-16 13:59:47.155 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:47.155 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:47.155 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:47.155 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:47.155 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:47.156 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:47.156 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:47.156 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:47.156 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:47.156 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:47.156 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:47.156 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:47.156 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:47.156 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:47.194 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:47.194 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:47.194 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:47.194 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:47.194 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:47.194 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:47.194 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:47.194 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:47.194 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:47.194 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:47.194 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:47.194 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:47.194 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:47.195 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.422 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.422 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.423 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.423 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.423 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.423 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.423 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.423 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.423 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.423 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.423 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.423 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.423 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.423 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.429 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.429 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.429 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.429 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.429 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.429 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.429 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.429 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.429 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.429 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.429 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.429 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.429 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.429 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.429 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.429 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.429 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.430 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.430 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.430 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.430 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.430 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.430 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.430 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.430 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.430 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.430 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.430 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.430 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.430 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.430 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.430 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.430 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.430 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.430 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.430 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.430 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.431 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.431 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.431 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.431 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.431 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.431 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.431 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.431 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.431 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.431 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.431 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.431 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.431 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.431 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.431 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.431 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.431 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.431 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.431 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.432 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.432 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.432 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.432 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.432 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.432 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.432 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.432 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.432 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.432 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.432 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.432 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.432 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.432 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.432 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.432 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.432 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.432 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.432 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.432 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.432 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.433 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.433 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.433 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.433 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.433 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.433 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.433 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.433 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.433 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.433 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.433 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.433 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.433 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.433 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.433 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.433 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.433 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.433 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.433 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.434 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.434 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.434 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.434 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.434 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.434 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.434 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.434 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.434 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.434 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.434 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.434 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.434 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.434 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.434 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.434 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.446 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.446 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.446 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.446 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.446 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.446 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.446 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:48.446 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:48.446 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:48.446 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:48.446 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:48.446 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:48.446 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:48.446 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:51.101 - INFO  - com.example.demojavafx.HelloController - Inicio del método de arranque de la aplicación para elegir los parámetros
+2024-05-16 13:59:51.102 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:51.102 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:51.102 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:51.102 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:51.102 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:51.102 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:51.102 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:51.114 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:51.115 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:51.115 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:51.115 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:51.115 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:51.115 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:51.115 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:51.115 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:51.115 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:51.115 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:51.115 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:51.115 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:51.115 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:51.115 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:51.436 - TRACE - com.example.demojavafx.HelloController - Enviando una traza de ejecución
+2024-05-16 13:59:51.437 - DEBUG - com.example.demojavafx.HelloController - Enviado un debug
+2024-05-16 13:59:51.437 - INFO  - com.example.demojavafx.HelloController - Enviando un info
+2024-05-16 13:59:51.437 - WARN  - com.example.demojavafx.HelloController - Enviando un aviso
+2024-05-16 13:59:51.437 - ERROR - com.example.demojavafx.HelloController - Enviando un error
+2024-05-16 13:59:51.438 - FATAL - com.example.demojavafx.HelloController - Enviando una explosión fatal
+2024-05-16 13:59:51.438 - INFO  - com.example.demojavafx.HelloController - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 13:59:58.558 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 13:59:58.558 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 13:59:58.558 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 13:59:58.558 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 13:59:58.558 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 13:59:58.558 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 13:59:58.558 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 14:00:00.658 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 14:00:00.658 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 14:00:00.660 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 14:00:00.660 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 14:00:00.660 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 14:00:00.660 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 14:00:00.660 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 14:00:00.691 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 14:00:00.691 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 14:00:00.691 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 14:00:00.691 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 14:00:00.691 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 14:00:00.691 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 14:00:00.692 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
+2024-05-16 14:00:00.692 - TRACE - com.example.demojavafx.BucleDeControlProperties - Enviando una traza de ejecución
+2024-05-16 14:00:00.692 - DEBUG - com.example.demojavafx.BucleDeControlProperties - Enviado un debug
+2024-05-16 14:00:00.692 - INFO  - com.example.demojavafx.BucleDeControlProperties - Enviando un info
+2024-05-16 14:00:00.692 - WARN  - com.example.demojavafx.BucleDeControlProperties - Enviando un aviso
+2024-05-16 14:00:00.692 - ERROR - com.example.demojavafx.BucleDeControlProperties - Enviando un error
+2024-05-16 14:00:00.692 - FATAL - com.example.demojavafx.BucleDeControlProperties - Enviando una explosión fatal
+2024-05-16 14:00:00.692 - INFO  - com.example.demojavafx.BucleDeControlProperties - Fin del método de arranque de la aplicación para elegir los parámetros"
