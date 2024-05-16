@@ -235,7 +235,6 @@ public class IndAvanzado extends Individuo {
 
         if (listaMovimiento.isVacia()){
             listaMovimiento = creacionListaMovimiento (maxFilas,maxColumnas,posNDeseado,posMDeseado,posN,posM,matriz);
-            colaOperaciones.push(new ElementoLDE<>(listaMovimiento.getElemento(0)));
             listaMovimiento.del(0);
         }
         matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);

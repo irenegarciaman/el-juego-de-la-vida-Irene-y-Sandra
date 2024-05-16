@@ -123,6 +123,8 @@ ListaEnlazada<TipoDelDato> {
                 }
             }
 
+        }else{
+            return -1;
         }
         if (encontrado!= true){
             contador = -1;
