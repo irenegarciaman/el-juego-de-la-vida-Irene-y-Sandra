@@ -11,16 +11,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MatrizTest {
-    Matriz matriz = new Matriz(2,3);
+    Matriz matriz = new Matriz(2, 3);
     Individuo individuo1 = new IndBasico(1);
     Individuo individuo2 = new IndNormal(2);
     Individuo individuo3 = new IndNormal(3);
     Individuo individuo4 = new IndNormal(4);
     Individuo individuo5 = new IndNormal(5);
     Individuo individuo6 = new IndNormal(6);
-    ListaEnlazada< Individuo > listaIndividuo = new ListaEnlazada<>();
+    ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>();
     ListaEnlazada<Recursos> listaRecursos = new ListaEnlazada<>();
-    Celda celda = new Celda(listaIndividuo,listaRecursos);
+    Celda celda = new Celda(listaIndividuo, listaRecursos);
 
     @Test
     void getColumna() {

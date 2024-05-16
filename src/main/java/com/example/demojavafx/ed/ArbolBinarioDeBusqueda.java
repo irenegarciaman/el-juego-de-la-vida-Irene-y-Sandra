@@ -1,5 +1,7 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.individuos.IndAvanzado;
+import com.example.demojavafx.individuos.Individuo;
 import net.sourceforge.plantuml.*;
 import net.sourceforge.plantuml.api.ImageDataComplex;
 import net.sourceforge.plantuml.api.ImageDataSimple;
@@ -169,9 +171,9 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
         if (n.getIzquierda() != null) {
             x = getAltura(n.getIzquierda(), p + 1);
         }
-        if(x>=y && x>p){
+        if (x >= y && x > p) {
             return x;
-        } else if (x<y && y>p) {
+        } else if (x < y && y > p) {
             return y;
         }
         return p;
@@ -294,79 +296,80 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
         }
     }
     /***
-    public int getNivel(int nivel, NodoArbol<TipoDeDatos> n,NodoArbol<TipoDeDatos> aBuscar) {
-        if (n.getIzquierda() != null) {
-            getNivel(nivel+1, n.getIzquierda(),aBuscar);
-        }
-        if (n.getDerecha() != null) {
-            getNivel(nivel+1, n.getDerecha(),aBuscar);
-        }
-        return nivel;
-    }
-    public int getNivel(NodoArbol<TipoDeDatos> n) {
-        return getNivel(0,this.raiz,n);
-    }*/
+     public int getNivel(int nivel, NodoArbol<TipoDeDatos> n,NodoArbol<TipoDeDatos> aBuscar) {
+     if (n.getIzquierda() != null) {
+     getNivel(nivel+1, n.getIzquierda(),aBuscar);
+     }
+     if (n.getDerecha() != null) {
+     getNivel(nivel+1, n.getDerecha(),aBuscar);
+     }
+     return nivel;
+     }
+     public int getNivel(NodoArbol<TipoDeDatos> n) {
+     return getNivel(0,this.raiz,n);
+     }*/
 
     /**
-    public void borrado(TipoDeDatos valor, NodoArbol n){
-        NodoArbol<TipoDeDatos> padre = new NodoArbol<>();
-        Comparable c = (Comparable) n.getDato();
-        int rdo = c.compareTo(valor);
-        if (rdo > 0) {
-            if (n.izquierda != null) {
-                n = n.izquierda;
-            }
-        } else if (rdo < 0) {
-            if (n.derecha != null) {
-                n = n.derecha;
-            }
-        }
-        if (rdo == 0) {
-            if (padre.izquierda == n) {
-                n = null;
-            } else if(padre.derecha == n){
-                n = null;
-            }
-
-        } else {
-            borrado(valor,n);
-        }
-
-
-        }
-
-    public void borrar(TipoDeDatos valor){
-        Comparable c = (Comparable) raiz.dato;
-        if(raiz!=null){
-            if(c.compareTo(valor)==0){
-                borrarRaiz();
-            }else{
-                raiz.borradoHoja(valor);
-            }
-        }
-    }
-
-    public void borrarRaiz(){
-        if(this.getGrado(raiz,(int)raiz.dato)==0){
-            this.raiz = null;
-        }else if(this.getGrado(raiz,(int)raiz.dato)==1){
-            NodoArbol<TipoDeDatos> n = this.raiz.izquierda;
-            if (n==null){
-                n=this.raiz.derecha;
-            }
-            this.raiz=n;
-        }else{
-            NodoArbol<TipoDeDatos> n = this.raiz.NodoPadreIzq(raiz.derecha);
-            NodoArbol<TipoDeDatos> nodoASustituir = n.izquierda;
-            if(this.getGrado(raiz,(int)raiz.dato)==0){
-                this.raiz.setDato(nodoASustituir.getDato());
-                n.izquierda = null;
-            }else{
-                this.raiz.setDato(nodoASustituir.getDato());
-                n.izquierda=nodoASustituir.derecha;
-            }
-        }
-    }*/
+     * public void borrado(TipoDeDatos valor, NodoArbol n){
+     * NodoArbol<TipoDeDatos> padre = new NodoArbol<>();
+     * Comparable c = (Comparable) n.getDato();
+     * int rdo = c.compareTo(valor);
+     * if (rdo > 0) {
+     * if (n.izquierda != null) {
+     * n = n.izquierda;
+     * }
+     * } else if (rdo < 0) {
+     * if (n.derecha != null) {
+     * n = n.derecha;
+     * }
+     * }
+     * if (rdo == 0) {
+     * if (padre.izquierda == n) {
+     * n = null;
+     * } else if(padre.derecha == n){
+     * n = null;
+     * }
+     * <p>
+     * } else {
+     * borrado(valor,n);
+     * }
+     * <p>
+     * <p>
+     * }
+     * <p>
+     * public void borrar(TipoDeDatos valor){
+     * Comparable c = (Comparable) raiz.dato;
+     * if(raiz!=null){
+     * if(c.compareTo(valor)==0){
+     * borrarRaiz();
+     * }else{
+     * raiz.borradoHoja(valor);
+     * }
+     * }
+     * }
+     * <p>
+     * public void borrarRaiz(){
+     * if(this.getGrado(raiz,(int)raiz.dato)==0){
+     * this.raiz = null;
+     * }else if(this.getGrado(raiz,(int)raiz.dato)==1){
+     * NodoArbol<TipoDeDatos> n = this.raiz.izquierda;
+     * if (n==null){
+     * n=this.raiz.derecha;
+     * }
+     * this.raiz=n;
+     * }else{
+     * NodoArbol<TipoDeDatos> n = this.raiz.NodoPadreIzq(raiz.derecha);
+     * NodoArbol<TipoDeDatos> nodoASustituir = n.izquierda;
+     * if(this.getGrado(raiz,(int)raiz.dato)==0){
+     * this.raiz.setDato(nodoASustituir.getDato());
+     * n.izquierda = null;
+     * }else{
+     * this.raiz.setDato(nodoASustituir.getDato());
+     * n.izquierda=nodoASustituir.derecha;
+     * }
+     * }
+     * }
+     */
 
     public int getNivel(NodoArbol<TipoDeDatos> n, NodoArbol<TipoDeDatos> raiz) {
         Comparable c = (Comparable) n.getDato();
@@ -374,96 +377,100 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
             return 1 + getNivel(n, raiz.getIzquierda());
         } else if (c.compareTo(raiz.getDato()) > 0) {
             return 1 + getNivel(n, raiz.getDerecha());
-        }else {
+        } else {
             return 1;
         }
     }
+
     public int getNivel(NodoArbol<TipoDeDatos> n) {
-        return getNivel(n,this.raiz);
+        return getNivel(n, this.raiz);
     }
-    public boolean eliminar (TipoDeDatos valor){
+
+    public boolean eliminar(TipoDeDatos valor) {
         NodoArbol<TipoDeDatos> temporal = raiz;
         NodoArbol<TipoDeDatos> padre = raiz;
-      //  Comparable c = (Comparable) temporal.dato;
-       // int rdo = c.compareTo(valor);
+        //  Comparable c = (Comparable) temporal.dato;
+        // int rdo = c.compareTo(valor);
         boolean esHijoIzquierda = true;
-        while(temporal.dato!=valor){
+        while (temporal.dato != valor) {
             Comparable c = (Comparable) temporal.dato;
             int rdo = c.compareTo(valor);
-            padre=temporal;
-            if(rdo>0){
-                esHijoIzquierda=true;
-                temporal=temporal.izquierda;
-            }if(rdo<0){
+            padre = temporal;
+            if (rdo > 0) {
+                esHijoIzquierda = true;
+                temporal = temporal.izquierda;
+            }
+            if (rdo < 0) {
                 esHijoIzquierda = false;
-                temporal=temporal.derecha;
-            }else if (temporal==null){
+                temporal = temporal.derecha;
+            } else if (temporal == null) {
                 return false;
             }
         }//Fin while
-        if (temporal.izquierda == null && temporal.derecha==null){
-            if(temporal==raiz){
-                raiz=null;
-            }else if(esHijoIzquierda){
-                padre.izquierda=null;
-            }else{
-                padre.derecha=null;
+        if (temporal.izquierda == null && temporal.derecha == null) {
+            if (temporal == raiz) {
+                raiz = null;
+            } else if (esHijoIzquierda) {
+                padre.izquierda = null;
+            } else {
+                padre.derecha = null;
             }
-        }else if(temporal.derecha==null){
-            if(temporal==raiz){
-                raiz=temporal.izquierda;
-            }else if(esHijoIzquierda){
-                padre.izquierda=temporal.izquierda;
-            }else{
-                padre.derecha=temporal.izquierda;
+        } else if (temporal.derecha == null) {
+            if (temporal == raiz) {
+                raiz = temporal.izquierda;
+            } else if (esHijoIzquierda) {
+                padre.izquierda = temporal.izquierda;
+            } else {
+                padre.derecha = temporal.izquierda;
             }
-        }else if (temporal.izquierda==null){
-            if(temporal==raiz){
-                raiz=temporal.derecha;
-            }else if(esHijoIzquierda){
-                padre.izquierda=temporal.derecha;
-            }else{
-                padre.derecha=temporal.derecha;
+        } else if (temporal.izquierda == null) {
+            if (temporal == raiz) {
+                raiz = temporal.derecha;
+            } else if (esHijoIzquierda) {
+                padre.izquierda = temporal.derecha;
+            } else {
+                padre.derecha = temporal.derecha;
             }
-        }else{
-            NodoArbol<TipoDeDatos> nodoASustituir=obtenerNodoASustituir(temporal);
-            if (temporal==raiz){
-                if (nodoASustituir!=this.raiz.izquierda){
-                    nodoASustituir.izquierda=this.raiz.izquierda;
+        } else {
+            NodoArbol<TipoDeDatos> nodoASustituir = obtenerNodoASustituir(temporal);
+            if (temporal == raiz) {
+                if (nodoASustituir != this.raiz.izquierda) {
+                    nodoASustituir.izquierda = this.raiz.izquierda;
                 }
-                if (nodoASustituir!=this.raiz.derecha){
-                    nodoASustituir.derecha=this.raiz.derecha;
+                if (nodoASustituir != this.raiz.derecha) {
+                    nodoASustituir.derecha = this.raiz.derecha;
                 }
-                raiz=nodoASustituir;
-            }else if (esHijoIzquierda){
+                raiz = nodoASustituir;
+            } else if (esHijoIzquierda) {
                 nodoASustituir.izquierda = padre.izquierda.izquierda;
                 nodoASustituir.derecha = padre.izquierda.derecha;
-                padre.izquierda=nodoASustituir;
-            }else{
+                padre.izquierda = nodoASustituir;
+            } else {
                 nodoASustituir.izquierda = padre.derecha.izquierda;
                 nodoASustituir.derecha = padre.derecha.derecha;
-                padre.derecha=nodoASustituir;
+                padre.derecha = nodoASustituir;
             }
         }
-    return true;
+        return true;
     }
 
-    public NodoArbol obtenerNodoASustituir(NodoArbol nodoASustituir){
+    public NodoArbol obtenerNodoASustituir(NodoArbol nodoASustituir) {
         NodoArbol<TipoDeDatos> sustituirPadre = nodoASustituir;
         NodoArbol<TipoDeDatos> sustituir = nodoASustituir;
         NodoArbol<TipoDeDatos> temporal = nodoASustituir.derecha;
-        while(temporal!=null){
+        while (temporal != null) {
             sustituirPadre = sustituir;
             sustituir = temporal;
             temporal = temporal.izquierda;
         }
-        if(sustituir!=nodoASustituir.derecha){
+        if (sustituir != nodoASustituir.derecha) {
             sustituirPadre.izquierda = sustituir.derecha;
-            sustituir.derecha=null;
+            sustituir.derecha = null;
         }
         return sustituir;
     }
-    public NodoArbol<TipoDeDatos> getPadre(TipoDeDatos valor,NodoArbol<TipoDeDatos> temp,NodoArbol<TipoDeDatos> padre){
+
+    public NodoArbol<TipoDeDatos> getPadre(TipoDeDatos valor, NodoArbol<TipoDeDatos> temp, NodoArbol<TipoDeDatos> padre) {
         Comparable c = (Comparable) temp.dato;
         int rdo = c.compareTo(valor);
         if (rdo > 0) {
@@ -480,65 +487,110 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
         if (rdo == 0) {
             return padre;
         } else {
-            return getPadre(valor,temp,padre);
+            return getPadre(valor, temp, padre);
         }
 
     }
-    public NodoArbol<TipoDeDatos> getPadre(TipoDeDatos valor){
+
+    public NodoArbol<TipoDeDatos> getPadre(TipoDeDatos valor) {
         NodoArbol<TipoDeDatos> padre = new NodoArbol<>();
-        return getPadre(valor,this.raiz,padre);
+        return getPadre(valor, this.raiz, padre);
     }
+
     public void guardarArbol() {
         String rutaArchivo = "arbol.json";
-        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
-        ArbolBinarioDeBusqueda arbolCargado = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ArbolBinarioDeBusqueda.class);
-        if(arbolCargado != null){
+        Gson1.guardarObjetoEnArchivo(rutaArchivo, this);
+        ArbolBinarioDeBusqueda arbolCargado = Gson1.cargarObjetoDesdeArchivo(rutaArchivo, ArbolBinarioDeBusqueda.class);
+        if (arbolCargado != null) {
             System.out.println("Arbol Cargado");
         }
     }
 
-    public String showNode(NodoArbol<TipoDeDatos> n){
+    public String showNode(NodoArbol<TipoDeDatos> n) {
         String res = "";
-        if (n.getIzquierda()!=null){
+        if (n.getIzquierda() != null) {
             res += showNode(n.izquierda);
         }
         res += "\nNode " + n.dato;
-        if(n.getDerecha()!=null){
+        if (n.getDerecha() != null) {
             res += showNode(n.derecha);
         }
 
         return res;
     }
-    public String showEnlaces(NodoArbol<TipoDeDatos> n){
+
+    public String showEnlaces(NodoArbol<TipoDeDatos> n) {
         String res = "";
-        if (n.getIzquierda()!=null){
+        if (n.getIzquierda() != null) {
             res += "\n" + n.dato + "--" + n.izquierda.dato;
             res += showEnlaces(n.izquierda);
         }
-        if(n.getDerecha()!=null){
-            res += "\n" + n.dato + "--" + n.derecha.dato ;
+        if (n.getDerecha() != null) {
+            res += "\n" + n.dato + "--" + n.derecha.dato;
             res += showEnlaces(n.derecha);
         }
 
         return res;
     }
-    public String show(){
+
+    public String show() {
         NodoArbol<TipoDeDatos> raiz = this.raiz;
         return showNode(raiz) + "\n" + showEnlaces(raiz);
     }
 
+
+    public String toStringI(NodoArbol<Individuo> n) {
+        String res = "";
+
+        if (n.getIzquierda() != null) {
+            res += ":";
+            res += toStringI(n.izquierda);
+        }
+
+        if (n.getDerecha() != null) {
+            res += ":";
+            res += toStringI(n.derecha);
+        }
+        Individuo ind = n.dato;
+        res += ind.toString();
+        return res;
+    }
+
     public void crearPNG(String diagramText) throws FileNotFoundException {
-        
+
     }//tree view
+
     public static void main(String[] args) throws FileNotFoundException {
-        ArbolBinarioDeBusqueda<Integer > arbol2 = new ArbolBinarioDeBusqueda<>();
-        arbol2.add(30);
-        arbol2.add(40);
-        arbol2.add(20);
-        arbol2.add(10);
-        arbol2.add(25);
-        arbol2.add(35);
-        arbol2.crearPNG(arbol2.show());
+//        ArbolBinarioDeBusqueda<Integer > arbol2 = new ArbolBinarioDeBusqueda<>();
+//        arbol2.add(30);
+//        arbol2.add(40);
+//        arbol2.add(20);
+//        arbol2.add(10);
+//        arbol2.add(25);
+//        arbol2.add(35);
+//        System.out.println(arbol2.toString());
+        ArbolBinarioDeBusqueda<Individuo> arbol3 = new ArbolBinarioDeBusqueda<>();
+        Individuo ind = new IndAvanzado(45);
+//        System.out.println(ind.getArbolGenealogico().raiz.dato);
+        Individuo ind2 = new IndAvanzado(50);
+//        System.out.println(ind2.getArbolGenealogico().raiz.dato);
+        System.out.println(ind.getArbolGenealogico().toStringI(ind.getArbolGenealogico().raiz));
+        ind.getArbolGenealogico().raiz.setDerecha(ind2.getArbolGenealogico().raiz);
+//        System.out.println("ind1 "+ind.getArbolGenealogico().toString());
+        System.out.println("ind: " + ind);
+
+
+        /***
+         arbol3.add(ind);
+         System.out.println(ind);
+         System.out.println(arbol3.raiz.dato.toString());
+         Individuo ind1 = new IndAvanzado(50);
+         Individuo ind2 = new IndAvanzado(60);
+         ArbolBinarioDeBusqueda<Individuo> arbol4 = new ArbolBinarioDeBusqueda<>(ind1);
+         arbol4.raiz.derecha = arbol3.raiz;*/
+
+//        System.out.println(arbol4.);
+
     }
 
 

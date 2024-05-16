@@ -34,32 +34,15 @@ public class HelloController implements Initializable {
     private static final Logger log = LogManager.getLogger(HelloController.class);
 
 
-
-
-    private Recursos recursos = new Recursos(4);
-    private RecursosProperties modeloRecursos = new RecursosProperties(recursos);
-
-    private Agua agua = new Agua(3, 4);
-    private AguaProperties modeloAgua = new AguaProperties(agua);
-
-    private Biblioteca biblioteca = new Biblioteca(3, 10);
-    private BibliotecaProperties modeloBiblioteca = new BibliotecaProperties(biblioteca);
-
-    private Comida comida = new Comida(3, 4);
-    private ComidaProperties modeloComida = new ComidaProperties(comida);
-
-    private Montana montana = new Montana(3, 4);
-    private MontanaProperties modeloMontana = new MontanaProperties(montana);
-
-    private Tesoro tesoro = new Tesoro(3, 4);
-    private TesoroProperties modeloTesoro = new TesoroProperties(tesoro);
-
-    private Pozo pozo = new Pozo(3);
-    private PozoProperties modeloPozo = new PozoProperties(pozo);
-
-
-    private Individuo ind = new IndBasico(0);
-    private IndividuoProperties modeloInd = new IndividuoProperties(ind);
+    protected RecursosProperties recursosModel;
+    protected AguaProperties aguaModel;
+    protected BibliotecaProperties bibliotecaModel;
+    protected ComidaProperties comidaModel;
+    protected MontanaProperties montanaModel;
+    protected PozoProperties pozoModel;
+    protected TesoroProperties tesoroModel;
+    //Individuos model
+    protected IndividuoProperties individuoModel;
 
     private BucleDeControl matriz = new BucleDeControl(15, 15);
     private BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
@@ -71,11 +54,9 @@ public class HelloController implements Initializable {
      */
 
 
-
-
     @FXML
     protected void onMiBotonNuevaVentajaClick() {
-        try{
+        try {
             JuegoController p = new JuegoController();
             GuardarDatos gd = cargarObjetoDesdeArchivo("partidaAnterior.json", GuardarDatos.class);
 
@@ -84,9 +65,9 @@ public class HelloController implements Initializable {
             this.modeloMatriz = new BucleDeControlProperties(this.matriz);
 
 
-            p.loadUserData(modeloRecursos, modeloAgua, modeloBiblioteca, modeloComida, modeloMontana, modeloPozo, modeloTesoro, modeloInd, modeloMatriz);
+            p.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel, pozoModel, tesoroModel, individuoModel, modeloMatriz);
             p.crearJuegoR(this.modeloMatriz);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -96,6 +77,7 @@ public class HelloController implements Initializable {
     @FXML
     protected void onMiBotonNuevaVentanaAjustesClick() {
         log.info("Inicio del método de arranque de la aplicación para elegir los parámetros");
+        cerraryGuardar();
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cond-iniciales.fxml"));
         try {
@@ -104,8 +86,8 @@ public class HelloController implements Initializable {
             stage.setScene(scene);
             //Recursos
             RecursosController p = fxmlLoader.getController();
-            p.loadUserData(this.modeloRecursos, this.modeloAgua, this.modeloBiblioteca,
-                    this.modeloComida, this.modeloMontana, this.modeloPozo, this.modeloTesoro, this.modeloInd,
+            p.loadUserData(this.recursosModel, this.aguaModel, this.bibliotecaModel,
+                    this.comidaModel, this.montanaModel, this.pozoModel, this.tesoroModel, this.individuoModel,
                     this.modeloMatriz);
             p.setStage(stage);
 
@@ -125,7 +107,6 @@ public class HelloController implements Initializable {
     }
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.print("Inicialización en ejecución del controlador\n");
@@ -142,4 +123,33 @@ public class HelloController implements Initializable {
         log.info("Fin del método de arranque de la aplicación para elegir los parámetros\"");
     }
 
+    public void loadUserData(RecursosProperties parametrosRecursos, AguaProperties parametrosAgua,
+                             BibliotecaProperties parametrosBiblioteca, ComidaProperties parametrosComida,
+                             MontanaProperties parametrosMontana, PozoProperties parametrosPozo,
+                             TesoroProperties parametrosTesoro, IndividuoProperties parametrosInd,
+                             BucleDeControlProperties parametroMatriz) {
+        this.recursosModel = parametrosRecursos;
+        this.aguaModel = parametrosAgua;
+        this.bibliotecaModel = parametrosBiblioteca;
+        this.comidaModel = parametrosComida;
+        this.montanaModel = parametrosMontana;
+        this.pozoModel = parametrosPozo;
+        this.tesoroModel = parametrosTesoro;
+        this.individuoModel = parametrosInd;
+        this.modeloMatriz = parametroMatriz;
+
+
+    }
+
+    public void cerraryGuardar() {
+        this.recursosModel.commit();
+        this.aguaModel.commit();
+        this.bibliotecaModel.commit();
+        this.comidaModel.commit();
+        this.montanaModel.commit();
+        this.pozoModel.commit();
+        this.tesoroModel.commit();
+        this.individuoModel.commit();
+        this.modeloMatriz.commit();
+    }
 }

@@ -29,9 +29,6 @@ public class InfoCeldaController implements Initializable {
     }
 
 
-
-
-
     public void loadUserData(BucleDeControlProperties parametrosBucleDeControl) {
         this.matriz = parametrosBucleDeControl.matrizProperty();
         this.matrizModel = parametrosBucleDeControl;
@@ -47,10 +44,12 @@ public class InfoCeldaController implements Initializable {
         matrizModel.commit();
 
     }
-    public void cerrarButton(){
+
+    public void cerrarButton() {
         scene.close();
     }
-    public void cancelarButton(){
+
+    public void cancelarButton() {
 
         matrizModel.rollback();
     }

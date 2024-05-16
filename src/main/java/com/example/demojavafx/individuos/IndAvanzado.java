@@ -160,70 +160,68 @@ public class IndAvanzado extends Individuo {
             }
 
 
-
-
         }
         // Enlaces de columnas de forma descente
-        for (int s = grafo.getListaVertices().getNumeroElementos()-1; s>= maxColumnas;s--) {
+        for (int s = grafo.getListaVertices().getNumeroElementos() - 1; s >= maxColumnas; s--) {
             //if (((s+1)%(maxColumnas))!=0) {
-                NodoGrafoNuevo nodo1 = grafo.getListaVertices().getElemento(s).getData();
-                NodoGrafoNuevo nodo2 = grafo.getListaVertices().getElemento(s - maxFilas).getData();
-                Double pesoArco = 1.0;
-                if (!matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().isVacia()) {
-                    for (int p = 0; p <= matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getNumeroElementos() - 1; p++) {
+            NodoGrafoNuevo nodo1 = grafo.getListaVertices().getElemento(s).getData();
+            NodoGrafoNuevo nodo2 = grafo.getListaVertices().getElemento(s - maxFilas).getData();
+            Double pesoArco = 1.0;
+            if (!matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().isVacia()) {
+                for (int p = 0; p <= matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getNumeroElementos() - 1; p++) {
 
-                        Recursos recurso = matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getElemento(p).getData();
-                        if (Agua.class == recurso.getClass()) {
-                            pesoArco += 5.0;
-                        } else if (Comida.class == recurso.getClass()) {
-                            pesoArco += 3.0;
-                        } else if (Montana.class == recurso.getClass()) {
-                            pesoArco += 10.0;
-                        } else if (Tesoro.class == recurso.getClass()) {
-                            pesoArco += 5.0;
-                        } else if (Biblioteca.class == recurso.getClass()) {
-                            pesoArco += 5.0;
-                        } else if (Pozo.class == recurso.getClass()) {
-                            pesoArco += 20.0;
-                        }
+                    Recursos recurso = matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getElemento(p).getData();
+                    if (Agua.class == recurso.getClass()) {
+                        pesoArco += 5.0;
+                    } else if (Comida.class == recurso.getClass()) {
+                        pesoArco += 3.0;
+                    } else if (Montana.class == recurso.getClass()) {
+                        pesoArco += 10.0;
+                    } else if (Tesoro.class == recurso.getClass()) {
+                        pesoArco += 5.0;
+                    } else if (Biblioteca.class == recurso.getClass()) {
+                        pesoArco += 5.0;
+                    } else if (Pozo.class == recurso.getClass()) {
+                        pesoArco += 20.0;
                     }
-                    ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco", nodo1, nodo2, pesoArco);
-                    grafo.addArco(arco1);
-                }else{
+                }
+                ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco", nodo1, nodo2, pesoArco);
+                grafo.addArco(arco1);
+            } else {
                 ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco sin recurso", nodo1, nodo2, pesoArco);
                 grafo.addArco(arco1);
 
-                }
+            }
 
         }
 
 
-         nodoIndividuo.setDato("NodoIndividuoInicio");
+        nodoIndividuo.setDato("NodoIndividuoInicio");
 
-         /**Cola <NodoGrafoNuevo> colaCeldasConRecurso = new Cola<>();
+        /**Cola <NodoGrafoNuevo> colaCeldasConRecurso = new Cola<>();
          for (int i = 0; i <= maxFilas-1; i++) {
-             for (int j = 0; j <= maxColumnas-1; j++) {
-                 for (int h = 0; h < matriz[i][j].getListaRecurso().getNumeroElementos(); h++) {
-                     if (this.posN != i || this.posM != j) {
-                         NodoGrafoNuevo nodo = new NodoGrafoNuevo<>(matriz[i][j],i,j);
-                         colaCeldasConRecurso.push(new ElementoLDE<>(nodo));
-                     }
-                 }
-             }
-         }*/
-         ListaSimple<NodoGrafoNuevo> listaNodosHastaRecursos = new ListaSimple<>();
-         Double pesoCamino = Double.MAX_VALUE;
-         while(!colaCeldasConRecurso.isVacia()) {
-             Cola<Camino<String>> caminos = grafo.dijkstra(nodoIndividuo);
-             NodoGrafoNuevo nodoConRecurso = colaCeldasConRecurso.pop().getData();
-             int posicionNodoConRecurso = grafo.getListaVertices().getPosicion(new ElementoLS<>(nodoConRecurso));
-             ElementoLDE<Camino> caminoHastaRecurso = caminos.getElemento(posicionNodoConRecurso);
-             if (caminoHastaRecurso.getData().coste < pesoCamino){
-                 listaNodosHastaRecursos = caminoHastaRecurso.getData().getCamino();
-                 pesoCamino = caminoHastaRecurso.getData().coste;
-             }
+         for (int j = 0; j <= maxColumnas-1; j++) {
+         for (int h = 0; h < matriz[i][j].getListaRecurso().getNumeroElementos(); h++) {
+         if (this.posN != i || this.posM != j) {
+         NodoGrafoNuevo nodo = new NodoGrafoNuevo<>(matriz[i][j],i,j);
+         colaCeldasConRecurso.push(new ElementoLDE<>(nodo));
          }
-         return listaNodosHastaRecursos;
+         }
+         }
+         }*/
+        ListaSimple<NodoGrafoNuevo> listaNodosHastaRecursos = new ListaSimple<>();
+        Double pesoCamino = Double.MAX_VALUE;
+        while (!colaCeldasConRecurso.isVacia()) {
+            Cola<Camino<String>> caminos = grafo.dijkstra(nodoIndividuo);
+            NodoGrafoNuevo nodoConRecurso = colaCeldasConRecurso.pop().getData();
+            int posicionNodoConRecurso = grafo.getListaVertices().getPosicion(new ElementoLS<>(nodoConRecurso));
+            ElementoLDE<Camino> caminoHastaRecurso = caminos.getElemento(posicionNodoConRecurso);
+            if (caminoHastaRecurso.getData().coste < pesoCamino) {
+                listaNodosHastaRecursos = caminoHastaRecurso.getData().getCamino();
+                pesoCamino = caminoHastaRecurso.getData().coste;
+            }
+        }
+        return listaNodosHastaRecursos;
 
     }
 
@@ -252,11 +250,36 @@ public class IndAvanzado extends Individuo {
 
     }
 
+    public String toStringArbol(NodoArbol<Individuo> n) {
+        String res = "";
+        res += "IND AVANZADO=[ posM=" + n.getDato().posM + "; posN=" + n.getDato().posN +
+                "; probMuerte=" + n.getDato().probMuerte +
+                "; probClonacion=" + n.getDato().probClonacion +
+                "; probReproduccion=" + n.getDato().probReproduccion +
+                "; turnosRestantes=" + n.getDato().turnosRestantes +
+                "; generacion=" + n.getDato().generacion +
+                "; id=" + n.getDato().id + " ]";
+        if (n.getIzquierda() != null) {
+            res += ":";
+            res += toStringArbol(n.getIzquierda());
+        }
+
+        if (n.getDerecha() != null) {
+            res += ":";
+            res += toStringArbol(n.getDerecha());
+        }
+
+        return res;
+    }
+
+    public String toStringArbol() {
+        return toStringArbol(this.arbolGenealogico.raiz);
+    }
+
     @Override
     public String toString() {
         return "IndAvanzado, {" +
-                "arbolGenealogico=" + arbolGenealogico +
-                ", posM=" + posM +
+                "posM=" + posM +
                 ", posN=" + posN +
                 ", probMuerte=" + probMuerte +
                 ", probClonacion=" + probClonacion +
@@ -264,6 +287,7 @@ public class IndAvanzado extends Individuo {
                 ", turnosRestantes=" + turnosRestantes +
                 ", generacion=" + generacion +
                 ", id=" + id +
+                ", arbolGenealogico=" + toStringArbol() +
                 ", }";
     }
 }

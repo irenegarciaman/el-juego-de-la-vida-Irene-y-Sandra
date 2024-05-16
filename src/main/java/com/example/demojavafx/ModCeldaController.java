@@ -52,12 +52,11 @@ public class ModCeldaController implements Initializable {
     EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
             Label labelRec = new Label();
-            MenuItem selectedItem = (MenuItem)e.getSource();
+            MenuItem selectedItem = (MenuItem) e.getSource();
             String selectedValue = selectedItem.getLabel();
             labelRec.setText("Valor seleccionado: " + selectedValue);
         }
     };
-
 
 
     protected void updateGUIwithModel() {
@@ -86,10 +85,12 @@ public class ModCeldaController implements Initializable {
         matrizModel.commit();
 
     }
-    public void cerrarButton(){
+
+    public void cerrarButton() {
         scene.close();
     }
-    public void cancelarButton(){
+
+    public void cancelarButton() {
 
         matrizModel.rollback();
     }
@@ -99,7 +100,7 @@ public class ModCeldaController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mod-celda.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-            stage.setTitle("Modificar celda {fila: " + f +" columna: "+ c+"}");
+            stage.setTitle("Modificar celda {fila: " + f + " columna: " + c + "}");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

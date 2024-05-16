@@ -5,7 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class ComidaProperties {
+public class ComidaProperties extends RecursosProperties {
     protected Comida original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
@@ -13,7 +13,8 @@ public class ComidaProperties {
     private IntegerProperty probComida = new SimpleIntegerProperty();
 
 
-    public ComidaProperties(Comida original) {
+    public ComidaProperties(Comida original, Recursos recursos) {
+        super(recursos);
         setOriginal(original);
     }
 

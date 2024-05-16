@@ -44,12 +44,12 @@ public class Agua extends Recursos {
     @Override
     public String toString() {
         return "Agua, {" +
-            "aumentoDePorcenClon=" + aumentoDeVida +
-                    ", probBiblioteca=" + probAgua +
-                    ", turnosRestantes=" + turnosRestantes +
-                    ", posN=" + posN +
-                    ", posM=" + posM +
-                    ", probNuevoRecurso=" + probNuevoRecurso +
-                    ", }";
+                "aumentoDeVida=" + aumentoDeVida +
+                ", probAgua=" + probAgua +
+                ", turnosRestantes=" + turnosRestantes +
+                ", posN=" + posN +
+                ", posM=" + posM +
+                ", probNuevoRecurso=" + probNuevoRecurso +
+                ", }";
     }
 }

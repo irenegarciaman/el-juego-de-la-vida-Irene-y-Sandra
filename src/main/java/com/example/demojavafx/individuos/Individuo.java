@@ -63,7 +63,6 @@ public abstract class Individuo {
     }
 
 
-
     public int getId() {
         return id;
     }
@@ -92,8 +91,19 @@ public abstract class Individuo {
         return probReproduccion;
     }
 
-    public void setProbReproduccion(int probReproduccion){
-        this.probReproduccion = probReproduccion;
+    public void setProbReproduccion(int probReproduccion) {
+        try {
+            this.probReproduccion = probReproduccion;
+            if (probReproduccion < 0 || probReproduccion > 100) {
+                throw new PorcentajeValido(this.probReproduccion);
+            }
+        } catch (PorcentajeValido porcentaje) {
+            if (porcentaje.porcentaje < 0) {
+                this.probReproduccion = 0;
+            } else if (porcentaje.porcentaje > 100) {
+                this.probReproduccion = 100;
+            }
+        }
     }
 
     public int getProbClonacion() {
@@ -101,7 +111,18 @@ public abstract class Individuo {
     }
 
     public void setProbClonacion(int probClonacion) {
-        this.probClonacion = probClonacion;
+        try {
+            this.probClonacion = probClonacion;
+            if (probClonacion < 0 || probClonacion > 100) {
+                throw new PorcentajeValido(this.probClonacion);
+            }
+        } catch (PorcentajeValido porcentaje) {
+            if (porcentaje.porcentaje < 0) {
+                this.probClonacion = 0;
+            } else if (porcentaje.porcentaje > 100) {
+                this.probClonacion = 100;
+            }
+        }
     }
 
     public int getProbMuerte() {
@@ -183,17 +204,21 @@ public abstract class Individuo {
         int id = Integer.parseInt(partes[9].split("=")[1]);
 
 
-        if(tipo.equals("IndBasico")) {
-            return new IndBasico(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte,posN,posM);
-        }
-        else if(tipo.equals("IndNormal")) {
-            return new IndNormal(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte,posN,posM);
-        }
-        else{
-            return new IndAvanzado(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte,posN,posM);
+        if (tipo.equals("IndBasico")) {
+            return new IndBasico(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+        } else if (tipo.equals("IndNormal")) {
+            return new IndNormal(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+        } else {
+            return new IndAvanzado(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
         }
     }
-    public static Individuo fromString(String individuoString){
+
+    public static Individuo fromString(String individuoString) {
         return fromStringI(individuoString, ", ");
+    }
+
+    @Override
+    public String toString() {
+        return "";
     }
 }

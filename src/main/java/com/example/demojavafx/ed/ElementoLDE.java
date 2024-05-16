@@ -1,7 +1,7 @@
 package com.example.demojavafx.ed;
 
 
-public class ElementoLDE <TipoDelDato> {
+public class ElementoLDE<TipoDelDato> {
     public ElementoLDE(TipoDelDato data) {
         this.data = data;
     }
@@ -14,20 +14,20 @@ public class ElementoLDE <TipoDelDato> {
         this.anterior = anterior;
     }
 
-    public ElementoLDE(ElementoLDE anterior, ElementoLDE siguiente,TipoDelDato data) {
+    public ElementoLDE(ElementoLDE anterior, ElementoLDE siguiente, TipoDelDato data) {
         this.data = data;
         this.anterior = anterior;
         this.siguiente = siguiente;
     }
 
 
-    public void insertameEn(ElementoLDE el){
+    public void insertameEn(ElementoLDE el) {
         el.anterior = this.anterior;
-        el.siguiente=this;
-        if(this.anterior != null){
-            this.anterior.siguiente=el;
+        el.siguiente = this;
+        if (this.anterior != null) {
+            this.anterior.siguiente = el;
         }
-        this.anterior=el;
+        this.anterior = el;
     }
 
     public ElementoLDE getAnterior() {

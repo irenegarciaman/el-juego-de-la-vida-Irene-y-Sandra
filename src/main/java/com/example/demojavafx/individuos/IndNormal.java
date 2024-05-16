@@ -1,10 +1,7 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
-import com.example.demojavafx.ed.Cola;
-import com.example.demojavafx.ed.ElementoLDE;
-import com.example.demojavafx.ed.ElementoLE;
-import com.example.demojavafx.ed.ListaEnlazada;
+import com.example.demojavafx.ed.*;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.recursos.Recursos;
 
@@ -29,70 +26,71 @@ public class IndNormal extends Individuo {
     public IndNormal(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte) {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
     }
-    public ListaEnlazada<Integer> creacionListaMovimiento(int posNDeseado, int posMDeseado, int posN, int posM, Celda[][] matriz){
-            if (posN == posNDeseado && posM == posMDeseado){
-                return listaMovimiento.invertir();
-            }else {
+
+    public ListaEnlazada<Integer> creacionListaMovimiento(int posNDeseado, int posMDeseado, int posN, int posM, Celda[][] matriz) {
+        if (posN == posNDeseado && posM == posMDeseado) {
+            return listaMovimiento.invertir();
+        } else {
             int n = posN - posNDeseado;
             int m = posM - posMDeseado;
-            if (m>=0 && n>=0){
-                if (m>n){
-                    listaMovimiento.add(this.posM-1);
-                    listaMovimiento.add(this.posN);
-                    this.setPosM(this.posM-1);
-                    this.setPosN(this.posN);
-                    creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM - 1, matriz);
-                }else{
-                    listaMovimiento.add(this.posM);
-                    listaMovimiento.add(this.posN-1);
-                    this.setPosM(this.posM);
-                    this.setPosN(this.posN-1);
-                    creacionListaMovimiento(posNDeseado, posMDeseado, posN-1, posM, matriz);
-                }
-            }else if(m<=0 && n<=0){
-                n=n*(-1);
-                m=m*(-1);
-                if (m>n){
-                    listaMovimiento.add(this.posM+1);
-                    listaMovimiento.add(this.posN);
-                    this.setPosM(this.posM+1);
-                    this.setPosN(this.posN);
-                    creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM + 1, matriz);
-                }else{
-                    listaMovimiento.add(this.posM);
-                    listaMovimiento.add(this.posN+1);
-                    this.setPosM(this.posM);
-                    this.setPosN(this.posN+1);
-                    creacionListaMovimiento(posNDeseado, posMDeseado, posN+1, posM, matriz);
-                }
-            }else if (m>=0 && n<=0){
-                n = n*(-1);
-                if (m>n) {
+            if (m >= 0 && n >= 0) {
+                if (m > n) {
                     listaMovimiento.add(this.posM - 1);
                     listaMovimiento.add(this.posN);
-                    this.setPosM(this.posM-1);
+                    this.setPosM(this.posM - 1);
                     this.setPosN(this.posN);
                     creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM - 1, matriz);
-                }else{
-                    listaMovimiento.add(this.posM);
-                    listaMovimiento.add(this.posN+1);
-                    this.setPosM(this.posM);
-                    this.setPosN(this.posN+1);
-                    creacionListaMovimiento(posNDeseado, posMDeseado, posN+1, posM, matriz);
-                }
-            }else{
-                m=m*(-1);
-                if (m>n){
-                    listaMovimiento.add(this.posM+1);
-                    listaMovimiento.add(this.posN);
-                    this.setPosM(this.posM+1);
-                    this.setPosN(this.posN);
-                    creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM+1, matriz);
-                }else {
+                } else {
                     listaMovimiento.add(this.posM);
                     listaMovimiento.add(this.posN - 1);
                     this.setPosM(this.posM);
-                    this.setPosN(this.posN-1);
+                    this.setPosN(this.posN - 1);
+                    creacionListaMovimiento(posNDeseado, posMDeseado, posN - 1, posM, matriz);
+                }
+            } else if (m <= 0 && n <= 0) {
+                n = n * (-1);
+                m = m * (-1);
+                if (m > n) {
+                    listaMovimiento.add(this.posM + 1);
+                    listaMovimiento.add(this.posN);
+                    this.setPosM(this.posM + 1);
+                    this.setPosN(this.posN);
+                    creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM + 1, matriz);
+                } else {
+                    listaMovimiento.add(this.posM);
+                    listaMovimiento.add(this.posN + 1);
+                    this.setPosM(this.posM);
+                    this.setPosN(this.posN + 1);
+                    creacionListaMovimiento(posNDeseado, posMDeseado, posN + 1, posM, matriz);
+                }
+            } else if (m >= 0 && n <= 0) {
+                n = n * (-1);
+                if (m > n) {
+                    listaMovimiento.add(this.posM - 1);
+                    listaMovimiento.add(this.posN);
+                    this.setPosM(this.posM - 1);
+                    this.setPosN(this.posN);
+                    creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM - 1, matriz);
+                } else {
+                    listaMovimiento.add(this.posM);
+                    listaMovimiento.add(this.posN + 1);
+                    this.setPosM(this.posM);
+                    this.setPosN(this.posN + 1);
+                    creacionListaMovimiento(posNDeseado, posMDeseado, posN + 1, posM, matriz);
+                }
+            } else {
+                m = m * (-1);
+                if (m > n) {
+                    listaMovimiento.add(this.posM + 1);
+                    listaMovimiento.add(this.posN);
+                    this.setPosM(this.posM + 1);
+                    this.setPosN(this.posN);
+                    creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM + 1, matriz);
+                } else {
+                    listaMovimiento.add(this.posM);
+                    listaMovimiento.add(this.posN - 1);
+                    this.setPosM(this.posM);
+                    this.setPosN(this.posN - 1);
                     creacionListaMovimiento(posNDeseado, posMDeseado, posN - 1, posM, matriz);
                 }
             }
@@ -111,7 +109,7 @@ public class IndNormal extends Individuo {
         int posNGuardado = this.posN;
         int posMGuardado = this.posM;
         ListaEnlazada<Recursos> listaOpciones = new ListaEnlazada<>();
-        if (recursoDeseado== null) {
+        if (recursoDeseado == null) {
             //Se pueden recorrer filas y columnas a la vez
             for (int i = 0; i < maxFilas; i++) {
                 for (int j = 0; j < maxColumnas; j++) {
@@ -129,11 +127,11 @@ public class IndNormal extends Individuo {
             posNDeseado = listaOpciones.getElemento(random).getData().getPosN();
             posMDeseado = listaOpciones.getElemento(random).getData().getPosM();
             ListaEnlazada<Integer> listaMovimiento1 = new ListaEnlazada<>();
-            listaMovimiento = creacionListaMovimiento (posNDeseado,posMDeseado,posN,posM,matriz);
+            listaMovimiento = creacionListaMovimiento(posNDeseado, posMDeseado, posN, posM, matriz);
 
 
         }
-        if (!listaMovimiento.isVacia()){
+        if (!listaMovimiento.isVacia()) {
             matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);
             ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[posNGuardado][posMGuardado]);
             int posMNueva = listaMovimiento.getElemento(0).getData();
@@ -146,18 +144,43 @@ public class IndNormal extends Individuo {
             listaMovimiento.delete(posMAEliminar);
             matriz[this.posN][this.posM].addIndividuo(this);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
-        }else{
+        } else {
             recursoDeseado = null;
-            moverse(maxColumnas,maxFilas,matriz);
+            moverse(maxColumnas, maxFilas, matriz);
         }
 
+    }
+
+    public String toStringArbol(NodoArbol<Individuo> n) {
+        String res = "";
+        res += "IND NORMAL=[ posM=" + n.getDato().posM + "; posN=" + n.getDato().posN +
+                "; probMuerte=" + n.getDato().probMuerte +
+                "; probClonacion=" + n.getDato().probClonacion +
+                "; probReproduccion=" + n.getDato().probReproduccion +
+                "; turnosRestantes=" + n.getDato().turnosRestantes +
+                "; generacion=" + n.getDato().generacion +
+                "; id=" + n.getDato().id + " ]";
+        if (n.getIzquierda() != null) {
+            res += ":";
+            res += toStringArbol(n.getIzquierda());
+        }
+
+        if (n.getDerecha() != null) {
+            res += ":";
+            res += toStringArbol(n.getDerecha());
+        }
+
+        return res;
+    }
+
+    public String toStringArbol() {
+        return toStringArbol(this.arbolGenealogico.raiz);
     }
 
     @Override
     public String toString() {
         return "IndNormal, {" +
-                "arbolGenealogico=" + arbolGenealogico +
-                ", posM=" + posM +
+                "posM=" + posM +
                 ", posN=" + posN +
                 ", probMuerte=" + probMuerte +
                 ", probClonacion=" + probClonacion +
@@ -165,6 +188,7 @@ public class IndNormal extends Individuo {
                 ", turnosRestantes=" + turnosRestantes +
                 ", generacion=" + generacion +
                 ", id=" + id +
+                ", arbolGenealogico=" + toStringArbol() +
                 ", }";
     }
 

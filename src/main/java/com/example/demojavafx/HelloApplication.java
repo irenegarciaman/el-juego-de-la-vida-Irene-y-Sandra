@@ -1,5 +1,9 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.individuos.IndBasico;
+import com.example.demojavafx.individuos.Individuo;
+import com.example.demojavafx.individuos.IndividuoProperties;
+import com.example.demojavafx.recursos.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -20,15 +24,15 @@ import org.apache.logging.log4j.Logger;
 
 public class HelloApplication extends Application {
 
-/***
-    <?xml version="1.0" encoding="UTF-8"?>
+    /***
+     <?xml version="1.0" encoding="UTF-8"?>
      <Configuration status="DEBUG">
      <Appenders>
      <Console name="LogToConsole" target="SYSTEM_OUT">
      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
      </Console>
      <RollingFile name="LogToRollingFile" fileName="logs/app.log"
-    filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
      <PatternLayout>
      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - %-5level - %logger - %msg%n</Pattern>
      </PatternLayout>
@@ -53,13 +57,44 @@ public class HelloApplication extends Application {
 
 
     private static final Logger log = LogManager.getLogger(HelloApplication.class);
+
+    private Recursos recursos = new Recursos(6, 8, 9, 70);
+    private RecursosProperties modeloRecursos = new RecursosProperties(recursos);
+
+    private Agua agua = new Agua(6, 8, 9, 70, 50, 70);
+    private AguaProperties modeloAgua = new AguaProperties(agua, recursos);
+
+    private Biblioteca biblioteca = new Biblioteca(6, 8, 9, 70, 50, 70);
+    private BibliotecaProperties modeloBiblioteca = new BibliotecaProperties(biblioteca, recursos);
+
+    private Comida comida = new Comida(6, 8, 9, 70, 50, 70);
+    private ComidaProperties modeloComida = new ComidaProperties(comida, recursos);
+
+    private Montana montana = new Montana(6, 8, 9, 70, 50, 70);
+    private MontanaProperties modeloMontana = new MontanaProperties(montana, recursos);
+
+    private Tesoro tesoro = new Tesoro(6, 8, 9, 70, 50, 70);
+    private TesoroProperties modeloTesoro = new TesoroProperties(tesoro, recursos);
+
+    private Pozo pozo = new Pozo(3);
+    private PozoProperties modeloPozo = new PozoProperties(pozo, recursos);
+
+
+    private Individuo ind = new IndBasico(80, 80, 80, 80, 80, 80);
+    private IndividuoProperties modeloInd = new IndividuoProperties(ind);
+
+    private BucleDeControl matriz = new BucleDeControl(15, 15);
+    private BucleDeControlProperties modeloMatriz = new BucleDeControlProperties(matriz);
+
     @Override
     public void start(Stage stage) throws IOException {
 
         log.info("Inicio del método de arranque de la aplicación para mostrar un menú de inicio");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
+
         HelloController h = new HelloController();
+        h.loadUserData(this.modeloRecursos, this.modeloAgua, this.modeloBiblioteca, this.modeloComida, this.modeloMontana, this.modeloPozo, this.modeloTesoro, this.modeloInd, this.modeloMatriz);
 
         Scene scene = new Scene(fxmlLoader.load(), 400, 200);
         stage.setTitle("Hello!");
@@ -99,12 +134,8 @@ public class HelloApplication extends Application {
         scene = new Scene(vbox, 400, 200);
 
 
-
-
-
         stage.setScene(scene);
         stage.show();
-
 
 
         log.trace("Enviando una traza de ejecución");
@@ -113,8 +144,6 @@ public class HelloApplication extends Application {
         log.warn("Enviando un aviso");
         log.error("Enviando un error");
         log.fatal("Enviando una explosión fatal");
-
-
 
 
         log.info("Fin del método de arranque de la aplicación para mostrar un menú de inicio\"");

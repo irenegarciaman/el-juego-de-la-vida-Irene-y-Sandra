@@ -79,15 +79,15 @@ ListaEnlazada<TipoDelDato> {
             primero = primero.getSiguiente();
         } else {
             int contador = 0;
-            if(!isVacia()) {
+            if (!isVacia()) {
                 ElementoLE<TipoDelDato> temporal = primero;
                 while (contador < posicion - 1) {
                     temporal = temporal.getSiguiente();
                     contador++;
                 }
-                if (temporal.getSiguiente().getSiguiente()!=null) {
+                if (temporal.getSiguiente().getSiguiente() != null) {
                     temporal.setSiguiente(temporal.getSiguiente().getSiguiente());
-                }else{
+                } else {
                     temporal.setSiguiente(null);
                 }
             }
@@ -111,13 +111,13 @@ ListaEnlazada<TipoDelDato> {
     public int getPosicion(ElementoLE<TipoDelDato> el) {
         int contador = -1;
         boolean encontrado = false;
-        if(!this.isVacia()){
+        if (!this.isVacia()) {
             ElementoLE cabeza = this.primero;
-            while (cabeza!=null && el!=null && encontrado==false){
-                if (el.getData().equals(cabeza.getData())){
+            while (cabeza != null && el != null && encontrado == false) {
+                if (el.getData().equals(cabeza.getData())) {
                     encontrado = true;
                     contador++;
-                }else{
+                } else {
                     cabeza = cabeza.getSiguiente();
                     contador++;
                 }
@@ -126,7 +126,7 @@ ListaEnlazada<TipoDelDato> {
         }else{
             return -1;
         }
-        if (encontrado!= true){
+        if (encontrado != true) {
             contador = -1;
         }
         return contador;
@@ -203,19 +203,21 @@ ListaEnlazada<TipoDelDato> {
         ElementoLE<Integer> el = (ElementoLE<Integer>) this.primero;
         return suma(el);
     }
+
     public void guardarLE() {
         String rutaArchivo = "listaLE.json";
-        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
-        ListaEnlazada listaE = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ListaEnlazada.class);
-        if(listaE != null){
+        Gson1.guardarObjetoEnArchivo(rutaArchivo, this);
+        ListaEnlazada listaE = Gson1.cargarObjetoDesdeArchivo(rutaArchivo, ListaEnlazada.class);
+        if (listaE != null) {
             System.out.println("Arbol Cargado");
         }
     }
+
     @Override
     public String toString() {
         String res = "";
         int aux = 0;
-        while(aux < this.getNumeroElementos()){
+        while (aux < this.getNumeroElementos()) {
             res += getElemento(aux).getData().toString() + "\n ";
             aux++;
         }

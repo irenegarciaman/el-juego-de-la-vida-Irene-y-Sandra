@@ -287,6 +287,13 @@ public class RecursosController implements Initializable {
 
     protected void updateGUIwithModel() {
         sliderProbNuevoRecurso.valueProperty().bindBidirectional(recursosModel.probNuevoRecursoProperty());
+        sliderProbNuevoRecurso.valueProperty().bindBidirectional(aguaModel.probNuevoRecursoProperty());
+        sliderProbNuevoRecurso.valueProperty().bindBidirectional(bibliotecaModel.probNuevoRecursoProperty());
+        sliderProbNuevoRecurso.valueProperty().bindBidirectional(comidaModel.probNuevoRecursoProperty());
+        sliderProbNuevoRecurso.valueProperty().bindBidirectional(montanaModel.probNuevoRecursoProperty());
+        sliderProbNuevoRecurso.valueProperty().bindBidirectional(pozoModel.probNuevoRecursoProperty());
+        sliderProbNuevoRecurso.valueProperty().bindBidirectional(tesoroModel.probNuevoRecursoProperty());
+
 
         sliderProbAgua.valueProperty().bindBidirectional(aguaModel.probAguaProperty());
         sliderTurnosVidaAgua.valueProperty().bindBidirectional(aguaModel.turnosRestantesProperty());
@@ -377,8 +384,6 @@ public class RecursosController implements Initializable {
     }
 
 
-
-
     public void nuevaVentanaMatriz() {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matriz1.fxml"));
@@ -388,7 +393,7 @@ public class RecursosController implements Initializable {
             stage.setScene(scene);
             //Recursos
             Matriz1Controller p = fxmlLoader.getController();
-            p.loadUserData(this.modeloMatriz,this.modeloCelda);
+            p.loadUserData(this.recursosModel, this.getAguaModel(), this.getBibliotecaModel(), this.getComidaModel(), this.getMontanaModel(), this.getPozoModel(), this.getTesoroModel(), this.getIndividuoModel(), this.modeloMatriz);
 
 
             int filas = modeloMatriz.getFilas();
@@ -398,9 +403,6 @@ public class RecursosController implements Initializable {
 
             GridPane mainGrid = new GridPane();
             ScrollPane scrollPane = new ScrollPane(mainGrid);
-
-
-
 
 
             for (int j = 0; j < filas; j++) {
@@ -433,7 +435,7 @@ public class RecursosController implements Initializable {
                 }
             }
 
-            mainGrid.add(guardarButton,16,16);
+            mainGrid.add(guardarButton, 16, 16);
             mainGrid.setAlignment(Pos.BOTTOM_RIGHT);
 
             EventHandler nuevaVentana = new EventHandler() {
@@ -445,8 +447,6 @@ public class RecursosController implements Initializable {
 
                 }
             };
-
-
 
 
             guardarButton.setOnAction(nuevaVentana);
@@ -488,183 +488,176 @@ public class RecursosController implements Initializable {
 
     }
 
-    public void crearJuego(BucleDeControlProperties modeloMatriz){
+    public void crearJuego(BucleDeControlProperties modeloMatriz) {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("juego.fxml"));
         try {
             Scene scene1 = new Scene(fxmlLoader.load(), 600, 400);
             int turno = modeloMatriz.original.turno;
-            stage.setTitle("juego en turno: "+ turno);
+            stage.setTitle("juego en turno: " + turno);
             stage.setScene(scene1);
 
             JuegoController p = fxmlLoader.getController();
-            p.loadUserData(recursosModel,aguaModel,bibliotecaModel,comidaModel,montanaModel,pozoModel,tesoroModel,individuoModel,modeloMatriz);
+            p.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel, pozoModel, tesoroModel, individuoModel, modeloMatriz);
             p.crearJuegoR(modeloMatriz);
 
 
             /***int filas = modeloMatriz.getFilas();
-            int columnas = modeloMatriz.getColumnas();
+             int columnas = modeloMatriz.getColumnas();
 
 
-            GridPane mainGrid2 = new GridPane();
-            ScrollPane scrollPane2 = new ScrollPane(mainGrid2);
+             GridPane mainGrid2 = new GridPane();
+             ScrollPane scrollPane2 = new ScrollPane(mainGrid2);
 
-            ListaEnlazada<Button> listaButtons = new ListaEnlazada<>();
+             ListaEnlazada<Button> listaButtons = new ListaEnlazada<>();
 
-            for (int j = 0; j < filas; j++) {
-                for (int i = 0; i < columnas; i++) {
-                    int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
-                    int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
-                    String label = "nºInd: " + numI + "\n nºRec: " + numR;
-                    Button b = new Button(label);
-                    b.setId(i + "," + j);
+             for (int j = 0; j < filas; j++) {
+             for (int i = 0; i < columnas; i++) {
+             int numI = modeloMatriz.matriz[i][j].getListaIndividuo().getNumeroElementos();
+             int numR = modeloMatriz.matriz[i][j].getListaRecurso().getNumeroElementos();
+             String label = "nºInd: " + numI + "\n nºRec: " + numR;
+             Button b = new Button(label);
+             b.setId(i + "," + j);
 
-                    listaButtons.add(b);
+             listaButtons.add(b);
 
-                    int finalJ = j;
-                    int finalI = i;
+             int finalJ = j;
+             int finalI = i;
 
-                    EventHandler e = new EventHandler() {
-                        @Override
-                        public void handle(Event event) {
-                            p.onButtonInfo(finalI, finalJ);
-                        }
-                    };
-                    b.setOnAction(e);
-                    listaButton.add(b);
-
-                    VBox placeholder = new VBox(b);
-
-                    b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                    placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
-                    placeholder.setMaxSize(100, 100);
-                    placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
-                    mainGrid2.add(placeholder, i, j);
-
-
-                }
+             EventHandler e = new EventHandler() {
+            @Override public void handle(Event event) {
+            p.onButtonInfo(finalI, finalJ);
             }
-            Button pauseB = new Button("Pausar");
+            };
+             b.setOnAction(e);
+             listaButton.add(b);
 
-            HBox hbox = new HBox(pauseB);
-            hbox.setAlignment(Pos.BOTTOM_CENTER);
+             VBox placeholder = new VBox(b);
 
-            RecursosController h = this;
-
-            EventHandler pauseHandler = new EventHandler() {
-                @Override
-                public void handle(Event event) {
-                    System.out.println("pause handler");
-
-                    String style = listaButtons.getElemento(0).getData().getStyle();
-                    for(int m=0;m<listaButtons.getNumeroElementos();m++){
-                        listaButtons.getElemento(m).getData().setStyle("-fx-background-color: #ac5e5e; -fx-text-fill: black;");
-                        String id = listaButtons.getElemento(m).getData().getId();
-                        String[] split = id.split(",");
-                        int f = Integer.parseInt(split[0]);
-                        int c = Integer.parseInt(split[1]);
-                        AjustesMidJuegoController a = new AjustesMidJuegoController();
-                        EventHandler y = new EventHandler() {
-                            @Override
-                            public void handle(Event event) {
-                                a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
-                                        pozoModel,tesoroModel,individuoModel,modeloMatriz);
-                                a.modificarCelda(f,c);
-                            }
-                        };
-                        listaButtons.getElemento(m).getData().setOnAction(y);
-                    }
-
-                    RecursosController rec = h;
-                    hbox.getChildren().remove(pauseB);
-
-                    Button fin = new Button("Finalizar");
-                    Button ajustes = new Button("Ajustes Propiedades");
-                    Button play = new Button("Play");
-                    play.setStyle("-fx-background-color: #3397cd; -fx-text-fill: white;");
-                    hbox.getChildren().addAll(fin, ajustes, play);
-
-                    EventHandler playHandler = new EventHandler() {
-                        @Override
-                        public void handle(Event event) {
-                            for(int m=0;m<listaButtons.getNumeroElementos();m++){
-                                listaButtons.getElemento(m).getData().setStyle(style);
-                            }
-                            hbox.getChildren().remove(play);
-                            hbox.getChildren().remove(ajustes);
-                            hbox.getChildren().remove(fin);
-
-                            hbox.getChildren().add(pauseB);
-
-                            //continuar el juego
-                        }
-                    };
-                    play.setOnAction(playHandler);
-
-                    EventHandler finHandler = new EventHandler() {
-                        @Override
-                        public void handle(Event event) {
-                            GuardarDatos g = new GuardarDatos();
-                            g.guardarDatos(modeloMatriz.original,individuoModel.getOriginal(),aguaModel.getOriginalAgua(),bibliotecaModel.getOriginal(),comidaModel.getOriginal(),montanaModel.getOriginal(),pozoModel.getOriginal(),tesoroModel.getOriginal());
-                            stage.close();
-                        }
-                    };
-                    fin.setOnAction(finHandler);
-
-                    AjustesMidJuegoController l = new AjustesMidJuegoController();
-                    EventHandler ajustesHandler = new EventHandler() {
-                        @Override
-                        public void handle(Event event) {
-                            System.out.println("ajustes handler");
-
-                                for(int i=0;i<h.modeloMatriz.getFilas();i++){
-                                    for (int j = 0; j < h.modeloMatriz.getColumnas(); j++) {
-                                        for (int k = 0; k < listaButtons.getNumeroElementos(); k++) {
-                                            String label = i+","+j;
-                                            if(listaButtons.getElemento(k).getData().getId().equals(label)){
-                                                System.out.println("if");
-                                                int finalI = i;
-                                                int finalJ = j;
-                                                EventHandler e = new EventHandler() {
-                                                    @Override
-                                                    public void handle(Event event) {
-                                                        l.modificarCelda(finalI, finalJ);
-                                                    }
-                                                };
-                                                listaButtons.getElemento(k).getData().setOnAction(e);
-                                            }
-                                        }
-                                    }
-                                }
-
-                        }
-                    };
-
-                    ajustes.setOnAction(ajustesHandler);
+             b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+             placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
+             placeholder.setMaxSize(100, 100);
+             placeholder.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
+             mainGrid2.add(placeholder, i, j);
 
 
+             }
+             }
+             Button pauseB = new Button("Pausar");
 
+             HBox hbox = new HBox(pauseB);
+             hbox.setAlignment(Pos.BOTTOM_CENTER);
 
+             RecursosController h = this;
 
+             EventHandler pauseHandler = new EventHandler() {
+            @Override public void handle(Event event) {
+            System.out.println("pause handler");
 
-                }
+            String style = listaButtons.getElemento(0).getData().getStyle();
+            for(int m=0;m<listaButtons.getNumeroElementos();m++){
+            listaButtons.getElemento(m).getData().setStyle("-fx-background-color: #ac5e5e; -fx-text-fill: black;");
+            String id = listaButtons.getElemento(m).getData().getId();
+            String[] split = id.split(",");
+            int f = Integer.parseInt(split[0]);
+            int c = Integer.parseInt(split[1]);
+            AjustesMidJuegoController a = new AjustesMidJuegoController();
+            EventHandler y = new EventHandler() {
+            @Override public void handle(Event event) {
+            a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
+            pozoModel,tesoroModel,individuoModel,modeloMatriz);
+            a.modificarCelda(f,c);
+            }
+            };
+            listaButtons.getElemento(m).getData().setOnAction(y);
+            }
+
+            RecursosController rec = h;
+            hbox.getChildren().remove(pauseB);
+
+            Button fin = new Button("Finalizar");
+            Button ajustes = new Button("Ajustes Propiedades");
+            Button play = new Button("Play");
+            play.setStyle("-fx-background-color: #3397cd; -fx-text-fill: white;");
+            hbox.getChildren().addAll(fin, ajustes, play);
+
+            EventHandler playHandler = new EventHandler() {
+            @Override public void handle(Event event) {
+            for(int m=0;m<listaButtons.getNumeroElementos();m++){
+            listaButtons.getElemento(m).getData().setStyle(style);
+            }
+            hbox.getChildren().remove(play);
+            hbox.getChildren().remove(ajustes);
+            hbox.getChildren().remove(fin);
+
+            hbox.getChildren().add(pauseB);
+
+            //continuar el juego
+            }
+            };
+            play.setOnAction(playHandler);
+
+            EventHandler finHandler = new EventHandler() {
+            @Override public void handle(Event event) {
+            GuardarDatos g = new GuardarDatos();
+            g.guardarDatos(modeloMatriz.original,individuoModel.getOriginal(),aguaModel.getOriginalAgua(),bibliotecaModel.getOriginal(),comidaModel.getOriginal(),montanaModel.getOriginal(),pozoModel.getOriginal(),tesoroModel.getOriginal());
+            stage.close();
+            }
+            };
+            fin.setOnAction(finHandler);
+
+            AjustesMidJuegoController l = new AjustesMidJuegoController();
+            EventHandler ajustesHandler = new EventHandler() {
+            @Override public void handle(Event event) {
+            System.out.println("ajustes handler");
+
+            for(int i=0;i<h.modeloMatriz.getFilas();i++){
+            for (int j = 0; j < h.modeloMatriz.getColumnas(); j++) {
+            for (int k = 0; k < listaButtons.getNumeroElementos(); k++) {
+            String label = i+","+j;
+            if(listaButtons.getElemento(k).getData().getId().equals(label)){
+            System.out.println("if");
+            int finalI = i;
+            int finalJ = j;
+            EventHandler e = new EventHandler() {
+            @Override public void handle(Event event) {
+            l.modificarCelda(finalI, finalJ);
+            }
+            };
+            listaButtons.getElemento(k).getData().setOnAction(e);
+            }
+            }
+            }
+            }
+
+            }
             };
 
-            pauseB.setOnAction(pauseHandler);
-
-            mainGrid2.add(hbox, columnas-1, filas);
-
-            p.setStage(stage);
-            stage.show();
+            ajustes.setOnAction(ajustesHandler);
 
 
-            Scene scene2 = new Scene(scrollPane2, 600, 600);
-            scene1 = scene2;
-            stage.setScene(scene1);
-            stage.show();
-            //modeloMatriz.original.guardar();
+
+
+
+
+            }
+            };
+
+             pauseB.setOnAction(pauseHandler);
+
+             mainGrid2.add(hbox, columnas-1, filas);
+
+             p.setStage(stage);
+             stage.show();
+
+
+             Scene scene2 = new Scene(scrollPane2, 600, 600);
+             scene1 = scene2;
+             stage.setScene(scene1);
+             stage.show();
+             //modeloMatriz.original.guardar();
              */
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

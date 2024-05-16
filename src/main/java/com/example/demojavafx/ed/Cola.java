@@ -1,6 +1,6 @@
 package com.example.demojavafx.ed;
 
-public class Cola <TipoDelDato> {
+public class Cola<TipoDelDato> {
     public ElementoLDE<TipoDelDato> cabeza;
     private ElementoLDE<TipoDelDato> cola;
 
@@ -8,34 +8,38 @@ public class Cola <TipoDelDato> {
         this.cabeza = cabeza;
         this.cola = cola;
     }
-    public Cola(){
+
+    public Cola() {
 
     }
 
-    public boolean isVacia(){
-        return cabeza==null;
+    public boolean isVacia() {
+        return cabeza == null;
     }
-    public void push(ElementoLDE<TipoDelDato> el){
+
+    public void push(ElementoLDE<TipoDelDato> el) {
         ElementoLDE<TipoDelDato> en = new ElementoLDE<>(el.getData());
-        if (isVacia()){
-            cabeza=en;
-        }else{
+        if (isVacia()) {
+            cabeza = en;
+        } else {
             en.setSiguiente(cola);
             cola.setAnterior(en);
         }
-        cola=en;
+        cola = en;
 
     }
-    public ElementoLDE<TipoDelDato> mostrarCabera(){
+
+    public ElementoLDE<TipoDelDato> mostrarCabera() {
         return cabeza;
     }
-    public ElementoLDE<TipoDelDato> pop(){
+
+    public ElementoLDE<TipoDelDato> pop() {
         ElementoLDE<TipoDelDato> en = cabeza;
         ElementoLDE<TipoDelDato> a = mostrarCabera();
         if (cabeza != null) {
-            cabeza=cabeza.getAnterior();
+            cabeza = cabeza.getAnterior();
             en.setAnterior(null);
-        }else{
+        } else {
             cola = null;
             cabeza = null;
         }
@@ -43,40 +47,40 @@ public class Cola <TipoDelDato> {
 
     }
 
-    public void machacar(ElementoLDE elemento,int posicion){
+    public void machacar(ElementoLDE elemento, int posicion) {
         int pos = 0;
-       // while (cabeza.getSiguiente()!=null){
-         //   cabeza = cabeza.getSiguiente();
+        // while (cabeza.getSiguiente()!=null){
+        //   cabeza = cabeza.getSiguiente();
         //}
         ElementoLDE primero = this.cabeza;
-        while (pos<posicion){
-            primero=primero.getAnterior();
+        while (pos < posicion) {
+            primero = primero.getAnterior();
             pos++;
         }
-        primero.data=elemento.data;
+        primero.data = elemento.data;
     }
 
     public int getPosicion(ElementoLDE el) {
-        if (isVacia()==false){
+        if (isVacia() == false) {
             ElementoLDE d = this.cabeza;
-            int contador=0;
-            while(d.getData()!=el.getData() && contador<getNumeroElementos()-1){
+            int contador = 0;
+            while (d.getData() != el.getData() && contador < getNumeroElementos() - 1) {
                 d = d.getAnterior();
                 contador++;
             }
             return contador;
-        }else{
+        } else {
             return -1;
         }
     }
 
     public int getNumeroElementos() {
         ElementoLDE<TipoDelDato> cabeza = this.cabeza;
-        if (this.cabeza==null){
+        if (this.cabeza == null) {
             return 0;
-        }else{
+        } else {
             int contador = 0;
-            while (cabeza!=null){
+            while (cabeza != null) {
                 cabeza = cabeza.getAnterior();
                 contador++;
             }
@@ -84,25 +88,25 @@ public class Cola <TipoDelDato> {
         }
     }
 
-    public ElementoLDE getElemento(int posicion){
+    public ElementoLDE getElemento(int posicion) {
         ElementoLDE c = this.cabeza;
         int contador = 0;
         if (c != null) {
             while (contador < posicion) {
                 c = c.getAnterior();
-                contador ++;
+                contador++;
             }
         }
         return c;
     }
 
 
-    public void pop2(ElementoLDE el){
+    public void pop2(ElementoLDE el) {
         int a = this.getPosicion(el);
-        if (el.getSiguiente()!=null) {
+        if (el.getSiguiente() != null) {
             el.getSiguiente().setAnterior(el.getAnterior());
         }
-        if (el.getAnterior()!=null){
+        if (el.getAnterior() != null) {
             el.getSiguiente().setSiguiente(el.getSiguiente());
         }
     }

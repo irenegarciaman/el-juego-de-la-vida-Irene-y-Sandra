@@ -79,17 +79,19 @@ public class Celda {
         }
 
     }
-    public void eliminarRecurso(Recursos recurso){
-        int pos =  listaRecurso.getPosicion(new ElementoLE<>(recurso));
+
+    public void eliminarRecurso(Recursos recurso) {
+        int pos = listaRecurso.getPosicion(new ElementoLE<>(recurso));
         listaRecurso.delete(pos);
     }
 
-    public void eliminarIndividuo(Individuo ind){
+    public void eliminarIndividuo(Individuo ind) {
         int pos = listaIndividuo.getPosicion(new ElementoLE<>(ind));
         listaIndividuo.delete(pos);
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         String resInd = "Lista de individuos: \n";
         String resRec = "Lista de recurso: \n";
 
@@ -97,16 +99,17 @@ public class Celda {
         resRec += listaRecurso.toString() + "\n";
         return resInd + "\n" + resRec;
     }
+
     public static void main(String[] args) throws Superar3Recursos, Superar3Individuos {
-        BucleDeControl matriz = new BucleDeControl(4,3);
-        IndBasico ind1 = new IndBasico(222,4,6);
-        IndNormal ind2 = new IndNormal(333,6,7);
-        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
-        Agua agua = new Agua(3,4);
-        Comida comida = new Comida(2,3);
-        Montana montana = new Montana(4,5);
-        Biblioteca biblioteca = new Biblioteca(3,45);
-        Tesoro tesoro = new Tesoro(3,32);
+        BucleDeControl matriz = new BucleDeControl(4, 3);
+        IndBasico ind1 = new IndBasico(222, 4, 6);
+        IndNormal ind2 = new IndNormal(333, 6, 7);
+        IndAvanzado ind3 = new IndAvanzado(444, 9, 1);
+        Agua agua = new Agua(3, 4);
+        Comida comida = new Comida(2, 3);
+        Montana montana = new Montana(4, 5);
+        Biblioteca biblioteca = new Biblioteca(3, 45);
+        Tesoro tesoro = new Tesoro(3, 32);
         Pozo pozo = new Pozo(6);
         matriz.matriz[0][2].addRecurso(agua);
         matriz.matriz[0][2].addRecurso(tesoro);

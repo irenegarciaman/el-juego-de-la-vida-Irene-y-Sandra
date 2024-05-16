@@ -1,7 +1,6 @@
 package com.example.demojavafx;
 
 
-
 import com.example.demojavafx.ed.ListaEnlazada;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
@@ -58,12 +57,8 @@ public class JuegoController implements Initializable {
     }
 
 
-
-
-
     protected void updateGUIwithModel() {
     }
-
 
 
     public void loadUserData(RecursosProperties parametrosRecursos, AguaProperties parametrosAgua,
@@ -93,17 +88,18 @@ public class JuegoController implements Initializable {
         matrizModel.commit();
 
     }
-    public void cerrarButton(){
+
+    public void cerrarButton() {
         scene.close();
     }
-    public void cancelarButton(){
+
+    public void cancelarButton() {
 
         matrizModel.rollback();
     }
 
 
-
-    public void onButtonInfo(int f, int c,BucleDeControlProperties matrizModel) {
+    public void onButtonInfo(int f, int c, BucleDeControlProperties matrizModel) {
         //se llama desde recursos controller
         System.out.println("entra?");
         Stage stage = new Stage();
@@ -112,7 +108,7 @@ public class JuegoController implements Initializable {
             System.out.println("funcion");
             Scene scene = new Scene(fxmlLoader.load(), 400, 600);
             stage.setScene(scene);
-            stage.setTitle("Ver celda {fila: " + c +" columna: "+ f+"}");
+            stage.setTitle("Ver celda {fila: " + c + " columna: " + f + "}");
 
 
             Label label = new Label(matrizModel.original.matriz[c][f].toString());
@@ -121,7 +117,7 @@ public class JuegoController implements Initializable {
 
             ScrollPane s = new ScrollPane(vbox);
 
-            Scene scene2 = new Scene(s,900,600);
+            Scene scene2 = new Scene(s, 900, 600);
 
 
             stage.setScene(scene2);
@@ -131,17 +127,17 @@ public class JuegoController implements Initializable {
         }
     }
 
-    public void crearJuegoR(BucleDeControlProperties modeloMatriz){
+    public void crearJuegoR(BucleDeControlProperties modeloMatriz) {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("juego.fxml"));
         try {
             Scene scene1 = new Scene(fxmlLoader.load(), 600, 400);
             int turno = modeloMatriz.original.turno;
-            stage.setTitle("juego en turno: "+ turno);
+            stage.setTitle("juego en turno: " + turno);
             stage.setScene(scene1);
 
             JuegoController p = fxmlLoader.getController();
-            p.loadUserData(recursosModel,aguaModel,bibliotecaModel,comidaModel,montanaModel,pozoModel,tesoroModel,individuoModel,matrizModel);
+            p.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel, pozoModel, tesoroModel, individuoModel, matrizModel);
 
 
             int filas = modeloMatriz.getFilas();
@@ -151,13 +147,11 @@ public class JuegoController implements Initializable {
             System.out.println(columnas);
 
 
-
             listaButton = new ListaEnlazada<>();
 
 
             GridPane mainGrid2 = new GridPane();
             ScrollPane scrollPane2 = new ScrollPane(mainGrid2);
-
 
 
             for (int j = 0; j < filas; j++) {
@@ -176,7 +170,7 @@ public class JuegoController implements Initializable {
                     EventHandler e = new EventHandler() {
                         @Override
                         public void handle(Event event) {
-                            p.onButtonInfo(finalI, finalJ,matrizModel);
+                            p.onButtonInfo(finalI, finalJ, matrizModel);
                         }
                     };
                     b.setOnAction(e);
@@ -185,7 +179,7 @@ public class JuegoController implements Initializable {
                     VBox placeholder = new VBox(b);
 
                     b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                    b.setMinSize(80,80);
+                    b.setMinSize(80, 80);
                     placeholder.setMinHeight(80);
                     placeholder.setMinWidth(80);
 
@@ -211,17 +205,15 @@ public class JuegoController implements Initializable {
                         moverIndividuo(matrizModel);
                         for (int j = 0; j < filas; j++) {
                             for (int i = 0; i < columnas; i++) {
-                                actualizarButton(i,j,modeloMatriz,listaButton);
+                                actualizarButton(i, j, modeloMatriz, listaButton);
                             }
                         }
-                        stage.setTitle("juego en turno: "+ matrizModel.original.turno);
+                        stage.setTitle("juego en turno: " + matrizModel.original.turno);
 
 
-
-
-                    }catch (Superar3Individuos e){
+                    } catch (Superar3Individuos e) {
                         e.printStackTrace();
-                    }catch (Superar3Recursos e){
+                    } catch (Superar3Recursos e) {
                         e.printStackTrace();
                     }
 
@@ -240,7 +232,7 @@ public class JuegoController implements Initializable {
                     button.setText("Siguiente turno");
 
                     String style = listaButton.getElemento(0).getData().getStyle();
-                    for(int m=0;m<listaButton.getNumeroElementos();m++){
+                    for (int m = 0; m < listaButton.getNumeroElementos(); m++) {
                         listaButton.getElemento(m).getData().setStyle("-fx-background-color: #ac5e5e; -fx-text-fill: black;");
                         String id = listaButton.getElemento(m).getData().getId();
                         String[] split = id.split(",");
@@ -250,9 +242,9 @@ public class JuegoController implements Initializable {
                         EventHandler y = new EventHandler() {
                             @Override
                             public void handle(Event event) {
-                                a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
-                                        pozoModel,tesoroModel,individuoModel,modeloMatriz,listaButton);
-                                a.modificarCelda(f,c,matrizModel);
+                                a.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel,
+                                        pozoModel, tesoroModel, individuoModel, modeloMatriz, listaButton);
+                                a.modificarCelda(f, c, matrizModel);
                             }
                         };
                         listaButton.getElemento(m).getData().setOnAction(y);
@@ -267,11 +259,10 @@ public class JuegoController implements Initializable {
                     hbox.getChildren().addAll(fin, ajustes, play);
 
 
-
                     EventHandler playHandler = new EventHandler() {
                         @Override
                         public void handle(Event event) {
-                            for(int m=0;m<listaButton.getNumeroElementos();m++){
+                            for (int m = 0; m < listaButton.getNumeroElementos(); m++) {
                                 listaButton.getElemento(m).getData().setStyle(style);
                                 String id = listaButton.getElemento(m).getData().getId();
                                 String[] split = id.split(",");
@@ -282,10 +273,10 @@ public class JuegoController implements Initializable {
                                 EventHandler y = new EventHandler() {
                                     @Override
                                     public void handle(Event event) {
-                                        a.loadUserData(recursosModel, aguaModel,bibliotecaModel,comidaModel,montanaModel,
-                                                pozoModel,tesoroModel,individuoModel,modeloMatriz,listaButton);
+                                        a.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel,
+                                                pozoModel, tesoroModel, individuoModel, modeloMatriz, listaButton);
                                         //a.modificarCelda(f,c);
-                                        j.onButtonInfo(f,c,matrizModel);
+                                        j.onButtonInfo(f, c, matrizModel);
                                     }
                                 };
                                 listaButton.getElemento(m).getData().setOnAction(y);
@@ -305,51 +296,57 @@ public class JuegoController implements Initializable {
                         @Override
                         public void handle(Event event) {
                             GuardarDatos g = new GuardarDatos();
-                            g.guardarDatos(modeloMatriz.original,individuoModel.getOriginal(),aguaModel.getOriginalAgua(),bibliotecaModel.getOriginal(),comidaModel.getOriginal(),montanaModel.getOriginal(),pozoModel.getOriginal(),tesoroModel.getOriginal());
+                            g.guardarDatos(modeloMatriz.original, individuoModel.getOriginal(), aguaModel.getOriginalAgua(), bibliotecaModel.getOriginal(), comidaModel.getOriginal(), montanaModel.getOriginal(), pozoModel.getOriginal(), tesoroModel.getOriginal());
                             stage.close();
 
-                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantalla-final.fxml"));
+                            PantallaFinalController p = new PantallaFinalController();
 
-                            HelloController h = new HelloController();
+                            p.loadUserData(modeloMatriz);
 
-                            stage.setTitle("Hello!");
+                            p.abrirPantallaFinal();
 
-                            Label lab = new Label("Bienvenidos al juego de la vida");
-                            lab.setStyle("-fx-font-size: 24px; -fx-text-fill: green;");
+                            /***
+                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
-                            Button nuevoBtn = new Button("Nueva Partida");
-                            Button cargarBtn = new Button("Cargar Partida");
+                             HelloController h = new HelloController();
 
-                            EventHandler n = new EventHandler() {
-                                @Override
-                                public void handle(Event event) {
-                                    stage.close();
-                                    h.onMiBotonNuevaVentanaAjustesClick();
-                                }
+                             stage.setTitle("Hello!");
+
+                             Label lab = new Label("Bienvenidos al juego de la vida");
+                             lab.setStyle("-fx-font-size: 24px; -fx-text-fill: green;");
+
+                             Button nuevoBtn = new Button("Nueva Partida");
+                             Button cargarBtn = new Button("Cargar Partida");
+
+                             EventHandler n = new EventHandler() {
+                            @Override public void handle(Event event) {
+                            stage.close();
+                            h.onMiBotonNuevaVentanaAjustesClick();
+                            }
                             };
 
-                            nuevoBtn.setOnAction(n);
+                             nuevoBtn.setOnAction(n);
 
-                            EventHandler c = new EventHandler() {
-                                @Override
-                                public void handle(Event event) {
-                                    stage.close();
-                                    h.onMiBotonNuevaVentajaClick();
-                                }
+                             EventHandler c = new EventHandler() {
+                            @Override public void handle(Event event) {
+                            stage.close();
+                            h.onMiBotonNuevaVentajaClick();
+                            }
                             };
 
-                            cargarBtn.setOnAction(c);
+                             cargarBtn.setOnAction(c);
 
 
-                            VBox vbox = new VBox(lab, nuevoBtn, cargarBtn);
-                            vbox.setAlignment(Pos.CENTER);
-                            vbox.setSpacing(20);
+                             VBox vbox = new VBox(lab, nuevoBtn, cargarBtn);
+                             vbox.setAlignment(Pos.CENTER);
+                             vbox.setSpacing(20);
 
-                            Scene scene = new Scene(vbox, 400, 200);
+                             Scene scene = new Scene(vbox, 400, 200);
 
 
-                            stage.setScene(scene);
-                            stage.show();
+                             stage.setScene(scene);
+                             stage.show();*/
                         }
                     };
                     fin.setOnAction(finHandler);
@@ -360,18 +357,18 @@ public class JuegoController implements Initializable {
                         public void handle(Event event) {
 
 
-                            for(int i=0;i<h.modeloMatriz.getFilas();i++){
+                            for (int i = 0; i < h.modeloMatriz.getFilas(); i++) {
                                 for (int j = 0; j < h.modeloMatriz.getColumnas(); j++) {
                                     for (int k = 0; k < listaButton.getNumeroElementos(); k++) {
-                                        String label = i+","+j;
-                                        if(listaButton.getElemento(k).getData().getId().equals(label)){
+                                        String label = i + "," + j;
+                                        if (listaButton.getElemento(k).getData().getId().equals(label)) {
                                             System.out.println("if");
                                             int finalI = i;
                                             int finalJ = j;
                                             EventHandler e = new EventHandler() {
                                                 @Override
                                                 public void handle(Event event) {
-                                                    l.modificarCelda(finalI, finalJ,matrizModel);
+                                                    l.modificarCelda(finalI, finalJ, matrizModel);
                                                 }
                                             };
                                             listaButton.getElemento(k).getData().setOnAction(e);
@@ -384,10 +381,6 @@ public class JuegoController implements Initializable {
                     };
 
                     ajustes.setOnAction(ajustesHandler);
-
-
-
-
 
 
                 }
@@ -407,14 +400,14 @@ public class JuegoController implements Initializable {
             stage.show();
 
 
-
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
 
     }
-    public void actualizarButton(int c, int f,BucleDeControlProperties modeloMatriz,ListaEnlazada<Button> listaButton) {
+
+    public void actualizarButton(int c, int f, BucleDeControlProperties modeloMatriz, ListaEnlazada<Button> listaButton) {
         this.listaButton = listaButton;
         int aux = 0;
         Button res = new Button();
@@ -428,7 +421,7 @@ public class JuegoController implements Initializable {
             int m = Integer.parseInt(splitted[0]);
             int n = Integer.parseInt(splitted[1]);
 
-            if (n==f && m==c) {
+            if (n == f && m == c) {
                 res = listaButton.getElemento(aux).getData();
             }
             aux++;
@@ -447,8 +440,7 @@ public class JuegoController implements Initializable {
 
     public void juega(BucleDeControl bucle) throws Superar3Recursos, Superar3Individuos {
 
-            bucle.bucleEntero();
-
+        bucle.bucleEntero();
 
 
     }
@@ -457,7 +449,7 @@ public class JuegoController implements Initializable {
         ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>();
         for (int j = 0; j < bucle.getFilas(); j++) {
             for (int i = 0; i < bucle.getColumnas(); i++) {
-                for (int k = 0; k < matrizModel.matriz[j][i].getListaIndividuo().getNumeroElementos();k++){
+                for (int k = 0; k < matrizModel.matriz[j][i].getListaIndividuo().getNumeroElementos(); k++) {
                     listaIndividuo.add(matrizModel.matriz[j][i].getListaIndividuo().getElemento(k).getData());
                 }
             }
@@ -468,18 +460,17 @@ public class JuegoController implements Initializable {
             for (int i = 0; i < bucle.getColumnas(); i++) {
                 for (int k = 0; k < listaIndividuo.getNumeroElementos(); k++) {
                     Individuo ind = listaIndividuo.getElemento(k).getData();
-                    if(j == ind.getPosN() && i == ind.getPosM()){
+                    if (j == ind.getPosN() && i == ind.getPosM()) {
                         matriz[j][i].addIndividuo(ind);
                     }
                 }
-                for (int h = 0; h < matrizModel.matriz[j][i].getListaRecurso().getNumeroElementos();h++){
+                for (int h = 0; h < matrizModel.matriz[j][i].getListaRecurso().getNumeroElementos(); h++) {
                     Recursos rec = matrizModel.matriz[j][i].getListaRecurso().getElemento(h).getData();
                     matriz[j][i].addRecurso(rec);
                 }
             }
         }
         bucle.original.matriz = matriz;
-
 
 
     }

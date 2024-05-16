@@ -1,6 +1,7 @@
 package com.example.demojavafx;
 
 import com.example.demojavafx.ed.*;
+import com.example.demojavafx.excepciones.PorcentajeValido;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.IndAvanzado;
@@ -158,7 +159,9 @@ public class BucleDeControl {
                     }
                 }
             }
+
         }
+
     }
 
     public void reproducion() throws Superar3Individuos {
