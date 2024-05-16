@@ -178,9 +178,9 @@ public class GrafoNuevo<TipoDelDato> {
 
     public void guardarGrafo() {
         String rutaArchivo = "grafo.json";
-        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
-        GrafoNuevo grafo = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,GrafoNuevo.class);
-        if(grafo != null){
+        Gson1.guardarObjetoEnArchivo(rutaArchivo, this);
+        GrafoNuevo grafo = Gson1.cargarObjetoDesdeArchivo(rutaArchivo, GrafoNuevo.class);
+        if (grafo != null) {
             System.out.println("Arbol Cargado");
         }
     }

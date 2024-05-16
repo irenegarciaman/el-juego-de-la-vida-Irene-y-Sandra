@@ -4,6 +4,7 @@ import com.example.demojavafx.Celda;
 import com.example.demojavafx.ed.Cola;
 import com.example.demojavafx.ed.ElementoLDE;
 import com.example.demojavafx.ed.ListaSimple;
+import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.recursos.Recursos;
 
@@ -37,16 +38,16 @@ public class IndBasico extends Individuo {
          * 3 = izq
          */
         ListaSimple<Integer> numeros = new ListaSimple<>();
-        if (this.posN != 0){
+        if (this.posN != 0) {
             numeros.add(0);
         }
-        if (this.posN != maxFilas-1){
+        if (this.posN != maxFilas - 1) {
             numeros.add(1);
         }
-        if(this.posM != maxColumnas-1){
+        if (this.posM != maxColumnas - 1) {
             numeros.add(2);
         }
-        if(this.posM != 0){
+        if (this.posM != 0) {
             numeros.add(3);
         }
 
@@ -54,34 +55,56 @@ public class IndBasico extends Individuo {
         int indiceRandom = rand.nextInt(numeros.getNumeroElementos());
         int random = numeros.getElemento(indiceRandom).getData();
 
-        if(random == 0){
+        if (random == 0) {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            matriz[this.posN-1][this.posM].addIndividuo(this);
+            matriz[this.posN - 1][this.posM].addIndividuo(this);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
-        }
-        else if(random == 1){
+        } else if (random == 1) {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            matriz[this.posN+1][this.posM].addIndividuo(this);
+            matriz[this.posN + 1][this.posM].addIndividuo(this);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
-        }
-        else if(random == 2){
+        } else if (random == 2) {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
-            matriz[this.posN][this.posM+1].addIndividuo(this);
+            matriz[this.posN][this.posM + 1].addIndividuo(this);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
-        }
-        else {
+        } else {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
             ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
-            matriz[this.posN][this.posM-1].addIndividuo(this);
+            matriz[this.posN][this.posM - 1].addIndividuo(this);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
+    }
+
+    public String toStringArbol(NodoArbol<Individuo> n) {
+        String res = "";
+        res += "IND BÁSICO=[ posM=" + n.getDato().posM + "; posN=" + n.getDato().posN +
+                "; probMuerte=" + n.getDato().probMuerte +
+                "; probClonacion=" + n.getDato().probClonacion +
+                "; probReproduccion=" + n.getDato().probReproduccion +
+                "; turnosRestantes=" + n.getDato().turnosRestantes +
+                "; generacion=" + n.getDato().generacion +
+                "; id=" + n.getDato().id + " ]";
+        if (n.getIzquierda() != null) {
+            res += ":";
+            res += toStringArbol(n.getIzquierda());
+        }
+
+        if (n.getDerecha() != null) {
+            res += ":";
+            res += toStringArbol(n.getDerecha());
+        }
+
+        return res;
+    }
+
+    public String toStringArbol() {
+        return toStringArbol(this.arbolGenealogico.raiz);
     }
 
     @Override
     public String toString() {
         return "IndBasico, {" +
-                "arbolGenealogico=" + arbolGenealogico +
-                ", posM=" + posM +
+                "posM=" + posM +
                 ", posN=" + posN +
                 ", probMuerte=" + probMuerte +
                 ", probClonacion=" + probClonacion +
@@ -89,6 +112,7 @@ public class IndBasico extends Individuo {
                 ", turnosRestantes=" + turnosRestantes +
                 ", generacion=" + generacion +
                 ", id=" + id +
+                ", arbolGenealogico=" + toStringArbol() +
                 ", }";
     }
 

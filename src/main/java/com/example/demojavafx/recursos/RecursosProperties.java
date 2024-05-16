@@ -12,7 +12,7 @@ public class RecursosProperties {
     private IntegerProperty probNuevoRecurso = new SimpleIntegerProperty();
 
     public RecursosProperties(Recursos original) {
-        setOriginal(original);
+        this.original = original;
     }
 
     public void setOriginal(Recursos original) {
@@ -23,6 +23,7 @@ public class RecursosProperties {
     public Recursos getOriginal() {
         return original;
     }
+
 
     public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());

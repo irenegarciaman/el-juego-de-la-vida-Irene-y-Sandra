@@ -1,10 +1,10 @@
 package com.example.demojavafx.ed;
 
-public class ArcoGrafoNuevo <TipoDelDato> {
+public class ArcoGrafoNuevo<TipoDelDato> {
     public TipoDelDato relacion;
     public NodoGrafoNuevo origen;
 
-    public  NodoGrafoNuevo destino;
+    public NodoGrafoNuevo destino;
     public Double peso;
 
 

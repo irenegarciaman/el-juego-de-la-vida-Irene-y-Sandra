@@ -5,7 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class TesoroProperties {
+public class TesoroProperties extends RecursosProperties {
     protected Tesoro original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
@@ -13,7 +13,8 @@ public class TesoroProperties {
     private IntegerProperty probTesoro = new SimpleIntegerProperty();
 
 
-    public TesoroProperties(Tesoro original) {
+    public TesoroProperties(Tesoro original, Recursos recursos) {
+        super(recursos);
         setOriginal(original);
     }
 

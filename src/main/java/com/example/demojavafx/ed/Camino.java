@@ -1,7 +1,7 @@
 package com.example.demojavafx.ed;
 
 
-public class Camino <TipoDelDato>{
+public class Camino<TipoDelDato> {
     public ListaSimple<NodoGrafoNuevo<TipoDelDato>> camino;
     public Double coste;
 
@@ -15,10 +15,9 @@ public class Camino <TipoDelDato>{
     }
 
 
-
     @Override
     public String toString() {
-        for (int i=0; i<camino.getNumeroElementos(); i++){
+        for (int i = 0; i < camino.getNumeroElementos(); i++) {
             System.out.println("Los elemnetos del camino son: " + camino.getElemento(i).getData().dato);
         }
         return "Camino{" + "camino=" + camino + " , coste=" + coste + '}';

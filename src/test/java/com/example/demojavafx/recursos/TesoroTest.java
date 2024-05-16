@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TesoroTest {
     Tesoro tesoro = new Tesoro(3, 4);
-    Tesoro tesoro2 = new Tesoro( 4);
+    Tesoro tesoro2 = new Tesoro(4);
 
     @Test
     void getAumentoDePorcenRep() {

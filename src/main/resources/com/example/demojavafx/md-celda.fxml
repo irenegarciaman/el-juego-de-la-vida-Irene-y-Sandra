@@ -7,40 +7,49 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="300.0" maxWidth="300.0" minHeight="100.0" minWidth="100.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demojavafx.ModCeldaController">
-   <children>
-      <SplitPane dividerPositions="0.5079787234042553" layoutX="132.0" layoutY="48.0" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="300.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="-Infinity" minWidth="100.0" prefHeight="161.0" prefWidth="298.0">
-               <children>
-                  <Label layoutX="128.0" layoutY="52.0" text="Recurso" />
-                  <MenuButton fx:id="boxTipoRecuso" alignment="TOP_LEFT" layoutX="46.0" layoutY="88.0" mnemonicParsing="false" text="Tipo">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="agua" />
-                      <MenuItem mnemonicParsing="false" text="comida" />
-                        <MenuItem mnemonicParsing="false" text="biblioteca" />
-                        <MenuItem mnemonicParsing="false" text="montaña" />
-                        <MenuItem mnemonicParsing="false" text="tesoro" />
-                        <MenuItem mnemonicParsing="false" text="pozo" />
-                    </items>
-                  </MenuButton>
-                  <Button alignment="CENTER" layoutX="195.0" layoutY="88.0" mnemonicParsing="false"  text="Añadir" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="308.0">
-               <children>
-                  <Button layoutX="210.0" layoutY="96.0" mnemonicParsing="false"  text="Añadir" />
-                  <MenuButton fx:id="boxTipoInd" layoutX="51.0" layoutY="96.0" mnemonicParsing="false" text="Tipo">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Basico" />
-                      <MenuItem mnemonicParsing="false" text="Normal" />
-                        <MenuItem mnemonicParsing="false" text="Avanzado" />
-                    </items>
-                  </MenuButton>
-                  <Label layoutX="129.0" layoutY="50.0" text="Individuo" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+<AnchorPane maxHeight="300.0" maxWidth="300.0" minHeight="100.0" minWidth="100.0" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demojavafx.ModCeldaController">
+    <children>
+        <SplitPane dividerPositions="0.5079787234042553" layoutX="132.0" layoutY="48.0" minHeight="-Infinity"
+                   minWidth="-Infinity" orientation="VERTICAL" prefHeight="300.0" prefWidth="300.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="-Infinity" minWidth="100.0" prefHeight="161.0"
+                            prefWidth="298.0">
+                    <children>
+                        <Label layoutX="128.0" layoutY="52.0" text="Recurso"/>
+                        <MenuButton fx:id="boxTipoRecuso" alignment="TOP_LEFT" layoutX="46.0" layoutY="88.0"
+                                    mnemonicParsing="false" text="Tipo">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="agua"/>
+                                <MenuItem mnemonicParsing="false" text="comida"/>
+                                <MenuItem mnemonicParsing="false" text="biblioteca"/>
+                                <MenuItem mnemonicParsing="false" text="montaña"/>
+                                <MenuItem mnemonicParsing="false" text="tesoro"/>
+                                <MenuItem mnemonicParsing="false" text="pozo"/>
+                            </items>
+                        </MenuButton>
+                        <Button alignment="CENTER" layoutX="195.0" layoutY="88.0" mnemonicParsing="false"
+                                text="Añadir"/>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="308.0">
+                    <children>
+                        <Button layoutX="210.0" layoutY="96.0" mnemonicParsing="false" text="Añadir"/>
+                        <MenuButton fx:id="boxTipoInd" layoutX="51.0" layoutY="96.0" mnemonicParsing="false"
+                                    text="Tipo">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Basico"/>
+                                <MenuItem mnemonicParsing="false" text="Normal"/>
+                                <MenuItem mnemonicParsing="false" text="Avanzado"/>
+                            </items>
+                        </MenuButton>
+                        <Label layoutX="129.0" layoutY="50.0" text="Individuo"/>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
 </AnchorPane>

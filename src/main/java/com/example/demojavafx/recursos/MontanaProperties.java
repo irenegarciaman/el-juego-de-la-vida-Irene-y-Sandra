@@ -5,7 +5,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class MontanaProperties {
+public class MontanaProperties extends RecursosProperties {
     protected Montana original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
@@ -13,7 +13,8 @@ public class MontanaProperties {
     private IntegerProperty probMontana = new SimpleIntegerProperty();
 
 
-    public MontanaProperties(Montana original) {
+    public MontanaProperties(Montana original, Recursos rec) {
+        super(rec);
         setOriginal(original);
     }
 

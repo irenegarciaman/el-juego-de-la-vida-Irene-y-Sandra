@@ -2,9 +2,7 @@ package com.example.demojavafx;
 
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
-import com.example.demojavafx.individuos.IndAvanzado;
-import com.example.demojavafx.individuos.IndBasico;
-import com.example.demojavafx.individuos.IndNormal;
+import com.example.demojavafx.individuos.*;
 import com.example.demojavafx.recursos.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,9 +25,15 @@ public class Matriz1Controller implements Initializable {
     private Stage scene;
 
     private BucleDeControlProperties matrizModel;
+    protected RecursosProperties recursosModel;
+    protected AguaProperties aguaModel;
+    protected BibliotecaProperties bibliotecaModel;
+    protected ComidaProperties comidaModel;
+    protected MontanaProperties montanaModel;
+    protected PozoProperties pozoModel;
+    protected TesoroProperties tesoroModel;
 
-
-
+    protected IndividuoProperties individuoModel;
 
 
     @Override
@@ -44,11 +48,22 @@ public class Matriz1Controller implements Initializable {
     }
 
 
+    public void loadUserData(RecursosProperties parametrosRecursos, AguaProperties parametrosAgua,
+                             BibliotecaProperties parametrosBiblioteca, ComidaProperties parametrosComida,
+                             MontanaProperties parametrosMontana, PozoProperties parametrosPozo,
+                             TesoroProperties parametrosTesoro, IndividuoProperties parametrosInd,
+                             BucleDeControlProperties parametroMatriz) {
+        this.recursosModel = parametrosRecursos;
+        this.aguaModel = parametrosAgua;
+        this.bibliotecaModel = parametrosBiblioteca;
+        this.comidaModel = parametrosComida;
+        this.montanaModel = parametrosMontana;
+        this.pozoModel = parametrosPozo;
+        this.tesoroModel = parametrosTesoro;
+        this.individuoModel = parametrosInd;
+        this.matrizModel = parametroMatriz;
 
-    public void loadUserData(BucleDeControlProperties parametrosBucleDeControl,CeldaProperties celdaProp) {
-        this.matrizModel = parametrosBucleDeControl;
         this.updateGUIwithModel();
-
     }
 
     public void setStage(Stage s) {
@@ -58,22 +73,23 @@ public class Matriz1Controller implements Initializable {
     public void guardarButton() {
         matrizModel.commit();
     }
-    public void cerrarButton(){
+
+    public void cerrarButton() {
         scene.close();
     }
-    public void cancelarButton(){
+
+    public void cancelarButton() {
         matrizModel.rollback();
     }
 
 
-
-
-    public void onButtonAction(int c, int f,RecursosController rec) {
+    public void onButtonAction(int c, int f, RecursosController rec) {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("md-celda.fxml"));
         try {
+            System.out.println(aguaModel.getOriginalAgua().toString());
             Scene scene = new Scene(fxmlLoader.load(), 300, 300);
-            stage.setTitle("Modificar celda {fila: " + f +" columna: "+ c+"}");
+            stage.setTitle("Modificar celda {fila: " + f + " columna: " + c + "}");
             ModCeldaController p = fxmlLoader.getController();
             p.loadUserData(this.matrizModel);
 
@@ -92,7 +108,7 @@ public class Matriz1Controller implements Initializable {
             // Manejar el evento de selección del MenuButton
             EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    MenuItem selectedItem = (MenuItem)e.getSource();
+                    MenuItem selectedItem = (MenuItem) e.getSource();
                     String selectedValue = selectedItem.getText();
                     label.setText(selectedValue);
                 }
@@ -102,7 +118,7 @@ public class Matriz1Controller implements Initializable {
             item3.setOnAction(event);
             Label decor = new Label("--");
             Button button = new Button("Añadir Individuo");
-            VBox rootInd = new VBox(menuButtonInd, label,decor,button);
+            VBox rootInd = new VBox(menuButtonInd, label, decor, button);
             rootInd.setAlignment(Pos.CENTER);
 
             MenuButton menuButtonRec = new MenuButton("TipoRec");
@@ -114,7 +130,7 @@ public class Matriz1Controller implements Initializable {
             MenuItem itemr5 = new MenuItem("Pozo");
             MenuItem itemr6 = new MenuItem("Tesoro");
 
-            menuButtonRec.getItems().addAll(itemr1, itemr2, itemr3,itemr4,itemr5,itemr6);
+            menuButtonRec.getItems().addAll(itemr1, itemr2, itemr3, itemr4, itemr5, itemr6);
 
             // Crear un Label para mostrar el valor seleccionado
             Label labelRec = new Label("Valor seleccionado:  ");
@@ -122,7 +138,7 @@ public class Matriz1Controller implements Initializable {
             // Manejar el evento de selección del MenuButton
             EventHandler<ActionEvent> event2 = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    MenuItem selectedItem = (MenuItem)e.getSource();
+                    MenuItem selectedItem = (MenuItem) e.getSource();
                     String selectedValue = selectedItem.getText();
                     labelRec.setText(selectedValue);
                 }
@@ -135,27 +151,29 @@ public class Matriz1Controller implements Initializable {
             itemr6.setOnAction(event2);
 
             Button buttonR = new Button("Añadir Recurso");
-            VBox rootRec = new VBox(menuButtonRec, labelRec,decor,buttonR);
+            VBox rootRec = new VBox(menuButtonRec, labelRec, decor, buttonR);
 
             rootRec.setAlignment(Pos.CENTER);
 
             EventHandler<ActionEvent> eventButtonRec = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    if(labelRec.getText()=="Agua"){
+                    if (labelRec.getText() == "Agua") {
                         System.out.println("if");
-                        Agua agua = new Agua();
+                        Agua agua = aguaModel.getOriginalAgua();
                         try {
                             matrizModel.matriz[f][c].addRecurso(agua);
                             agua.setPosN(f);
                             agua.setPosM(c);
+                            agua.setProbAgua(aguaModel.probAguaProperty().get());
+
 
                         } catch (Superar3Recursos ex) {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Biblioteca"){
+                    if (labelRec.getText() == "Biblioteca") {
 
-                        Biblioteca biblioteca = new Biblioteca();
+                        Biblioteca biblioteca = bibliotecaModel.getOriginal();
                         try {
                             matrizModel.matriz[f][c].addRecurso(biblioteca);
                             biblioteca.setPosN(f);
@@ -165,9 +183,9 @@ public class Matriz1Controller implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Comida"){
+                    if (labelRec.getText() == "Comida") {
 
-                        Comida comida = new Comida();
+                        Comida comida = comidaModel.getOriginal();
                         try {
                             matrizModel.matriz[f][c].addRecurso(comida);
                             comida.setPosN(f);
@@ -177,9 +195,9 @@ public class Matriz1Controller implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Montaña"){
+                    if (labelRec.getText() == "Montaña") {
 
-                        Montana montana = new Montana();
+                        Montana montana = montanaModel.getOriginal();
                         try {
                             matrizModel.matriz[f][c].addRecurso(montana);
                             montana.setPosN(f);
@@ -189,9 +207,9 @@ public class Matriz1Controller implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Pozo"){
+                    if (labelRec.getText() == "Pozo") {
 
-                        Pozo pozo = new Pozo();
+                        Pozo pozo = pozoModel.getOriginal();
                         try {
                             matrizModel.matriz[f][c].addRecurso(pozo);
                             pozo.setPosN(f);
@@ -201,9 +219,9 @@ public class Matriz1Controller implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Tesoro"){
+                    if (labelRec.getText() == "Tesoro") {
 
-                        Tesoro tesoro = new Tesoro();
+                        Tesoro tesoro = tesoroModel.getOriginal();
                         try {
                             matrizModel.matriz[f][c].addRecurso(tesoro);
                             tesoro.setPosN(f);
@@ -219,10 +237,16 @@ public class Matriz1Controller implements Initializable {
 
             EventHandler<ActionEvent> eventButtonInd = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    if (label.getText()=="Básico") {
-                        System.out.println("entra");
+                    Individuo aux = individuoModel.getOriginal();
+                    if (label.getText() == "Básico") {
+
                         Random rand = new Random();
                         IndBasico ind = new IndBasico(rand.nextInt(900));
+                        ind.setTurnosRestantes(aux.getTurnosRestantes());
+                        ind.setProbClonacion(aux.getProbClonacion());
+                        ind.setProbMuerte(aux.getProbMuerte());
+                        ind.setProbReproduccion(aux.getProbReproduccion());
+//                        ind.setId(rand.nextInt(900));
                         try {
                             matrizModel.matriz[f][c].addIndividuo(ind);
                             ind.setPosN(f);
@@ -231,10 +255,13 @@ public class Matriz1Controller implements Initializable {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
                     }
-                    if (label.getText()=="Normal") {
-                        System.out.println("entra");
+                    if (label.getText() == "Normal") {
                         Random rand = new Random();
                         IndNormal ind = new IndNormal(rand.nextInt(900));
+                        ind.setTurnosRestantes(aux.getTurnosRestantes());
+                        ind.setProbClonacion(aux.getProbClonacion());
+                        ind.setProbMuerte(aux.getProbMuerte());
+                        ind.setProbReproduccion(aux.getProbReproduccion());
                         try {
                             matrizModel.matriz[f][c].addIndividuo(ind);
                             ind.setPosN(f);
@@ -243,10 +270,13 @@ public class Matriz1Controller implements Initializable {
                             label.textProperty().setValue("Ha superado el máximo de individuos");
                         }
                     }
-                    if (label.getText()=="Avanzado") {
-                        System.out.println("entra");
+                    if (label.getText() == "Avanzado") {
                         Random rand = new Random();
                         IndAvanzado ind = new IndAvanzado(rand.nextInt(900));
+                        ind.setTurnosRestantes(aux.getTurnosRestantes());
+                        ind.setProbClonacion(aux.getProbClonacion());
+                        ind.setProbMuerte(aux.getProbMuerte());
+                        ind.setProbReproduccion(aux.getProbReproduccion());
                         try {
                             matrizModel.matriz[f][c].addIndividuo(ind);
                             ind.setPosN(f);
@@ -260,7 +290,7 @@ public class Matriz1Controller implements Initializable {
 
             button.setOnAction(eventButtonInd);
 
-            SplitPane splitPane = new SplitPane(rootInd,rootRec);
+            SplitPane splitPane = new SplitPane(rootInd, rootRec);
             splitPane.setMinHeight(250);
             splitPane.setOrientation(Orientation.VERTICAL);
 
@@ -268,13 +298,13 @@ public class Matriz1Controller implements Initializable {
             EventHandler eventButtonGuardar = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     matrizModel.commit();
-                    rec.loadUserData(rec.getRecursosModel(),rec.getAguaModel(),rec.getBibliotecaModel(),rec.getComidaModel(),rec.getMontanaModel(),rec.getPozoModel(),rec.getTesoroModel(),rec.getIndividuoModel(),matrizModel);
-                    rec.actualizarButton(f,c);
+                    rec.loadUserData(rec.getRecursosModel(), rec.getAguaModel(), rec.getBibliotecaModel(), rec.getComidaModel(), rec.getMontanaModel(), rec.getPozoModel(), rec.getTesoroModel(), rec.getIndividuoModel(), matrizModel);
+                    rec.actualizarButton(f, c);
                     stage.close();
                 }
             };
             button1.setOnAction(eventButtonGuardar);
-            VBox vbox = new VBox(splitPane,button1);
+            VBox vbox = new VBox(splitPane, button1);
             vbox.setAlignment(Pos.CENTER);
 
             Scene scene2 = new Scene(vbox, 200, 300);

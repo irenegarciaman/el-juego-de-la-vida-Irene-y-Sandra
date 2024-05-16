@@ -5,14 +5,15 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class PozoProperties {
+public class PozoProperties extends RecursosProperties {
     protected Pozo original;
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private IntegerProperty probPozo = new SimpleIntegerProperty();
 
 
-    public PozoProperties(Pozo original) {
+    public PozoProperties(Pozo original, Recursos recursos) {
+        super(recursos);
         setOriginal(original);
     }
 

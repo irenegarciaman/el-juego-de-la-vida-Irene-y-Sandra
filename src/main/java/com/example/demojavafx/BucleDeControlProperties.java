@@ -16,10 +16,11 @@ public class BucleDeControlProperties {
 
     protected Celda[][] matriz = new Celda[filas.get()][columnas.get()];
 
-    public int getFilas(){
+    public int getFilas() {
         return filas.get();
     }
-    public int getColumnas(){
+
+    public int getColumnas() {
         return columnas.get();
     }
 
@@ -87,6 +88,7 @@ public class BucleDeControlProperties {
         return filas;
 
     }
+
     public Celda[][] matrizProperty() {
         return matriz;
     }

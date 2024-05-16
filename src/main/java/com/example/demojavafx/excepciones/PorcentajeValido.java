@@ -1,12 +1,9 @@
 package com.example.demojavafx.excepciones;
 
-public class PorcentajeValido extends Exception{
+public class PorcentajeValido extends Exception {
+    public int porcentaje;
 
     public PorcentajeValido(int porcentaje) {
-        if (porcentaje < 0) {
-            porcentaje = 0;
-        }else if (porcentaje > 100){
-            porcentaje = 100;
-        }
+        this.porcentaje = porcentaje;
     }
 }

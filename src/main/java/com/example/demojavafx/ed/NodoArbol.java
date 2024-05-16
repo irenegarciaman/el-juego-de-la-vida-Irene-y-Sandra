@@ -61,94 +61,94 @@ public class NodoArbol<TipoDelDato> {
     public NodoArbol() {
     }
 /**
-    public void borradoHoja(TipoDelDato valor,NodoArbol n) {// Borrado de una hoja
-        NodoArbol<TipoDelDato> padre = new NodoArbol<>();
-        padre = n;
-        Comparable c = (Comparable) this.getDato();
-        int rdo = c.compareTo(valor);
-        if (rdo > 0) {
-            if (this.izquierda != null) {
-                n = this.izquierda;
-            }
-        } else if (rdo < 0) {
-            if (this.derecha != null) {
-                n = this.derecha;
-            }
-        }
-        if (rdo == 0) {
-            if (padre == n.izquierda) {
-                this.izquierda = null;
-            } else {
-                this.derecha = null;
-            }
+ public void borradoHoja(TipoDelDato valor,NodoArbol n) {// Borrado de una hoja
+ NodoArbol<TipoDelDato> padre = new NodoArbol<>();
+ padre = n;
+ Comparable c = (Comparable) this.getDato();
+ int rdo = c.compareTo(valor);
+ if (rdo > 0) {
+ if (this.izquierda != null) {
+ n = this.izquierda;
+ }
+ } else if (rdo < 0) {
+ if (this.derecha != null) {
+ n = this.derecha;
+ }
+ }
+ if (rdo == 0) {
+ if (padre == n.izquierda) {
+ this.izquierda = null;
+ } else {
+ this.derecha = null;
+ }
 
-        } else {
-            n.borradoHoja(valor,n);
-        }
-    }
-
-
+ } else {
+ n.borradoHoja(valor,n);
+ }
+ }
 
 
-    public void borrado1hijo(TipoDelDato valor) {
-        NodoArbol<TipoDelDato> n = new NodoArbol();
-        NodoArbol<TipoDelDato> padre = new NodoArbol<>();
-        padre = n;
-        Comparable c = (Comparable) n.dato;
-        int rdo = c.compareTo(valor);
-        if (rdo > 0) {
-            if (this.izquierda != null) {
-                n = this.izquierda;
-            }
-        } else if (rdo < 0) {
-            if (this.derecha != null) {
-                n = this.derecha;
-            }
-        }
-        if (rdo == 0) {
-            if (n.izquierda != null) {
-                padre.izquierda = n.izquierda;
-            } else if (n.derecha != null) {
-                padre.derecha = n.derecha;
-            }
-        } else {
-            n.borrado1hijo(valor);
-        }
-    }
 
-    public void borrado2hijos(TipoDelDato valor) {
-        NodoArbol<TipoDelDato> n = new NodoArbol<>();
-        NodoArbol<TipoDelDato> padre = new NodoArbol<>();
-        padre = n;
-        Comparable c = (Comparable) n.dato;
-        int rdo = c.compareTo(valor);
-        if (rdo > 0) {
-            if (this.izquierda != null) {
-                n = this.izquierda;
-            }
-        } else if (rdo < 0) {
-            if (this.derecha != null) {
-                n = this.derecha;
-            }
-        }
-        if (rdo == 0) {
-            if (n.izquierda.izquierda != null) {
-                padre.derecha = n.izquierda.izquierda;
-            } else if (n.derecha.derecha != null) {
-                padre.izquierda = n.derecha.derecha;
-            }
-        } else {
-            n.borrado2hijos(valor);
-        }
-    }
 
-    public NodoArbol NodoPadreIzq(NodoArbol nodo){
-        NodoArbol<TipoDelDato> n = new NodoArbol();
-        if (nodo.izquierda.izquierda==null){
-            n=nodo;
-        }else{
-            NodoPadreIzq(nodo.izquierda);
-        }
-        return n;
-    }*/
+ public void borrado1hijo(TipoDelDato valor) {
+ NodoArbol<TipoDelDato> n = new NodoArbol();
+ NodoArbol<TipoDelDato> padre = new NodoArbol<>();
+ padre = n;
+ Comparable c = (Comparable) n.dato;
+ int rdo = c.compareTo(valor);
+ if (rdo > 0) {
+ if (this.izquierda != null) {
+ n = this.izquierda;
+ }
+ } else if (rdo < 0) {
+ if (this.derecha != null) {
+ n = this.derecha;
+ }
+ }
+ if (rdo == 0) {
+ if (n.izquierda != null) {
+ padre.izquierda = n.izquierda;
+ } else if (n.derecha != null) {
+ padre.derecha = n.derecha;
+ }
+ } else {
+ n.borrado1hijo(valor);
+ }
+ }
+
+ public void borrado2hijos(TipoDelDato valor) {
+ NodoArbol<TipoDelDato> n = new NodoArbol<>();
+ NodoArbol<TipoDelDato> padre = new NodoArbol<>();
+ padre = n;
+ Comparable c = (Comparable) n.dato;
+ int rdo = c.compareTo(valor);
+ if (rdo > 0) {
+ if (this.izquierda != null) {
+ n = this.izquierda;
+ }
+ } else if (rdo < 0) {
+ if (this.derecha != null) {
+ n = this.derecha;
+ }
+ }
+ if (rdo == 0) {
+ if (n.izquierda.izquierda != null) {
+ padre.derecha = n.izquierda.izquierda;
+ } else if (n.derecha.derecha != null) {
+ padre.izquierda = n.derecha.derecha;
+ }
+ } else {
+ n.borrado2hijos(valor);
+ }
+ }
+
+ public NodoArbol NodoPadreIzq(NodoArbol nodo){
+ NodoArbol<TipoDelDato> n = new NodoArbol();
+ if (nodo.izquierda.izquierda==null){
+ n=nodo;
+ }else{
+ NodoPadreIzq(nodo.izquierda);
+ }
+ return n;
+ }*/
 }

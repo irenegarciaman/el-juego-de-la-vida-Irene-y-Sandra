@@ -4,17 +4,16 @@ package com.example.demojavafx.ed;
  * Programar la lista simplemente enlazada.
  **/
 
-public class ListaSimple <TipoDelDato> {
+public class ListaSimple<TipoDelDato> {
     private ElementoLS<TipoDelDato>[] datos;
-    private int maximo=100000;
+    private int maximo = 100000;
     private int numeroElementos;
-
-
 
 
     public ListaSimple() {
         this.datos = new ElementoLS[this.maximo];
     }
+
     public boolean isVacia() {
         boolean bool = false;
         if (getNumeroElementos() == 0) {
@@ -138,7 +137,7 @@ public class ListaSimple <TipoDelDato> {
 
     public ElementoLS<TipoDelDato> getSiguiente(ElementoLS<TipoDelDato> el) {
         int pos = getPosicion(el);
-        return getElemento(pos+1);
+        return getElemento(pos + 1);
 
     }
 
@@ -148,42 +147,41 @@ public class ListaSimple <TipoDelDato> {
     }
 
 
-
     public ElementoLS getUltimo() {
         int posicion = getNumeroElementos();
         return this.datos[posicion - 1];
     }
 
-    public ArcoGrafoNuevo menorPeso (ListaSimple<ArcoGrafoNuevo> lista){
+    public ArcoGrafoNuevo menorPeso(ListaSimple<ArcoGrafoNuevo> lista) {
         ArcoGrafoNuevo min = lista.getElemento(0).getData();
 
-        for (int i=0; i<lista.getNumeroElementos()-1;i++){
+        for (int i = 0; i < lista.getNumeroElementos() - 1; i++) {
             ArcoGrafoNuevo aux = lista.getElemento(i).getData();
-            if (aux.peso<min.peso){
-                min=aux;
+            if (aux.peso < min.peso) {
+                min = aux;
             }
         }
         return min;
     }
 
-   public ListaSimple<TipoDelDato> invertir (ListaSimple<TipoDelDato> lista){
+    public ListaSimple<TipoDelDato> invertir(ListaSimple<TipoDelDato> lista) {
         ListaSimple<TipoDelDato> lista2 = new ListaSimple<>();
-        for (int i =lista.getNumeroElementos()-1; 0<=i;i--){
-           // if (lista.getElemento(i)!=null){
-                lista2.add(lista.getElemento(i));
+        for (int i = lista.getNumeroElementos() - 1; 0 <= i; i--) {
+            // if (lista.getElemento(i)!=null){
+            lista2.add(lista.getElemento(i));
             //}
         }
         return lista2;
-   }
+    }
+
     public void guardarLS() {
         String rutaArchivo = "listaS.json";
-        Gson1.guardarObjetoEnArchivo(rutaArchivo,this);
-        ListaSimple listaS = Gson1.cargarObjetoDesdeArchivo(rutaArchivo,ListaSimple.class);
-        if(listaS != null){
+        Gson1.guardarObjetoEnArchivo(rutaArchivo, this);
+        ListaSimple listaS = Gson1.cargarObjetoDesdeArchivo(rutaArchivo, ListaSimple.class);
+        if (listaS != null) {
             System.out.println("Arbol Cargado");
         }
     }
-
 
 
 }

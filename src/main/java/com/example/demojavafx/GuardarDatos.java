@@ -17,8 +17,8 @@ public class GuardarDatos {
     public int fyc[];
 
     public void guardarDatos(BucleDeControl bucle, Individuo ind,
-                              Agua agua, Biblioteca biblioteca, Comida comida,
-                              Montana montana, Pozo pozo, Tesoro tesoro) {
+                             Agua agua, Biblioteca biblioteca, Comida comida,
+                             Montana montana, Pozo pozo, Tesoro tesoro) {
         int fila = bucle.getFila();
         int columna = bucle.getColumna();
 
@@ -27,24 +27,23 @@ public class GuardarDatos {
         fyc[1] = columna;
 
 
-
         ListaEnlazada<Individuo> listaInd = new ListaEnlazada<>();
         ListaEnlazada<Recursos> listaRec = new ListaEnlazada<>();
 
         for (int i = 0; i < fila; i++) {
             for (int j = 0; j < columna; j++) {
-                for (int k = 0; k < bucle.matriz[i][j].getListaIndividuo().getNumeroElementos() ; k++) {
+                for (int k = 0; k < bucle.matriz[i][j].getListaIndividuo().getNumeroElementos(); k++) {
                     Individuo individuo = bucle.matriz[i][j].getListaIndividuo().getElemento(k).getData();
                     listaInd.add(individuo);
                 }
-                for (int k = 0; k < bucle.matriz[i][j].getListaRecurso().getNumeroElementos() ; k++) {
+                for (int k = 0; k < bucle.matriz[i][j].getListaRecurso().getNumeroElementos(); k++) {
                     listaRec.add(bucle.matriz[i][j].getListaRecurso().getElemento(k).getData());
                 }
             }
         }
 
-        System.out.println("el lista ind "+listaInd.getNumeroElementos());
-        System.out.println("el lista rec "+listaRec.getNumeroElementos());
+        System.out.println("el lista ind " + listaInd.getNumeroElementos());
+        System.out.println("el lista rec " + listaRec.getNumeroElementos());
 
         listaIndividuo = new String[listaInd.getNumeroElementos()];
         listaRecurso = new String[listaRec.getNumeroElementos()];
@@ -99,63 +98,71 @@ public class GuardarDatos {
 
         //int arbol = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
 
-        int posM = Integer.parseInt(partes[2].split("=")[1]);
-        int posN = Integer.parseInt(partes[3].split("=")[1]);
-        int probMuerte = Integer.parseInt(partes[4].split("=")[1]);
-        int probClonacion = Integer.parseInt(partes[5].split("=")[1]);
-        int probReproduccion = Integer.parseInt(partes[6].split("=")[1]);
-        int turnosRestantes = Integer.parseInt(partes[7].split("=")[1]);
-        int generacion = Integer.parseInt(partes[8].split("=")[1]);
-        int id = Integer.parseInt(partes[9].split("=")[1]);
+        int posM = Integer.parseInt(partes[1].split("=")[1]);
+        int posN = Integer.parseInt(partes[2].split("=")[1]);
+        int probMuerte = Integer.parseInt(partes[3].split("=")[1]);
+        int probClonacion = Integer.parseInt(partes[4].split("=")[1]);
+        int probReproduccion = Integer.parseInt(partes[5].split("=")[1]);
+        int turnosRestantes = Integer.parseInt(partes[6].split("=")[1]);
+        int generacion = Integer.parseInt(partes[7].split("=")[1]);
+        int id = Integer.parseInt(partes[8].split("=")[1]);
 
+//        String[] split = partes[9].split(":");
+//        for (int i = 0; i < split.length; i++) {
+        /***
+         String[] elemento = split[i].split("=");
+         int tipo1 = Integer.parseInt(elemento[0]);
+         int posM1 = Integer.parseInt(elemento[2].split(";")[0]);
+         int posN1 = Integer.parseInt(elemento[3].split(";")[0]);
+         int probMuerte1 = Integer.parseInt(elemento[4].split(";")[0]);
+         int probClonacion1 = Integer.parseInt(elemento[5].split(";")[0]);
+         int probReproduccion1 = Integer.parseInt(elemento[6].split(";")[0]);
+         int turnosRestantes1 = Integer.parseInt(elemento[7].split(";")[0]);
+         int generacion1 = Integer.parseInt(elemento[8].split(";")[0]);
+         int id1 = Integer.parseInt(elemento[9].split(";")[0]);*/
 
-        if(tipo.equals("IndBasico")) {
-            return new IndBasico(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte,posN,posM);
-        }
-        else if(tipo.equals("IndNormal")) {
-            return new IndNormal(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte,posN,posM);
-        }
-        else{
-            return new IndAvanzado(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte,posN,posM);
+//        }
+
+        if (tipo.equals("IndBasico")) {
+            return new IndBasico(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+        } else if (tipo.equals("IndNormal")) {
+            return new IndNormal(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+        } else {
+            return new IndAvanzado(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
         }
     }
 
-    public static Recursos fromStringR(String recursoString){
+    public static Recursos fromStringR(String recursoString) {
         String[] partes = recursoString.split(", ");
 
         String tipo = partes[0].substring(0);
 
 
-
-
-        if(tipo.equals("Agua")) {
+        if (tipo.equals("Agua")) {
             int inter = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
             int probThis = Integer.parseInt(partes[2].substring(partes[2].indexOf("=") + 1));
             int turnosRestantes = Integer.parseInt(partes[3].substring(partes[3].indexOf("=") + 1));
             int posN = Integer.parseInt(partes[4].substring(partes[4].indexOf("=") + 1));
             int posM = Integer.parseInt(partes[5].substring(partes[5].indexOf("=") + 1));
             int probNuevo = Integer.parseInt(partes[6].substring(partes[6].indexOf("=") + 1));
-            return new Agua(turnosRestantes,posN, posM,probNuevo, inter,probThis);
-        }
-        else if(tipo.equals("Biblioteca")) {
+            return new Agua(turnosRestantes, posN, posM, probNuevo, inter, probThis);
+        } else if (tipo.equals("Biblioteca")) {
             int inter = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
             int probThis = Integer.parseInt(partes[2].substring(partes[2].indexOf("=") + 1));
             int turnosRestantes = Integer.parseInt(partes[3].substring(partes[3].indexOf("=") + 1));
             int posN = Integer.parseInt(partes[4].substring(partes[4].indexOf("=") + 1));
             int posM = Integer.parseInt(partes[5].substring(partes[5].indexOf("=") + 1));
             int probNuevo = Integer.parseInt(partes[6].substring(partes[6].indexOf("=") + 1));
-            return new Biblioteca(turnosRestantes,posN, posM,probNuevo, inter,probThis);
-        }
-        else if(tipo.equals("Comida")) {
+            return new Biblioteca(turnosRestantes, posN, posM, probNuevo, inter, probThis);
+        } else if (tipo.equals("Comida")) {
             int inter = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
             int probThis = Integer.parseInt(partes[2].substring(partes[2].indexOf("=") + 1));
             int turnosRestantes = Integer.parseInt(partes[3].substring(partes[3].indexOf("=") + 1));
             int posN = Integer.parseInt(partes[4].substring(partes[4].indexOf("=") + 1));
             int posM = Integer.parseInt(partes[5].substring(partes[5].indexOf("=") + 1));
             int probNuevo = Integer.parseInt(partes[6].substring(partes[6].indexOf("=") + 1));
-            return new Comida(turnosRestantes,posN, posM,probNuevo, inter,probThis);
-        }
-        else if(tipo.equals("Montana")) {
+            return new Comida(turnosRestantes, posN, posM, probNuevo, inter, probThis);
+        } else if (tipo.equals("Montana")) {
             int inter = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
             int probThis = Integer.parseInt(partes[2].substring(partes[2].indexOf("=") + 1));
             int turnosRestantes = Integer.parseInt(partes[3].substring(partes[3].indexOf("=") + 1));
@@ -163,37 +170,31 @@ public class GuardarDatos {
             int posM = Integer.parseInt(partes[5].substring(partes[5].indexOf("=") + 1));
             int probNuevo = Integer.parseInt(partes[6].substring(partes[6].indexOf("=") + 1));
 
-            return new Montana(turnosRestantes,posN, posM,probNuevo, inter,probThis);
-        }
-        else if(tipo.equals("Tesoro")) {
+            return new Montana(turnosRestantes, posN, posM, probNuevo, inter, probThis);
+        } else if (tipo.equals("Tesoro")) {
             int inter = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
             int probThis = Integer.parseInt(partes[2].substring(partes[2].indexOf("=") + 1));
             int turnosRestantes = Integer.parseInt(partes[3].substring(partes[3].indexOf("=") + 1));
             int posN = Integer.parseInt(partes[4].substring(partes[4].indexOf("=") + 1));
             int posM = Integer.parseInt(partes[5].substring(partes[5].indexOf("=") + 1));
             int probNuevo = Integer.parseInt(partes[6].substring(partes[6].indexOf("=") + 1));
-            return new Tesoro(turnosRestantes,posN, posM,probNuevo, inter,probThis);
-        }
-        else  {
+            return new Tesoro(turnosRestantes, posN, posM, probNuevo, inter, probThis);
+        } else {
             int inter = Integer.parseInt(partes[1].substring(partes[1].indexOf("=") + 1));
             int probThis = Integer.parseInt(partes[2].substring(partes[2].indexOf("=") + 1));
             int turnosRestantes = Integer.parseInt(partes[3].substring(partes[3].indexOf("=") + 1));
             int posN = Integer.parseInt(partes[4].substring(partes[4].indexOf("=") + 1));
             int posM = Integer.parseInt(partes[5].substring(partes[5].indexOf("=") + 1));
-            return new Pozo(probThis,turnosRestantes,posN,posM,inter);
+            return new Pozo(probThis, turnosRestantes, posN, posM, inter);
         }
     }
 
     public BucleDeControl cargarBucle() throws Superar3Individuos, Superar3Recursos {
 
 
-
-
         int fila = fyc[0];
         int columna = fyc[1];
-        BucleDeControl bucle = new BucleDeControl(fila,columna);
-
-
+        BucleDeControl bucle = new BucleDeControl(fila, columna);
 
 
         for (int k = 0; k < listaIndividuo.length; k++) {
@@ -220,7 +221,8 @@ public class GuardarDatos {
 
         return bucle;
     }
-    public Individuo cargarIndividuo(){
+
+    public Individuo cargarIndividuo() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Individuo ind = new IndAvanzado(1);
         ind.setTurnosRestantes(infoIndyRec[12]);
@@ -229,14 +231,15 @@ public class GuardarDatos {
         ind.setProbMuerte(infoIndyRec[15]);
         return ind;
     }
-    public Recursos cargarRecursos(){
+
+    public Recursos cargarRecursos() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Recursos rec = new Recursos();
         rec.setProbNuevoRecurso(infoIndyRec[0]);
         return rec;
     }
 
-    public Agua cargarAgua(){
+    public Agua cargarAgua() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Agua agua = new Agua();
         agua.setProbAgua(infoIndyRec[1]);
@@ -244,7 +247,7 @@ public class GuardarDatos {
         return agua;
     }
 
-    public Biblioteca cargarBiblioteca(){
+    public Biblioteca cargarBiblioteca() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.setProbBiblioteca(infoIndyRec[3]);
@@ -252,7 +255,7 @@ public class GuardarDatos {
         return biblioteca;
     }
 
-    public Comida cargarComida(){
+    public Comida cargarComida() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Comida comida = new Comida();
         comida.setProbComida(infoIndyRec[5]);
@@ -260,7 +263,7 @@ public class GuardarDatos {
         return comida;
     }
 
-    public Montana cargarMontana(){
+    public Montana cargarMontana() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Montana montana = new Montana();
         montana.setProbMontana(infoIndyRec[7]);
@@ -268,7 +271,7 @@ public class GuardarDatos {
         return montana;
     }
 
-    public Tesoro cargarTesoro(){
+    public Tesoro cargarTesoro() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Tesoro tesoro = new Tesoro();
         tesoro.setProbTesoro(infoIndyRec[9]);
@@ -276,7 +279,7 @@ public class GuardarDatos {
         return tesoro;
     }
 
-    public Pozo cargarPozo(){
+    public Pozo cargarPozo() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Pozo pozo = new Pozo();
         pozo.setProbPozo(infoIndyRec[11]);

@@ -93,7 +93,7 @@ class ListaEnlazadaTest {
         ListaEnlazada<Integer> lista23 = new ListaEnlazada<>();
         lista23.add(3);
         lista23.add(6);
-        assertEquals(-1,lista23.getPosicion(new ElementoLE<>(34)));
+        assertEquals(-1, lista23.getPosicion(new ElementoLE<>(34)));
     }
 
     @Test
@@ -171,15 +171,16 @@ class ListaEnlazadaTest {
         assertEquals("b", lista.getElemento(1).getData());
         assertEquals("c", lista.getElemento(2).getData());
     }
+
     @Test
-    void invertir(){
+    void invertir() {
         ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(2);
         lista.add(3);
         lista.add(5);
         lista.invertir();
-        assertEquals(5,lista.getElemento(0).getData());
-        assertEquals(3,lista.getElemento(1).getData());
-        assertEquals(2,lista.getElemento(2).getData());
+        assertEquals(5, lista.getElemento(0).getData());
+        assertEquals(3, lista.getElemento(1).getData());
+        assertEquals(2, lista.getElemento(2).getData());
     }
 }

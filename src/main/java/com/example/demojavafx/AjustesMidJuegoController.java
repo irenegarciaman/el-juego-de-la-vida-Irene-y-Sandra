@@ -27,6 +27,8 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import static com.example.demojavafx.ed.Gson1.cargarObjetoDesdeArchivo;
+
 public class AjustesMidJuegoController implements Initializable {
     @FXML
     private Label labelProbNuevoRecurso;
@@ -158,7 +160,6 @@ public class AjustesMidJuegoController implements Initializable {
     protected IntegerProperty ind4 = new SimpleIntegerProperty(0);
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sliderProbRecurso.valueProperty().bindBidirectional(medida);
@@ -208,7 +209,6 @@ public class AjustesMidJuegoController implements Initializable {
 
         sliderProbMuerteInd.valueProperty().bindBidirectional(ind4);
         pm.textProperty().bind(ind4.asString());
-
 
 
     }
@@ -311,7 +311,7 @@ public class AjustesMidJuegoController implements Initializable {
                              BibliotecaProperties parametrosBiblioteca, ComidaProperties parametrosComida,
                              MontanaProperties parametrosMontana, PozoProperties parametrosPozo,
                              TesoroProperties parametrosTesoro, IndividuoProperties parametrosInd,
-                             BucleDeControlProperties parametroMatriz,ListaEnlazada<Button> listaButton) {
+                             BucleDeControlProperties parametroMatriz, ListaEnlazada<Button> listaButton) {
 
         this.recursosModel = parametrosRecursos;
         this.aguaModel = parametrosAgua;
@@ -347,13 +347,14 @@ public class AjustesMidJuegoController implements Initializable {
     }
 
 
-    public void modificarCelda(int f, int c,BucleDeControlProperties modeloMatriz){
+    public void modificarCelda(int f, int c, BucleDeControlProperties modeloMatriz) {
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("add-eliminar.fxml"));
-        System.out.println(fxmlLoader.getLocation());
+
         try {
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            AddEliminiarController p =  fxmlLoader.getController();
+            AddEliminiarController p = fxmlLoader.getController();
 
             stage.setTitle("Modificaciones: ");
             stage.setScene(scene);
@@ -375,7 +376,7 @@ public class AjustesMidJuegoController implements Initializable {
             // Manejar el evento de selección del MenuButton
             EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    MenuItem selectedItem = (MenuItem)e.getSource();
+                    MenuItem selectedItem = (MenuItem) e.getSource();
                     String selectedValue = selectedItem.getText();
                     label.setText(selectedValue);
                 }
@@ -389,9 +390,7 @@ public class AjustesMidJuegoController implements Initializable {
             ListaEnlazada<Button> listaB = new ListaEnlazada<>();
 
 
-
-
-            VBox rootInd = new VBox(menuButtonInd, label,decor,button);
+            VBox rootInd = new VBox(menuButtonInd, label, decor, button);
             rootInd.setAlignment(Pos.CENTER);
 
             MenuButton menuButtonRec = new MenuButton("TipoRec");
@@ -403,7 +402,7 @@ public class AjustesMidJuegoController implements Initializable {
             MenuItem itemr5 = new MenuItem("Pozo");
             MenuItem itemr6 = new MenuItem("Tesoro");
 
-            menuButtonRec.getItems().addAll(itemr1, itemr2, itemr3,itemr4,itemr5,itemr6);
+            menuButtonRec.getItems().addAll(itemr1, itemr2, itemr3, itemr4, itemr5, itemr6);
 
             // Crear un Label para mostrar el valor seleccionado
             Label labelRec = new Label("Valor seleccionado:  ");
@@ -411,7 +410,7 @@ public class AjustesMidJuegoController implements Initializable {
             // Manejar el evento de selección del MenuButton
             EventHandler<ActionEvent> event2 = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    MenuItem selectedItem = (MenuItem)e.getSource();
+                    MenuItem selectedItem = (MenuItem) e.getSource();
                     String selectedValue = selectedItem.getText();
                     labelRec.setText(selectedValue);
                 }
@@ -425,16 +424,25 @@ public class AjustesMidJuegoController implements Initializable {
 
             Button buttonR = new Button("Añadir Recurso");
 
-            VBox rootRec = new VBox(menuButtonRec, labelRec,decor,buttonR);
+            VBox rootRec = new VBox(menuButtonRec, labelRec, decor, buttonR);
 
             rootRec.setAlignment(Pos.CENTER);
             VBox vboxEliminar = new VBox();
 
             EventHandler<ActionEvent> eventButtonRec = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    if(labelRec.getText()=="Agua"){
-                        System.out.println("if");
-                        Agua agua = new Agua();
+                    GuardarDatos g = cargarObjetoDesdeArchivo("partidaAnterior.json", GuardarDatos.class);
+                    ;
+                    Agua a = g.cargarAgua();
+                    Biblioteca b = g.cargarBiblioteca();
+                    Comida co = g.cargarComida();
+                    Montana m = g.cargarMontana();
+                    Pozo p = g.cargarPozo();
+                    Tesoro t = g.cargarTesoro();
+
+                    if (labelRec.getText() == "Agua") {
+
+                        Agua agua = a;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(agua);
                             agua.setPosN(c);
@@ -455,9 +463,9 @@ public class AjustesMidJuegoController implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Biblioteca"){
+                    if (labelRec.getText() == "Biblioteca") {
 
-                        Biblioteca biblioteca = new Biblioteca();
+                        Biblioteca biblioteca = b;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(biblioteca);
                             biblioteca.setPosN(c);
@@ -477,9 +485,9 @@ public class AjustesMidJuegoController implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Comida"){
+                    if (labelRec.getText() == "Comida") {
 
-                        Comida comida = new Comida();
+                        Comida comida = co;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(comida);
                             comida.setPosN(c);
@@ -499,9 +507,9 @@ public class AjustesMidJuegoController implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Montaña"){
+                    if (labelRec.getText() == "Montaña") {
 
-                        Montana montana = new Montana();
+                        Montana montana = m;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(montana);
                             montana.setPosN(c);
@@ -521,9 +529,9 @@ public class AjustesMidJuegoController implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Pozo"){
+                    if (labelRec.getText() == "Pozo") {
 
-                        Pozo pozo = new Pozo();
+                        Pozo pozo = p;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(pozo);
                             pozo.setPosN(c);
@@ -544,9 +552,9 @@ public class AjustesMidJuegoController implements Initializable {
                             labelRec.textProperty().setValue("Ha superado el máximo de recursos");
                         }
                     }
-                    if(labelRec.getText()=="Tesoro"){
+                    if (labelRec.getText() == "Tesoro") {
 
-                        Tesoro tesoro = new Tesoro();
+                        Tesoro tesoro = t;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(tesoro);
                             tesoro.setPosN(c);
@@ -572,7 +580,7 @@ public class AjustesMidJuegoController implements Initializable {
 
             EventHandler<ActionEvent> eventButtonInd = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    if (label.getText()=="Básico") {
+                    if (label.getText() == "Básico") {
                         Random rand = new Random();
                         IndBasico ind = new IndBasico(rand.nextInt(900));
                         try {
@@ -593,7 +601,7 @@ public class AjustesMidJuegoController implements Initializable {
                         };
                         el.setOnAction(l);
                     }
-                    if (label.getText()=="Normal") {
+                    if (label.getText() == "Normal") {
                         Random rand = new Random();
                         IndNormal ind = new IndNormal(rand.nextInt(900));
                         try {
@@ -614,8 +622,7 @@ public class AjustesMidJuegoController implements Initializable {
                         };
                         el.setOnAction(l);
                     }
-                    if (label.getText()=="Avanzado") {
-                        System.out.println("entra");
+                    if (label.getText() == "Avanzado") {
                         Random rand = new Random();
                         IndAvanzado ind = new IndAvanzado(rand.nextInt(900));
                         try {
@@ -641,22 +648,19 @@ public class AjustesMidJuegoController implements Initializable {
             button.setOnAction(eventButtonInd);
 
 
-
-
-
-            for (int k=0;k < modeloMatriz.matriz[c][f].getListaIndividuo().getNumeroElementos();k++){
+            for (int k = 0; k < modeloMatriz.matriz[c][f].getListaIndividuo().getNumeroElementos(); k++) {
                 Individuo ind = modeloMatriz.matriz[c][f].getListaIndividuo().getElemento(k).getData();
                 String labe = "";
-                if(ind.getClass().equals(IndBasico.class)){
+                if (ind.getClass().equals(IndBasico.class)) {
                     labe += "Ind Básico ";
-                }else if(ind.getClass().equals(IndNormal.class)){
+                } else if (ind.getClass().equals(IndNormal.class)) {
                     labe += "Ind Normal ";
-                }else if(ind.getClass().equals(IndAvanzado.class)){
+                } else if (ind.getClass().equals(IndAvanzado.class)) {
                     labe += "Ind Avanzado ";
                 }
 
 
-                Button bu = new Button("Eliminar: "+labe + "id: "+ ind.getId());
+                Button bu = new Button("Eliminar: " + labe + "id: " + ind.getId());
                 vboxEliminar.getChildren().addAll(bu);
 
                 int finalJ = c;
@@ -674,26 +678,26 @@ public class AjustesMidJuegoController implements Initializable {
 
             }
 
-            for (int k=0;k < modeloMatriz.matriz[c][f].getListaRecurso().getNumeroElementos();k++){
+            for (int k = 0; k < modeloMatriz.matriz[c][f].getListaRecurso().getNumeroElementos(); k++) {
                 Recursos rec = modeloMatriz.matriz[c][f].getListaRecurso().getElemento(k).getData();
 
                 String labe = "";
-                if(rec.getClass().equals(Agua.class)){
+                if (rec.getClass().equals(Agua.class)) {
                     labe += "Agua ";
-                }else if(rec.getClass().equals(Biblioteca.class)){
+                } else if (rec.getClass().equals(Biblioteca.class)) {
                     labe += "Biblioteca ";
-                }else if(rec.getClass().equals(Comida.class)){
+                } else if (rec.getClass().equals(Comida.class)) {
                     labe += "Comida ";
-                }else if(rec.getClass().equals(Montana.class)){
+                } else if (rec.getClass().equals(Montana.class)) {
                     labe += "Montana ";
-                }else if(rec.getClass().equals(Tesoro.class)){
+                } else if (rec.getClass().equals(Tesoro.class)) {
                     labe += "Tesoro ";
-                }else{
+                } else {
                     labe += "Pozo: ";
                 }
 
 
-                Button ba = new Button("Eliminar: "+labe );
+                Button ba = new Button("Eliminar: " + labe);
 
                 int finalI = c;
                 int finalJ = f;
@@ -711,16 +715,11 @@ public class AjustesMidJuegoController implements Initializable {
             }
 
 
-
-
-
-
-
-            SplitPane splitPane1 = new SplitPane(rootInd,rootRec);
+            SplitPane splitPane1 = new SplitPane(rootInd, rootRec);
             splitPane1.setMinHeight(250);
             splitPane1.setOrientation(Orientation.VERTICAL);
 
-            SplitPane splitPane2 = new SplitPane(splitPane1,vboxEliminar);
+            SplitPane splitPane2 = new SplitPane(splitPane1, vboxEliminar);
             splitPane2.setMinHeight(400);
             splitPane2.setOrientation(Orientation.VERTICAL);
 
@@ -733,14 +732,13 @@ public class AjustesMidJuegoController implements Initializable {
             EventHandler eventButtonGuardar = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     modeloMatriz.commit();
-                    j.loadUserData(recursosModel,aguaModel,bibliotecaModel,comidaModel,montanaModel,pozoModel,tesoroModel,individuoModel,modeloMatriz);
-                    System.out.println(listaButton.getNumeroElementos());
-                    j.actualizarButton(f,c,modeloMatriz,listaButton);
+                    j.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel, pozoModel, tesoroModel, individuoModel, modeloMatriz);
+                    j.actualizarButton(f, c, modeloMatriz, listaButton);
                     stage.close();
                 }
             };
             button1.setOnAction(eventButtonGuardar);
-            VBox vbox2 = new VBox(splitPane2,button1);
+            VBox vbox2 = new VBox(splitPane2, button1);
             vboxEliminar.setAlignment(Pos.CENTER);
             vbox2.setAlignment(Pos.CENTER);
 
@@ -756,8 +754,6 @@ public class AjustesMidJuegoController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
 
 
     public void cerrarButton() {
@@ -777,8 +773,6 @@ public class AjustesMidJuegoController implements Initializable {
     }
 
 
-
-
     public void nuevaVentanaMatriz() {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("matriz1.fxml"));
@@ -788,7 +782,9 @@ public class AjustesMidJuegoController implements Initializable {
             stage.setScene(scene);
             //Recursos
             Matriz1Controller p = fxmlLoader.getController();
-            p.loadUserData(this.modeloMatriz,this.modeloCelda);
+            p.loadUserData(this.recursosModel, this.aguaModel, this.bibliotecaModel,
+                    this.comidaModel, this.montanaModel, this.pozoModel, this.tesoroModel, this.individuoModel,
+                    this.modeloMatriz);
 
 
             int filas = modeloMatriz.getFilas();
@@ -799,9 +795,6 @@ public class AjustesMidJuegoController implements Initializable {
             GridPane mainGrid = new GridPane();
             ScrollPane scrollPane = new ScrollPane(mainGrid);
 
-
-
-            System.out.println(modeloMatriz.matriz[0][0].getListaIndividuo().getNumeroElementos());
 
             for (int j = 0; j < filas; j++) {
                 for (int i = 0; i < columnas; i++) {
@@ -816,14 +809,13 @@ public class AjustesMidJuegoController implements Initializable {
                     int finalJ = j;
                     int finalI = i;
                     /***
-                    AjustesMidJuegoController rec = this;
-                    EventHandler e = new EventHandler() {
-                        @Override
-                        public void handle(Event event) {
-                            p.onButtonAction(finalI, finalJ, rec);
-                        }
+                     AjustesMidJuegoController rec = this;
+                     EventHandler e = new EventHandler() {
+                    @Override public void handle(Event event) {
+                    p.onButtonAction(finalI, finalJ, rec);
+                    }
                     };
-                    b.setOnAction(e);*/
+                     b.setOnAction(e);*/
                     b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                     placeholder.setMinSize(100, 100); // Tamaño mínimo para visualización
                     placeholder.setMaxSize(100, 100);
@@ -833,7 +825,7 @@ public class AjustesMidJuegoController implements Initializable {
                 }
             }
 
-            mainGrid.add(guardarButton,16,16);
+            mainGrid.add(guardarButton, 16, 16);
             mainGrid.setAlignment(Pos.BOTTOM_RIGHT);
 
             EventHandler nuevaVentana = new EventHandler() {
@@ -844,8 +836,6 @@ public class AjustesMidJuegoController implements Initializable {
 
                 }
             };
-
-
 
 
             guardarButton.setOnAction(nuevaVentana);

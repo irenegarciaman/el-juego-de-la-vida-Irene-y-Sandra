@@ -1,6 +1,6 @@
 package com.example.demojavafx.ed;
 
-public class NodoGrafoNuevo <TipoDelDato>{
+public class NodoGrafoNuevo<TipoDelDato> {
     TipoDelDato dato;
     ListaSimple<ArcoGrafoNuevo<TipoDelDato>> listaEntrada;
     ListaSimple<ArcoGrafoNuevo<TipoDelDato>> listaSalida;
