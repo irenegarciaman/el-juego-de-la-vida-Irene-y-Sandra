@@ -198,17 +198,7 @@ public class IndAvanzado extends Individuo {
 
         nodoIndividuo.setDato("NodoIndividuoInicio");
 
-        /**Cola <NodoGrafoNuevo> colaCeldasConRecurso = new Cola<>();
-         for (int i = 0; i <= maxFilas-1; i++) {
-         for (int j = 0; j <= maxColumnas-1; j++) {
-         for (int h = 0; h < matriz[i][j].getListaRecurso().getNumeroElementos(); h++) {
-         if (this.posN != i || this.posM != j) {
-         NodoGrafoNuevo nodo = new NodoGrafoNuevo<>(matriz[i][j],i,j);
-         colaCeldasConRecurso.push(new ElementoLDE<>(nodo));
-         }
-         }
-         }
-         }*/
+
         ListaSimple<NodoGrafoNuevo> listaNodosHastaRecursos = new ListaSimple<>();
         Double pesoCamino = Double.MAX_VALUE;
         while (!colaCeldasConRecurso.isVacia()) {

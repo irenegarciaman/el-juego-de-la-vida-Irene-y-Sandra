@@ -58,19 +58,27 @@ public class IndBasico extends Individuo {
         if (random == 0) {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
             matriz[this.posN - 1][this.posM].addIndividuo(this);
+            this.setPosN(this.posN-1);
+            this.setPosM(this.posM);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
         } else if (random == 1) {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
             matriz[this.posN + 1][this.posM].addIndividuo(this);
+            this.setPosN(this.posN+1);
+            this.setPosM(this.posM);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
         } else if (random == 2) {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
             matriz[this.posN][this.posM + 1].addIndividuo(this);
+            this.setPosN(this.posN);
+            this.setPosM(this.posM+1);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
         } else {
             matriz[this.posN][this.posM].eliminarIndividuo(this);
             ElementoLDE celdaRecorrida = new ElementoLDE<>(matriz[this.posN][this.posM]);
             matriz[this.posN][this.posM - 1].addIndividuo(this);
+            this.setPosN(this.posN);
+            this.setPosM(this.posM-1);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
     }

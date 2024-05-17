@@ -103,7 +103,9 @@ public class BucleDeControl {
         }
         for (int i = 0; i < columna; i++) {
             for (int j = 0; j < fila; j++) {
-                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
+                int k = 0;
+                for (; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() -1;) {
+
                     int id2 = matriz[j][i].getListaIndividuo().getElemento(k).getData().getId();
                     ElementoLE elem = new ElementoLE<>(id2);
                     if (!listaId.isVacia()) {//Lo he añadido nuevo
@@ -115,7 +117,11 @@ public class BucleDeControl {
                             if (listaId.isVacia()) {
                                 break;
                             }
+                        }else{
+                            k++;
                         }
+                    }else{
+                        k++;
                     }
                 }
             }
