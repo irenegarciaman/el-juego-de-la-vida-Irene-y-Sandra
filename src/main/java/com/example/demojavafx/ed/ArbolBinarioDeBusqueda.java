@@ -1,5 +1,6 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.HelloApplication;
 import com.example.demojavafx.individuos.IndAvanzado;
 import com.example.demojavafx.individuos.Individuo;
 import net.sourceforge.plantuml.*;
@@ -8,10 +9,13 @@ import net.sourceforge.plantuml.api.ImageDataSimple;
 import net.sourceforge.plantuml.core.Diagram;
 import net.sourceforge.plantuml.core.DiagramDescription;
 import net.sourceforge.plantuml.core.ImageData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 
 public class ArbolBinarioDeBusqueda<TipoDeDatos> {
+    private static final Logger log = LogManager.getLogger(ArbolBinarioDeBusqueda.class);
     public NodoArbol<TipoDeDatos> raiz;
 
     public ArbolBinarioDeBusqueda(NodoArbol<TipoDeDatos> raiz, NodoArbol<TipoDeDatos> derecha, NodoArbol<TipoDeDatos> izquierda) {

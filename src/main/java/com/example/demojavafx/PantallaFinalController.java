@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -22,6 +24,8 @@ public class PantallaFinalController implements Initializable {
     private Stage stage;
 
     private BucleDeControlProperties matrizModel;
+
+    private static final Logger log = LogManager.getLogger(PantallaFinalController.class);
 
 
     @Override

@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 import java.net.URL;
@@ -18,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class ModCeldaController implements Initializable {
 
-
+    private static final Logger log = LogManager.getLogger(ModCeldaController.class);
     @FXML
     private MenuButton boxTipoRecuso;
 

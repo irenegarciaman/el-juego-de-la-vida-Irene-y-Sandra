@@ -1,9 +1,14 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.HelloApplication;
 import javafx.beans.property.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AguaProperties extends RecursosProperties {
     protected Agua originalAgua;
+
+    private static final Logger log = LogManager.getLogger(AguaProperties.class);
 
 
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();

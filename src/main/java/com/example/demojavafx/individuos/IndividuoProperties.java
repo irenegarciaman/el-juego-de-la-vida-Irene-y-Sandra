@@ -1,9 +1,14 @@
 package com.example.demojavafx.individuos;
 
 
+import com.example.demojavafx.HelloApplication;
 import javafx.beans.property.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class IndividuoProperties {
+
+    private static final Logger log = LogManager.getLogger(IndividuoProperties.class);
 
     protected Individuo original;
 

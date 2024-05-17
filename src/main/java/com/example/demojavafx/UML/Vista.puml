@@ -7,17 +7,23 @@ Tabs: matriz,ind,rec (sliders)
 Button: cerrar
 Button: cancelar
 Button: Guardar
+--
+cond-iniciales.fxml
 }
 object JuegoController{
 Matriz de botones --> info
 Button: pause
 Button: empezar/siguiente turno
 if(pause)--> Button: play, fin, ajustes
+--
+juego.fxml
 }
 
 object Matriz1Controller{
 Matriz de botones--> modCelda
 Button: guardar
+--
+matriz1.fxml
 }
 object ModCeldaController{
 Tipo de individuo
@@ -29,9 +35,13 @@ Label
 Button: añadir
 --
 Button: guardar
+--
+md-celda.fxml
 }
 object InfoCeldaController{
 Label con info
+--
+info-celda.fxml
 }
 object AjustesMidJuegoController{
 Tipo de individuo
@@ -44,16 +54,22 @@ Button: añadir
 --
 Button: guardar
 Vbox: botones de eliminar
+--
+ajustes-mid-juego.fxml
 }
 object PantallaFinalController{
 Arbol
 --
 Preguntas
+--
+pantalla-final.fxml
 }
 object HelloApllication
 object HelloController{
 button: nuevo juego
 button: cargar Juego
+--
+hellow-view.fxml
 }
 HelloApllication --> HelloController
 HelloController --> RecursosController

@@ -9,6 +9,8 @@ import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.IndNormal;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.recursos.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -27,6 +29,8 @@ public class BucleDeControl {
     int contadorClonacionesTotales = 0;
 
     ListaEnlazada<Individuo> listaIndividuos = new ListaEnlazada<>();
+
+    private static final Logger log = LogManager.getLogger(BucleDeControl.class);
 
 
 
@@ -82,10 +86,13 @@ public class BucleDeControl {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaRecurso().getNumeroElementos() - 1; k++) {
                     Recursos recurso = matriz[j][i].getListaRecurso().getElemento(k).getData();
-                    int aux = recurso.getTurnosRestantes() - 1;
+                    int aux = recurso.getTurnosRestantes();
+                    aux--;
                     recurso.setTurnosRestantes(aux);
-                    if (recurso.getTurnosRestantes() == 0) {
+                    if (aux <= 0) {
+                        System.out.println(matriz[j][i].getListaRecurso().getNumeroElementos());
                         matriz[j][i].eliminarRecurso(recurso);
+                        System.out.println(matriz[j][i].getListaRecurso().getNumeroElementos());
                     }
                 }
             }
@@ -199,7 +206,7 @@ public class BucleDeControl {
                                 }
                             }
                             if (ind1.getClass() == IndAvanzado.class || ind2.getClass() == IndAvanzado.class) {
-                                IndAvanzado ind3 = new IndAvanzado(idIndividuoHijo, turno, ind1.getTurnosRestantes()+2);
+                                IndAvanzado ind3 = new IndAvanzado(idIndividuoHijo, turno, ind1.getTurnosRestantes()+2,ind1.getProbReproduccion(),ind1.getProbClonacion(),ind1.getProbMuerte());
                                 ind3.getArbolGenealogico().raiz.setIzquierda(new NodoArbol<>(ind1));
                                 ind3.getArbolGenealogico().raiz.setDerecha(new NodoArbol<>(ind2));
                                 matriz[j][i].addIndividuo(ind3);
@@ -211,7 +218,7 @@ public class BucleDeControl {
                                 ind2.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
                                 contadorReproduccionesTotales++;
                             } else if (ind1.getClass() == IndNormal.class || ind2.getClass() == IndNormal.class) {
-                                IndNormal ind3 = new IndNormal(idIndividuoHijo, turno, ind1.getTurnosRestantes()+2);
+                                IndNormal ind3 = new IndNormal(idIndividuoHijo, turno, ind1.getTurnosRestantes()+2,ind1.getProbReproduccion(),ind1.getProbClonacion(),ind1.getProbMuerte());
                                 matriz[j][i].addIndividuo(ind3);
                                 ind3.setPosN(j);
                                 ind3.setPosM(i);
@@ -223,7 +230,7 @@ public class BucleDeControl {
                                 ind2.getColaOperaciones().push(new ElementoLDE<Individuo>(ind3));
                                 contadorReproduccionesTotales++;
                             } else {
-                                IndBasico ind3 = new IndBasico(idIndividuoHijo, turno, ind1.getTurnosRestantes()+2);
+                                IndBasico ind3 = new IndBasico(idIndividuoHijo, turno, ind1.getTurnosRestantes()+2,ind1.getProbReproduccion(),ind1.getProbClonacion(),ind1.getProbMuerte());
                                 matriz[j][i].addIndividuo(ind3);
                                 ind3.setPosN(j);
                                 ind3.setPosM(i);

@@ -1,8 +1,13 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.HelloApplication;
 import javafx.beans.property.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class RecursosProperties {
+
+    private static final Logger log = LogManager.getLogger(RecursosProperties.class);
     protected Recursos original;
 
 

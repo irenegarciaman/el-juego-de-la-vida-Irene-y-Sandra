@@ -9,11 +9,14 @@ import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.IndNormal;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.recursos.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Celda {
 
     private ListaEnlazada<Individuo> listaIndividuo;
     private ListaEnlazada<Recursos> listaRecurso;
+    private static final Logger log = LogManager.getLogger(Celda.class);
 
     public Celda() {
         ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>(null);

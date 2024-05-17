@@ -1,6 +1,12 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Pozo extends Recursos {
+
+    private static final Logger log = LogManager.getLogger(Pozo.class);
 
     protected int probPozo;
 

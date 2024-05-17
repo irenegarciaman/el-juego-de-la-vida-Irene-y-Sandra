@@ -17,6 +17,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -138,6 +140,8 @@ public class RecursosController implements Initializable {
     private Slider sliderTurnosVida1;
 
     @FXML Label labelTurnosVida1;
+
+    private static final Logger log = LogManager.getLogger(RecursosController.class);
 
 
     private Stage scene;

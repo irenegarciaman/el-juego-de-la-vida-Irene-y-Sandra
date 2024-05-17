@@ -14,12 +14,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Matriz1Controller implements Initializable {
+
+    private static final Logger log = LogManager.getLogger(Matriz1Controller.class);
 
 
     private Stage scene;

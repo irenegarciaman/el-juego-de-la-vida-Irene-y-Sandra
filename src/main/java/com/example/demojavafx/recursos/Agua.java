@@ -1,11 +1,16 @@
 package com.example.demojavafx.recursos;
 
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Agua extends Recursos {
 
     private int aumentoDeVida;
     private int probAgua;
+
+    private static final Logger log = LogManager.getLogger(Agua.class);
 
     public Agua(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int aumentoDeVida, int probAgua) {
         super(turnosRestantes, posN, posM, probNuevoRecurso);

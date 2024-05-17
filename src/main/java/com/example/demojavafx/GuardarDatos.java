@@ -9,12 +9,15 @@ import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.IndNormal;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.recursos.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GuardarDatos {
     public String listaIndividuo[];
     public String listaRecurso[];
     public int infoIndyRec[];
     public int fyc[];
+    private static final Logger log = LogManager.getLogger(GuardarDatos.class);
 
     public void guardarDatos(BucleDeControl bucle, Individuo ind,
                              Agua agua, Biblioteca biblioteca, Comida comida,

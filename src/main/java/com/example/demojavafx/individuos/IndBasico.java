@@ -1,16 +1,20 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.HelloApplication;
 import com.example.demojavafx.ed.Cola;
 import com.example.demojavafx.ed.ElementoLDE;
 import com.example.demojavafx.ed.ListaSimple;
 import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.recursos.Recursos;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
 public class IndBasico extends Individuo {
+    private static final Logger log = LogManager.getLogger(IndBasico.class);
 
     public IndBasico(int id) {
         super(id);

@@ -295,10 +295,27 @@ class Cola{
 }
 
 
-
-class Entorno {
-maximo3
+class IndAvanzado {
+  - Recursos recursoDeseado
+  - int posNDeseado
+  - int posMDeseado
+  - NodoGrafoNuevo nodoIndividuo
+  - ListaSimple<NodoGrafoNuevo> listaMovimiento
+  - String claseRecurso
+  + IndAvanzado(int id)
+  + IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM)
+  + IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte)
+  + IndAvanzado(int id, int generacion, int turnoVidaRestantes)
+  + IndAvanzado(int id, int generacion, int turnoVidaRestantes, String claseRecurso)
+  + IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, String claseRecurso)
+  + ListaSimple<NodoGrafoNuevo> creacionListaMovimiento(int maxFilas, int maxColumnas, int posNDeseado, int posMDeseado, int posN, int posM, Celda[][] matriz)
+  + void moverse(int maxColumnas, int maxFilas, Celda[][] matriz) throws Superar3Individuos
+  + String toStringArbol(NodoArbol<Individuo> n)
+  + String toStringArbol()
+  + String toString()
 }
+
+
 
 package Recurso{
 abstract class Recursos{
@@ -485,7 +502,6 @@ Pozo --|> PozoProperties
 }
 
 Individuo "0,1,2,3" --o BucleDeControl
-Entorno "0,1,2,3" --o BucleDeControl
 Tablero "NxM" --o BucleDeControl
 
 
@@ -493,7 +509,6 @@ IndAvanzado --|> Individuo
 IndBasico --|> Individuo
 IndNormal --|> Individuo
 
-Recursos --|> Entorno
 Agua ---|> Recursos
 Montana ---|> Recursos
 Comida --|> Recursos
@@ -937,6 +952,55 @@ AjustesMidJuegoController  -->  IndividuoProperties
 AjustesMidJuegoController  -->  BucleDeControlProperties
 AjustesMidJuegoController  -->  ListaEnlazada
 
+
+class Individuo {
+    - int id
+    - int generacion
+    - int turnosRestantes
+    - int probReproduccion
+    - int probClonacion
+    - int probMuerte
+    - int posN
+    - int posM
+    - ArbolBinarioDeBusqueda<Individuo> arbolGenealogico
+    - Cola colaOperaciones
+    - int contadorReproduccion
+    - int contadorClonacion
+
+    + Individuo(int id, int generacion, int turnosRestantes)
+    + Individuo(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM)
+    + Individuo(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte)
+    + Individuo(int id)
+
+    + int getId()
+    + void setId(int id)
+    + int getGeneracion()
+    + void setGeneracion(int generacion)
+    + int getTurnosRestantes()
+    + void setTurnosRestantes(int turnoVidaRestantes)
+    + int getProbReproduccion()
+    + void setProbReproduccion(int probReproduccion)
+    + int getProbClonacion()
+    + void setProbClonacion(int probClonacion)
+    + int getProbMuerte()
+    + void setProbMuerte(int probMuerte)
+    + int getPosM()
+    + void setPosM(int posM)
+    + int getPosN()
+    + void setPosN(int posN)
+    + void moverse(int maxColumnas, int maxFilas, Celda[][] matriz)
+    + ArbolBinarioDeBusqueda<Individuo> getArbolGenealogico()
+    + void setArbolGenealogico(ArbolBinarioDeBusqueda<Individuo> arbolGenealogico)
+    + Cola getColaOperaciones()
+    + void setColaOperaciones(Cola colaOperaciones)
+    + int getContadorReproduccion()
+    + void setContadorReproduccion(int contadorReproduccion)
+    + int getContadorClonacion()
+    + void setContadorClonacion(int contadorClonacion)
+    + static Individuo fromStringI(String individuoString, String split)
+    + static Individuo fromString(String individuoString)
+    + String toString()
+}
 
 
 

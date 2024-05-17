@@ -1,6 +1,13 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Comida extends Recursos {
+
+    private static final Logger log = LogManager.getLogger(Comida.class);
+
     private int aumentoDeVida;
     private int probComida;
 

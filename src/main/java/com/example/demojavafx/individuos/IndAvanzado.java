@@ -1,13 +1,17 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.HelloApplication;
 import com.example.demojavafx.ed.*;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.recursos.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
 public class IndAvanzado extends Individuo {
+    private static final Logger log = LogManager.getLogger(IndAvanzado.class);
     Recursos recursoDeseado = null;
     int posNDeseado;
     int posMDeseado;

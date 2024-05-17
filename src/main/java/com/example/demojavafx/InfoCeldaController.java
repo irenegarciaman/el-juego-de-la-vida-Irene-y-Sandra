@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +21,8 @@ public class InfoCeldaController implements Initializable {
     private BucleDeControlProperties matrizModel;
 
     protected Celda[][] matriz;
+
+    private static final Logger log = LogManager.getLogger(InfoCeldaController.class);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

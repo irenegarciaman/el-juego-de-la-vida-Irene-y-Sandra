@@ -23,6 +23,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.io.IOException;
@@ -34,6 +36,8 @@ import java.util.ResourceBundle;
 import static com.example.demojavafx.ed.Gson1.cargarObjetoDesdeArchivo;
 
 public class JuegoController implements Initializable {
+
+    private static final Logger log = LogManager.getLogger(JuegoController.class);
 
 
     private Stage scene;
@@ -210,6 +214,17 @@ public class JuegoController implements Initializable {
                             }
                         }
                         stage.setTitle("juego en turno: " + matrizModel.original.turno);
+                        if(matrizModel.original.condicionFinalizacion()){
+                            stage.close();
+
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantalla-final.fxml"));
+                            PantallaFinalController p = new PantallaFinalController();
+
+                            p.loadUserData(modeloMatriz);
+
+                            p.abrirPantallaFinal();
+
+                        }
 
 
                     } catch (Superar3Individuos e) {
@@ -408,6 +423,7 @@ public class JuegoController implements Initializable {
                 }
             }
         }
+
         BucleDeControl bucleDeControl = new BucleDeControl(bucle.getFilas(), bucle.getColumnas());
         Celda[][] matriz = bucleDeControl.matriz;
         for (int j = 0; j < bucle.getFilas(); j++) {
@@ -418,12 +434,14 @@ public class JuegoController implements Initializable {
                         matriz[j][i].addIndividuo(ind);
                     }
                 }
-                for (int h = 0; h < matrizModel.matriz[j][i].getListaRecurso().getNumeroElementos(); h++) {
-                    Recursos rec = matrizModel.matriz[j][i].getListaRecurso().getElemento(h).getData();
-                    matriz[j][i].addRecurso(rec);
+                for (int h = 0; h < matrizModel.original.matriz[j][i].getListaRecurso().getNumeroElementos(); h++) {
+                    if(matrizModel.original.matriz[j][i].getListaRecurso().getElemento(h).getData().getTurnosRestantes()!=0){
+                        matriz[j][i].addRecurso(matrizModel.original.matriz[j][i].getListaRecurso().getElemento(h).getData());
+                    }
                 }
             }
         }
+
         bucle.original.matriz = matriz;
 
 
