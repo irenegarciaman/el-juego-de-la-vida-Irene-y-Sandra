@@ -104,11 +104,9 @@ public class JuegoController implements Initializable {
 
     public void onButtonInfo(int f, int c, BucleDeControlProperties matrizModel) {
         //se llama desde recursos controller
-        System.out.println("entra?");
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("info-celda.fxml"));
         try {
-            System.out.println("funcion");
             Scene scene = new Scene(fxmlLoader.load(), 400, 600);
             stage.setScene(scene);
             stage.setTitle("Ver celda {fila: " + c + " columna: " + f + "}");
@@ -146,8 +144,6 @@ public class JuegoController implements Initializable {
             int filas = modeloMatriz.getFilas();
             int columnas = modeloMatriz.getColumnas();
 
-            System.out.println(filas);
-            System.out.println(columnas);
 
 
             listaButton = new ListaEnlazada<>();
@@ -205,7 +201,7 @@ public class JuegoController implements Initializable {
                 public void handle(Event event) {
 
                     try {
-                        button.setText("Suigiente turno");
+                        button.setText("Sigiente turno");
                         matrizModel.original.bucleEntero();
                         moverIndividuo(matrizModel);
                         for (int j = 0; j < filas; j++) {
@@ -382,7 +378,6 @@ public class JuegoController implements Initializable {
         Button res = new Button();
         res.setId("hola");
 
-        System.out.println("nºelementos " + listaButton.getNumeroElementos());
 
         while (aux < listaButton.getNumeroElementos()) {
             String[] splitted = listaButton.getElemento(aux).getData().getId().split(",");
@@ -395,7 +390,6 @@ public class JuegoController implements Initializable {
             }
             aux++;
         }
-        System.out.println(res.getId());
         int numI = modeloMatriz.original.matriz[f][c].getListaIndividuo().getNumeroElementos();
         int numR = modeloMatriz.original.matriz[f][c].getListaRecurso().getNumeroElementos();
         String nombre = "nºInd: " + numI + "\n nºRec: " + numR;

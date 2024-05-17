@@ -1,27 +1,18 @@
 package com.example.demojavafx;
 
-import com.example.demojavafx.ed.Gson1;
-import com.example.demojavafx.individuos.IndBasico;
+
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.individuos.IndividuoProperties;
-import com.example.demojavafx.matriz.Matriz;
-import com.example.demojavafx.matriz.MatrizProperties;
 import com.example.demojavafx.recursos.*;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
+
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -60,9 +51,26 @@ public class HelloController implements Initializable {
             JuegoController p = new JuegoController();
             GuardarDatos gd = cargarObjetoDesdeArchivo("partidaAnterior.json", GuardarDatos.class);
 
+            Agua a = gd.cargarAgua();
+            Biblioteca b = gd.cargarBiblioteca();
+            Comida co = gd.cargarComida();
+            Montana m = gd.cargarMontana();
+            Pozo po = gd.cargarPozo();
+            Tesoro t = gd.cargarTesoro();
+            Recursos r = gd.getRecursos();
+            Individuo ind = gd.cargarIndividuo();
 
+            this.recursosModel = new RecursosProperties(r);
             this.matriz = gd.cargarBucle();
             this.modeloMatriz = new BucleDeControlProperties(this.matriz);
+            this.pozoModel = new PozoProperties(po,r);
+            this.aguaModel = new AguaProperties(a,b);
+            this.comidaModel = new ComidaProperties(co,m);
+            this.montanaModel = new MontanaProperties(m,po);
+            this.tesoroModel = new TesoroProperties(t,r);
+            this.bibliotecaModel = new BibliotecaProperties(b,r);
+            this.individuoModel = new IndividuoProperties(ind);
+
 
 
             p.loadUserData(recursosModel, aguaModel, bibliotecaModel, comidaModel, montanaModel, pozoModel, tesoroModel, individuoModel, modeloMatriz);

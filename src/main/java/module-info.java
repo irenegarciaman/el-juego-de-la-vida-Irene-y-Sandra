@@ -16,8 +16,6 @@ module com.example.demojavafx {
 
     opens com.example.demojavafx to javafx.fxml, com.google.gson;
     exports com.example.demojavafx;
-    exports com.example.demojavafx.matriz;
-    opens com.example.demojavafx.matriz to javafx.fxml;
     exports com.example.demojavafx.ed;
     opens com.example.demojavafx.ed to javafx.fxml, com.google.gson;
     opens com.example.demojavafx.individuos to javafx.fxml, com.google.gson;

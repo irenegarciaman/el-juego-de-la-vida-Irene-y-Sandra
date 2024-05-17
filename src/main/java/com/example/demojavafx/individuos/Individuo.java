@@ -7,7 +7,6 @@ import com.example.demojavafx.ed.Cola;
 import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.PorcentajeValido;
 import com.example.demojavafx.excepciones.Superar3Individuos;
-import com.example.demojavafx.matriz.Matriz;
 import com.example.demojavafx.recursos.Recursos;
 
 public abstract class Individuo {

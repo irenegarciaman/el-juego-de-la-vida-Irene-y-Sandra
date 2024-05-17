@@ -431,18 +431,13 @@ public class AjustesMidJuegoController implements Initializable {
 
             EventHandler<ActionEvent> eventButtonRec = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
-                    GuardarDatos g = cargarObjetoDesdeArchivo("partidaAnterior.json", GuardarDatos.class);
-                    ;
-                    Agua a = g.cargarAgua();
-                    Biblioteca b = g.cargarBiblioteca();
-                    Comida co = g.cargarComida();
-                    Montana m = g.cargarMontana();
-                    Pozo p = g.cargarPozo();
-                    Tesoro t = g.cargarTesoro();
+
 
                     if (labelRec.getText() == "Agua") {
+                        Agua agua = aguaModel.getOriginalAgua();
+                        agua.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        agua.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());;
 
-                        Agua agua = a;
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(agua);
                             agua.setPosN(c);
@@ -465,7 +460,9 @@ public class AjustesMidJuegoController implements Initializable {
                     }
                     if (labelRec.getText() == "Biblioteca") {
 
-                        Biblioteca biblioteca = b;
+                        Biblioteca biblioteca = bibliotecaModel.getOriginal();
+                        biblioteca.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        biblioteca.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(biblioteca);
                             biblioteca.setPosN(c);
@@ -487,7 +484,9 @@ public class AjustesMidJuegoController implements Initializable {
                     }
                     if (labelRec.getText() == "Comida") {
 
-                        Comida comida = co;
+                        Comida comida = comidaModel.getOriginal();
+                        comida.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        comida.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(comida);
                             comida.setPosN(c);
@@ -509,7 +508,9 @@ public class AjustesMidJuegoController implements Initializable {
                     }
                     if (labelRec.getText() == "Montaña") {
 
-                        Montana montana = m;
+                        Montana montana = montanaModel.getOriginal();
+                        montana.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        montana.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(montana);
                             montana.setPosN(c);
@@ -531,7 +532,9 @@ public class AjustesMidJuegoController implements Initializable {
                     }
                     if (labelRec.getText() == "Pozo") {
 
-                        Pozo pozo = p;
+                        Pozo pozo = pozoModel.getOriginal();
+                        pozo.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        pozo.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(pozo);
                             pozo.setPosN(c);
@@ -554,7 +557,9 @@ public class AjustesMidJuegoController implements Initializable {
                     }
                     if (labelRec.getText() == "Tesoro") {
 
-                        Tesoro tesoro = t;
+                        Tesoro tesoro = tesoroModel.getOriginal();
+                        tesoro.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        tesoro.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             modeloMatriz.matriz[c][f].addRecurso(tesoro);
                             tesoro.setPosN(c);
@@ -580,9 +585,14 @@ public class AjustesMidJuegoController implements Initializable {
 
             EventHandler<ActionEvent> eventButtonInd = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
+                    Individuo aux = individuoModel.getOriginal();
                     if (label.getText() == "Básico") {
                         Random rand = new Random();
                         IndBasico ind = new IndBasico(rand.nextInt(900));
+                        ind.setTurnosRestantes(aux.getTurnosRestantes());
+                        ind.setProbClonacion(aux.getProbClonacion());
+                        ind.setProbMuerte(aux.getProbMuerte());
+                        ind.setProbReproduccion(aux.getProbReproduccion());
                         try {
                             modeloMatriz.matriz[c][f].addIndividuo(ind);
                             ind.setPosN(c);
@@ -604,6 +614,10 @@ public class AjustesMidJuegoController implements Initializable {
                     if (label.getText() == "Normal") {
                         Random rand = new Random();
                         IndNormal ind = new IndNormal(rand.nextInt(900));
+                        ind.setTurnosRestantes(aux.getTurnosRestantes());
+                        ind.setProbClonacion(aux.getProbClonacion());
+                        ind.setProbMuerte(aux.getProbMuerte());
+                        ind.setProbReproduccion(aux.getProbReproduccion());
                         try {
                             modeloMatriz.matriz[c][f].addIndividuo(ind);
                             ind.setPosN(c);
@@ -625,6 +639,10 @@ public class AjustesMidJuegoController implements Initializable {
                     if (label.getText() == "Avanzado") {
                         Random rand = new Random();
                         IndAvanzado ind = new IndAvanzado(rand.nextInt(900));
+                        ind.setTurnosRestantes(aux.getTurnosRestantes());
+                        ind.setProbClonacion(aux.getProbClonacion());
+                        ind.setProbMuerte(aux.getProbMuerte());
+                        ind.setProbReproduccion(aux.getProbReproduccion());
                         try {
                             modeloMatriz.matriz[c][f].addIndividuo(ind);
                             ind.setPosN(c);

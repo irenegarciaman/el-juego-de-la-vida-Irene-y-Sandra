@@ -87,7 +87,6 @@ public class Matriz1Controller implements Initializable {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("md-celda.fxml"));
         try {
-            System.out.println(aguaModel.getOriginalAgua().toString());
             Scene scene = new Scene(fxmlLoader.load(), 300, 300);
             stage.setTitle("Modificar celda {fila: " + f + " columna: " + c + "}");
             ModCeldaController p = fxmlLoader.getController();
@@ -158,8 +157,10 @@ public class Matriz1Controller implements Initializable {
             EventHandler<ActionEvent> eventButtonRec = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     if (labelRec.getText() == "Agua") {
-                        System.out.println("if");
+
                         Agua agua = aguaModel.getOriginalAgua();
+                        agua.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        agua.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             matrizModel.matriz[f][c].addRecurso(agua);
                             agua.setPosN(f);
@@ -174,6 +175,8 @@ public class Matriz1Controller implements Initializable {
                     if (labelRec.getText() == "Biblioteca") {
 
                         Biblioteca biblioteca = bibliotecaModel.getOriginal();
+                        biblioteca.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        biblioteca.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             matrizModel.matriz[f][c].addRecurso(biblioteca);
                             biblioteca.setPosN(f);
@@ -186,6 +189,8 @@ public class Matriz1Controller implements Initializable {
                     if (labelRec.getText() == "Comida") {
 
                         Comida comida = comidaModel.getOriginal();
+                        comida.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        comida.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             matrizModel.matriz[f][c].addRecurso(comida);
                             comida.setPosN(f);
@@ -198,6 +203,8 @@ public class Matriz1Controller implements Initializable {
                     if (labelRec.getText() == "Montaña") {
 
                         Montana montana = montanaModel.getOriginal();
+                        montana.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        montana.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             matrizModel.matriz[f][c].addRecurso(montana);
                             montana.setPosN(f);
@@ -210,6 +217,8 @@ public class Matriz1Controller implements Initializable {
                     if (labelRec.getText() == "Pozo") {
 
                         Pozo pozo = pozoModel.getOriginal();
+                        pozo.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        pozo.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             matrizModel.matriz[f][c].addRecurso(pozo);
                             pozo.setPosN(f);
@@ -222,6 +231,8 @@ public class Matriz1Controller implements Initializable {
                     if (labelRec.getText() == "Tesoro") {
 
                         Tesoro tesoro = tesoroModel.getOriginal();
+                        tesoro.setTurnosRestantes(recursosModel.getOriginal().getTurnosRestantes());
+                        tesoro.setProbNuevoRecurso(recursosModel.getOriginal().getProbNuevoRecurso());
                         try {
                             matrizModel.matriz[f][c].addRecurso(tesoro);
                             tesoro.setPosN(f);

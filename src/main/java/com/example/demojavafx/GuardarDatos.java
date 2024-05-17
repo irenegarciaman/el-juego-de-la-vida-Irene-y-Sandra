@@ -42,8 +42,7 @@ public class GuardarDatos {
             }
         }
 
-        System.out.println("el lista ind " + listaInd.getNumeroElementos());
-        System.out.println("el lista rec " + listaRec.getNumeroElementos());
+
 
         listaIndividuo = new String[listaInd.getNumeroElementos()];
         listaRecurso = new String[listaRec.getNumeroElementos()];
@@ -58,7 +57,7 @@ public class GuardarDatos {
             listaRecurso[i] = listaRec.getElemento(i).getData().toString();
         }
 
-        infoIndyRec = new int[16];
+        infoIndyRec = new int[17];
 
         infoIndyRec[0] = agua.getProbNuevoRecurso();
 
@@ -83,6 +82,8 @@ public class GuardarDatos {
         infoIndyRec[13] = ind.getProbClonacion();
         infoIndyRec[14] = ind.getProbReproduccion();
         infoIndyRec[15] = ind.getProbMuerte();
+
+        infoIndyRec[16] = agua.getTurnosRestantes();
 
 
         Gson1.guardarObjetoEnArchivo("partidaAnterior.json", this);
@@ -236,6 +237,7 @@ public class GuardarDatos {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Recursos rec = new Recursos();
         rec.setProbNuevoRecurso(infoIndyRec[0]);
+        rec.setTurnosRestantes(infoIndyRec[16]);
         return rec;
     }
 
@@ -244,6 +246,8 @@ public class GuardarDatos {
         Agua agua = new Agua();
         agua.setProbAgua(infoIndyRec[1]);
         agua.setAumentoDeVida(infoIndyRec[2]);
+        agua.setProbNuevoRecurso(infoIndyRec[0]);
+        agua.setTurnosRestantes(infoIndyRec[16]);
         return agua;
     }
 
@@ -252,6 +256,8 @@ public class GuardarDatos {
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.setProbBiblioteca(infoIndyRec[3]);
         biblioteca.setAumentoDePorcenClon(infoIndyRec[4]);
+        biblioteca.setProbNuevoRecurso(infoIndyRec[0]);
+        biblioteca.setTurnosRestantes(infoIndyRec[16]);
         return biblioteca;
     }
 
@@ -260,6 +266,8 @@ public class GuardarDatos {
         Comida comida = new Comida();
         comida.setProbComida(infoIndyRec[5]);
         comida.setAumentoDeVida(infoIndyRec[6]);
+        comida.setProbNuevoRecurso(infoIndyRec[0]);
+        comida.setTurnosRestantes(infoIndyRec[16]);
         return comida;
     }
 
@@ -268,6 +276,8 @@ public class GuardarDatos {
         Montana montana = new Montana();
         montana.setProbMontana(infoIndyRec[7]);
         montana.setDisminucionDeVida(infoIndyRec[8]);
+        montana.setProbNuevoRecurso(infoIndyRec[0]);
+        montana.setTurnosRestantes(infoIndyRec[16]);
         return montana;
     }
 
@@ -276,6 +286,8 @@ public class GuardarDatos {
         Tesoro tesoro = new Tesoro();
         tesoro.setProbTesoro(infoIndyRec[9]);
         tesoro.setAumentoDePorcenRep(infoIndyRec[10]);
+        tesoro.setProbNuevoRecurso(infoIndyRec[0]);
+        tesoro.setTurnosRestantes(infoIndyRec[16]);
         return tesoro;
     }
 
@@ -283,6 +295,8 @@ public class GuardarDatos {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Pozo pozo = new Pozo();
         pozo.setProbPozo(infoIndyRec[11]);
+        pozo.setProbNuevoRecurso(infoIndyRec[0]);
+        pozo.setTurnosRestantes(infoIndyRec[16]);
         return pozo;
     }
 
@@ -333,4 +347,11 @@ public class GuardarDatos {
         g.cargarBucle();
     }
 
+    public Recursos getRecursos() {
+        Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
+        Recursos recursos = new Recursos();
+        recursos.setProbNuevoRecurso(infoIndyRec[0]);
+        recursos.setTurnosRestantes(infoIndyRec[16]);
+        return recursos;
+    }
 }

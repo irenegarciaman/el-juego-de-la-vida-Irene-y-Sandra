@@ -34,21 +34,10 @@ public class ModCeldaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //boxTipoInd.textProperty().bind(ti);
 
-        //boxTipoRecuso.textProperty().bind(tr);
-
-        /***
-         //Matriz
-         sliderFilasMatriz.valueProperty().bindBidirectional(mf);
-         labelFilasMatriz.textProperty().bind(mf.asString());
-
-         sliderColumnasMatriz.valueProperty().bindBidirectional(mc);
-         labelColumnasMatriz.textProperty().bind(mc.asString());*/
 
     }
 
-    // Manejar el evento de selección del MenuButton
     EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
             Label labelRec = new Label();
@@ -60,15 +49,9 @@ public class ModCeldaController implements Initializable {
 
 
     protected void updateGUIwithModel() {
-
-/***
- sliderColumnasMatriz.valueProperty().bindBidirectional(matrizModel.columnasProperty());
- sliderFilasMatriz.valueProperty().bindBidirectional(matrizModel.filasProperty());*/
     }
 
-    /**
-     * Este método recibe los datos del modelo y los establece
-     **/
+
 
     public void loadUserData(BucleDeControlProperties parametrosBucleDeControl) {
         this.matriz = parametrosBucleDeControl.matrizProperty();
@@ -95,18 +78,6 @@ public class ModCeldaController implements Initializable {
         matrizModel.rollback();
     }
 
-    public void onButtonAction(int f, int c) {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mod-celda.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-            stage.setTitle("Modificar celda {fila: " + f + " columna: " + c + "}");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-    }
 
 }

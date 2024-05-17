@@ -82,7 +82,8 @@ public class BucleDeControl {
             for (int j = 0; j < fila; j++) {
                 for (int k = 0; k <= matriz[j][i].getListaRecurso().getNumeroElementos() - 1; k++) {
                     Recursos recurso = matriz[j][i].getListaRecurso().getElemento(k).getData();
-                    recurso.setTurnosRestantes(recurso.getTurnosRestantes() - 1);
+                    int aux = recurso.getTurnosRestantes() - 1;
+                    recurso.setTurnosRestantes(aux);
                     if (recurso.getTurnosRestantes() == 0) {
                         matriz[j][i].eliminarRecurso(recurso);
                     }
