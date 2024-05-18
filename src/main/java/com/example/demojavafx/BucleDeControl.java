@@ -607,7 +607,7 @@ public class BucleDeControl {
                             listaVidaMaxima.delete(posIdInviduo);
                             listaVidaMaxima.insert(vidaIndividuoLista,posIdInviduo);
                         }
-                    }
+                    }//
                 }
             }
         }
