@@ -1,6 +1,10 @@
 package com.example.demojavafx;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class CeldaProperties {
+    private static final Logger log = LogManager.getLogger(CeldaProperties.class);
 
     protected Celda[][] original;
 

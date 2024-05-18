@@ -9,6 +9,8 @@ import com.example.demojavafx.individuos.IndBasico;
 import com.example.demojavafx.individuos.IndNormal;
 import com.example.demojavafx.individuos.Individuo;
 import com.example.demojavafx.recursos.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -30,6 +32,8 @@ public class BucleDeControl {
     ListaEnlazada<Integer> listaIdIndividuos = new ListaEnlazada<>();
 
     ListaEnlazada<Integer> listaVidaMaxima = new ListaEnlazada<>();
+
+    private static final Logger log = LogManager.getLogger(BucleDeControl.class);
 
 
 

@@ -1,6 +1,12 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Tesoro extends Recursos {
+    private static final Logger log = LogManager.getLogger(Tesoro.class);
+
     public Tesoro(int turnosRestantes, int posN, int posM, int probNuevoRecurso, int aumentoDePorcenRep, int probTesoro) {
         super(turnosRestantes, posN, posM, probNuevoRecurso);
         this.aumentoDePorcenRep = aumentoDePorcenRep;

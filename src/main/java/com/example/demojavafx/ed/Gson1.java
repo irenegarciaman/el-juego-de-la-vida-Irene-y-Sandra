@@ -4,10 +4,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.example.demojavafx.HelloApplication;
 import com.google.gson.Gson;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public abstract class Gson1 {
+
+    private static final Logger log = LogManager.getLogger(Gson1.class);
+
     // Método para guardar un objeto en un archivo JSON
     public static <T> void guardarObjetoEnArchivo(String rutaArchivo, T objeto) {
         Gson gson = new Gson();

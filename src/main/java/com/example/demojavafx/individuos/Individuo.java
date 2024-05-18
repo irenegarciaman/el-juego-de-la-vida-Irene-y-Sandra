@@ -2,15 +2,18 @@ package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.BucleDeControl;
 import com.example.demojavafx.Celda;
+import com.example.demojavafx.HelloApplication;
 import com.example.demojavafx.ed.ArbolBinarioDeBusqueda;
 import com.example.demojavafx.ed.Cola;
 import com.example.demojavafx.ed.NodoArbol;
 import com.example.demojavafx.excepciones.PorcentajeValido;
 import com.example.demojavafx.excepciones.Superar3Individuos;
-import com.example.demojavafx.matriz.Matriz;
 import com.example.demojavafx.recursos.Recursos;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class Individuo {
+    private static final Logger log = LogManager.getLogger(Individuo.class);
     int id;
     int generacion;
     int turnosRestantes;

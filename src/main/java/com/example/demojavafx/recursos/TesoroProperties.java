@@ -1,9 +1,12 @@
 package com.example.demojavafx.recursos;
 
+import com.example.demojavafx.HelloApplication;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TesoroProperties extends RecursosProperties {
     protected Tesoro original;
@@ -11,6 +14,8 @@ public class TesoroProperties extends RecursosProperties {
     private IntegerProperty turnosRestantes = new SimpleIntegerProperty();
     private IntegerProperty aumentoDePorcenRep = new SimpleIntegerProperty();
     private IntegerProperty probTesoro = new SimpleIntegerProperty();
+
+    private static final Logger log = LogManager.getLogger(TesoroProperties.class);
 
 
     public TesoroProperties(Tesoro original, Recursos recursos) {

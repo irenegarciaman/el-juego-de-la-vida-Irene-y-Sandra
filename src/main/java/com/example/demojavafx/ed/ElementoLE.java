@@ -1,8 +1,12 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.HelloApplication;
 import com.example.demojavafx.recursos.Recursos;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ElementoLE<TipoDelDato> {
+    private static final Logger log = LogManager.getLogger(ElementoLE.class);
     private ElementoLE<TipoDelDato> siguiente;
     private TipoDelDato data;
 

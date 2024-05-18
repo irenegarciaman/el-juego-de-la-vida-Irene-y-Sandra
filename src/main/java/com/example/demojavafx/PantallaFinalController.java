@@ -8,10 +8,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -22,6 +25,8 @@ public class PantallaFinalController implements Initializable {
     private Stage stage;
 
     private BucleDeControlProperties matrizModel;
+
+    private static final Logger log = LogManager.getLogger(PantallaFinalController.class);
 
 
     @Override
@@ -61,7 +66,6 @@ public class PantallaFinalController implements Initializable {
             stage.setTitle("¡El juego ha finalizado! ");
             stage.setScene(scene);
 
-            SplitPane split = new SplitPane();
 
             VBox vbox = new VBox();
 
@@ -85,9 +89,8 @@ public class PantallaFinalController implements Initializable {
                                 JScrollPane scrollPane = new JScrollPane(tree);
 
                                 JFrame frame = new JFrame("Tree View Ind" + ind.getId());
-                                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                                 frame.add(scrollPane);
-                                frame.setSize(300, 300);
+                                frame.setSize(500, 300);
                                 frame.setVisible(true);
                             }
                         };
@@ -96,9 +99,25 @@ public class PantallaFinalController implements Initializable {
                     }
                 }
             }
+
+            Label l1 = new Label("¿Cuántas mutaciones ha habido?:" + matrizModel.original.numeroClonacionesTotales());
+            Label l2 = new Label("¿¿Cuántas reproducciones ha habido?:" + matrizModel.original.numeroReproduccionesTotales());
+            Label l3 = new Label("¿Qué individuo ha tenido más reproducciones?: " + matrizModel.original.individuoMaximoReproducciones());
+            Label l4 = new Label("¿Qué individuo ha tenido más mutaciones?: " + matrizModel.original.individuoMaximoClonaciones());
+            Label l5 = new Label("¿Qué individuo ha bebido más agua?: " + matrizModel.original.individuoMaximoAgua());
+            Label l6 = new Label("¿Qué individuo ha conseguido llegar a un momento de máximo tiempo de vida disponible?: " + matrizModel.original.individuoMaximoVidaDisponible());
+            Label l7 = new Label("¿Cuánto ha sido?: " + matrizModel.original.cantidadIndividuoMaximoVidaDisponible());
+            boolean bool =  matrizModel.original.individuoMaximoVidaDisponible().equals(matrizModel.original.individuoLongevo());
+            Label l8 = new Label("¿Coincide con el más longevo?: " + bool);
+
+
+
+            VBox vertical = new VBox(l1,l2,l3,l4,l5,l6,l7,l8);
+            ScrollPane sc = new ScrollPane(vertical);
             ScrollPane scroll = new ScrollPane(vbox);
-            split.getItems().add(scroll);
-            split.setOrientation(Orientation.HORIZONTAL);
+            SplitPane split = new SplitPane(scroll,sc);
+
+            split.setOrientation(Orientation.VERTICAL);
             Scene scene1 = new Scene(split, 800, 600);
 
             stage.setScene(scene1);

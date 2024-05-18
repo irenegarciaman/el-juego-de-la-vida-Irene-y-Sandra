@@ -1,7 +1,12 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class
 ListaEnlazada<TipoDelDato> {
+    private static final Logger log = LogManager.getLogger(ListaEnlazada.class);
     private ElementoLE<TipoDelDato> primero;
 
     public ElementoLE<TipoDelDato> getEl() {

@@ -1,8 +1,13 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 public class GrafoNuevo<TipoDelDato> {
+    private static final Logger log = LogManager.getLogger(GrafoNuevo.class);
     private ListaSimple<NodoGrafoNuevo> listaVertices;
     private ListaSimple<ArcoGrafoNuevo> listaArcos;
 

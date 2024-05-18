@@ -1,6 +1,12 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.HelloApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class NodoArbol<TipoDelDato> {
+
+    private static final Logger log = LogManager.getLogger(NodoArbol.class);
     NodoArbol<TipoDelDato> derecha;
     NodoArbol<TipoDelDato> izquierda;
     TipoDelDato dato;

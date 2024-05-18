@@ -1,5 +1,6 @@
 package com.example.demojavafx.ed;
 
+import com.example.demojavafx.HelloApplication;
 import com.example.demojavafx.individuos.IndAvanzado;
 import com.example.demojavafx.individuos.Individuo;
 import net.sourceforge.plantuml.*;
@@ -8,10 +9,13 @@ import net.sourceforge.plantuml.api.ImageDataSimple;
 import net.sourceforge.plantuml.core.Diagram;
 import net.sourceforge.plantuml.core.DiagramDescription;
 import net.sourceforge.plantuml.core.ImageData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 
 public class ArbolBinarioDeBusqueda<TipoDeDatos> {
+    private static final Logger log = LogManager.getLogger(ArbolBinarioDeBusqueda.class);
     public NodoArbol<TipoDeDatos> raiz;
 
     public ArbolBinarioDeBusqueda(NodoArbol<TipoDeDatos> raiz, NodoArbol<TipoDeDatos> derecha, NodoArbol<TipoDeDatos> izquierda) {
@@ -309,67 +313,6 @@ public class ArbolBinarioDeBusqueda<TipoDeDatos> {
      return getNivel(0,this.raiz,n);
      }*/
 
-    /**
-     * public void borrado(TipoDeDatos valor, NodoArbol n){
-     * NodoArbol<TipoDeDatos> padre = new NodoArbol<>();
-     * Comparable c = (Comparable) n.getDato();
-     * int rdo = c.compareTo(valor);
-     * if (rdo > 0) {
-     * if (n.izquierda != null) {
-     * n = n.izquierda;
-     * }
-     * } else if (rdo < 0) {
-     * if (n.derecha != null) {
-     * n = n.derecha;
-     * }
-     * }
-     * if (rdo == 0) {
-     * if (padre.izquierda == n) {
-     * n = null;
-     * } else if(padre.derecha == n){
-     * n = null;
-     * }
-     * <p>
-     * } else {
-     * borrado(valor,n);
-     * }
-     * <p>
-     * <p>
-     * }
-     * <p>
-     * public void borrar(TipoDeDatos valor){
-     * Comparable c = (Comparable) raiz.dato;
-     * if(raiz!=null){
-     * if(c.compareTo(valor)==0){
-     * borrarRaiz();
-     * }else{
-     * raiz.borradoHoja(valor);
-     * }
-     * }
-     * }
-     * <p>
-     * public void borrarRaiz(){
-     * if(this.getGrado(raiz,(int)raiz.dato)==0){
-     * this.raiz = null;
-     * }else if(this.getGrado(raiz,(int)raiz.dato)==1){
-     * NodoArbol<TipoDeDatos> n = this.raiz.izquierda;
-     * if (n==null){
-     * n=this.raiz.derecha;
-     * }
-     * this.raiz=n;
-     * }else{
-     * NodoArbol<TipoDeDatos> n = this.raiz.NodoPadreIzq(raiz.derecha);
-     * NodoArbol<TipoDeDatos> nodoASustituir = n.izquierda;
-     * if(this.getGrado(raiz,(int)raiz.dato)==0){
-     * this.raiz.setDato(nodoASustituir.getDato());
-     * n.izquierda = null;
-     * }else{
-     * this.raiz.setDato(nodoASustituir.getDato());
-     * n.izquierda=nodoASustituir.derecha;
-     * }
-     * }
-     * }
-     */
 
     public int getNivel(NodoArbol<TipoDeDatos> n, NodoArbol<TipoDeDatos> raiz) {
         Comparable c = (Comparable) n.getDato();
