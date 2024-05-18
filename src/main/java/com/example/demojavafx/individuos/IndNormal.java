@@ -27,6 +27,10 @@ public class IndNormal extends Individuo {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
     }
 
+    public IndNormal(int id, int generacion, int turnosRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM, ArbolBinarioDeBusqueda<Individuo> arbolGenealogico, Cola colaOperaciones, int contadorReproduccion, int contadorClonacion, int contadorAgua, int contadorIndividuoLongevo) {
+        super(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM, arbolGenealogico, colaOperaciones, contadorReproduccion, contadorClonacion, contadorAgua, contadorIndividuoLongevo);
+    }
+
     public ListaEnlazada<Integer> creacionListaMovimiento(int posNDeseado, int posMDeseado, int posN, int posM, Celda[][] matriz) {
         if (posN == posNDeseado && posM == posMDeseado) {
             return listaMovimiento.invertir();

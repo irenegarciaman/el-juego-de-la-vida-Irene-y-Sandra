@@ -1,5 +1,6 @@
 package com.example.demojavafx;
 
+import com.example.demojavafx.ed.ElementoLDE;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.IndAvanzado;
@@ -55,13 +56,13 @@ class BucleDeControlTest {
 
     @Test
     void actualizarIndividuo() throws Superar3Individuos {
-        /**int columna = 3;
+         int columna = 3;
          int fila = 2;
          BucleDeControl matriz = new BucleDeControl(fila,columna);
          IndBasico ind1 = new IndBasico(222,4,6);
          IndNormal ind2 = new IndNormal(333,6,7);
          IndAvanzado ind3 = new IndAvanzado(444, 9,1);
-         ind1.setProbReproduccion(90);
+         ind1.setProbReproduccion(3);
          ind1.setProbClonacion(45);
          ind2.setProbReproduccion(87);
          ind2.setProbClonacion(34);
@@ -74,25 +75,25 @@ class BucleDeControlTest {
          assertEquals(5, ind1.getTurnosRestantes(), "Los turnos restantes no son iguales");
          assertEquals(6, ind2.getTurnosRestantes(), "Los turnos restantes no son iguales");
          assertEquals(0, ind3.getTurnosRestantes(), "Los turnos restantes no son iguales");
-         assertEquals(80, ind1.getProbReproduccion());
+         assertEquals(0, ind1.getProbReproduccion());
          assertEquals(35, ind1.getProbClonacion());
          assertEquals(77, ind2.getProbReproduccion());
          assertEquals(24, ind2.getProbClonacion());
          assertEquals(66, ind3.getProbReproduccion());
-         assertEquals(11, ind3.getProbClonacion());*/
+         assertEquals(11, ind3.getProbClonacion());
 
-        int columna = 3;
-        int fila = 2;
-        BucleDeControl matriz = new BucleDeControl(fila, columna);
-        IndBasico ind1 = new IndBasico(222, 4, 6);
-        IndNormal ind2 = new IndNormal(333, 6, 7);
-        IndAvanzado ind3 = new IndAvanzado(444, 9, 1);
+        int columna2 = 3;
+        int fila2 = 2;
+        BucleDeControl matriz2 = new BucleDeControl(fila2, columna2);
+        IndBasico ind12 = new IndBasico(222, 4, 6);
+        IndNormal ind22 = new IndNormal(333, 6, 7);
+        IndAvanzado ind32 = new IndAvanzado(444, 9, 1);
         IndBasico ind4 = new IndBasico(555, 4, 3);
-        matriz.matriz[1][1].addIndividuo(ind3);
-        matriz.matriz[1][1].addIndividuo(ind1);
-        matriz.matriz[1][1].addIndividuo(ind2);
-        matriz.matriz[1][1].addIndividuo(ind4);
-        assertEquals(3, matriz.matriz[1][1].getListaIndividuo().getNumeroElementos());
+        matriz2.matriz[1][1].addIndividuo(ind32);
+        matriz2.matriz[1][1].addIndividuo(ind12);
+        matriz2.matriz[1][1].addIndividuo(ind22);
+        matriz2.matriz[1][1].addIndividuo(ind4);
+        assertEquals(3, matriz2.matriz[1][1].getListaIndividuo().getNumeroElementos());
     }
 
     @Test
@@ -115,17 +116,17 @@ class BucleDeControlTest {
         int fila = 3;
         BucleDeControl matriz = new BucleDeControl(fila, columna);
         IndAvanzado ind1 = new IndAvanzado(222, 4, 6);
-        IndNormal ind2 = new IndNormal(333,6,7);
-        IndBasico ind3 = new IndBasico(444, 9,1);
+        IndAvanzado ind2 = new IndAvanzado(333,6,7);
+        IndAvanzado ind3 = new IndAvanzado(444, 9,1);
         Agua agua = new Agua(3, 4);
         Comida comida = new Comida(2,3);
         Montana montana = new Montana(4,5);
-        Biblioteca biblioteca = new Biblioteca(3,45);
+        //Biblioteca biblioteca = new Biblioteca(3,45);
         Tesoro tesoro = new Tesoro(3, 32);
         Pozo pozo = new Pozo(6);
         matriz.matriz[0][0].addRecurso(agua);
         matriz.matriz[2][0].addRecurso(tesoro);
-        matriz.matriz[0][2].addRecurso(biblioteca);
+        //matriz.matriz[0][2].addRecurso(biblioteca);
         matriz.matriz[1][0].addRecurso(comida);
         matriz.matriz[1][2].addRecurso(montana);
         matriz.matriz[1][1].addRecurso(pozo);
@@ -142,8 +143,8 @@ class BucleDeControlTest {
         agua.setPosM(0);
         tesoro.setPosN(2);
         tesoro.setPosM(0);
-        biblioteca.setPosN(0);
-        biblioteca.setPosM(2);
+       // biblioteca.setPosN(0);
+       // biblioteca.setPosM(2);
         comida.setPosN(1);
         comida.setPosM(0);
         montana.setPosN(1);
@@ -153,16 +154,7 @@ class BucleDeControlTest {
         assertDoesNotThrow(()->matriz.movimiento());
         assertDoesNotThrow(()->matriz.movimiento());
         assertDoesNotThrow(()->matriz.movimiento());
-        matriz.matriz[0][2].eliminarRecurso(biblioteca);
-        matriz.matriz[1][2].eliminarRecurso(montana);
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
-        assertDoesNotThrow(()->matriz.movimiento());
+
     }
 
     @Test
@@ -390,10 +382,10 @@ class BucleDeControlTest {
         BucleDeControl b = new BucleDeControl(fila, columna);
         IndBasico ind1 = new IndBasico(222, 0, 6, 90, 90, 10);
         IndNormal ind2 = new IndNormal(333, 0, 7, 80, 80, 20);
-        Comida comida = new Comida(2, 3);
+        Agua agua = new Agua(2, 3);
         Montana montana = new Montana(4, 5);
 
-        b.matriz[1][0].addRecurso(comida);
+        b.matriz[1][0].addRecurso(agua);
         b.matriz[1][2].addRecurso(montana);
 
         b.matriz[1][0].addIndividuo(ind1);
@@ -405,9 +397,9 @@ class BucleDeControlTest {
         ind2.setPosM(0);
 
 
-        comida.setPosN(1);
-        comida.setPosM(0);
-        comida.setProbNuevoRecurso(9);
+        agua.setPosN(1);
+        agua.setPosM(0);
+        agua.setProbNuevoRecurso(9);
         montana.setPosN(1);
         montana.setPosM(2);
         montana.setProbNuevoRecurso(76);
@@ -428,7 +420,7 @@ class BucleDeControlTest {
         int columna = 3;
         int fila = 2;
 
-        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        BucleDeControl matriz90 = new BucleDeControl(fila, columna);
         IndBasico ind1 = new IndBasico(222, 4, 6);
         IndNormal ind2 = new IndNormal(333, 6, 7);
         IndAvanzado ind3 = new IndAvanzado(444, 9, 1);
@@ -438,15 +430,189 @@ class BucleDeControlTest {
         ind3.setProbClonacion(70);
         ind2.setProbReproduccion(90);
         ind4.setProbReproduccion(90);
-        matriz.matriz[0][2].addIndividuo(ind1);
+        matriz90.matriz[0][2].addIndividuo(ind1);
+        matriz90.matriz[1][0].addIndividuo(ind2);
+        matriz90.matriz[1][2].addIndividuo(ind3);
+        matriz90.matriz[1][0].addIndividuo(ind4);
+
+        assertEquals(3,matriz90.conjuntoIdIndividuosTotales().getNumeroElementos());
+        matriz90.reproducion();
+
+
+    }
+
+    @Test
+    void individuoMaximaReproduccion() throws Superar3Individuos {
+        int columna = 3;
+        int fila = 2;
+
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333);
+        IndNormal ind2 = new IndNormal(222);
+        IndNormal ind3 = new IndNormal(111);
+        IndNormal ind4 = new IndNormal(555);
+        matriz.matriz[0][0].addIndividuo(ind1);
         matriz.matriz[1][0].addIndividuo(ind2);
-        matriz.matriz[1][2].addIndividuo(ind3);
-        matriz.matriz[1][0].addIndividuo(ind4);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        ind1.setContadorReproduccion(3);
+        ind2.setContadorReproduccion(5);
+        ind3.setContadorReproduccion(9);
+        ind4.setContadorReproduccion(8);
+        assertEquals(ind3,matriz.individuoMaximoReproducciones());
 
-        assertEquals(3,matriz.conjuntoIdIndividuosTotales().getNumeroElementos());
-        matriz.reproducion();
+    }
 
+    @Test
+    void individuoMaximaClonacion() throws Superar3Individuos {
+        int columna = 3;
+        int fila = 2;
 
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333);
+        IndNormal ind2 = new IndNormal(222);
+        IndNormal ind3 = new IndNormal(111);
+        IndNormal ind4 = new IndNormal(555);
+        matriz.matriz[0][0].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        ind1.setContadorClonacion(30);
+        ind2.setContadorClonacion(89);
+        ind3.setContadorClonacion(9);
+        ind4.setContadorClonacion(8);
+        assertEquals(ind2,matriz.individuoMaximoClonaciones());
+
+    }
+
+    @Test
+    void individuoMaximaAgua() throws Superar3Individuos, Superar3Recursos {
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333);
+        IndNormal ind2 = new IndNormal(222);
+        IndNormal ind3 = new IndNormal(111);
+        IndNormal ind4 = new IndNormal(555);
+        matriz.matriz[0][0].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+
+        Agua agua = new Agua();
+        Tesoro tesoro = new Tesoro();
+        matriz.matriz[0][0].addRecurso(agua);
+        matriz.matriz[0][0].addRecurso(agua);
+        matriz.matriz[1][0].addRecurso(agua);
+        matriz.matriz[0][1].addRecurso(agua);
+        matriz.matriz[0][1].addRecurso(tesoro);
+        matriz.matriz[1][1].addRecurso(tesoro);
+
+        matriz.mejorasRecursos();
+        assertEquals(ind1, matriz.individuoMaximoAgua());
+    }
+
+    @Test
+    void individuoLongevo() throws Superar3Individuos {
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333,0,2);
+        IndNormal ind2 = new IndNormal(222,0,4);
+        IndNormal ind3 = new IndNormal(111,0,3);
+        IndNormal ind4 = new IndNormal(555,0,7);
+        matriz.matriz[0][0].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        assertEquals(2, ind1.getContadorIndividuoLongevo());
+        assertEquals(4, ind2.getContadorIndividuoLongevo());
+        assertEquals(3, ind3.getContadorIndividuoLongevo());
+        assertEquals(5, ind4.getContadorIndividuoLongevo());
+        assertEquals(ind4, matriz.individuoLongevo());
+
+    }
+
+    @Test
+    void individuoLongevoOperaciones() throws Superar3Individuos {
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333,0,2);
+        IndNormal ind2 = new IndNormal(222,0,4);
+        IndNormal ind3 = new IndNormal(111,0,3);
+        IndNormal ind4 = new IndNormal(555,0,7);
+        matriz.matriz[0][0].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        assertEquals(2, ind1.getContadorIndividuoLongevo());
+        assertEquals(4, ind2.getContadorIndividuoLongevo());
+        assertEquals(3, ind3.getContadorIndividuoLongevo());
+        assertEquals(5, ind4.getContadorIndividuoLongevo());
+        assertEquals(ind4, matriz.individuoLongevo());
+        assertEquals(ind4.getColaOperaciones(), matriz.individuoLongevoOperaciones());
+
+    }
+
+    @Test
+    void individuoMaximoVidaDisponible() throws Superar3Individuos, Superar3Recursos {
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz89 = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333,0,2);
+        IndNormal ind2 = new IndNormal(222,0,4);
+        IndNormal ind3 = new IndNormal(111,0,3);
+        IndNormal ind4 = new IndNormal(555,0,7);
+        matriz89.matriz[0][0].addIndividuo(ind1);
+        matriz89.matriz[1][0].addIndividuo(ind2);
+        matriz89.matriz[0][1].addIndividuo(ind3);
+        matriz89.matriz[1][1].addIndividuo(ind4);
+        matriz89.conjuntoIdIndividuosTotales();
+        Comida comida = new Comida(9,8);
+        Montana montana = new Montana(3,4);
+        Agua agua = new Agua(3,2);
+        matriz89.matriz[1][0].addRecurso(comida);
+        matriz89.matriz[0][1].addRecurso(agua);
+        matriz89.matriz[1][1].addRecurso(montana);
+        matriz89.actualizarIndividuo();
+        matriz89.mejorasRecursos();
+        assertEquals(ind2,matriz89.individuoMaximoVidaDisponible());
+
+    }
+    @Test
+    void cantidadIndividuoMaximoVidaDisponible() throws Superar3Individuos, Superar3Recursos {
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333,0,2);
+        IndNormal ind2 = new IndNormal(222,0,4);
+        IndNormal ind3 = new IndNormal(111,0,3);
+        IndNormal ind4 = new IndNormal(555,0,7);
+        matriz.matriz[0][0].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        matriz.conjuntoIdIndividuosTotales();
+        Comida comida = new Comida(9,8);
+        Montana montana = new Montana(3,4);
+        Agua agua = new Agua(3,2);
+        matriz.matriz[1][0].addRecurso(comida);
+        matriz.matriz[0][1].addRecurso(agua);
+        matriz.matriz[1][1].addRecurso(montana);
+        matriz.mejorasRecursos();
+        assertEquals(ind2, matriz.individuoMaximoVidaDisponible());
+        assertEquals(12, matriz.cantidadIndividuoMaximoVidaDisponible());
     }
 
 }

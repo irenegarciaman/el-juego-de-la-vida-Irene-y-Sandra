@@ -1,10 +1,7 @@
 package com.example.demojavafx.individuos;
 
 import com.example.demojavafx.Celda;
-import com.example.demojavafx.ed.Cola;
-import com.example.demojavafx.ed.ElementoLDE;
-import com.example.demojavafx.ed.ListaSimple;
-import com.example.demojavafx.ed.NodoArbol;
+import com.example.demojavafx.ed.*;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.recursos.Recursos;
 
@@ -26,6 +23,10 @@ public class IndBasico extends Individuo {
 
     public IndBasico(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM) {
         super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte, posN, posM);
+    }
+
+    public IndBasico(int id, int generacion, int turnosRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM, ArbolBinarioDeBusqueda<Individuo> arbolGenealogico, Cola colaOperaciones, int contadorReproduccion, int contadorClonacion, int contadorAgua, int contadorIndividuoLongevo) {
+        super(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM, arbolGenealogico, colaOperaciones, contadorReproduccion, contadorClonacion, contadorAgua, contadorIndividuoLongevo);
     }
 
     @Override

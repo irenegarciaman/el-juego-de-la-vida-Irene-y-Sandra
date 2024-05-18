@@ -23,6 +23,9 @@ public abstract class Individuo {
     Cola colaOperaciones = new Cola<>();
     int contadorReproduccion = 0;
     int contadorClonacion = 0;
+    int contadorAgua = 0;
+    int contadorIndividuoLongevo = 0;
+
 
     public Individuo(int id, int generacion, int turnosRestantes) {
         this.id = id;
@@ -60,6 +63,23 @@ public abstract class Individuo {
         this.id = id;
         this.arbolGenealogico = new ArbolBinarioDeBusqueda<>();
         this.arbolGenealogico.raiz = new NodoArbol<>(this);
+    }
+
+    public Individuo(int id, int generacion, int turnosRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM, ArbolBinarioDeBusqueda<Individuo> arbolGenealogico, Cola colaOperaciones, int contadorReproduccion, int contadorClonacion, int contadorAgua, int contadorIndividuoLongevo) {
+        this.id = id;
+        this.generacion = generacion;
+        this.turnosRestantes = turnosRestantes;
+        this.probReproduccion = probReproduccion;
+        this.probClonacion = probClonacion;
+        this.probMuerte = probMuerte;
+        this.posN = posN;
+        this.posM = posM;
+        this.arbolGenealogico = arbolGenealogico;
+        this.colaOperaciones = colaOperaciones;
+        this.contadorReproduccion = contadorReproduccion;
+        this.contadorClonacion = contadorClonacion;
+        this.contadorAgua = contadorAgua;
+        this.contadorIndividuoLongevo = contadorIndividuoLongevo;
     }
 
 
@@ -221,4 +241,21 @@ public abstract class Individuo {
     public String toString() {
         return "";
     }
+
+    public int getContadorAgua() {
+        return contadorAgua;
+    }
+
+    public void setContadorAgua(int contadorAgua) {
+        this.contadorAgua = contadorAgua;
+    }
+
+    public int getContadorIndividuoLongevo() {
+        return contadorIndividuoLongevo;
+    }
+
+    public void setContadorIndividuoLongevo(int contadorIndividuoLongevo) {
+        this.contadorIndividuoLongevo = contadorIndividuoLongevo;
+    }
+
 }

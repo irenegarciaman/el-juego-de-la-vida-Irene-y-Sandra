@@ -42,6 +42,10 @@ public class IndAvanzado extends Individuo {
         this.claseRecurso = claseRecurso;
     }
 
+    public IndAvanzado(int id, int generacion, int turnosRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM, ArbolBinarioDeBusqueda<Individuo> arbolGenealogico, Cola colaOperaciones, int contadorReproduccion, int contadorClonacion, int contadorAgua, int contadorIndividuoLongevo) {
+        super(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM, arbolGenealogico, colaOperaciones, contadorReproduccion, contadorClonacion, contadorAgua, contadorIndividuoLongevo);
+    }
+
     public ListaSimple<NodoGrafoNuevo> creacionListaMovimiento (int maxFilas, int maxColumnas, int posNDeseado, int posMDeseado, int posN, int posM, Celda[][] matriz){
          ListaSimple<NodoGrafoNuevo> listaNodos = new ListaSimple<>();
          ListaSimple<ArcoGrafoNuevo> listaArcos = new ListaSimple<>();
@@ -68,25 +72,32 @@ public class IndAvanzado extends Individuo {
                  NodoGrafoNuevo nodo1 = grafo.getListaVertices().getElemento(r).getData();
                  NodoGrafoNuevo nodo2 = grafo.getListaVertices().getElemento(r + 1).getData();
                  Double pesoArco = 1.0;
-                 if (!matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().isVacia()) {
-                     for (int m = 0; m <= matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().getNumeroElementos() - 1; m++) {
+                 if (!matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().isVacia()) {
+                     String relacion = "";
+                     for (int m = 0; m <= matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getNumeroElementos() - 1; m++) {
 
-                         Recursos recurso = matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().getElemento(m).getData();
+                         Recursos recurso = matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getElemento(m).getData();
                          if (Agua.class == recurso.getClass()) {
-                             pesoArco += 5.0;
+                             pesoArco += 4.0;
+                             relacion= "Agua";
                          } else if (Comida.class == recurso.getClass()) {
                              pesoArco += 3.0;
+                             relacion= "Comida";
                          } else if (Montana.class == recurso.getClass()) {
                              pesoArco += 10.0;
+                             relacion = "Montaña";
                          } else if (Tesoro.class == recurso.getClass()) {
                              pesoArco += 5.0;
+                             relacion = "Tesoro";
                          } else if (Biblioteca.class == recurso.getClass()) {
-                             pesoArco += 5.0;
+                             pesoArco += 7.0;
+                             relacion = "Biblioteca";
                          } else if (Pozo.class == recurso.getClass()) {
                              pesoArco += 20.0;
+                             relacion = "Pozo";
                          }
                      }
-                     ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco", nodo1, nodo2, pesoArco);
+                     ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>(relacion, nodo1, nodo2, pesoArco);
                      grafo.addArco(arco1);
                  }else {
                      ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco sin recurso", nodo1, nodo2, pesoArco);
@@ -101,25 +112,33 @@ public class IndAvanzado extends Individuo {
                 NodoGrafoNuevo nodo1 = grafo.getListaVertices().getElemento(z).getData();
                 NodoGrafoNuevo nodo2 = grafo.getListaVertices().getElemento(z + 1).getData();
                 Double pesoArco = 1.0;
-                if (!matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().isVacia()) {
-                    for (int k = 0; k <= matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getNumeroElementos() - 1; k++) {
+                if (!matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().isVacia()) {
+                    String relacion="";
+                    for (int k = 0; k <= matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().getNumeroElementos() - 1; k++) {
 
-                        Recursos recurso = matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getElemento(k).getData();
+                        Recursos recurso = matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().getElemento(k).getData();
                         if (Agua.class == recurso.getClass()) {
-                            pesoArco += 5.0;
+                            pesoArco += 4.0;
+                            relacion= "Agua";
                         } else if (Comida.class == recurso.getClass()) {
                             pesoArco += 3.0;
+                            relacion= "Comida";
                         } else if (Montana.class == recurso.getClass()) {
                             pesoArco += 10.0;
+                            relacion = "Montaña";
                         } else if (Tesoro.class == recurso.getClass()) {
                             pesoArco += 5.0;
+                            relacion = "Tesoro";
                         } else if (Biblioteca.class == recurso.getClass()) {
-                            pesoArco += 5.0;
+                            pesoArco += 7.0;
+                            relacion = "Biblioteca";
                         } else if (Pozo.class == recurso.getClass()) {
                             pesoArco += 20.0;
+                            relacion = "Pozo";
                         }
+
                     }
-                    ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco", nodo2, nodo1, pesoArco);
+                    ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>(relacion, nodo2, nodo1, pesoArco);
                     grafo.addArco(arco1);
                 }else {
                     ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco sin recurso", nodo2, nodo1, pesoArco);
@@ -134,25 +153,32 @@ public class IndAvanzado extends Individuo {
             NodoGrafoNuevo nodo1 = grafo.getListaVertices().getElemento(l).getData();
             NodoGrafoNuevo nodo2 = grafo.getListaVertices().getElemento(l + maxFilas).getData();
             Double pesoArco = 1.0;
-            if (!matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().isVacia()) {
-                for (int u = 0; u <= matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().getNumeroElementos() - 1; u++) {
+            if (!matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().isVacia()) {
+                String relacion="";
+                for (int u = 0; u <= matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getNumeroElementos() - 1; u++) {
 
-                    Recursos recurso = matriz[nodo1.getPosN()][nodo1.getPosM()].getListaRecurso().getElemento(u).getData();
+                    Recursos recurso = matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getElemento(u).getData();
                     if (Agua.class == recurso.getClass()) {
-                        pesoArco += 5.0;
+                        pesoArco += 4.0;
+                        relacion= "Agua";
                     } else if (Comida.class == recurso.getClass()) {
                         pesoArco += 3.0;
+                        relacion= "Comida";
                     } else if (Montana.class == recurso.getClass()) {
                         pesoArco += 10.0;
+                        relacion = "Montaña";
                     } else if (Tesoro.class == recurso.getClass()) {
                         pesoArco += 5.0;
+                        relacion = "Tesoro";
                     } else if (Biblioteca.class == recurso.getClass()) {
-                        pesoArco += 5.0;
+                        pesoArco += 7.0;
+                        relacion = "Biblioteca";
                     } else if (Pozo.class == recurso.getClass()) {
                         pesoArco += 20.0;
+                        relacion = "Pozo";
                     }
                 }
-                ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco", nodo1, nodo2, pesoArco);
+                ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>(relacion, nodo1, nodo2, pesoArco);
                 grafo.addArco(arco1);
             } else {
                 ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco sin recurso", nodo1, nodo2, pesoArco);
@@ -168,24 +194,31 @@ public class IndAvanzado extends Individuo {
             NodoGrafoNuevo nodo2 = grafo.getListaVertices().getElemento(s - maxFilas).getData();
             Double pesoArco = 1.0;
             if (!matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().isVacia()) {
+                String relacion = "";
                 for (int p = 0; p <= matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getNumeroElementos() - 1; p++) {
 
                     Recursos recurso = matriz[nodo2.getPosN()][nodo2.getPosM()].getListaRecurso().getElemento(p).getData();
                     if (Agua.class == recurso.getClass()) {
-                        pesoArco += 5.0;
+                        pesoArco += 4.0;
+                        relacion= "Agua";
                     } else if (Comida.class == recurso.getClass()) {
                         pesoArco += 3.0;
+                        relacion= "Comida";
                     } else if (Montana.class == recurso.getClass()) {
                         pesoArco += 10.0;
+                        relacion = "Montaña";
                     } else if (Tesoro.class == recurso.getClass()) {
                         pesoArco += 5.0;
+                        relacion = "Tesoro";
                     } else if (Biblioteca.class == recurso.getClass()) {
-                        pesoArco += 5.0;
+                        pesoArco += 7.0;
+                        relacion = "Biblioteca";
                     } else if (Pozo.class == recurso.getClass()) {
                         pesoArco += 20.0;
+                        relacion = "Pozo";
                     }
                 }
-                ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco", nodo1, nodo2, pesoArco);
+                ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>(relacion, nodo1, nodo2, pesoArco);
                 grafo.addArco(arco1);
             } else {
                 ArcoGrafoNuevo arco1 = new ArcoGrafoNuevo<>("arco sin recurso", nodo1, nodo2, pesoArco);

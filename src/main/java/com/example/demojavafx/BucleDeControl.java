@@ -27,6 +27,9 @@ public class BucleDeControl {
     int contadorClonacionesTotales = 0;
 
     ListaEnlazada<Individuo> listaIndividuos = new ListaEnlazada<>();
+    ListaEnlazada<Integer> listaIdIndividuos = new ListaEnlazada<>();
+
+    ListaEnlazada<Integer> listaVidaMaxima = new ListaEnlazada<>();
 
 
 
@@ -69,6 +72,7 @@ public class BucleDeControl {
                     individuo.setTurnosRestantes(individuo.getTurnosRestantes() - 1);
                     individuo.setProbReproduccion(individuo.getProbReproduccion() - 10);
                     individuo.setProbClonacion(individuo.getProbClonacion() - 10);
+                    individuo.setContadorIndividuoLongevo(individuo.getContadorIndividuoLongevo()+1);
                     if (individuo.getTurnosRestantes() == 0) {
                         matriz[j][i].eliminarIndividuo(individuo);
                     }
@@ -140,6 +144,7 @@ public class BucleDeControl {
                             individuo.setTurnosRestantes(individuo.getTurnosRestantes()+((Agua) recurso).getAumentoDeVida());
                             individuo.getColaOperaciones().push(new ElementoLDE<>("recurso"));
                             individuo.getColaOperaciones().push(new ElementoLDE<>(recurso));
+                            individuo.setContadorAgua(individuo.getContadorAgua()+1);
                         }else if(recurso.getClass() == Comida.class){
                             individuo.setTurnosRestantes(individuo.getTurnosRestantes()+((Comida) recurso).getAumentoDeVida());
                             individuo.getColaOperaciones().push(new ElementoLDE<>("recurso"));
@@ -585,19 +590,135 @@ public class BucleDeControl {
 
     //Funcion para saber todos los individuos que han jugado en el tablero
     public ListaEnlazada<Integer> conjuntoIdIndividuosTotales(){
-        ListaEnlazada<Integer> listaIdIndividuos = new ListaEnlazada<>();
         for (int i = 0; i < fila; i++) {
             for (int j = 0; j < columna; j++) {
                 for (int k = 0; k <= matriz[i][j].getListaIndividuo().getNumeroElementos() - 1; k++) {
-                    int idIndividuo = matriz[i][j].getListaIndividuo().getElemento(k).getData().getId();
+                    Individuo individuo = matriz[i][j].getListaIndividuo().getElemento(k).getData();
+                    int idIndividuo = individuo.getId();
+                    int turnosRestantesIndividuo = individuo.getTurnosRestantes();
                     int posIdInviduo = listaIdIndividuos.getPosicion(new ElementoLE<>(idIndividuo));
                     if (posIdInviduo==-1) {
-                        listaIndividuos.add(matriz[i][j].getListaIndividuo().getElemento(k));
+                        listaIndividuos.add(individuo);
                         listaIdIndividuos.add(idIndividuo);
+                        listaVidaMaxima.add(turnosRestantesIndividuo);
+                    }else{
+                        int vidaIndividuoLista = listaIndividuos.getElemento(posIdInviduo).getData().getTurnosRestantes();
+                        if (vidaIndividuoLista>listaVidaMaxima.getElemento(posIdInviduo).getData()){
+                            listaVidaMaxima.delete(posIdInviduo);
+                            listaVidaMaxima.insert(vidaIndividuoLista,posIdInviduo);
+                        }
                     }
                 }
             }
         }
         return listaIdIndividuos;
     }
+    public int numeroReproduccionesTotales(){
+        return contadorReproduccionesTotales;
+    }
+    public int numeroClonacionesTotales(){
+        return contadorClonacionesTotales;
+    }
+    public Individuo individuoMaximoReproducciones(){
+        conjuntoIdIndividuosTotales();
+        Individuo individuo = null;
+        if (!listaIndividuos.isVacia()){
+            int i = 0;
+            int aux = 0;
+            while( aux<listaIndividuos.getNumeroElementos()){
+                int reproducion = listaIndividuos.getElemento(aux).getData().getContadorReproduccion();
+                if (reproducion>listaIndividuos.getElemento(i).getData().getContadorReproduccion()){
+                    i=aux;
+                }
+                aux++;
+            }
+            individuo = listaIndividuos.getElemento(i).getData();
+        }
+        return individuo;
+    }
+
+    public Individuo individuoMaximoClonaciones(){
+        conjuntoIdIndividuosTotales();
+        Individuo individuo = null;
+        if (!listaIndividuos.isVacia()){
+            int i = 0;
+            int aux = 0;
+            while( aux<listaIndividuos.getNumeroElementos()){
+                int reproducion = listaIndividuos.getElemento(aux).getData().getContadorClonacion();
+                if (reproducion>listaIndividuos.getElemento(i).getData().getContadorClonacion()){
+                    i=aux;
+                }
+                aux++;
+            }
+            individuo = listaIndividuos.getElemento(i).getData();
+        }
+        return individuo;
+    }
+
+    public Individuo individuoMaximoAgua() {
+        conjuntoIdIndividuosTotales();
+        Individuo individuo = null;
+        if (!listaIndividuos.isVacia()){
+            int i = 0;
+            int aux = 0;
+            while( aux<listaIndividuos.getNumeroElementos()){
+                int reproducion = listaIndividuos.getElemento(aux).getData().getContadorAgua();
+                if (reproducion>listaIndividuos.getElemento(i).getData().getContadorAgua()){
+                    i=aux;
+                }
+                aux++;
+            }
+            individuo = listaIndividuos.getElemento(i).getData();
+        }
+        return individuo;
+
+    }
+    public Individuo individuoLongevo() {
+        conjuntoIdIndividuosTotales();
+        Individuo individuo = null;
+        if (!listaIndividuos.isVacia()){
+            int i = 0;
+            int aux = 0;
+            while( aux<listaIndividuos.getNumeroElementos()){
+                int reproducion = listaIndividuos.getElemento(aux).getData().getContadorIndividuoLongevo();
+                if (reproducion>listaIndividuos.getElemento(i).getData().getContadorIndividuoLongevo()){
+                    i=aux;
+                }
+                aux++;
+            }
+            individuo = listaIndividuos.getElemento(i).getData();
+        }
+        return individuo;
+    }
+    public Cola individuoLongevoOperaciones(){
+        return individuoLongevo().getColaOperaciones();
+    }
+
+    public Individuo individuoMaximoVidaDisponible(){
+        conjuntoIdIndividuosTotales();
+        Individuo individuo = null;
+        if (!listaIndividuos.isVacia()){
+            int i = 0;
+            int aux = 0;
+            while( aux<listaVidaMaxima.getNumeroElementos()){
+                int vida = listaVidaMaxima.getElemento(aux).getData();
+                if (vida>listaVidaMaxima.getElemento(i).getData()){
+                    i=aux;
+                }
+                aux++;
+            }
+            individuo = listaIndividuos.getElemento(i).getData();
+        }
+        return individuo;
+    }
+    public int cantidadIndividuoMaximoVidaDisponible(){
+        int posInd = listaIndividuos.getPosicion(new ElementoLE<>(individuoMaximoVidaDisponible()));
+        return listaVidaMaxima.getElemento(posInd).getData();
+    }
+
+    public boolean mismoIndividuoLoguevoYVidaDisponible(){
+        return (individuoMaximoVidaDisponible()==individuoLongevo());
+    }
+
+
 }
