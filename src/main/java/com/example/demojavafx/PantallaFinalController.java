@@ -106,13 +106,15 @@ public class PantallaFinalController implements Initializable {
             Label l4 = new Label("¿Qué individuo ha tenido más mutaciones?: " + matrizModel.original.individuoMaximoClonaciones());
             Label l5 = new Label("¿Qué individuo ha bebido más agua?: " + matrizModel.original.individuoMaximoAgua());
             Label l6 = new Label("¿Qué individuo ha conseguido llegar a un momento de máximo tiempo de vida disponible?: " + matrizModel.original.individuoMaximoVidaDisponible());
+            Label l9 = new Label("¿Cuál es el individuo más longevo?: " + matrizModel.original.individuoLongevo());
+            Label l10 = new Label("Cuál es la cola de operaciones del individuo más longevo?: "+matrizModel.original.individuoLongevo().getColaOperaciones());
             Label l7 = new Label("¿Cuánto ha sido?: " + matrizModel.original.cantidadIndividuoMaximoVidaDisponible());
             boolean bool =  matrizModel.original.individuoMaximoVidaDisponible().equals(matrizModel.original.individuoLongevo());
             Label l8 = new Label("¿Coincide con el más longevo?: " + bool);
 
 
 
-            VBox vertical = new VBox(l1,l2,l3,l4,l5,l6,l7,l8);
+            VBox vertical = new VBox(l1,l2,l3,l4,l5,l6,l9,l10,l7,l8);
             ScrollPane sc = new ScrollPane(vertical);
             ScrollPane scroll = new ScrollPane(vbox);
             SplitPane split = new SplitPane(scroll,sc);

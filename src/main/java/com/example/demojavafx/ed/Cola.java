@@ -115,4 +115,14 @@ public class Cola<TipoDelDato> {
             el.getSiguiente().setSiguiente(el.getSiguiente());
         }
     }
+    @Override
+    public String toString(){
+        ElementoLDE<TipoDelDato> el = cola;
+        String res = "";
+        while(el!=cabeza){
+            res += ":"+el.getData();
+            el = el.getSiguiente();
+        }
+        return res;
+    }
 }

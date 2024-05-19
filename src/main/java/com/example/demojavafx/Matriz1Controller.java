@@ -261,6 +261,7 @@ public class Matriz1Controller implements Initializable {
                         ind.setProbClonacion(aux.getProbClonacion());
                         ind.setProbMuerte(aux.getProbMuerte());
                         ind.setProbReproduccion(aux.getProbReproduccion());
+                        ind.setGeneracion(matrizModel.original.turno);
 //                        ind.setId(rand.nextInt(900));
                         try {
                             matrizModel.matriz[f][c].addIndividuo(ind);

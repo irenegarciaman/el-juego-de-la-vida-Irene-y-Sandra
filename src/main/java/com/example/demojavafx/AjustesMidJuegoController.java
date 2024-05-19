@@ -597,6 +597,7 @@ public class AjustesMidJuegoController implements Initializable {
                         ind.setProbClonacion(aux.getProbClonacion());
                         ind.setProbMuerte(aux.getProbMuerte());
                         ind.setProbReproduccion(aux.getProbReproduccion());
+                        ind.setGeneracion(modeloMatriz.original.turno);
                         try {
                             modeloMatriz.matriz[c][f].addIndividuo(ind);
                             ind.setPosN(c);
@@ -622,6 +623,7 @@ public class AjustesMidJuegoController implements Initializable {
                         ind.setProbClonacion(aux.getProbClonacion());
                         ind.setProbMuerte(aux.getProbMuerte());
                         ind.setProbReproduccion(aux.getProbReproduccion());
+                        ind.setGeneracion(modeloMatriz.original.turno);
                         try {
                             modeloMatriz.matriz[c][f].addIndividuo(ind);
                             ind.setPosN(c);
@@ -647,6 +649,7 @@ public class AjustesMidJuegoController implements Initializable {
                         ind.setProbClonacion(aux.getProbClonacion());
                         ind.setProbMuerte(aux.getProbMuerte());
                         ind.setProbReproduccion(aux.getProbReproduccion());
+                        ind.setGeneracion(modeloMatriz.original.turno);
                         try {
                             modeloMatriz.matriz[c][f].addIndividuo(ind);
                             ind.setPosN(c);
