@@ -44,4 +44,20 @@ public class NodoGrafoNuevo<TipoDelDato> {
     public int getPosM() {
         return posM;
     }
+
+    public ListaSimple<ArcoGrafoNuevo<TipoDelDato>> getListaEntrada() {
+        return listaEntrada;
+    }
+
+    public void setListaEntrada(ListaSimple<ArcoGrafoNuevo<TipoDelDato>> listaEntrada) {
+        this.listaEntrada = listaEntrada;
+    }
+
+    public ListaSimple<ArcoGrafoNuevo<TipoDelDato>> getListaSalida() {
+        return listaSalida;
+    }
+
+    public void setListaSalida(ListaSimple<ArcoGrafoNuevo<TipoDelDato>> listaSalida) {
+        this.listaSalida = listaSalida;
+    }
 }

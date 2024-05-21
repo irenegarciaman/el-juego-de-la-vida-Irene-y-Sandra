@@ -1,6 +1,6 @@
 package com.example.demojavafx;
 
-import com.example.demojavafx.ed.ElementoLDE;
+import com.example.demojavafx.ed.*;
 import com.example.demojavafx.excepciones.Superar3Individuos;
 import com.example.demojavafx.excepciones.Superar3Recursos;
 import com.example.demojavafx.individuos.IndAvanzado;
@@ -329,8 +329,8 @@ class BucleDeControlTest {
         BucleDeControl b = new BucleDeControl(fila, columna);
         IndBasico ind1 = new IndBasico(222, 0, 6, 90, 90, 10);
         IndNormal ind2 = new IndNormal(333, 0, 7, 80, 80, 20);
-        IndAvanzado ind3 = new IndAvanzado(444, 0, 9, 40, 40, 60, "comida");
-        IndAvanzado ind4 = new IndAvanzado(555, 0, 9, 50, 50, 35, "tesoro");
+        IndAvanzado ind3 = new IndAvanzado(444, 0, 9, 40, 40, 60);
+        IndAvanzado ind4 = new IndAvanzado(555, 0, 9, 50, 50, 35);
         Agua agua = new Agua(3, 4);
         Comida comida = new Comida(2, 3);
         Montana montana = new Montana(4, 5);
@@ -613,6 +613,66 @@ class BucleDeControlTest {
         matriz.mejorasRecursos();
         assertEquals(ind2, matriz.individuoMaximoVidaDisponible());
         assertEquals(12, matriz.cantidadIndividuoMaximoVidaDisponible());
+    }
+
+    @Test
+    void mismoIndividuoLogevoYVidaDisponible() throws Superar3Individuos, Superar3Recursos {
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        IndNormal ind1 = new IndNormal(333,0,2);
+        IndNormal ind2 = new IndNormal(222,0,4);
+        IndNormal ind3 = new IndNormal(111,0,3);
+        IndNormal ind4 = new IndNormal(555,0,7);
+        matriz.matriz[0][0].addIndividuo(ind1);
+        matriz.matriz[1][0].addIndividuo(ind2);
+        matriz.matriz[0][1].addIndividuo(ind3);
+        matriz.matriz[1][1].addIndividuo(ind4);
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        matriz.actualizarIndividuo();
+        assertTrue(matriz.mismoIndividuoLogevoYVidaDisponible());
+
+    }
+    @Test
+    void buscarCiclo(){
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        ElementoLS<Integer> e5 = new ElementoLS<>(5);
+        ElementoLS<Integer> e6 = new ElementoLS<>(6);
+        ElementoLS<Integer> e3 = new ElementoLS<>(3);
+        ElementoLS<Integer> e4 = new ElementoLS<>(4);
+
+
+        NodoGrafoNuevo<ElementoLS<Integer>> n1 = new NodoGrafoNuevo<>(e5);
+        NodoGrafoNuevo<ElementoLS<Integer>> n2 = new NodoGrafoNuevo<>(e6);
+        NodoGrafoNuevo<ElementoLS<Integer>> n3 = new NodoGrafoNuevo<>(e3);
+        NodoGrafoNuevo<ElementoLS<Integer>> n4 = new NodoGrafoNuevo<>(e4);
+      //  ArcoGrafoNuevo<String> a1 = new ArcoGrafoNuevo<>("d",n2,n1,4.0);
+        ArcoGrafoNuevo<String> a2 = new ArcoGrafoNuevo<>("nuevo",n2,n3,5.0);
+        ArcoGrafoNuevo<String> a3 = new ArcoGrafoNuevo<>("nuevo",n3,n4,5.0);
+        //ArcoGrafoNuevo<String> a4 = new ArcoGrafoNuevo<>("nuevo",n4,n2,5.0);
+
+        ListaSimple<NodoGrafoNuevo> lv = new ListaSimple<>();
+        ListaSimple<ArcoGrafoNuevo> la = new ListaSimple<>();
+
+        GrafoNuevo g = new GrafoNuevo(lv,la);
+        g.addNodo(n1);
+        g.addNodo(n2);
+        g.addNodo(n3);
+        g.addNodo(n4);
+     //   g.addArco(a1);
+        g.addArco(a2);
+        g.addArco(a3);
+       // g.addArco(a4);
+        ListaSimple<NodoGrafoNuevo> lista = matriz.buscarCiclos(n2,g);
+        assertEquals(6,lista.getElemento(0).getData().getDato());
+        assertEquals(3,lista.getElemento(0).getData().getDato());
+        assertEquals(4,lista.getElemento(0).getData().getDato());
+        assertEquals(6,lista.getElemento(0).getData().getDato());
     }
 
 }

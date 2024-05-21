@@ -11,34 +11,29 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MatrizTest {
-    Matriz matriz = new Matriz(2, 3);
-    Individuo individuo1 = new IndBasico(1);
-    Individuo individuo2 = new IndNormal(2);
-    Individuo individuo3 = new IndNormal(3);
-    Individuo individuo4 = new IndNormal(4);
-    Individuo individuo5 = new IndNormal(5);
-    Individuo individuo6 = new IndNormal(6);
-    ListaEnlazada<Individuo> listaIndividuo = new ListaEnlazada<>();
-    ListaEnlazada<Recursos> listaRecursos = new ListaEnlazada<>();
-    Celda celda = new Celda(listaIndividuo, listaRecursos);
+    Matriz matriz = new Matriz(0, 0);
+
+
 
     @Test
     void getColumna() {
-        listaIndividuo.add(individuo1);
-        listaIndividuo.add(individuo2);
-        listaIndividuo.add(individuo3);
-        assertEquals(individuo3, listaIndividuo.getElemento(0).getData());
+        assertEquals(0,matriz.getColumna());
     }
 
     @Test
     void setColumna() {
+        matriz.setColumna(4);
+        assertEquals(4,matriz.getColumna());
     }
 
     @Test
     void getFila() {
+        assertEquals(0,matriz.getFila());
     }
 
     @Test
     void setFila() {
+        matriz.setFila(4);
+        assertEquals(4,matriz.getFila());
     }
 }

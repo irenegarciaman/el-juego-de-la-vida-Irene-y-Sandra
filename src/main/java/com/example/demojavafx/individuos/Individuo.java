@@ -261,4 +261,5 @@ public abstract class Individuo {
         this.contadorIndividuoLongevo = contadorIndividuoLongevo;
     }
 
+
 }

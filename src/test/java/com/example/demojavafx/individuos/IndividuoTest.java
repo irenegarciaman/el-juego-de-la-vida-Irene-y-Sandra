@@ -1,5 +1,11 @@
 package com.example.demojavafx.individuos;
 
+import com.example.demojavafx.Celda;
+import com.example.demojavafx.ed.ArbolBinarioDeBusqueda;
+import com.example.demojavafx.ed.Cola;
+import com.example.demojavafx.ed.ElementoLDE;
+import com.example.demojavafx.ed.NodoArbol;
+import com.example.demojavafx.excepciones.Superar3Individuos;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +21,10 @@ class IndividuoTest {
     IndAvanzado individuo4 = new IndAvanzado(3, 3, 3,
             4, 5, 6, 7, 7);
 
+    ArbolBinarioDeBusqueda a = new ArbolBinarioDeBusqueda<>(33);
+    Cola c = new Cola<>(new ElementoLDE<>(3),new ElementoLDE<>(6));
+
+    IndNormal indNormal = new IndNormal(2,2,2,2,2,2,2,2,a,c,0,0,0,0);
     @Test
     void getId() {
         assertEquals(3, individuo.getId());
@@ -58,6 +68,10 @@ class IndividuoTest {
     void setProbReproduccion() {
         individuo4.setProbReproduccion(1);
         assertEquals(1, individuo4.getProbReproduccion());
+        individuo4.setProbReproduccion(109);
+        assertEquals(100, individuo4.getProbReproduccion());
+        individuo4.setProbReproduccion(-1);
+        assertEquals(0, individuo4.getProbReproduccion());
     }
 
     @Test
@@ -69,6 +83,10 @@ class IndividuoTest {
     void setProbClonacion() {
         individuo4.setProbClonacion(4);
         assertEquals(4, individuo4.getProbClonacion());
+        individuo4.setProbClonacion(904);
+        assertEquals(100, individuo4.getProbClonacion());
+        individuo4.setProbClonacion(-4);
+        assertEquals(0, individuo4.getProbClonacion());
     }
 
     @Test
@@ -106,6 +124,77 @@ class IndividuoTest {
 
     @Test
     void testToString() {
-        assertEquals("Individuo{id=3, generacion=0, turnoVidaRestantes=3, probReproduccion=0, probClonacion=0, probMuerte=0}", individuo2.toString());
+        assertEquals("IndBasico, {posM=0, posN=0, probMuerte=0, probClonacion=0, probReproduccion=0, turnosRestantes=3, generacion=3, id=3, arbolGenealogico=IND BÁSICO=[ posM=0; posN=0; probMuerte=0; probClonacion=0; probReproduccion=0; turnosRestantes=3; generacion=3; id=3 ], }", individuo2.toString());
     }
+
+    @Test
+    void getContadorReproducciones() {
+        assertEquals(0, indNormal.getContadorReproduccion());
+    }
+
+    @Test
+    void setContadorReproducciones() {
+        indNormal.setContadorReproduccion(3);
+        assertEquals(3, indNormal.getContadorReproduccion());
+    }
+
+    @Test
+    void getContadorClonaciones() {
+        assertEquals(0, indNormal.getContadorClonacion());
+    }
+
+    @Test
+    void setContadorClonaciones() {
+        indNormal.setContadorClonacion(3);
+        assertEquals(3, indNormal.getContadorClonacion());
+    }
+
+    @Test
+    void getContadorAgua() {
+        assertEquals(0, indNormal.getContadorAgua());
+    }
+
+    @Test
+    void setContadorAgua() {
+        indNormal.setContadorAgua(3);
+        assertEquals(3, indNormal.getContadorAgua());
+    }
+
+    @Test
+    void getContadorIndividuoLongevo() {
+        assertEquals(0, indNormal.getContadorIndividuoLongevo());
+    }
+
+    @Test
+    void setContadorIndividuoLongero() {
+        indNormal.setContadorIndividuoLongevo(3);
+        assertEquals(3, indNormal.getContadorIndividuoLongevo());
+    }
+
+    @Test
+    void getArbolGenealogico() {
+        assertEquals(a, indNormal.getArbolGenealogico());
+    }
+
+    @Test
+    void setArbolGenealogico() {
+        ArbolBinarioDeBusqueda c = new ArbolBinarioDeBusqueda<>();
+        indNormal.setArbolGenealogico(c);
+        assertEquals(c, indNormal.getArbolGenealogico());
+    }
+
+    @Test
+    void getColaOperaciones() {
+        assertEquals(c, indNormal.getColaOperaciones());
+    }
+
+    @Test
+    void setColaOperaciones() {
+        Cola d = new Cola();
+        indNormal.setColaOperaciones(d);
+        assertEquals(d, indNormal.getColaOperaciones());
+    }
+
+
+
 }

@@ -12,12 +12,9 @@ import java.util.Random;
 
 public class IndAvanzado extends Individuo {
     private static final Logger log = LogManager.getLogger(IndAvanzado.class);
-    Recursos recursoDeseado = null;
-    int posNDeseado;
-    int posMDeseado;
     NodoGrafoNuevo nodoIndividuo;
     ListaSimple<NodoGrafoNuevo> listaMovimiento = new ListaSimple<>();
-    String claseRecurso;
+
 
 
     public IndAvanzado(int id) {
@@ -36,21 +33,12 @@ public class IndAvanzado extends Individuo {
         super(id, gerenacion, turnosRestantes);
     }
 
-    public IndAvanzado(int id, int generacion, int turnosRestantes, String claseRecurso) {
-        super(id, generacion, turnosRestantes);
-        this.claseRecurso = claseRecurso;
-    }
-
-    public IndAvanzado(int id, int generacion, int turnoVidaRestantes, int probReproduccion, int probClonacion, int probMuerte, String claseRecurso) {
-        super(id, generacion, turnoVidaRestantes, probReproduccion, probClonacion, probMuerte);
-        this.claseRecurso = claseRecurso;
-    }
 
     public IndAvanzado(int id, int generacion, int turnosRestantes, int probReproduccion, int probClonacion, int probMuerte, int posN, int posM, ArbolBinarioDeBusqueda<Individuo> arbolGenealogico, Cola colaOperaciones, int contadorReproduccion, int contadorClonacion, int contadorAgua, int contadorIndividuoLongevo) {
         super(id, generacion, turnosRestantes, probReproduccion, probClonacion, probMuerte, posN, posM, arbolGenealogico, colaOperaciones, contadorReproduccion, contadorClonacion, contadorAgua, contadorIndividuoLongevo);
     }
 
-    public ListaSimple<NodoGrafoNuevo> creacionListaMovimiento (int maxFilas, int maxColumnas, int posNDeseado, int posMDeseado, int posN, int posM, Celda[][] matriz){
+    public ListaSimple<NodoGrafoNuevo> creacionListaMovimiento (int maxFilas, int maxColumnas, Celda[][] matriz){
          ListaSimple<NodoGrafoNuevo> listaNodos = new ListaSimple<>();
          ListaSimple<ArcoGrafoNuevo> listaArcos = new ListaSimple<>();
          GrafoNuevo<Celda> grafo = new GrafoNuevo<>(listaNodos,listaArcos);
@@ -259,7 +247,7 @@ public class IndAvanzado extends Individuo {
         int posMGuardado = this.posM;
 
         if (listaMovimiento.isVacia()){
-            listaMovimiento = creacionListaMovimiento (maxFilas,maxColumnas,posNDeseado,posMDeseado,posN,posM,matriz);
+            listaMovimiento = creacionListaMovimiento (maxFilas,maxColumnas,matriz);
             listaMovimiento.del(0);
         }
         matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);

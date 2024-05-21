@@ -201,12 +201,4 @@ public class IndNormal extends Individuo {
                 ", }";
     }
 
-    public Recursos getRecursoDeseado() {
-        return recursoDeseado;
-    }
-
-    public void setRecursoDeseado(Recursos recursoDeseado) {
-        this.recursoDeseado = recursoDeseado;
-    }
-
 }

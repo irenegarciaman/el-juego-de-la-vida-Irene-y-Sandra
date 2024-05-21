@@ -21,4 +21,11 @@ public class ArcoGrafoNuevo<TipoDelDato> {
     }
 
 
+    public NodoGrafoNuevo getOrigen() {
+        return origen;
+    }
+
+    public NodoGrafoNuevo getDestino() {
+        return destino;
+    }
 }

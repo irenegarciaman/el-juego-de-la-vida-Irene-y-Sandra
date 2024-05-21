@@ -720,8 +720,26 @@ public class BucleDeControl {
         return listaVidaMaxima.getElemento(posInd).getData();
     }
 
-    public boolean mismoIndividuoLoguevoYVidaDisponible(){
+    public boolean mismoIndividuoLogevoYVidaDisponible(){
         return (individuoMaximoVidaDisponible()==individuoLongevo());
+    }
+    ListaSimple<NodoGrafoNuevo> ciclo = new ListaSimple<>();
+    ListaEnlazada<NodoGrafoNuevo> intentoCiclo = new ListaEnlazada<>();
+
+    public ListaSimple<NodoGrafoNuevo> buscarCiclos(NodoGrafoNuevo nodo, GrafoNuevo grafo){
+        //GrafoNuevo grafo = grafoColaOperacionesIndividuos();
+        for (int i = 0; i<=nodo.getListaSalida().getNumeroElementos()-1;i++){
+            ArcoGrafoNuevo arco = (ArcoGrafoNuevo) nodo.getListaSalida().getElemento(i).getData();
+            NodoGrafoNuevo nodo2 = arco.getDestino();
+
+            Cola<Camino<String>> caminos = grafo.dijkstra(nodo2);
+
+            int posicionNodo = grafo.getListaVertices().getPosicion(new ElementoLS<>(nodo));
+            ElementoLDE<Camino> caminoHastaRecurso = caminos.getElemento(posicionNodo);
+            ciclo = caminoHastaRecurso.getData().getCamino();
+            ciclo.insert(nodo,0);
+        }
+        return ciclo;
     }
 
 
