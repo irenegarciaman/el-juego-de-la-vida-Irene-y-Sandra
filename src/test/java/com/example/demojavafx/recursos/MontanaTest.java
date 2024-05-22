@@ -28,5 +28,15 @@ class MontanaTest {
     void setProbMontana() {
         montana2.setProbMontana(5);
         assertEquals(5, montana2.getProbMontana());
+        Montana d = new Montana();
+        d.setProbMontana(5);
+        assertEquals(5, d.getProbMontana());
+    }
+
+    @Test
+    void testtoString(){
+        Montana m = new Montana(2,2,2,2,2,2);
+        String a = "Montana, {disminucionDeVida=2, probMontana=2, turnosRestantes=2, posN=2, posM=2, probNuevoRecurso=2, }";
+        assertEquals(a,m.toString());
     }
 }

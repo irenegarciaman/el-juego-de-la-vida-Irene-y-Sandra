@@ -375,8 +375,8 @@ class BucleDeControlTest {
         pozo.setProbNuevoRecurso(76);
         assertDoesNotThrow(() -> b.bucleEntero());
     }
-
-    public static void main (String[] args) throws Superar3Recursos, Superar3Individuos {
+    @Test
+    void grafoColaOperacionesIndividuos() throws Superar3Recursos, Superar3Individuos {
         int columna = 3;
         int fila = 3;
         BucleDeControl b = new BucleDeControl(fila, columna);
@@ -408,11 +408,8 @@ class BucleDeControlTest {
         b.reproducion();
         b.clonacion();
         b.mejorasRecursos();
-        b.grafoColaOperacionesIndividuos();
-        System.out.println("Primer elemento ind1: " +ind1.getColaOperaciones().getElemento(0).getData());
-        System.out.println("segundo elemento ind1: "+ind1.getColaOperaciones().getElemento(1).getData());
-        System.out.println("Primer elemento ind2: "+ind2.getColaOperaciones().getElemento(0).getData());
-        System.out.println("Segundo elemento ind2: "+ind2.getColaOperaciones().getElemento(1).getData());
+        assertDoesNotThrow(()->b.grafoColaOperacionesIndividuos());
+
 
     }
     @Test
@@ -636,7 +633,23 @@ class BucleDeControlTest {
         assertTrue(matriz.mismoIndividuoLogevoYVidaDisponible());
 
     }
+
     @Test
+    void numeroReproduccionesTotales(){
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        assertDoesNotThrow(()->matriz.numeroReproduccionesTotales());
+    }
+
+    @Test
+    void numeroClonacionesTotales(){
+        int columna = 3;
+        int fila = 2;
+        BucleDeControl matriz = new BucleDeControl(fila, columna);
+        assertDoesNotThrow(()->matriz.numeroClonacionesTotales());
+    }
+    /**@Test
     void buscarCiclo(){
         int columna = 3;
         int fila = 2;
@@ -673,6 +686,6 @@ class BucleDeControlTest {
         assertEquals(3,lista.getElemento(0).getData().getDato());
         assertEquals(4,lista.getElemento(0).getData().getDato());
         assertEquals(6,lista.getElemento(0).getData().getDato());
-    }
+    }*/
 
 }

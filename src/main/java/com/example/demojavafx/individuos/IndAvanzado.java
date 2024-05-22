@@ -248,7 +248,9 @@ public class IndAvanzado extends Individuo {
 
         if (listaMovimiento.isVacia()){
             listaMovimiento = creacionListaMovimiento (maxFilas,maxColumnas,matriz);
-            listaMovimiento.del(0);
+            if (listaMovimiento.getNumeroElementos()>1) {
+                listaMovimiento.del(0);
+            }
         }
         matriz[posNGuardado][posMGuardado].eliminarIndividuo(this);
         NodoGrafoNuevo nodoMovimiento = listaMovimiento.getElemento(0).getData();

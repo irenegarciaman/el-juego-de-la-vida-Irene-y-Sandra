@@ -15,8 +15,14 @@ class AguaTest {
 
     @Test
     void setAumentoDeVida() {
+        Agua a = new Agua();
+        a.setAumentoDeVida(5);
+        assertEquals(5, a.getAumentoDeVida());
         agua.setAumentoDeVida(5);
         assertEquals(5, agua.getAumentoDeVida());
+        Agua i = new Agua(4,4,4,4,4,4);
+        i.setAumentoDeVida(5);
+        assertEquals(5, i.getAumentoDeVida());
     }
 
     @Test
@@ -28,5 +34,11 @@ class AguaTest {
     void setProbAgua() {
         agua1.setProbAgua(6);
         assertEquals(6, agua1.getProbAgua());
+    }
+
+    @Test
+    void testtoString(){
+        String a = "Agua, {aumentoDeVida=0, probAgua=3, turnosRestantes=0, posN=0, posM=0, probNuevoRecurso=0, }";
+        assertEquals(a,agua1.toString());
     }
 }

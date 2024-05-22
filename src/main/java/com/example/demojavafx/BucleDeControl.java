@@ -432,11 +432,12 @@ public class BucleDeControl {
         ListaSimple<NodoGrafoNuevo> listaNodos = new ListaSimple<>();
         ListaSimple<ArcoGrafoNuevo> listaAristas = new ListaSimple<>();
         GrafoNuevo grafoColaOperaciones = new GrafoNuevo<>(listaNodos,listaAristas);
-        for (int i = 0; i < columna; i++) {
+       /** for (int i = 0; i < columna; i++) {
             for (int j = 0; j < fila; j++) {
-                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {
-                    Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
-
+                for (int k = 0; k <= matriz[j][i].getListaIndividuo().getNumeroElementos() - 1; k++) {*/
+                for (int k = 0; k <= listaIndividuos.getNumeroElementos()-1; k++){
+                   // Individuo individuo = matriz[j][i].getListaIndividuo().getElemento(k).getData();
+                    Individuo individuo = listaIndividuos.getElemento(k).getData();
 
                     for (int r = 0; r<individuo.getColaOperaciones().getNumeroElementos()-1; r++){
                         if (individuo.getColaOperaciones().getElemento(r).getData() == "reproduccion"){
@@ -587,8 +588,8 @@ public class BucleDeControl {
                         }
                     }
                 }
-            }
-        }
+           // }
+       // }
         return grafoColaOperaciones;
     }
 

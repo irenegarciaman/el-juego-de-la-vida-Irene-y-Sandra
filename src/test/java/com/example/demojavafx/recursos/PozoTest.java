@@ -16,5 +16,18 @@ class PozoTest {
     void setProbPozo() {
         pozo.setProbPozo(5);
         assertEquals(5, pozo.getProbPozo());
+        Pozo p = new Pozo();
+        p.setProbPozo(5);
+        assertEquals(5, p.getProbPozo());
+        Pozo p1 = new Pozo(89);
+        p1.setProbPozo(5);
+        assertEquals(5, p1.getProbPozo());
+
+    }
+    @Test
+    void testtoString(){
+        Pozo p = new Pozo(3,3,3,3,33);
+        String a = "Pozo, {probPozo=33, turnosRestantes=3, posN=3, posM=3, probNuevoRecurso=3, }";
+        assertEquals(a,p.toString());
     }
 }

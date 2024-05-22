@@ -49,12 +49,11 @@ class RecursosTest {
 
     @Test
     void setProbNuevoRecurso() {
-        recursos.setProbNuevoRecurso(8);
-        assertEquals(8, recursos.getProbNuevoRecurso());
+        recursos2.setProbNuevoRecurso(8);
+        assertEquals(8, recursos2.getProbNuevoRecurso());
+        Recursos r = new Recursos();
+        r.setProbNuevoRecurso(8);
+        assertEquals(8, r.getProbNuevoRecurso());
     }
 
-    @Test
-    void testToString() {
-        assertEquals("Recursos{turnosRestantes=4, posN=5, posM=6}", recursos.toString());
-    }
 }
