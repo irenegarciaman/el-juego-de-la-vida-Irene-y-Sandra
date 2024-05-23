@@ -52,18 +52,42 @@ public class BucleDeControl {
 
 
     public int getColumna() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el numero de columnas de la matriz");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return columna;
     }
 
     public void setColumna(int columna) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el numero de columnas de la matriz");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.columna = columna;
     }
 
     public int getFila() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el numero de filas de la matriz");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return fila;
     }
 
     public void setFila(int fila) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el numero de filas de la matriz");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.fila = fila;
     }
 
@@ -83,6 +107,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para actualizar ciertos parametros de los individuos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void actualizarRecursos() {
@@ -97,6 +127,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para actualizar el numero de vida de los recursos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void movimiento() throws Superar3Individuos {
@@ -134,6 +170,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para realizazr el movimiento de los individuos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void mejorasRecursos (){
@@ -176,6 +218,12 @@ public class BucleDeControl {
             }
 
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para realizar las mejoras de los recursos en cada uno de los individuos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
 
     }
 
@@ -255,6 +303,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para realizar la reproducion de los individuos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void clonacion() throws Superar3Individuos {
@@ -322,6 +376,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para realizar la clonacion de los individuos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void desaparecerIndividuos(){
@@ -336,6 +396,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para eliminar a los individuos que tienen cero vidas");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void nuevoRecurso() throws Superar3Recursos {
@@ -396,6 +462,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para establecer nuevos recursos en las celdas de la matriz");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
 
@@ -408,6 +480,12 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Condicion de finalizacion del juego");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return lista.getNumeroElementos() == 1;
     }
 
@@ -424,6 +502,12 @@ public class BucleDeControl {
         clonacion();
         nuevoRecurso();
         this.turno = this.turno + 1;
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que permite establecer el juego");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
 
     }
 
@@ -590,6 +674,12 @@ public class BucleDeControl {
                 }
            // }
        // }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para formar el grafo con las operaciones globales de la partida");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return grafoColaOperaciones;
     }
 
@@ -616,12 +706,30 @@ public class BucleDeControl {
                 }
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para reconocer todos los individuos que han jugado");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return listaIdIndividuos;
     }
     public int numeroReproduccionesTotales(){
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el numero de reproducciones que se han producido a lo largo del juego");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return contadorReproduccionesTotales;
     }
     public int numeroClonacionesTotales(){
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el numero clonaciones que se han producido a lo largo del juego");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return contadorClonacionesTotales;
     }
     public Individuo individuoMaximoReproducciones(){
@@ -639,6 +747,12 @@ public class BucleDeControl {
             }
             individuo = listaIndividuos.getElemento(i).getData();
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el individuo que ha realizado mas reproducciones");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return individuo;
     }
 
@@ -657,6 +771,12 @@ public class BucleDeControl {
             }
             individuo = listaIndividuos.getElemento(i).getData();
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el individuo que ha realizado mas clonaciones");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return individuo;
     }
 
@@ -675,6 +795,12 @@ public class BucleDeControl {
             }
             individuo = listaIndividuos.getElemento(i).getData();
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el individuo que ha recorrido el recurso agua mas veces");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return individuo;
 
     }
@@ -693,9 +819,21 @@ public class BucleDeControl {
             }
             individuo = listaIndividuos.getElemento(i).getData();
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el individuo mas longevo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return individuo;
     }
     public Cola individuoLongevoOperaciones(){
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener las operaciones del individuo mas longevo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return individuoLongevo().getColaOperaciones();
     }
 
@@ -714,34 +852,33 @@ public class BucleDeControl {
             }
             individuo = listaIndividuos.getElemento(i).getData();
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el individuo que ha conseguido llegar a un momento de maximo tiempo de vida disponible");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return individuo;
     }
     public int cantidadIndividuoMaximoVidaDisponible(){
         int posInd = listaIndividuos.getPosicion(new ElementoLE<>(individuoMaximoVidaDisponible()));
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el numero de vida maximo del individuo que ha conseguido llegar a un momento de maximo tiempo de vida disponible");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return listaVidaMaxima.getElemento(posInd).getData();
     }
 
     public boolean mismoIndividuoLogevoYVidaDisponible(){
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para saber si el individuo que ha conseguido llegar a un momento de maximo tiempo de vida disponible y el individuo mas longevo son iguales");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return (individuoMaximoVidaDisponible()==individuoLongevo());
     }
-    ListaSimple<NodoGrafoNuevo> ciclo = new ListaSimple<>();
-    ListaEnlazada<NodoGrafoNuevo> intentoCiclo = new ListaEnlazada<>();
-
-    public ListaSimple<NodoGrafoNuevo> buscarCiclos(NodoGrafoNuevo nodo, GrafoNuevo grafo){
-        //GrafoNuevo grafo = grafoColaOperacionesIndividuos();
-        for (int i = 0; i<=nodo.getListaSalida().getNumeroElementos()-1;i++){
-            ArcoGrafoNuevo arco = (ArcoGrafoNuevo) nodo.getListaSalida().getElemento(i).getData();
-            NodoGrafoNuevo nodo2 = arco.getDestino();
-
-            Cola<Camino<String>> caminos = grafo.dijkstra(nodo2);
-
-            int posicionNodo = grafo.getListaVertices().getPosicion(new ElementoLS<>(nodo));
-            ElementoLDE<Camino> caminoHastaRecurso = caminos.getElemento(posicionNodo);
-            ciclo = caminoHastaRecurso.getData().getCamino();
-            ciclo.insert(nodo,0);
-        }
-        return ciclo;
-    }
-
 
 }

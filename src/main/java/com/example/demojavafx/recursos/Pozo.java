@@ -28,15 +28,33 @@ public class Pozo extends Recursos {
     }
 
     public int getProbPozo() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener la probabilidad de que el recurso sea pozo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return probPozo;
     }
 
     public void setProbPozo(int probPozo) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la probabilidad de que el recurso sea pozo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.probPozo = probPozo;
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() de pozo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "Pozo, {" +
                 "probPozo=" + probPozo +
                 ", turnosRestantes=" + turnosRestantes +

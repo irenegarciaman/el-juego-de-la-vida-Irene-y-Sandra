@@ -26,11 +26,23 @@ public class PozoProperties extends RecursosProperties {
     public void commit() {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setProbPozo(probPozo.get());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que guarda los cambios establecidos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         probPozo.set(original.getProbPozo());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que vuelve ha reestablecer los valores anteriores");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public Pozo getOriginal() {

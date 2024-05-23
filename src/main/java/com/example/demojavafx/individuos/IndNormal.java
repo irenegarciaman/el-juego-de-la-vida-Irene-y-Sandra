@@ -104,6 +104,14 @@ public class IndNormal extends Individuo {
                 }
             }
         }
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Creacion lista movimiento individuo normal");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
         return listaMovimiento.invertir();
 
 
@@ -157,7 +165,12 @@ public class IndNormal extends Individuo {
             recursoDeseado = null;
             moverse(maxColumnas, maxFilas, matriz);
         }
-
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Movimiento individuo normal");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public String toStringArbol(NodoArbol<Individuo> n) {
@@ -179,15 +192,38 @@ public class IndNormal extends Individuo {
             res += toStringArbol(n.getDerecha());
         }
 
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() del individuo normal");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
         return res;
     }
 
     public String toStringArbol() {
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() del individuo normal");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
         return toStringArbol(this.arbolGenealogico.raiz);
     }
 
     @Override
     public String toString() {
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() del individuo normal");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
         return "IndNormal, {" +
                 "posM=" + posM +
                 ", posN=" + posN +

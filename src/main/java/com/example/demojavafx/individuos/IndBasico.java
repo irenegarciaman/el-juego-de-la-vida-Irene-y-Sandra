@@ -86,6 +86,13 @@ public class IndBasico extends Individuo {
             this.setPosM(this.posM-1);
             colaOperaciones.push(new ElementoLDE<>("movimiento"));
         }
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Movimiento individuo basico");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public String toStringArbol(NodoArbol<Individuo> n) {
@@ -107,15 +114,34 @@ public class IndBasico extends Individuo {
             res += toStringArbol(n.getDerecha());
         }
 
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() individuo basico");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
         return res;
     }
 
     public String toStringArbol() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() individuo basico");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return toStringArbol(this.arbolGenealogico.raiz);
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() individuo basico");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "IndBasico, {" +
                 "posM=" + posM +
                 ", posN=" + posN +

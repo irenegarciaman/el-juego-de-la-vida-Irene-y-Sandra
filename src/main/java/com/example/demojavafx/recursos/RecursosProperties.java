@@ -35,6 +35,12 @@ public class RecursosProperties {
         posN.set(original.getPosN());
         posM.set(original.getPosM());
         probNuevoRecurso.set(original.getProbNuevoRecurso());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que vuelve ha reestablecer los valores anteriores");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void commit() {
@@ -42,6 +48,12 @@ public class RecursosProperties {
         original.setPosN(posN.get());
         original.setPosM(posM.get());
         original.setProbNuevoRecurso(probNuevoRecurso.get());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que guarda los cambios establecidos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
 
     }
 

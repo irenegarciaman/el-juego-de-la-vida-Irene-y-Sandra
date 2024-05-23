@@ -42,23 +42,53 @@ public class Comida extends Recursos {
     }
 
     public int getAumentoDeVida() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el aumento de vida que proporciona la comida");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return aumentoDeVida;
     }
 
     public void setAumentoDeVida(int aumentoDeVida) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el aumento de vida que proporciona la comida");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.aumentoDeVida = aumentoDeVida;
     }
 
     public int getProbComida() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener la probabilidad de que el recurso sea comida");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return probComida;
     }
 
     public void setProbComida(int probComida) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la probabilidad de que el recurso sea comida");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.probComida = probComida;
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() de comida");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "Comida, {" +
                 "aumentoDeVida=" + aumentoDeVida +
                 ", probComida=" + probComida +

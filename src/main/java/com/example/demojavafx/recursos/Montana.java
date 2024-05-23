@@ -29,6 +29,12 @@ public class Montana extends Recursos {
     }
 
     public int getDisminucionDeVida() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener la disminucion de vida que proporciona el recurso montana");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return disminucionDeVida;
     }
 
@@ -37,15 +43,34 @@ public class Montana extends Recursos {
     }
 
     public int getProbMontana() {
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la disminucion de vida que proporciona el recurso montana");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return probMontana;
     }
 
     public void setProbMontana(int probMontana) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la probabilidad de que el recurso sea montana");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.probMontana = probMontana;
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() de montana");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "Montana, {" +
                 "disminucionDeVida=" + disminucionDeVida +
                 ", probMontana=" + probMontana +

@@ -27,12 +27,24 @@ public class TesoroProperties extends RecursosProperties {
         original.setTurnosRestantes(turnosRestantes.get());
         original.setAumentoDePorcenRep(aumentoDePorcenRep.get());
         original.setProbTesoro(probTesoro.get());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que guarda los cambios establecidos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void rollback() {
         turnosRestantes.set(original.getTurnosRestantes());
         aumentoDePorcenRep.set(original.getAumentoDePorcenRep());
         probTesoro.set(original.getProbTesoro());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que vuelve ha reestablecer los valores anteriores");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public Tesoro getOriginal() {

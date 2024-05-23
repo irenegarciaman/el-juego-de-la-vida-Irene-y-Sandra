@@ -26,6 +26,12 @@ public class AguaProperties extends RecursosProperties {
         originalAgua.setTurnosRestantes(turnosRestantes.get());
         originalAgua.setAumentoDeVida(aumentoDeVida.get());
         originalAgua.setProbAgua(probAgua.get());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que guarda los cambios establecidos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     @Override
@@ -33,6 +39,12 @@ public class AguaProperties extends RecursosProperties {
         turnosRestantes.set(originalAgua.getTurnosRestantes());
         aumentoDeVida.set(originalAgua.getAumentoDeVida());
         probAgua.set(originalAgua.getProbAgua());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que vuelve ha reestablecer los valores anteriores");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public Agua getOriginalAgua() {

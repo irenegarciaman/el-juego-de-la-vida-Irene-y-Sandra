@@ -68,6 +68,13 @@ public class Matriz1Controller implements Initializable {
         this.matrizModel = parametroMatriz;
 
         this.updateGUIwithModel();
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion, la cual se encarga de cargar datos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void setStage(Stage s) {

@@ -31,23 +31,55 @@ public class Agua extends Recursos {
     }
 
     public int getAumentoDeVida() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el aumento de vida que proporciona el agua");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return aumentoDeVida;
     }
 
     public void setAumentoDeVida(int aumentoDeVida) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el aumento de vida que proporciona el agua");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.aumentoDeVida = aumentoDeVida;
     }
 
     public int getProbAgua() {
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener la probabilidad de que el recurso sea agua");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return probAgua;
     }
 
     public void setProbAgua(int probAgua) {
+
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la probabilidad de que el recurso sea agua");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.probAgua = probAgua;
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() de agua");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "Agua, {" +
                 "aumentoDeVida=" + aumentoDeVida +
                 ", probAgua=" + probAgua +

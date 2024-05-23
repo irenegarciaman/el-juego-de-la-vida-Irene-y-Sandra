@@ -29,18 +29,42 @@ public class Tesoro extends Recursos {
     }
 
     public int getAumentoDePorcenRep() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el aumento de porcentaje de reproduccion que proporciona el tesoro");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return aumentoDePorcenRep;
     }
 
     public void setAumentoDePorcenRep(int aumentoDePorcenRep) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el aumento de porcentaje de reproduccion que proporciona el tesoro");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.aumentoDePorcenRep = aumentoDePorcenRep;
     }
 
     public int getProbTesoro() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener la probabilidad de que el recurso sea tesoro");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return probTesoro;
     }
 
     public void setProbTesoro(int probTesoro) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la probabilidad de que el recurso sea tesoro");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.probTesoro = probTesoro;
     }
 

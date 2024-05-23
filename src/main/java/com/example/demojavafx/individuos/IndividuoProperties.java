@@ -36,6 +36,12 @@ public class IndividuoProperties {
         probReproduccion.set(original.getProbReproduccion());
         probClonacion.set(original.getProbClonacion());
         probMuerte.set(original.getProbMuerte());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que vuelve ha reestablecer los valores anteriores");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public void commit() {
@@ -43,6 +49,12 @@ public class IndividuoProperties {
         original.setProbReproduccion(probReproduccion.get());
         original.setProbClonacion(probClonacion.get());
         original.setProbMuerte(probMuerte.get());
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion que guarda los cambios establecidos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
     }
 
     public Property<Number> turnosRestantesProperty() {

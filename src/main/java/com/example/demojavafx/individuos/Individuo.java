@@ -246,18 +246,42 @@ public abstract class Individuo {
     }
 
     public int getContadorAgua() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el contadorAgua del individuo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return contadorAgua;
     }
 
     public void setContadorAgua(int contadorAgua) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el contadorAgua del individuo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.contadorAgua = contadorAgua;
     }
 
     public int getContadorIndividuoLongevo() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el contadorIndividuoLongevo del individuo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return contadorIndividuoLongevo;
     }
 
     public void setContadorIndividuoLongevo(int contadorIndividuoLongevo) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el contadorIndividuoLongevo del individuo");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.contadorIndividuoLongevo = contadorIndividuoLongevo;
     }
 

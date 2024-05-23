@@ -146,8 +146,12 @@ public class HelloController implements Initializable {
         this.individuoModel = parametrosInd;
         this.modeloMatriz = parametroMatriz;
 
-
-    }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion, la cual se encarga de cargar datos");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");    }
 
     public void cerraryGuardar() {
         this.recursosModel.commit();

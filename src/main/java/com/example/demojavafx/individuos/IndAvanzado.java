@@ -236,6 +236,12 @@ public class IndAvanzado extends Individuo {
                 pesoCamino = caminoHastaRecurso.getData().coste;
             }
         }
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Creacion lista movimiento individuo avanzado");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return listaNodosHastaRecursos;
 
     }
@@ -265,6 +271,13 @@ public class IndAvanzado extends Individuo {
         matriz[this.posN][this.posM].addIndividuo(this);
         colaOperaciones.push(new ElementoLDE<>("movimiento"));
 
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Movimiento individuo avanzado");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
+
     }
 
     public String toStringArbol(NodoArbol<Individuo> n) {
@@ -286,15 +299,33 @@ public class IndAvanzado extends Individuo {
             res += toStringArbol(n.getDerecha());
         }
 
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() individuo avanzado");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return res;
     }
 
     public String toStringArbol() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() individuo avanzado");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return toStringArbol(this.arbolGenealogico.raiz);
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() individuo avanzado");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "IndAvanzado, {" +
                 "posM=" + posM +
                 ", posN=" + posN +

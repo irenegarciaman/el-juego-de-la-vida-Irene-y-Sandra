@@ -42,23 +42,53 @@ public class Biblioteca extends Recursos {
     }
 
     public int getAumentoDePorcenClon() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener el aumento de porcentaje que proporciona la biblioteca");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return aumentoDePorcenClon;
     }
 
     public void setAumentoDePorcenClon(int aumentoDePorcenClon) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar el aumento de porcentaje que proporciona la biblioteca");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.aumentoDePorcenClon = aumentoDePorcenClon;
     }
 
     public int getProbBiblioteca() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para obtener la probabilidad de que el recurso sea biblioteca");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return probBiblioteca;
     }
 
     public void setProbBiblioteca(int probBiblioteca) {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion para modificar la probabilidad de que el recurso sea biblioteca");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         this.probBiblioteca = probBiblioteca;
     }
 
     @Override
     public String toString() {
+        log.trace("Enviando una traza de ejecución");
+        log.debug("Enviado un debug");
+        log.info("Funcion toString() de biblioteca");
+        log.warn("Enviando un aviso");
+        log.error("Enviando un error");
+        log.fatal("Enviando una explosión fatal");
         return "Biblioteca, {" +
                 "aumentoDePorcenClon=" + aumentoDePorcenClon +
                 ", probBiblioteca=" + probBiblioteca +
