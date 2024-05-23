@@ -132,7 +132,7 @@ class ModCeldaController {
     + guardarButton(): void
     + cerrarButton(): void
     + cancelarButton(): void
-    + onButtonAction(f: int, c: int): void
+
 }
 
 ModCeldaController --|> Initializable
@@ -332,6 +332,34 @@ AddEliminiarController *-- BucleDeControlProperties
 AddEliminiarController *-- Celda
 
 class AjustesMidJuegoController {
+    - labelProbNuevoRecurso: Label
+        - sliderProbAgua: Slider
+        - sliderProbAumentBiblio: Slider
+        - sliderProbBiblioteca: Slider
+        - sliderProbComida: Slider
+        - sliderProbMontana: Slider
+        - sliderProbNuevoRecurso: Slider
+        - sliderProbPozo: Slider
+        - sliderProbTesoro: Slider
+        - sliderRepAumentoTesoro: Slider
+        - sliderTurnosAumentoComida: Slider
+        - sliderTurnosVidaAgua: Slider
+        - sliderTurnosVidaMontana: Slider
+        - a1: Label
+        - a2: Label
+        - b1: Label
+        - b2: Label
+        - c1: Label
+        - c2: Label
+        - m1: Label
+        - m2: Label
+        - p1: Label
+        - t1: Label
+        - t2: Label
+        - pc: Label
+        - pm: Label
+        - pr: Label
+        - t: Label
     -scene: Stage
     -recursosModel: RecursosProperties
     -aguaModel: AguaProperties
