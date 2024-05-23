@@ -230,6 +230,7 @@ public class GuardarDatos {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());
         Individuo ind = new IndAvanzado(1);
         ind.setTurnosRestantes(infoIndyRec[12]);
+        System.out.println(infoIndyRec[12]);
         ind.setProbClonacion(infoIndyRec[13]);
         ind.setProbReproduccion(infoIndyRec[14]);
         ind.setProbMuerte(infoIndyRec[15]);
@@ -303,52 +304,7 @@ public class GuardarDatos {
         return pozo;
     }
 
-
-    public static void main(String[] args) throws Superar3Recursos, Superar3Individuos {
-        GuardarDatos g = new GuardarDatos();
-        int columna = 5;
-        int fila = 6;
-        BucleDeControl matriz = new BucleDeControl(fila, columna);
-        IndAvanzado ind1 = new IndAvanzado(222, 4, 6, "montaña");
-        IndAvanzado ind2 = new IndAvanzado(333, 6, 7, "agua");
-        IndAvanzado ind3 = new IndAvanzado(444, 9, 1, "pozo");
-        Agua agua = new Agua(3, 4);
-        Comida comida = new Comida(2, 3);
-        Montana montana = new Montana(4, 5);
-        Biblioteca biblioteca = new Biblioteca(3, 45);
-        Tesoro tesoro = new Tesoro(3, 32);
-        Pozo pozo = new Pozo(6);
-        matriz.matriz[0][2].addRecurso(agua);
-        matriz.matriz[0][2].addRecurso(tesoro);
-        matriz.matriz[0][2].addRecurso(biblioteca);
-        matriz.matriz[1][0].addRecurso(comida);
-        matriz.matriz[1][2].addRecurso(montana);
-        matriz.matriz[1][1].addRecurso(pozo);
-        matriz.matriz[0][2].addIndividuo(ind1);
-        matriz.matriz[1][0].addIndividuo(ind2);
-        matriz.matriz[1][2].addIndividuo(ind3);
-        ind1.setPosN(0);
-        ind1.setPosM(2);
-        ind2.setPosN(1);
-        ind2.setPosM(0);
-        ind3.setPosN(1);
-        ind3.setPosM(2);
-        agua.setPosN(0);
-        agua.setPosM(2);
-        tesoro.setPosN(0);
-        tesoro.setPosM(2);
-        biblioteca.setPosN(0);
-        biblioteca.setPosM(2);
-        comida.setPosN(1);
-        comida.setPosM(0);
-        montana.setPosN(1);
-        montana.setPosM(2);
-        pozo.setPosN(1);
-        pozo.setPosM(1);
-
-
-        g.cargarBucle();
-    }
+    
 
     public Recursos getRecursos() {
         Gson1.cargarObjetoDesdeArchivo("partidaAnterior.json", this.getClass());

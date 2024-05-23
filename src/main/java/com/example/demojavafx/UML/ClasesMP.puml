@@ -1,0 +1,385 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+class RecursosController {
+    - labelProbNuevoRecurso: Label
+    - sliderProbAgua: Slider
+    - sliderProbAumentBiblio: Slider
+    - sliderProbBiblioteca: Slider
+    - sliderProbComida: Slider
+    - sliderProbMontana: Slider
+    - sliderProbNuevoRecurso: Slider
+    - sliderProbPozo: Slider
+    - sliderProbTesoro: Slider
+    - sliderRepAumentoTesoro: Slider
+    - sliderTurnosAumentoComida: Slider
+    - sliderTurnosVidaAgua: Slider
+    - sliderTurnosVidaMontana: Slider
+    - a1: Label
+    - a2: Label
+    - b1: Label
+    - b2: Label
+    - c1: Label
+    - c2: Label
+    - m1: Label
+    - m2: Label
+    - p1: Label
+    - t1: Label
+    - t2: Label
+    - pc: Label
+    - pm: Label
+    - pr: Label
+    - t: Label
+    - sliderTurnosRestantesInd: Slider
+    - sliderProbRepInd: Slider
+    - sliderProbClonInd: Slider
+    - sliderProbMuerteInd: Slider
+    - labelColumnasMatriz: Label
+    - labelFilasMatriz: Label
+    - sliderColumnasMatriz: Slider
+    - sliderFilasMatriz: Slider
+    - cerrarButton: Button
+    - scene: Stage
+    - medida: IntegerProperty
+    - medB1: IntegerProperty
+    - medB2: IntegerProperty
+    - medT1: IntegerProperty
+    - medT2: IntegerProperty
+    - medC1: IntegerProperty
+    - medC2: IntegerProperty
+    - medM1: IntegerProperty
+    - medM2: IntegerProperty
+    - medP1: IntegerProperty
+    - medA1: IntegerProperty
+    - medA2: IntegerProperty
+    - ind1: IntegerProperty
+    - ind2: IntegerProperty
+    - ind3: IntegerProperty
+    - ind4: IntegerProperty
+    - mf: IntegerProperty
+    - mc: IntegerProperty
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+    - matriz: BucleDeControl
+    - modeloMatriz: BucleDeControlProperties
+    - celda: Celda[][]
+    - modeloCelda: CeldaProperties
+    - listaButton: ListaEnlazada<Button>
+
+    + initialize(url: URL, resourceBundle: ResourceBundle): void
+    + loadUserData(parametrosRecursos: RecursosProperties, parametrosAgua: AguaProperties, parametrosBiblioteca: BibliotecaProperties, parametrosComida: ComidaProperties, parametrosMontana: MontanaProperties, parametrosPozo: PozoProperties, parametrosTesoro: TesoroProperties, parametrosInd: IndividuoProperties, parametroMatriz: BucleDeControlProperties): void
+    + setStage(s: Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+    + nuevaVentanaMatriz(): void
+    + actualizarButton(c: int, f: int): void
+    + crearJuego(modeloMatriz: BucleDeControlProperties): void
+}
+
+RecursosController --|> Initializable
+RecursosController --|> Stage
+RecursosController -- RecursosProperties
+RecursosController -- AguaProperties
+RecursosController -- BibliotecaProperties
+RecursosController -- ComidaProperties
+RecursosController -- MontanaProperties
+RecursosController -- PozoProperties
+RecursosController -- TesoroProperties
+RecursosController -- IndividuoProperties
+RecursosController -- BucleDeControlProperties
+RecursosController -- CeldaProperties
+RecursosController -- ListaEnlazada
+
+
+class PantallaFinalController {
+    - stage: Stage
+    - matrizModel: BucleDeControlProperties
+
+    + initialize(url: URL, resourceBundle: ResourceBundle): void
+    + loadUserData(parametrosBucleDeControl: BucleDeControlProperties): void
+    + setStage(s: Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+    + abrirPantallaFinal(): void
+    + mostrarArboles(d: DefaultMutableTreeNode, ind: ArbolBinarioDeBusqueda<Individuo>): void
+}
+
+PantallaFinalController --|> Initializable
+PantallaFinalController --|> Stage
+PantallaFinalController -- BucleDeControlProperties
+PantallaFinalController -- DefaultMutableTreeNode
+PantallaFinalController -- ArbolBinarioDeBusqueda
+PantallaFinalController -- Individuo
+
+class ModCeldaController {
+    - boxTipoRecuso: MenuButton
+    - boxTipoInd: MenuButton
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+
+    + initialize(url: URL, resourceBundle: ResourceBundle): void
+    + loadUserData(parametrosBucleDeControl: BucleDeControlProperties): void
+    + setStage(s: Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+    + onButtonAction(f: int, c: int): void
+}
+
+ModCeldaController --|> Initializable
+ModCeldaController --|> Stage
+ModCeldaController -- BucleDeControlProperties
+class Matriz1Controller {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+    + initialize(URL, ResourceBundle)
+    + updateGUIwithModel()
+    + loadUserData(RecursosProperties, AguaProperties, BibliotecaProperties, ComidaProperties, MontanaProperties, PozoProperties, TesoroProperties, IndividuoProperties, BucleDeControlProperties)
+    + setStage(Stage)
+    + guardarButton()
+    + cerrarButton()
+    + cancelarButton()
+    + onButtonAction(int, int, RecursosController)
+}
+Matriz1Controller --|> Initializable
+class JuegoController {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+    - listaButton: ListaEnlazada<Button>
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+
+    + initialize(URL, ResourceBundle)
+    + updateGUIwithModel()
+    + loadUserData(RecursosProperties, AguaProperties, BibliotecaProperties, ComidaProperties, MontanaProperties, PozoProperties, TesoroProperties, IndividuoProperties, BucleDeControlProperties)
+    + setStage(Stage)
+    + guardarButton()
+    + cerrarButton()
+    + cancelarButton()
+    + onButtonInfo(int, int, BucleDeControlProperties)
+    + crearJuegoR(BucleDeControlProperties)
+    + actualizarButton(int, int, BucleDeControlProperties, ListaEnlazada<Button>)
+    + moverIndividuo(BucleDeControlProperties)
+}
+JuegoController -- BucleDeControlProperties
+JuegoController -- RecursosProperties
+JuegoController -- AguaProperties
+JuegoController -- BibliotecaProperties
+JuegoController -- ComidaProperties
+JuegoController -- MontanaProperties
+JuegoController -- PozoProperties
+JuegoController -- TesoroProperties
+JuegoController -- IndividuoProperties
+JuegoController -- Celda
+
+class InfoCeldaController {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+
+    + initialize(URL, ResourceBundle)
+    + updateGUIwithModel()
+    + loadUserData(BucleDeControlProperties)
+    + setStage(Stage)
+    + guardarButton()
+    + cerrarButton()
+    + cancelarButton()
+}
+InfoCeldaController -- BucleDeControlProperties
+class HelloController {
+    - stage: Stage
+    - recursosModel: RecursosProperties
+    - aguaModel: AguaProperties
+    - bibliotecaModel: BibliotecaProperties
+    - comidaModel: ComidaProperties
+    - montanaModel: MontanaProperties
+    - pozoModel: PozoProperties
+    - tesoroModel: TesoroProperties
+    - individuoModel: IndividuoProperties
+    - matriz: BucleDeControl
+    - modeloMatriz: BucleDeControlProperties
+
+    + initialize(URL, ResourceBundle)
+    + loadUserData(RecursosProperties, AguaProperties, BibliotecaProperties, ComidaProperties, MontanaProperties, PozoProperties, TesoroProperties, IndividuoProperties, BucleDeControlProperties)
+    + onMiBotonNuevaVentajaClick()
+    + onMiBotonNuevaVentanaAjustesClick()
+    + cerraryGuardar()
+}
+
+
+
+HelloController -- RecursosProperties
+HelloController -- AguaProperties
+HelloController -- BibliotecaProperties
+HelloController -- ComidaProperties
+HelloController -- MontanaProperties
+HelloController -- PozoProperties
+HelloController -- TesoroProperties
+HelloController -- IndividuoProperties
+HelloController -- BucleDeControl
+HelloController -- BucleDeControlProperties
+
+class HelloApplication {
+    - log: Logger
+    - recursos: Recursos
+    - modeloRecursos: RecursosProperties
+    - agua: Agua
+    - modeloAgua: AguaProperties
+    - biblioteca: Biblioteca
+    - modeloBiblioteca: BibliotecaProperties
+    - comida: Comida
+    - modeloComida: ComidaProperties
+    - montana: Montana
+    - modeloMontana: MontanaProperties
+    - tesoro: Tesoro
+    - modeloTesoro: TesoroProperties
+    - pozo: Pozo
+    - modeloPozo: PozoProperties
+    - ind: Individuo
+    - modeloInd: IndividuoProperties
+    - matriz: BucleDeControl
+    - modeloMatriz: BucleDeControlProperties
+
+    + start(Stage) throws IOException
+    + main(String[])
+}
+HelloApplication -- Recursos
+HelloApplication -- RecursosProperties
+HelloApplication -- Agua
+HelloApplication -- AguaProperties
+HelloApplication -- Biblioteca
+HelloApplication -- BibliotecaProperties
+HelloApplication -- Comida
+HelloApplication -- ComidaProperties
+HelloApplication -- Montana
+HelloApplication -- MontanaProperties
+HelloApplication -- Tesoro
+HelloApplication -- TesoroProperties
+HelloApplication -- Pozo
+HelloApplication -- PozoProperties
+HelloApplication -- Individuo
+HelloApplication -- IndividuoProperties
+HelloApplication -- BucleDeControl
+HelloApplication -- BucleDeControlProperties
+
+class GuardarDatos {
+    - listaIndividuo: String[]
+    - listaRecurso: String[]
+    - infoIndyRec: int[]
+    - fyc: int[]
+    + guardarDatos(BucleDeControl, Individuo, Agua, Biblioteca, Comida, Montana, Pozo, Tesoro)
+    + cargarBucle(): BucleDeControl
+    + cargarIndividuo(): Individuo
+    + cargarRecursos(): Recursos
+    + cargarAgua(): Agua
+    + cargarBiblioteca(): Biblioteca
+    + cargarComida(): Comida
+    + cargarMontana(): Montana
+    + cargarTesoro(): Tesoro
+    + cargarPozo(): Pozo
+    + fromStringI(String): Individuo
+    + fromStringR(String): Recursos
+}
+GuardarDatos -- BucleDeControl
+GuardarDatos -- Individuo
+GuardarDatos -- Agua
+GuardarDatos -- Biblioteca
+GuardarDatos -- Comida
+GuardarDatos -- Montana
+GuardarDatos -- Pozo
+GuardarDatos -- Tesoro
+GuardarDatos -- Gson1
+GuardarDatos -- Recursos
+class AddEliminiarController {
+    - scene: Stage
+    - matrizModel: BucleDeControlProperties
+    - matriz: Celda[][]
+    + initialize(URL, ResourceBundle): void
+    + updateGUIwithModel(): void
+    + loadUserData(BucleDeControlProperties): void
+    + setStage(Stage): void
+    + guardarButton(): void
+    + cerrarButton(): void
+    + cancelarButton(): void
+}
+
+
+AddEliminiarController *-- BucleDeControlProperties
+AddEliminiarController *-- Celda
+
+class AjustesMidJuegoController {
+    -scene: Stage
+    -recursosModel: RecursosProperties
+    -aguaModel: AguaProperties
+    -bibliotecaModel: BibliotecaProperties
+    -comidaModel: ComidaProperties
+    -montanaModel: MontanaProperties
+    -pozoModel: PozoProperties
+    -tesoroModel: TesoroProperties
+    -individuoModel: IndividuoProperties
+    -modeloMatriz: BucleDeControlProperties
+    -listaButton: ListaEnlazada<Button>
+    -medida: IntegerProperty
+    -medB1: IntegerProperty
+    -medB2: IntegerProperty
+    -medT1: IntegerProperty
+    -medT2: IntegerProperty
+    -medC1: IntegerProperty
+    -medC2: IntegerProperty
+    -medM1: IntegerProperty
+    -medM2: IntegerProperty
+    -medP1: IntegerProperty
+    -medA1: IntegerProperty
+    -medA2: IntegerProperty
+    -ind1: IntegerProperty
+    -ind2: IntegerProperty
+    -ind3: IntegerProperty
+    -ind4: IntegerProperty
+    +initialize(url: URL, resourceBundle: ResourceBundle): void
+    +loadUserData(parametrosRecursos: RecursosProperties, parametrosAgua: AguaProperties, parametrosBiblioteca: BibliotecaProperties, parametrosComida: ComidaProperties, parametrosMontana: MontanaProperties, parametrosPozo: PozoProperties, parametrosTesoro: TesoroProperties, parametrosInd: IndividuoProperties, parametroMatriz: BucleDeControlProperties, listaButton: ListaEnlazada<Button>): void
+    +setStage(s: Stage): void
+    +guardarButton(): void
+    +modificarCelda(f: int, c: int, modeloMatriz: BucleDeControlProperties): void
+    +cerrarButton(): void
+    +cancelarButton(): void
+    +nuevaVentanaMatriz(): void
+}
+AjustesMidJuegoController  -->  RecursosProperties
+AjustesMidJuegoController  -->  AguaProperties
+AjustesMidJuegoController  -->  BibliotecaProperties
+AjustesMidJuegoController  -->  ComidaProperties
+AjustesMidJuegoController  -->  MontanaProperties
+AjustesMidJuegoController  -->  PozoProperties
+AjustesMidJuegoController  -->  TesoroProperties
+AjustesMidJuegoController  -->  IndividuoProperties
+AjustesMidJuegoController  -->  BucleDeControlProperties
+AjustesMidJuegoController  -->  ListaEnlazada
+
+
+
+
+@enduml
