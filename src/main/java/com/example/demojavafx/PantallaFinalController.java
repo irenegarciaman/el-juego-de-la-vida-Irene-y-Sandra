@@ -106,7 +106,7 @@ public class PantallaFinalController implements Initializable {
                 }
             }
 
-            Label l1 = new Label("¿Cuántas mutaciones ha habido?:" + matrizModel.original.numeroClonacionesTotales());
+            Label l1 = new Label("¿Cuántas clonaciones ha habido?:" + matrizModel.original.numeroClonacionesTotales());
             Label l2 = new Label("¿¿Cuántas reproducciones ha habido?:" + matrizModel.original.numeroReproduccionesTotales());
             Label l3 = new Label("¿Qué individuo ha tenido más reproducciones?: " + matrizModel.original.individuoMaximoReproducciones());
             Label l4 = new Label("¿Qué individuo ha tenido más mutaciones?: " + matrizModel.original.individuoMaximoClonaciones());
@@ -117,10 +117,11 @@ public class PantallaFinalController implements Initializable {
             Label l7 = new Label("¿Cuánto ha sido?: " + matrizModel.original.cantidadIndividuoMaximoVidaDisponible());
             boolean bool =  matrizModel.original.individuoMaximoVidaDisponible().equals(matrizModel.original.individuoLongevo());
             Label l8 = new Label("¿Coincide con el más longevo?: " + bool);
+            Label l11 = new Label("El grafo quedaría tal que así:" + matrizModel.original.grafoColaOperacionesIndividuos());
 
 
 
-            VBox vertical = new VBox(l1,l2,l3,l4,l5,l6,l9,l10,l7,l8);
+            VBox vertical = new VBox(l1,l2,l3,l4,l5,l6,l9,l10,l7,l8,l11);
             ScrollPane sc = new ScrollPane(vertical);
             ScrollPane scroll = new ScrollPane(vbox);
             SplitPane split = new SplitPane(scroll,sc);
